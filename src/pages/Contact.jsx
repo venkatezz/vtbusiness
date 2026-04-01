@@ -21,10 +21,10 @@ const Contact = () => {
   };
 
   const contactList = [
-    { icon: <Phone size={24} />, title: 'Call Us', value: '+91 98765 43210', href: 'tel:+919876543210' },
+    { icon: <Phone size={24} />, title: 'Call Us', value: '+91 94988 56100', href: 'tel:+919498856100' },
     { icon: <Mail size={24} />, title: 'Email Us', value: 'contact@vtconsulting.com', href: 'mailto:contact@vtconsulting.com' },
     { icon: <MapPin size={24} />, title: 'Visit Us', value: 'Coimbatore, Tamil Nadu, India', href: '#' },
-    { icon: <MessageCircle size={24} />, title: 'WhatsApp', value: 'Chat with Experts', href: 'https://wa.me/919876543210' }
+    { icon: <MessageCircle size={24} />, title: 'WhatsApp', value: 'Chat with Experts', href: 'https://wa.me/919498856100' }
   ];
 
   return (

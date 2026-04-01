@@ -1,91 +1,103 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, MessageCircle, Shield } from 'lucide-react';
 
 const Footer = () => {
   return (
     <footer style={{
-      backgroundColor: '#1E3A8A',
+      backgroundColor: 'var(--bg-dark)',
       color: 'white',
-      padding: '4rem 0 2rem',
-      marginTop: 'auto'
+      padding: '6rem 0 3rem',
+      marginTop: 'auto',
+      borderTop: '1px solid rgba(255,255,255,0.05)'
     }}>
-      <div className="container" style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-        gap: '3rem',
-        marginBottom: '3rem'
-      }}>
-        {/* About Section */}
-        <div>
-          <h3 style={{ color: 'white', fontSize: '1.5rem', marginBottom: '1.2rem' }}>VT Consulting</h3>
-          <p style={{ color: '#E2E8F0', fontSize: '0.95rem', marginBottom: '1.5rem' }}>
-            Empowering small businesses with integrated financial and IT solutions. Simple, practical, and professional services tailored for your success.
-          </p>
-          <a
-            href="https://wa.me/919498856100"
-            className="btn btn-whatsapp"
-            style={{ padding: '0.6rem 1.2rem', gap: '0.5rem', fontSize: '0.9rem' }}
-          >
-            <MessageCircle size={18} />
-            Chat on WhatsApp
-          </a>
+      <div className="container">
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: '4rem',
+          marginBottom: '5rem'
+        }}>
+          {/* Brand Section */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <div style={{ display: 'flex', alignItems: 'baseline' }}>
+              <span style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--primary-glow)', letterSpacing: '-1px' }}>VT</span>
+              <span style={{ fontSize: '1.6rem', fontWeight: 500, color: 'white', marginLeft: '2px' }}>Consulting</span>
+            </div>
+            <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1rem', lineHeight: 1.7 }}>
+              Empowering small businesses with integrated financial and IT solutions. Simple, practical, and professional services tailored for your success.
+            </p>
+            <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
+               <a href="https://wa.me/919498856100" className="btn btn-whatsapp" style={{ padding: '0.8rem 1.5rem', borderRadius: '100px', fontSize: '0.9rem' }}>
+                  <MessageCircle size={20} />
+                  <span>Connect</span>
+               </a>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 style={{ color: 'white', fontSize: '1.25rem', fontWeight: 700, marginBottom: '2rem' }}>Quick Links</h4>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+              <li><Link to="/" style={{ color: 'rgba(255,255,255,0.7)', transition: '0.3s', hover: { color: 'var(--primary-glow)' } }}>Home</Link></li>
+              <li><Link to="/services" style={{ color: 'rgba(255,255,255,0.7)' }}>Services</Link></li>
+              <li><Link to="/about" style={{ color: 'rgba(255,255,255,0.7)' }}>About Us</Link></li>
+              <li><Link to="/contact" style={{ color: 'rgba(255,255,255,0.7)' }}>Contact</Link></li>
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h4 style={{ color: 'white', fontSize: '1.25rem', fontWeight: 700, marginBottom: '2rem' }}>Our Services</h4>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+              <li><Link to="/services" style={{ color: 'rgba(255,255,255,0.7)' }}>GST & Tax Support</Link></li>
+              <li><Link to="/services" style={{ color: 'rgba(255,255,255,0.7)' }}>IT Support & Setup</Link></li>
+              <li><Link to="/services" style={{ color: 'rgba(255,255,255,0.7)' }}>Cloud Solutions</Link></li>
+              <li><Link to="/services" style={{ color: 'rgba(255,255,255,0.7)' }}>Websites & SEO</Link></li>
+              <li><Link to="/services" style={{ color: 'rgba(255,255,255,0.7)' }}>Infrastructure Management</Link></li>
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h4 style={{ color: 'white', fontSize: '1.25rem', fontWeight: 700, marginBottom: '2rem' }}>Contact Info</h4>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              <li style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                <div style={{ width: '40px', height: '40px', background: 'rgba(255,255,255,0.05)', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary-glow)' }}>
+                  <Phone size={20} />
+                </div>
+                <span style={{ color: 'rgba(255,255,255,0.7)' }}>+91 94988 56100</span>
+              </li>
+              <li style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                <div style={{ width: '40px', height: '40px', background: 'rgba(255,255,255,0.05)', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary-glow)' }}>
+                  <Mail size={20} />
+                </div>
+                <span style={{ color: 'rgba(255,255,255,0.7)' }}>contact@vtconsulting.com</span>
+              </li>
+              <li style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                <div style={{ width: '40px', height: '40px', background: 'rgba(255,255,255,0.05)', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary-glow)' }}>
+                  <MapPin size={20} />
+                </div>
+                <span style={{ color: 'rgba(255,255,255,0.7)' }}>Tamil Nadu, India</span>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        {/* Quick Links */}
-        <div>
-          <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '1.2rem' }}>Quick Links</h4>
-          <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-            <li><Link to="/" style={{ color: '#E2E8F0' }}>Home</Link></li>
-            <li><Link to="/services" style={{ color: '#E2E8F0' }}>Services</Link></li>
-            <li><Link to="/about" style={{ color: '#E2E8F0' }}>About Us</Link></li>
-            <li><Link to="/contact" style={{ color: '#E2E8F0' }}>Contact</Link></li>
-          </ul>
-        </div>
-
-        {/* Services */}
-        <div>
-          <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '1.2rem' }}>Our Services</h4>
-          <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-            <li><Link to="/services" style={{ color: '#E2E8F0' }}>GST Filing</Link></li>
-            <li><Link to="/services" style={{ color: '#E2E8F0' }}>Income Tax</Link></li>
-            <li><Link to="/services" style={{ color: '#E2E8F0' }}>IT Support</Link></li>
-            <li><Link to="/services" style={{ color: '#E2E8F0' }}>Cloud Solutions</Link></li>
-            <li><Link to="/services" style={{ color: '#E2E8F0' }}>Web Development</Link></li>
-
-          </ul>
-        </div>
-
-        {/* Contact Info */}
-        <div>
-          <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '1.2rem' }}>Contact Info</h4>
-          <ul style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <li style={{ display: 'flex', gap: '0.8rem', color: '#E2E8F0' }}>
-              <Phone size={20} style={{ color: 'white', flexShrink: 0 }} />
-              <span>+91 98765 43210</span>
-            </li>
-            <li style={{ display: 'flex', gap: '0.8rem', color: '#E2E8F0' }}>
-              <Mail size={20} style={{ color: 'white', flexShrink: 0 }} />
-              <span>contact@vtconsulting.com</span>
-            </li>
-            <li style={{ display: 'flex', gap: '0.8rem', color: '#E2E8F0' }}>
-              <MapPin size={20} style={{ color: 'white', flexShrink: 0 }} />
-              <span>Tamil Nadu, India</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div style={{
-        borderTop: '1px solid rgba(255,255,255,0.1)',
-        paddingTop: '2rem',
-        textAlign: 'center',
-        fontSize: '0.85rem',
-        color: '#94A3B8'
-      }}>
-        <div className="container">
+        <div style={{
+          borderTop: '1px solid rgba(255,255,255,0.05)',
+          paddingTop: '3rem',
+          textAlign: 'center',
+          fontSize: '0.9rem',
+          color: 'rgba(255,255,255,0.4)',
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          gap: '2rem'
+        }}>
           <p>© {new Date().getFullYear()} VT Consulting. All rights reserved.</p>
-          <p style={{ marginTop: '0.5rem' }}>IT Support in Tamil Nadu | GST Services Tamil Nadu</p>
+          <p>Crafting Business Excellence in Tamil Nadu</p>
         </div>
       </div>
     </footer>
@@ -93,3 +105,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

@@ -1,148 +1,280 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Shield, Smartphone, Globe, Cloud, FileText, Settings, Briefcase, Users, CheckCircle, MessageCircle } from 'lucide-react';
+import { Shield, Smartphone, Globe, Cloud, FileText, Settings, Briefcase, Users, CheckCircle, MessageCircle, ArrowRight } from 'lucide-react';
 
 const Home = () => {
   return (
-    <div className="fade-in">
+    <div className="fade-in" style={{ position: 'relative' }}>
+      {/* Decorative Blobs */}
+      <div className="blob" style={{ top: '10%', left: '-5%' }} />
+      <div className="blob" style={{ top: '60%', right: '-5%', backgroundColor: 'var(--secondary)' }} />
+
       {/* Hero Section */}
       <section style={{
-        backgroundImage: `linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.7)), url('/vt_consulting_hero_banner_1775059979390.png')`,
+        position: 'relative',
+        minHeight: '90vh',
+        display: 'flex',
+        alignItems: 'center',
+        padding: '6rem 0',
+        overflow: 'hidden',
+        background: `linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.7)), url('/hero.png')`,
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        padding: '8rem 0',
-        color: 'white',
-        textAlign: 'center'
+        backgroundPosition: 'center'
       }}>
-        <div className="container">
-          <h1 style={{ fontSize: '3.5rem', marginBottom: '1.5rem', color: 'white' }}>Complete Business Support for Finance and IT</h1>
-          <p style={{ fontSize: '1.25rem', maxWidth: '800px', margin: '0 auto 2.5rem', color: '#E2E8F0' }}>
-            We help small businesses with GST, accounting, IT support, cloud, and websites.
-          </p>
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link to="/contact" className="btn btn-primary" style={{ backgroundColor: 'white', color: 'var(--primary)' }}>Contact Us</Link>
-            <a href="https://wa.me/919876543210" className="btn btn-whatsapp">
-              <MessageCircle size={20} />
-              Chat on WhatsApp
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Core Services Preview */}
-      <section className="section">
-        <div className="container">
-          <h2 className="section-title">Comprehensive Business Solutions</h2>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '2rem'
-          }}>
-            <div style={{ padding: '2rem', border: '1px solid var(--accent)', borderRadius: '12px', textAlign: 'center' }}>
-              <div style={{ backgroundColor: '#DBEAFE', width: '60px', height: '60px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem' }}>
-                <FileText style={{ color: 'var(--primary)' }} size={32} />
-              </div>
-              <h3>Financial & CA Services</h3>
-              <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>GST Registration, Income Tax filing, and complete business compliance for small businesses.</p>
-              <Link to="/services" style={{ fontWeight: 600, color: 'var(--primary)' }}>Read More →</Link>
-            </div>
-
-            <div style={{ padding: '2rem', border: '1px solid var(--accent)', borderRadius: '12px', textAlign: 'center' }}>
-              <div style={{ backgroundColor: '#DBEAFE', width: '60px', height: '60px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem' }}>
-                <Settings style={{ color: 'var(--primary)' }} size={32} />
-              </div>
-              <h3>Integrated IT Support</h3>
-              <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>Systems setup, infrastructure, cloud migration (AWS/Linux), and ongoing technical troubleshooting.</p>
-              <Link to="/services" style={{ fontWeight: 600, color: 'var(--primary)' }}>Read More →</Link>
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+          <div style={{ maxWidth: '850px', margin: '0 auto', textAlign: 'center' }}>
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.8rem',
+              backgroundColor: 'rgba(79, 70, 229, 0.15)',
+              padding: '0.6rem 1.2rem',
+              borderRadius: '100px',
+              border: '1px solid rgba(79, 70, 229, 0.3)',
+              marginBottom: '2rem',
+              color: 'var(--primary-glow)',
+              fontWeight: 600,
+              fontSize: '0.9rem'
+            }}>
+              <Shield size={18} />
+              <span>Trusted Small Business Partner</span>
             </div>
             
-            <div style={{ padding: '2rem', border: '1px solid var(--accent)', borderRadius: '12px', textAlign: 'center' }}>
-              <div style={{ backgroundColor: '#DBEAFE', width: '60px', height: '60px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem' }}>
-                <Globe style={{ color: 'var(--primary)' }} size={32} />
+            <h1 style={{ 
+              fontSize: 'clamp(2.5rem, 6vw, 4.2rem)', 
+              marginBottom: '1.8rem', 
+              color: 'white', 
+              lineHeight: 1.1,
+              letterSpacing: '-2px'
+            }}>
+              Helping Small Businesses Manage <span style={{ color: 'var(--primary-glow)' }}>GST, Accounting & IT</span> Without Stress
+            </h1>
+            
+            <p style={{ 
+              fontSize: '1.25rem', 
+              marginBottom: '3rem', 
+              color: 'rgba(255,255,255,0.85)', 
+              fontWeight: 400,
+              lineHeight: 1.6,
+              maxWidth: '700px',
+              margin: '0 auto 3rem'
+            }}>
+              We handle your finance, compliance, and technical issues so you can focus on running your business.
+            </p>
+
+            <div style={{ 
+              display: 'flex', 
+              gap: '2.5rem', 
+              justifyContent: 'center', 
+              flexWrap: 'wrap', 
+              marginBottom: '3.5rem',
+              color: 'white' 
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                <div style={{ width: '28px', height: '28px', backgroundColor: 'rgba(16, 185, 129, 0.2)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <CheckCircle size={18} color="var(--secondary)" /> 
+                </div>
+                <span style={{ fontWeight: 500 }}>GST & Tax Support</span>
               </div>
-              <h3>Digital Growth</h3>
-              <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>Website development, Google Business Profile management, and local SEO for small businesses.</p>
-              <Link to="/services" style={{ fontWeight: 600, color: 'var(--primary)' }}>Read More →</Link>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                <div style={{ width: '28px', height: '28px', backgroundColor: 'rgba(16, 185, 129, 0.2)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <CheckCircle size={18} color="var(--secondary)" /> 
+                </div>
+                <span style={{ fontWeight: 500 }}>IT Support & Setup</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                <div style={{ width: '28px', height: '28px', backgroundColor: 'rgba(16, 185, 129, 0.2)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <CheckCircle size={18} color="var(--secondary)" /> 
+                </div>
+                <span style={{ fontWeight: 500 }}>Websites & Cloud Services</span>
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', gap: '1.2rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <a href="https://wa.me/919498856100" className="btn btn-whatsapp" style={{ padding: '1.1rem 2.8rem' }}>
+                <MessageCircle size={22} />
+                <span>Chat on WhatsApp</span>
+              </a>
+              <Link to="/contact" className="btn" style={{ 
+                backgroundColor: 'rgba(255,255,255,0.1)', 
+                color: 'white', 
+                border: '1px solid rgba(255,255,255,0.2)',
+                backdropFilter: 'blur(10px)',
+                padding: '1.1rem 2.5rem'
+              }}>
+                Get Started
+                <ArrowRight size={18} />
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="section" style={{ backgroundColor: 'var(--bg-light)' }}>
+      {/* Trust Quote / Stats */}
+      <section className="section" style={{ padding: '4rem 0', background: 'var(--bg-soft)', borderBottom: '1px solid var(--border-light)' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'center' }}>
+           <div style={{ 
+             display: 'grid', 
+             gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
+             gap: '3rem',
+             textAlign: 'center' 
+           }}>
+             <div>
+               <h3 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', color: 'var(--primary)' }}>100+</h3>
+               <p style={{ color: 'var(--text-muted)', fontWeight: 500 }}>Clients Supported</p>
+             </div>
+             <div>
+               <h3 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', color: 'var(--primary)' }}>10+</h3>
+               <p style={{ color: 'var(--text-muted)', fontWeight: 500 }}>Years Experience</p>
+             </div>
+             <div>
+               <h3 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', color: 'var(--primary)' }}>24/7</h3>
+               <p style={{ color: 'var(--text-muted)', fontWeight: 500 }}>Support Availability</p>
+             </div>
+             <div>
+               <h3 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', color: 'var(--primary)' }}>99%</h3>
+               <p style={{ color: 'var(--text-muted)', fontWeight: 500 }}>Satisfaction Rate</p>
+             </div>
+           </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="section">
+        <div className="container">
+          <div className="section-title">
+            <h2 style={{ fontSize: '3rem' }}>Our Core Expertise</h2>
+            <p style={{ maxWidth: '600px', margin: '0 auto', color: 'var(--text-muted)' }}>Tailored solutions designed to make business management effortless for small owners.</p>
+          </div>
+          
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '2.5rem'
+          }}>
+            <div className="card-premium">
+              <div style={{ 
+                backgroundColor: 'rgba(79, 70, 229, 0.1)', 
+                width: '70px', height: '70px', borderRadius: '18px', 
+                display: 'flex', alignItems: 'center', justifyContent: 'center', 
+                marginBottom: '2rem' 
+              }}>
+                <FileText style={{ color: 'var(--primary)' }} size={34} />
+              </div>
+              <h3 style={{ marginBottom: '1rem', fontSize: '1.6rem' }}>Financial & CA Services</h3>
+              <p style={{ color: 'var(--text-muted)', marginBottom: '2rem', fontSize: '1.05rem' }}>
+                Full-cycle business compliance: GST registration, periodic filing, Income Tax planning, and audit support for MSMEs.
+              </p>
+              <Link to="/services" style={{ fontWeight: 700, color: 'var(--primary)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                Expert Support <ArrowRight size={18} />
+              </Link>
+            </div>
+
+            <div className="card-premium">
+              <div style={{ 
+                backgroundColor: 'rgba(16, 185, 129, 0.1)', 
+                width: '70px', height: '70px', borderRadius: '18px', 
+                display: 'flex', alignItems: 'center', justifyContent: 'center', 
+                marginBottom: '2rem' 
+              }}>
+                <Settings style={{ color: 'var(--secondary)' }} size={34} />
+              </div>
+              <h3 style={{ marginBottom: '1rem', fontSize: '1.6rem' }}>Infrastructure & IT</h3>
+              <p style={{ color: 'var(--text-muted)', marginBottom: '2rem', fontSize: '1.05rem' }}>
+                Complete IT ecosystem setup, hardware maintenance, secure networking, and proactive technical troubleshooting.
+              </p>
+              <Link to="/services" style={{ fontWeight: 700, color: 'var(--secondary)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                Scale Securely <ArrowRight size={18} />
+              </Link>
+            </div>
+            
+            <div className="card-premium">
+              <div style={{ 
+                backgroundColor: 'rgba(245, 158, 11, 0.1)', 
+                width: '70px', height: '70px', borderRadius: '18px', 
+                display: 'flex', alignItems: 'center', justifyContent: 'center', 
+                marginBottom: '2rem' 
+              }}>
+                <Cloud style={{ color: 'var(--accent)' }} size={34} />
+              </div>
+              <h3 style={{ marginBottom: '1rem', fontSize: '1.6rem' }}>Digital Transformation</h3>
+              <p style={{ color: 'var(--text-muted)', marginBottom: '2rem', fontSize: '1.05rem' }}>
+                Custom website development, Cloud migration (AWS/GCP), and establishing your business footprint in the digital era.
+              </p>
+              <Link to="/services" style={{ fontWeight: 700, color: 'var(--accent)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                Go Digital <ArrowRight size={18} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Section */}
+      <section className="section" style={{ background: 'var(--bg-dark)', color: 'white' }}>
+        <div className="container">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '5rem', alignItems: 'center' }}>
             <div>
-              <h2 style={{ marginBottom: '1.5rem' }}>Why Choose VT Consulting?</h2>
-              <p style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>We combine financial expertise with deep technical knowledge to provide one-stop business solutions.</p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                <div style={{ display: 'flex', gap: '1rem' }}>
-                  <div style={{ color: 'var(--primary)', flexShrink: 0 }}><CheckCircle size={24} /></div>
+              <h2 style={{ color: 'white', fontSize: '3rem', marginBottom: '2rem' }}>Why Choose VT Consulting?</h2>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
+                <div style={{ display: 'flex', gap: '1.5rem' }}>
+                  <div style={{ color: 'var(--primary-glow)', flexShrink: 0 }}><Shield size={32} /></div>
                   <div>
-                    <h4 style={{ color: 'var(--text-main)', marginBottom: '0.2rem' }}>Simple and Practical</h4>
-                    <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>We provide working solutions without unnecessary complexity.</p>
+                    <h4 style={{ color: 'white', fontSize: '1.3rem', marginBottom: '0.5rem' }}>Professional Integrity</h4>
+                    <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1rem' }}>We operate with full transparency, ensuring your business stays 100% compliant and secure.</p>
                   </div>
                 </div>
-                <div style={{ display: 'flex', gap: '1rem' }}>
-                  <div style={{ color: 'var(--primary)', flexShrink: 0 }}><CheckCircle size={24} /></div>
+                <div style={{ display: 'flex', gap: '1.5rem' }}>
+                  <div style={{ color: 'var(--secondary)', flexShrink: 0 }}><Smartphone size={32} /></div>
                   <div>
-                    <h4 style={{ color: 'var(--text-main)', marginBottom: '0.2rem' }}>Fast Response</h4>
-                    <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>We know your time is valuable. Get support when you need it.</p>
+                    <h4 style={{ color: 'white', fontSize: '1.3rem', marginBottom: '0.5rem' }}>Fast-First Support</h4>
+                    <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1rem' }}>When tax deadlines or IT issues strike, our response is instant. Minimize downtime, maximize focus.</p>
                   </div>
                 </div>
-                <div style={{ display: 'flex', gap: '1rem' }}>
-                  <div style={{ color: 'var(--primary)', flexShrink: 0 }}><CheckCircle size={24} /></div>
+                <div style={{ display: 'flex', gap: '1.5rem' }}>
+                  <div style={{ color: 'var(--accent)', flexShrink: 0 }}><Users size={32} /></div>
                   <div>
-                    <h4 style={{ color: 'var(--text-main)', marginBottom: '0.2rem' }}>One Place for Finance + IT</h4>
-                    <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Manage your compliance and infrastructure with a single trusted partner.</p>
+                    <h4 style={{ color: 'white', fontSize: '1.3rem', marginBottom: '0.5rem' }}>Holistic Perspective</h4>
+                    <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1rem' }}>We are the only partner you need for both Finance and IT. One point of contact for everything.</p>
                   </div>
                 </div>
               </div>
             </div>
             <div style={{ position: 'relative' }}>
+              <div style={{ 
+                position: 'absolute', 
+                inset: '-20px', 
+                border: '1px solid var(--primary-glow)', 
+                borderRadius: '30px', 
+                opacity: 0.3,
+                zIndex: 0 
+              }} />
               <img
-                src="https://images.unsplash.com/photo-1454165833767-0a7008a03971?auto=format&fit=crop&q=80&w=600"
-                alt="Business meeting"
-                style={{ width: '100%', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800"
+                alt="Strategic Planning"
+                style={{ width: '100%', borderRadius: '25px', position: 'relative', zIndex: 1, boxShadow: '0 30px 60px rgba(0,0,0,0.4)' }}
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Who We Help */}
-      <section className="section">
-        <div className="container" style={{ textAlign: 'center' }}>
-          <h2 className="section-title">Who We Help</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
-             <div style={{ padding: '2rem', backgroundColor: 'white', border: '1px solid var(--accent)', borderRadius: '15px' }}>
-                <Smartphone size={40} style={{ color: 'var(--primary)', marginBottom: '1rem' }} />
-                <h4>Small Businesses</h4>
-             </div>
-             <div style={{ padding: '2rem', backgroundColor: 'white', border: '1px solid var(--accent)', borderRadius: '15px' }}>
-                <Globe size={40} style={{ color: 'var(--primary)', marginBottom: '1rem' }} />
-                <h4>Travel Agencies</h4>
-             </div>
-             <div style={{ padding: '2rem', backgroundColor: 'white', border: '1px solid var(--accent)', borderRadius: '15px' }}>
-                <Briefcase size={40} style={{ color: 'var(--primary)', marginBottom: '1rem' }} />
-                <h4>Modern Offices</h4>
-             </div>
-             <div style={{ padding: '2rem', backgroundColor: 'white', border: '1px solid var(--accent)', borderRadius: '15px' }}>
-                <Shield size={40} style={{ color: 'var(--primary)', marginBottom: '1rem' }} />
-                <h4>Tech Startups</h4>
-             </div>
-          </div>
-        </div>
-      </section>
-
       {/* Final CTA */}
-      <section className="section" style={{ backgroundColor: 'var(--primary)', color: 'white', textAlign: 'center' }}>
-        <div className="container">
-          <h2 style={{ color: 'white', marginBottom: '1.5rem', fontSize: '2.5rem' }}>Need help with your business?</h2>
-          <p style={{ color: '#E2E8F0', fontSize: '1.2rem', marginBottom: '2.5rem' }}>Message us on WhatsApp now for expert support.</p>
-          <a href="https://wa.me/919876543210" className="btn btn-whatsapp" style={{ padding: '1rem 3rem', fontSize: '1.1rem' }}>
-            <MessageCircle size={24} />
-            Message us on WhatsApp
+      <section className="section" style={{ textAlign: 'center', padding: '8rem 0', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ 
+          position: 'absolute', 
+          top: '50%', left: '50%', 
+          transform: 'translate(-50%, -50%)', 
+          width: '100%', height: '100%', 
+          background: 'radial-gradient(circle, rgba(79, 70, 229, 0.05) 0%, transparent 70%)' 
+        }} />
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+          <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', marginBottom: '1.5rem' }}>Ready to offload the stress?</h2>
+          <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem', marginBottom: '3.5rem', maxWidth: '600px', margin: '0 auto 3.5rem' }}>
+            Join hundreds of small businesses that trust us with their compliance and technical infrastructure.
+          </p>
+          <a href="https://wa.me/919498856100" className="btn btn-whatsapp" style={{ padding: '1.2rem 4rem', fontSize: '1.2rem', borderRadius: '100px' }}>
+            <MessageCircle size={26} />
+            Connect via WhatsApp
           </a>
         </div>
       </section>
@@ -151,3 +283,4 @@ const Home = () => {
 };
 
 export default Home;
+

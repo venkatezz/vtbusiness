@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -15,95 +24,137 @@ const Header = () => {
   ];
 
   return (
-    <header style={{
-      position: 'sticky',
-      top: 0,
-      zIndex: 1000,
-      backgroundColor: 'white',
-      boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
-      width: '100%'
-    }}>
+    <header 
+      className={`glass-nav ${scrolled ? 'scrolled' : ''}`}
+      style={{
+        position: 'sticky',
+        top: 0,
+        zIndex: 1000,
+        transition: 'var(--transition)',
+        boxShadow: scrolled ? 'var(--shadow-md)' : 'none',
+        borderBottom: scrolled ? '1px solid var(--border-light)' : '1px solid transparent'
+      }}
+    >
       <div className="container" style={{
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        padding: '1rem 1.5rem',
-        height: '80px'
+        padding: scrolled ? '0.8rem 1.5rem' : '1.2rem 1.5rem',
+        height: scrolled ? '70px' : '90px',
+        transition: 'var(--transition)'
       }}>
         {/* Logo */}
-        <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <div>
-            <span style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--primary)' }}>VT</span>
-            <span style={{ fontSize: '1.5rem', fontWeight: 400, color: 'var(--text-main)' }}> Consulting</span>
+        <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
+          <div style={{ display: 'flex', alignItems: 'baseline' }}>
+            <span style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--primary)', letterSpacing: '-1px' }}>VT</span>
+            <span style={{ fontSize: '1.4rem', fontWeight: 500, color: 'var(--bg-dark)', marginLeft: '2px' }}>Consulting</span>
           </div>
         </Link>
 
         {/* Desktop Nav */}
-        <nav style={{ display: 'none', gap: '2rem', alignItems: 'center' }} className="desktop-nav">
+        <nav style={{ display: 'flex', gap: '2.5rem', alignItems: 'center' }} className="desktop-nav">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
-              className={({ isActive }) => (isActive ? 'active-link' : '')}
               style={({ isActive }) => ({
-                fontWeight: 500,
+                fontWeight: 600,
+                fontSize: '0.95rem',
                 color: isActive ? 'var(--primary)' : 'var(--text-main)',
-                borderBottom: isActive ? '2px solid var(--primary)' : 'none',
-                paddingBottom: '4px'
+                position: 'relative',
+                padding: '5px 0'
               })}
             >
-              {link.title}
+              {({ isActive }) => (
+                <>
+                  {link.title}
+                  {isActive && (
+                    <span style={{
+                      position: 'absolute',
+                      bottom: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '2px',
+                      backgroundColor: 'var(--primary)',
+                      borderRadius: '2px'
+                    }} />
+                  )}
+                </>
+              )}
             </NavLink>
           ))}
-          <a href="tel:+919876543210" className="btn btn-primary" style={{ padding: '0.6rem 1.2rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <a href="tel:+919498856100" className="btn btn-primary" style={{ padding: '0.7rem 1.5rem', borderRadius: '100px' }}>
              <Phone size={18} />
-             Call Now
+             <span>Call us</span>
           </a>
         </nav>
 
         {/* Mobile Menu Toggle */}
-        <button onClick={toggleMenu} style={{ display: 'none' }} className="mobile-toggle">
+        <button onClick={toggleMenu} className="mobile-toggle" style={{ color: 'var(--bg-dark)' }}>
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
       {/* Mobile Nav */}
+      <div style={{
+        position: 'fixed',
+        top: '0',
+        right: isOpen ? '0' : '-100%',
+        width: '80%',
+        maxWidth: '300px',
+        height: '100vh',
+        backgroundColor: 'white',
+        padding: '5rem 2rem',
+        boxShadow: '-10px 0 30px rgba(0,0,0,0.1)',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '2rem',
+        transition: '0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+        zIndex: 1001
+      }}>
+        <button 
+          onClick={toggleMenu} 
+          style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', color: 'var(--bg-dark)' }}
+        >
+          <X size={32} />
+        </button>
+        {navLinks.map((link) => (
+          <NavLink
+            key={link.path}
+            to={link.path}
+            onClick={() => setIsOpen(false)}
+            style={({ isActive }) => ({
+              fontWeight: 700,
+              color: isActive ? 'var(--primary)' : 'var(--text-main)',
+              fontSize: '1.5rem'
+            })}
+          >
+            {link.title}
+          </NavLink>
+        ))}
+        <a href="tel:+919498856100" className="btn btn-primary" style={{ marginTop: 'auto', padding: '1.2rem' }}>
+          Call Now
+        </a>
+      </div>
+      
       {isOpen && (
-        <div style={{
-          position: 'absolute',
-          top: '80px',
-          left: 0,
-          width: '100%',
-          backgroundColor: 'white',
-          padding: '1rem 1.5rem',
-          boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '1rem'
-        }}>
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.path}
-              to={link.path}
-              onClick={() => setIsOpen(false)}
-              style={({ isActive }) => ({
-                fontWeight: 500,
-                color: isActive ? 'var(--primary)' : 'var(--text-main)',
-                fontSize: '1.1rem'
-              })}
-            >
-              {link.title}
-            </NavLink>
-          ))}
-          <a href="tel:+919876543210" className="btn btn-primary" style={{ padding: '0.8rem', width: '100%' }}>
-            Call Now
-          </a>
-        </div>
+        <div 
+          onClick={toggleMenu}
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'rgba(0,0,0,0.5)',
+            backdropFilter: 'blur(4px)',
+            zIndex: 1000
+          }}
+        />
       )}
-
-
     </header>
   );
 };
 
 export default Header;
+

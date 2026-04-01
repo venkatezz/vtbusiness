@@ -32,7 +32,7 @@ const Services = () => {
       {/* Financial Services Section */}
       <section className="section" id="finance">
         <div className="container">
-          <h2 style={{ marginBottom: '1.5rem', color: 'var(--primary)', borderBottom: '2px solid var(--primary)', paddingBottom: '0.5rem', display: 'inline-block' }}>Primary: Financial & CA Services</h2>
+          <h2 style={{ marginBottom: '1.5rem', color: 'var(--primary)', borderBottom: '2px solid var(--primary)', paddingBottom: '0.5rem', display: 'inline-block' }}>Primary: GST, Tax & Accounting Services</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginTop: '2.5rem' }}>
             {financialServices.map((service, idx) => (
               <div key={idx} style={{ padding: '2rem', backgroundColor: 'white', borderRadius: '15px', border: '1px solid var(--accent)', boxShadow: '0 4px 10px rgba(0,0,0,0.02)' }}>
@@ -42,8 +42,8 @@ const Services = () => {
                 </div>
                 <p style={{ color: 'var(--text-muted)', marginBottom: '1rem' }}>{service.content}</p>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', color: 'var(--primary)', fontWeight: '500' }}>
-                   <CheckCircle size={16} />
-                   <span>Benefit: {service.benefit}</span>
+                  <CheckCircle size={16} />
+                  <span>Benefit: {service.benefit}</span>
                 </div>
               </div>
             ))}
@@ -54,7 +54,7 @@ const Services = () => {
       {/* IT Services Section */}
       <section className="section" style={{ backgroundColor: '#F3F4F6' }} id="it">
         <div className="container">
-          <h2 style={{ marginBottom: '1.5rem', color: 'var(--primary)', borderBottom: '2px solid var(--primary)', paddingBottom: '0.5rem', display: 'inline-block' }}>Supporting: IT Services</h2>
+          <h2 style={{ marginBottom: '1.5rem', color: 'var(--primary)', borderBottom: '2px solid var(--primary)', paddingBottom: '0.5rem', display: 'inline-block' }}>Supporting: IT Support & Business Technology</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginTop: '2.5rem' }}>
             {itServices.map((service, idx) => (
               <div key={idx} style={{ padding: '2rem', backgroundColor: 'white', borderRadius: '15px', border: '1px solid var(--accent)' }}>
@@ -73,15 +73,15 @@ const Services = () => {
       {/* Quick CTA */}
       <section className="section" style={{ textAlign: 'center' }}>
         <div className="container">
-           <h2 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Ready to optimize your operations?</h2>
-           <p style={{ marginBottom: '2.5rem', color: 'var(--text-muted)' }}>Contact us now for custom tailored packages.</p>
-           <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
-             <a href="tel:+919876543210" className="btn btn-primary" style={{ padding: '1rem 3rem' }}>Call +91 98765 43210</a>
-             <a href="https://wa.me/919876543210" className="btn btn-whatsapp" style={{ padding: '1rem 3rem' }}>
-               <MessageCircle size={20} />
-               WhatsApp for Quotes
-             </a>
-           </div>
+          <h2 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Ready to optimize your operations?</h2>
+          <p style={{ marginBottom: '2.5rem', color: 'var(--text-muted)' }}>Contact us now for custom tailored packages.</p>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
+            <a href="tel:+919498856100" className="btn btn-primary" style={{ padding: '1rem 3rem' }}>Call +91 98765 43210</a>
+            <a href="https://wa.me/919498856100" className="btn btn-whatsapp" style={{ padding: '1rem 3rem' }}>
+              <MessageCircle size={20} />
+              WhatsApp for Quotes
+            </a>
+          </div>
         </div>
       </section>
     </div>

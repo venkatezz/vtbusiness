@@ -36,7 +36,7 @@ const About = () => {
                    "Our goal is to save time, reduce stress, and support business growth."
                  </p>
               </div>
-              <a href="https://wa.me/919876543210" className="btn btn-whatsapp">
+              <a href="https://wa.me/919498856100" className="btn btn-whatsapp">
                 <MessageCircle size={20} />
                 Connect With Us
               </a>
