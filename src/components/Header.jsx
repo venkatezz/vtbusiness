@@ -44,11 +44,22 @@ const Header = () => {
         transition: 'var(--transition)'
       }}>
         {/* Logo */}
-        <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
-          <div style={{ display: 'flex', alignItems: 'baseline' }}>
-            <span style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--primary)', letterSpacing: '-1px' }}>VT</span>
-            <span style={{ fontSize: '1.4rem', fontWeight: 500, color: 'var(--bg-dark)', marginLeft: '2px' }}>Consulting</span>
-          </div>
+        <Link 
+          to="/" 
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          style={{ display: 'flex', flexDirection: 'column', textDecoration: 'none' }}
+        >
+          <span style={{ 
+            fontSize: '1.4rem', 
+            fontWeight: 800, 
+            color: 'var(--primary)',
+            letterSpacing: '-1px'
+          }}>
+            VT <span style={{ color: 'var(--bg-dark)' }}>Business Support</span>
+          </span>
+          <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontWeight: 600, letterSpacing: '0.5px', marginTop: '-2px' }}>
+              GST, ACCOUNTING & IT SUPPORT
+          </span>
         </Link>
 
         {/* Desktop Nav */}
@@ -57,6 +68,7 @@ const Header = () => {
             <NavLink
               key={link.path}
               to={link.path}
+              onClick={() => window.scrollTo(0, 0)}
               style={({ isActive }) => ({
                 fontWeight: 600,
                 fontSize: '0.95rem',
@@ -122,7 +134,10 @@ const Header = () => {
           <NavLink
             key={link.path}
             to={link.path}
-            onClick={() => setIsOpen(false)}
+            onClick={() => {
+              setIsOpen(false);
+              window.scrollTo(0, 0);
+            }}
             style={({ isActive }) => ({
               fontWeight: 700,
               color: isActive ? 'var(--primary)' : 'var(--text-main)',

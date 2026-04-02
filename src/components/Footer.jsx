@@ -8,77 +8,69 @@ const Footer = () => {
       backgroundColor: 'var(--bg-dark)',
       color: 'white',
       padding: '6rem 0 3rem',
-      marginTop: 'auto',
-      borderTop: '1px solid rgba(255,255,255,0.05)'
+      marginTop: 'auto'
     }}>
       <div className="container">
-        <div style={{
+        <div className="grid-responsive" style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-          gap: '4rem',
-          marginBottom: '5rem'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+          gap: '3rem',
+          marginBottom: '4rem'
         }}>
           {/* Brand Section */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
             <div style={{ display: 'flex', alignItems: 'baseline' }}>
-              <span style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--primary-glow)', letterSpacing: '-1px' }}>VT</span>
-              <span style={{ fontSize: '1.6rem', fontWeight: 500, color: 'white', marginLeft: '2px' }}>Consulting</span>
+              <span style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--primary-glow)', letterSpacing: '-1px' }}>VT</span>
+              <span style={{ fontSize: '1.4rem', fontWeight: 500, color: 'white', marginLeft: '4px' }}>Business Support</span>
             </div>
-            <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1rem', lineHeight: 1.7 }}>
+            <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', lineHeight: 1.6 }}>
               Empowering small businesses with integrated financial and IT solutions. Simple, practical, and professional services tailored for your success.
             </p>
-            <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
-               <a href="https://wa.me/919498856100" className="btn btn-whatsapp" style={{ padding: '0.8rem 1.5rem', borderRadius: '100px', fontSize: '0.9rem' }}>
-                  <MessageCircle size={20} />
-                  <span>Connect</span>
-               </a>
+            <div style={{ display: 'flex', gap: '1rem', marginTop: '0.5rem' }}>
+              <a href="https://wa.me/919498856100" className="btn btn-whatsapp" style={{ padding: '0.7rem 1.5rem', borderRadius: '100px', fontSize: '0.85rem' }}>
+                <MessageCircle size={18} />
+                <span>Connect</span>
+              </a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 style={{ color: 'white', fontSize: '1.25rem', fontWeight: 700, marginBottom: '2rem' }}>Quick Links</h4>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
-              <li><Link to="/" style={{ color: 'rgba(255,255,255,0.7)', transition: '0.3s', hover: { color: 'var(--primary-glow)' } }}>Home</Link></li>
-              <li><Link to="/services" style={{ color: 'rgba(255,255,255,0.7)' }}>Services</Link></li>
-              <li><Link to="/about" style={{ color: 'rgba(255,255,255,0.7)' }}>About Us</Link></li>
-              <li><Link to="/contact" style={{ color: 'rgba(255,255,255,0.7)' }}>Contact</Link></li>
+            <h4 style={{ color: 'white', fontSize: '1.1rem', fontWeight: 700, marginBottom: '1.5rem' }}>Quick Links</h4>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <li><Link to="/" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem' }}>Home</Link></li>
+              <li><Link to="/services" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem' }}>Services</Link></li>
+              <li><Link to="/about" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem' }}>About Us</Link></li>
+              <li><Link to="/contact" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem' }}>Contact</Link></li>
             </ul>
           </div>
 
           {/* Services */}
           <div>
-            <h4 style={{ color: 'white', fontSize: '1.25rem', fontWeight: 700, marginBottom: '2rem' }}>Our Services</h4>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
-              <li><Link to="/services" style={{ color: 'rgba(255,255,255,0.7)' }}>GST & Tax Support</Link></li>
-              <li><Link to="/services" style={{ color: 'rgba(255,255,255,0.7)' }}>IT Support & Setup</Link></li>
-              <li><Link to="/services" style={{ color: 'rgba(255,255,255,0.7)' }}>Cloud Solutions</Link></li>
-              <li><Link to="/services" style={{ color: 'rgba(255,255,255,0.7)' }}>Websites & SEO</Link></li>
-              <li><Link to="/services" style={{ color: 'rgba(255,255,255,0.7)' }}>Infrastructure Management</Link></li>
+            <h4 style={{ color: 'white', fontSize: '1.1rem', fontWeight: 700, marginBottom: '1.5rem' }}>Our Services</h4>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <li><Link to="/services" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem' }}>GST & Tax Support</Link></li>
+              <li><Link to="/services" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem' }}>IT Support & Setup</Link></li>
+              <li><Link to="/services" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem' }}>Cloud Solutions</Link></li>
+              <li><Link to="/services" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem' }}>Websites & SEO</Link></li>
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h4 style={{ color: 'white', fontSize: '1.25rem', fontWeight: 700, marginBottom: '2rem' }}>Contact Info</h4>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-              <li style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-                <div style={{ width: '40px', height: '40px', background: 'rgba(255,255,255,0.05)', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary-glow)' }}>
-                  <Phone size={20} />
-                </div>
-                <span style={{ color: 'rgba(255,255,255,0.7)' }}>+91 94988 56100</span>
+            <h4 style={{ color: 'white', fontSize: '1.1rem', fontWeight: 700, marginBottom: '1.5rem' }}>Contact Info</h4>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+              <li style={{ display: 'flex', gap: '0.8rem', alignItems: 'center' }}>
+                <Phone size={16} style={{ color: 'var(--primary-glow)' }} />
+                <span style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem' }}>+91 94988 56100</span>
               </li>
-              <li style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-                <div style={{ width: '40px', height: '40px', background: 'rgba(255,255,255,0.05)', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary-glow)' }}>
-                  <Mail size={20} />
-                </div>
-                <span style={{ color: 'rgba(255,255,255,0.7)' }}>contact@vtconsulting.com</span>
+              <li style={{ display: 'flex', gap: '0.8rem', alignItems: 'center' }}>
+                <Mail size={16} style={{ color: 'var(--primary-glow)' }} />
+                <span style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem' }}>vtconsulting.in@gmail.com</span>
               </li>
-              <li style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-                <div style={{ width: '40px', height: '40px', background: 'rgba(255,255,255,0.05)', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary-glow)' }}>
-                  <MapPin size={20} />
-                </div>
-                <span style={{ color: 'rgba(255,255,255,0.7)' }}>Tamil Nadu, India</span>
+              <li style={{ display: 'flex', gap: '0.8rem', alignItems: 'center' }}>
+                <MapPin size={16} style={{ color: 'var(--primary-glow)' }} />
+                <span style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem' }}>Tamil Nadu, India</span>
               </li>
             </ul>
           </div>
@@ -86,18 +78,21 @@ const Footer = () => {
 
         <div style={{
           borderTop: '1px solid rgba(255,255,255,0.05)',
-          paddingTop: '3rem',
+          paddingTop: '2rem',
           textAlign: 'center',
-          fontSize: '0.9rem',
+          fontSize: '0.85rem',
           color: 'rgba(255,255,255,0.4)',
           display: 'flex',
           flexWrap: 'wrap',
           justifyContent: 'space-between',
           alignItems: 'center',
-          gap: '2rem'
+          gap: '1.5rem'
         }}>
-          <p>© {new Date().getFullYear()} VT Consulting. All rights reserved.</p>
-          <p>Crafting Business Excellence in Tamil Nadu</p>
+          <div>
+            <p style={{ fontWeight: 700, color: 'rgba(255,255,255,0.6)', marginBottom: '0.2rem' }}>Serving Tamil Nadu & Bengaluru</p>
+            <p>© {new Date().getFullYear()} VT Business Support. All rights reserved.</p>
+          </div>
+          <p style={{ fontStyle: 'italic' }}>Crafting Business Excellence in TN & Karnataka</p>
         </div>
       </div>
     </footer>
