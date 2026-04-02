@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Shield, Smartphone, Globe, Cloud, FileText, Settings, Briefcase, Users, CheckCircle, MessageCircle, ArrowRight, Phone, Zap } from 'lucide-react';
+import { Shield, Smartphone, Globe, Cloud, FileText, Settings, Briefcase, Users, CheckCircle, MessageCircle, ArrowRight, Phone, Zap, MapPin } from 'lucide-react';
 
 const Home = () => {
   return (
@@ -85,9 +85,22 @@ const Home = () => {
               </Link>
             </div>
             
-            <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', fontWeight: 500, marginTop: '2rem' }}>
-              📍 Serving Tamil Nadu and Bengaluru businesses
-            </p>
+            <div style={{ 
+              display: 'inline-flex', 
+              alignItems: 'center', 
+              gap: '0.6rem', 
+              color: 'rgba(255,255,255,0.8)', 
+              fontSize: '0.9rem', 
+              fontWeight: 600, 
+              marginTop: '2.5rem',
+              padding: '0.5rem 1rem',
+              backgroundColor: 'rgba(255,255,255,0.05)',
+              borderRadius: '100px',
+              border: '1px solid rgba(255,255,255,0.1)'
+            }}>
+              <MapPin size={16} color="var(--secondary)" />
+              <span>Serving Tamil Nadu and Bengaluru businesses</span>
+            </div>
           </div>
         </div>
       </section>

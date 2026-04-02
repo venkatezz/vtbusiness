@@ -28,7 +28,7 @@ const Contact = () => {
       value: 'Tamil Nadu & Bengaluru',
       href: '#'
     },
-    { icon: <MessageCircle size={24} />, title: 'WhatsApp', value: 'Instant Chat', href: 'https://wa.me/919498856100' }
+    { icon: <MessageCircle size={24} />, title: 'WhatsApp', value: 'Chat for Instant Support', href: 'https://wa.me/919498856100' }
   ];
 
   return (
@@ -49,12 +49,16 @@ const Contact = () => {
 
       <section className="section">
         <div className="container">
-          <div className="grid-responsive" style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: '3rem' }}>
+          <div className="grid-responsive" style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
+            gap: '2.5rem' 
+          }}>
             {/* Left Column: Contact Info */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-              <div className="card-premium" style={{ backgroundColor: 'var(--bg-soft)', border: 'none' }}>
-                <h3 style={{ marginBottom: '2rem', fontSize: '1.5rem' }}>Direct Line</h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+              <div className="card-premium" style={{ backgroundColor: 'white', padding: '1.8rem', border: '1px solid var(--border-light)' }}>
+                <h3 style={{ marginBottom: '1.8rem', fontSize: '1.4rem', color: 'var(--bg-dark)' }}>Direct Line</h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                   {contactList.map((item, idx) => (
                     <a
                       key={idx}
@@ -73,31 +77,43 @@ const Contact = () => {
                         borderRadius: '12px',
                         color: idx === 3 ? 'var(--secondary)' : 'var(--primary)',
                         flexShrink: 0,
-                        boxShadow: 'var(--shadow-sm)'
+                        boxShadow: 'var(--shadow-sm)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
                       }}>
-                        {item.icon}
+                        {React.cloneElement(item.icon, { size: 22 })}
                       </div>
-                      <div>
-                        <h4 style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginBottom: '0.1rem', fontWeight: 600 }}>{item.title}</h4>
-                        <p style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--bg-dark)' }}>{item.value}</p>
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <h4 style={{ color: 'var(--text-muted)', fontSize: '0.8rem', marginBottom: '0.1rem', fontWeight: 600 }}>{item.title}</h4>
+                        <p style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--bg-dark)', overflowWrap: 'anywhere' }}>{item.value}</p>
                       </div>
                     </a>
                   ))}
+                </div>
+                <div style={{ marginTop: '2rem', padding: '1rem', backgroundColor: 'white', borderRadius: '12px', border: '1px solid var(--border-light)' }}>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', fontWeight: 500, lineHeight: 1.4 }}>
+                    <span style={{ color: 'var(--primary)', fontWeight: 700 }}>Need quick help?</span> Call or WhatsApp us for fast response on GST, IT support, or business setup.
+                  </p>
                 </div>
               </div>
 
               <div className="card-premium" style={{ border: '2px dashed var(--primary)', background: 'transparent' }}>
                 <h4 style={{ marginBottom: '1rem', color: 'var(--primary)' }}>Business Hours</h4>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>Monday - Saturday: 9:00 AM - 7:30 PM</p>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>Sunday: Closed (WhatsApp support available)</p>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', fontWeight: 500 }}>Monday – Saturday: 9:00 AM – 7:30 PM</p>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', fontWeight: 500 }}>Sunday: Closed (WhatsApp support available)</p>
               </div>
             </div>
 
             {/* Right Column: Contact Form */}
-            <div className="card-premium" style={{ boxShadow: 'var(--shadow-xl)' }}>
+            <div className="card-premium" style={{ boxShadow: 'var(--shadow-xl)', height: 'fit-content' }}>
               <h3 style={{ marginBottom: '2rem', fontSize: '1.5rem' }}>Send a Message</h3>
               <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                <div className="grid-responsive" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+                <div className="grid-responsive" style={{ 
+                  display: 'grid', 
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', 
+                  gap: '1.5rem' 
+                }}>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                     <label style={{ fontWeight: 600, fontSize: '0.9rem' }}>Company Name</label>
                     <input
@@ -140,7 +156,7 @@ const Contact = () => {
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                   <label style={{ fontWeight: 600, fontSize: '0.9rem' }}>How can we help?</label>
-                  <textarea rows={4} placeholder="Tell us about your requirements..." style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border-light)', backgroundColor: 'var(--bg-soft)', resize: 'none' }}></textarea>
+                  <textarea rows={4} placeholder="Tell us about your requirements..." style={{ width: '100%', padding: '1rem', borderRadius: '10px', border: '1px solid var(--border-light)', backgroundColor: 'var(--bg-soft)', resize: 'none' }}></textarea>
                 </div>
                 <button type="submit" className="btn btn-primary" style={{ padding: '1.2rem', fontSize: '1.1rem', borderRadius: '100px' }}>
                   <Send size={20} />

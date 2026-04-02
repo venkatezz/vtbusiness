@@ -2,7 +2,7 @@ import React from 'react';
 import { 
   Smartphone, Globe, Cloud, FileText, Settings, Briefcase, 
   CheckCircle, MessageCircle, Phone, Calculator, BookText, 
-  ShieldCheck, Monitor, Server, Code, MapPin, Search, BarChart3 
+  ShieldCheck, Monitor, Server, Code, MapPin, Search, BarChart3, Building2, Store 
 } from 'lucide-react';
 
 const Services = () => {
@@ -89,6 +89,51 @@ const Services = () => {
     }
   ];
 
+  const registrationServices = [
+    { 
+      title: 'Company Registration', 
+      icon: <Building2 size={30} />, 
+      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=500",
+      content: 'Assistance with Private Limited, LLP, and Partnership registration support.',
+      benefit: 'Get your business legal' 
+    },
+    { 
+      title: 'GST Registration', 
+      icon: <FileText size={30} />, 
+      image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=500",
+      content: 'Help businesses with new GST registration and formal setup assistance.',
+      benefit: 'Tax compliance ready' 
+    },
+    { 
+      title: 'MSME Registration', 
+      icon: <Store size={30} />, 
+      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=500",
+      content: 'Udyam registration support to help small businesses access govt benefits.',
+      benefit: 'Access MSME benefits' 
+    },
+    { 
+      title: 'Trademark Registration', 
+      icon: <ShieldCheck size={30} />, 
+      image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=500",
+      content: 'Brand name and logo registration support for your unique identity.',
+      benefit: 'Protect your brand name' 
+    },
+    { 
+      title: 'Shop Act Registration', 
+      icon: <MapPin size={30} />, 
+      image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80&w=500",
+      content: 'Local business license setup assistance for physical shop locations.',
+      benefit: 'Trade license simplified' 
+    },
+    { 
+      title: 'PAN & TAN Registration', 
+      icon: <Briefcase size={30} />, 
+      image: "https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&q=80&w=500",
+      content: 'Business tax identity setup support to manage official transactions.',
+      benefit: 'Ready for tax banking' 
+    }
+  ];
+
   return (
     <div className="fade-in">
       {/* Hero Header */}
@@ -149,7 +194,59 @@ const Services = () => {
                   <img 
                     src={service.image} 
                     alt={service.title}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(0.2) brightness(1) sepia(0.1) hue-rotate(180deg)' }}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(0.1) brightness(1.05)' }}
+                  />
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.1))' }} />
+                </div>
+
+                <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem', flex: 1 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+                    <div style={{ color: 'var(--primary)', flexShrink: 0 }}>
+                      {React.cloneElement(service.icon, { size: 22 })}
+                    </div>
+                    <h3 style={{ fontSize: '1.25rem', color: 'var(--bg-dark)', fontWeight: 800, letterSpacing: '-0.5px' }}>{service.title}</h3>
+                  </div>
+                  
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.6 }}>{service.content}</p>
+
+                  <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', color: 'var(--primary)', fontWeight: '700', padding: '0.8rem', backgroundColor: 'var(--bg-soft)', borderRadius: '10px' }}>
+                    <CheckCircle size={16} />
+                    <span>{service.benefit}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Business Registration Section */}
+      <section className="section" id="registration" style={{ backgroundColor: '#F8FAFC' }}>
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+          <h2 style={{ marginBottom: '1.2rem', color: 'var(--primary)', borderBottom: '2px solid var(--primary)', paddingBottom: '0.5rem', display: 'inline-block' }}>New: Business Registration & Compliance</h2>
+          <div className="grid-responsive" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginTop: '3rem' }}>
+            {registrationServices.map((service, idx) => (
+              <div 
+                key={idx} 
+                className="card-premium"
+                style={{ 
+                  padding: '0', 
+                  backgroundColor: 'white', 
+                  borderRadius: '20px', 
+                  border: '1px solid var(--border-light)', 
+                  boxShadow: 'var(--shadow-sm)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  overflow: 'hidden',
+                  transition: 'all 0.4s ease'
+                }}
+              >
+                {/* Visual Banner */}
+                <div style={{ height: '140px', overflow: 'hidden', position: 'relative' }}>
+                  <img 
+                    src={service.image} 
+                    alt={service.title}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(0.1) brightness(1.05)' }}
                   />
                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.1))' }} />
                 </div>
