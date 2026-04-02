@@ -8,45 +8,10 @@ const WhatsAppIcon = ({ size = 20, color = "currentColor" }) => (
   </svg>
 );
 
-const WhatsAppButton = () => {
-  const whatsappNumber = "919498856100"; 
-  const message = "Hi I need help with my business";
-
-  return (
-    <a
-      href={`https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="floating-whatsapp"
-      aria-label="Chat on WhatsApp"
-      style={{
-        position: 'fixed',
-        bottom: '2rem',
-        right: '2rem',
-        zIndex: 1000,
-        backgroundColor: '#25D366',
-        color: 'white',
-        width: '60px',
-        height: '60px',
-        borderRadius: '50%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        boxShadow: '0 10px 25px rgba(37, 211, 102, 0.4)',
-        transition: 'var(--transition)'
-      }}
-      onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1) translateY(-5px)'}
-      onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1) translateY(0)'}
-    >
-      <WhatsAppIcon size={32} color="white" />
-    </a>
-  );
-};
 
 const Home = () => {
   return (
     <div className="fade-in" style={{ position: 'relative' }}>
-      <WhatsAppButton />
       {/* Decorative Blobs */}
       <div className="blob" style={{ top: '10%', left: '-5%' }} />
       <div className="blob" style={{ top: '60%', right: '-5%', backgroundColor: 'var(--secondary)' }} />
