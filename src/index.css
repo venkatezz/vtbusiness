@@ -229,6 +229,9 @@ button {
 
   .container {
     padding: 0 1.25rem;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
   }
 
   .desktop-nav {
