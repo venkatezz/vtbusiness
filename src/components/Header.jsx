@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
+import VTLogo from '../assets/VTlogo.svg';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +12,9 @@ const Header = () => {
       setScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -47,19 +50,13 @@ const Header = () => {
         <Link 
           to="/" 
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          style={{ display: 'flex', flexDirection: 'column', textDecoration: 'none' }}
+          style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
         >
-          <span style={{ 
-            fontSize: '1.4rem', 
-            fontWeight: 800, 
-            color: 'var(--primary)',
-            letterSpacing: '-1px'
-          }}>
-            VT <span style={{ color: 'var(--bg-dark)' }}>Business Support</span>
-          </span>
-          <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontWeight: 600, letterSpacing: '0.5px', marginTop: '-2px' }}>
-              GST, ACCOUNTING & IT SUPPORT
-          </span>
+          <img 
+            src={VTLogo} 
+            alt="VT Business Support Logo" 
+            className="logo-header"
+          />
         </Link>
 
         {/* Desktop Nav */}

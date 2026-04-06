@@ -4,10 +4,15 @@ import {
   Award, Zap, Store, Plane, Building2, Rocket, 
   Search, Lightbulb, Phone, ShieldCheck, HeartPulse 
 } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const About = () => {
   return (
     <div className="fade-in">
+      <SEO 
+        title="About VT Business Support"
+        description="Learn about VT Business Support, providing simple and practical IT and financial solutions for small businesses in Tamil Nadu and Bengaluru."
+      />
       {/* Hero Section */}
       <section style={{ backgroundColor: 'var(--bg-dark)', color: 'white', padding: 'var(--section-padding)', textAlign: 'center' }}>
         <div className="container">
@@ -50,7 +55,8 @@ const About = () => {
             <div style={{ position: 'relative' }}>
               <img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800"
-                alt="Our Team"
+                alt="VT Business Support Team Meeting"
+                loading="lazy"
                 style={{ width: '100%', borderRadius: '20px', boxShadow: 'var(--shadow-lg)' }}
               />
             </div>

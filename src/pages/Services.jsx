@@ -4,6 +4,8 @@ import {
   CheckCircle, Phone, Calculator, BookText, 
   ShieldCheck, Monitor, Server, Code, MapPin, Search, BarChart3, Building2, Store 
 } from 'lucide-react';
+import SEO from '../components/SEO';
+
 
 const WhatsAppIcon = ({ size = 20, color = "currentColor" }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill={color}>
@@ -142,6 +144,10 @@ const Services = () => {
 
   return (
     <div className="fade-in">
+      <SEO 
+        title="Our Services | GST, IT Support & Website Development"
+        description="Explore our services including GST filing, IT support, cloud setup, and website development designed for small businesses in Tamil Nadu and Bengaluru."
+      />
       {/* Hero Header */}
       <section style={{ 
         position: 'relative',

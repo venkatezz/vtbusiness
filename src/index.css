@@ -32,6 +32,10 @@
   --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -44,6 +48,8 @@ body {
   background-color: var(--bg-main);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
 
@@ -232,6 +238,7 @@ button {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 auto !important;
+    overflow-x: visible !important;
   }
 
   .desktop-nav {
@@ -272,4 +279,30 @@ img {
   .responsive-stack {
     flex-direction: row;
   }
+}
+
+/* Logo Utilities */
+.logo-header {
+  height: 56px;
+  width: auto;
+  display: block;
+  transition: var(--transition);
+}
+
+@media (max-width: 768px) {
+  .logo-header {
+    height: 44px;
+  }
+}
+
+.logo-footer {
+  height: 48px;
+  width: auto;
+  display: block;
+  filter: none; /* Removing all filters to fully restore original brand color */
+  transition: var(--transition);
+}
+
+.logo-footer:hover {
+  transform: translateY(-2px);
 }

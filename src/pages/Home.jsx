@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Shield, Smartphone, Globe, Cloud, FileText, Settings, Briefcase, Users, CheckCircle, ArrowRight, Phone, Zap, MapPin } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const WhatsAppIcon = ({ size = 20, color = "currentColor" }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill={color}>
@@ -12,6 +13,10 @@ const WhatsAppIcon = ({ size = 20, color = "currentColor" }) => (
 const Home = () => {
   return (
     <div className="fade-in" style={{ position: 'relative' }}>
+      <SEO 
+        title="VT Business Support | GST, Accounting & IT Services in Tamil Nadu & Bengaluru"
+        description="Professional GST filing, accounting, IT support, and website services for small businesses in Tamil Nadu and Bengaluru."
+      />
       {/* Decorative Blobs */}
       <div className="blob" style={{ top: '10%', left: '-5%' }} />
       <div className="blob" style={{ top: '60%', right: '-5%', backgroundColor: 'var(--secondary)' }} />
@@ -122,19 +127,19 @@ const Home = () => {
             textAlign: 'center'
           }}>
             <div>
-              <h3 style={{ fontSize: '2.2rem', marginBottom: '0.2rem', color: 'var(--primary)' }}>100+</h3>
+              <p style={{ fontSize: '2.2rem', marginBottom: '0.2rem', color: 'var(--primary)', fontWeight: 700 }}>100+</p>
               <p style={{ color: 'var(--text-muted)', fontWeight: 500 }}>Clients Supported</p>
             </div>
             <div>
-              <h3 style={{ fontSize: '2.2rem', marginBottom: '0.2rem', color: 'var(--primary)' }}>5+</h3>
+              <p style={{ fontSize: '2.2rem', marginBottom: '0.2rem', color: 'var(--primary)', fontWeight: 700 }}>5+</p>
               <p style={{ color: 'var(--text-muted)', fontWeight: 500 }}>Years Experience</p>
             </div>
             <div>
-              <h3 style={{ fontSize: '2.2rem', marginBottom: '0.2rem', color: 'var(--primary)' }}>24/7</h3>
+              <p style={{ fontSize: '2.2rem', marginBottom: '0.2rem', color: 'var(--primary)', fontWeight: 700 }}>24/7</p>
               <p style={{ color: 'var(--text-muted)', fontWeight: 500 }}>Support Availability</p>
             </div>
             <div>
-              <h3 style={{ fontSize: '2.2rem', marginBottom: '0.2rem', color: 'var(--primary)' }}>99%</h3>
+              <p style={{ fontSize: '2.2rem', marginBottom: '0.2rem', color: 'var(--primary)', fontWeight: 700 }}>99%</p>
               <p style={{ color: 'var(--text-muted)', fontWeight: 500 }}>Satisfaction Rate</p>
             </div>
           </div>
@@ -244,7 +249,8 @@ const Home = () => {
             <div style={{ position: 'relative' }}>
               <img
                 src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800"
-                alt="Strategic Planning"
+                alt="VT Business Support Strategic Planning Meeting"
+                loading="lazy"
                 style={{ width: '100%', borderRadius: '20px', position: 'relative', zIndex: 1, boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}
               />
             </div>

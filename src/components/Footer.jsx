@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, MessageCircle, Shield } from 'lucide-react';
 
+import VTLogo from '../assets/VTlogo.svg';
+
 const Footer = () => {
   return (
     <footer style={{
@@ -19,9 +21,12 @@ const Footer = () => {
         }}>
           {/* Brand Section */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
-            <div style={{ display: 'flex', alignItems: 'baseline' }}>
-              <span style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--primary-glow)', letterSpacing: '-1px' }}>VT</span>
-              <span style={{ fontSize: '1.4rem', fontWeight: 500, color: 'white', marginLeft: '4px' }}>Business Support</span>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <img 
+                src={VTLogo} 
+                alt="VT Business Support Logo" 
+                className="logo-footer"
+              />
             </div>
             <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', lineHeight: 1.6 }}>
               Empowering small businesses with integrated financial and IT solutions. Simple, practical, and professional services tailored for your success.
@@ -92,7 +97,7 @@ const Footer = () => {
         }}>
           <div>
             <p style={{ fontWeight: 700, color: 'rgba(255,255,255,0.6)', marginBottom: '0.2rem' }}>Serving Tamil Nadu & Bengaluru</p>
-            <p>© {new Date().getFullYear()} VT Business Support. All rights reserved.</p>
+            <p>© 2021 - {new Date().getFullYear()} VT Business Support. All rights reserved.</p>
           </div>
           <p style={{ fontStyle: 'italic' }}>Crafting Business Excellence in TN & Karnataka</p>
         </div>
