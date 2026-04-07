@@ -14,8 +14,8 @@ const Home = () => {
   return (
     <div className="fade-in" style={{ position: 'relative' }}>
       <SEO 
-        title="VT Business Support | GST, Accounting & IT Services in Tamil Nadu & Bengaluru"
-        description="Professional GST filing, accounting, IT support, and website services for small businesses in Tamil Nadu and Bengaluru."
+        title="VT Business Support | GST Filing, Income Tax, IT Support & Website Services in Tamil Nadu & Bengaluru"
+        description="Get expert GST filing, income tax return services, accounting, IT support, and website development for small businesses in Tamil Nadu & Bengaluru. Simple, reliable, and fast support."
       />
       {/* Decorative Blobs */}
       <div className="blob" style={{ top: '10%', left: '-5%' }} />

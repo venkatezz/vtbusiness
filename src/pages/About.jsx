@@ -11,8 +11,8 @@ const About = () => {
   return (
     <div className="fade-in">
       <SEO 
-        title="About VT Business Support"
-        description="Learn about VT Business Support, providing simple and practical IT and financial solutions for small businesses in Tamil Nadu and Bengaluru."
+        title="About VT Business Support | Financial & IT Solutions for Businesses"
+        description="VT Business Support provides practical GST, accounting, IT support, and website solutions to help small businesses grow smoothly."
       />
       {/* Hero Section */}
       <section style={{ backgroundColor: 'var(--bg-dark)', color: 'white', padding: 'var(--section-padding)', textAlign: 'center' }}>

@@ -44,8 +44,8 @@ const Contact = () => {
   return (
     <div className="fade-in">
       <SEO 
-        title="Contact VT Business Support"
-        description="Get in touch for GST, IT support, and website services in Tamil Nadu and Bengaluru. We provide quick and reliable business assistance."
+        title="Contact VT Business Support | GST & IT Services in TN & Bengaluru"
+        description="Contact VT Business Support for GST filing, income tax, IT support, and website services. Call or WhatsApp for quick assistance."
       />
       {/* Hero Header */}
       <section style={{ backgroundColor: 'var(--bg-dark)', color: 'white', padding: 'var(--section-padding)', textAlign: 'center' }}>

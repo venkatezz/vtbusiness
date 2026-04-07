@@ -146,8 +146,8 @@ const Services = () => {
   return (
     <div className="fade-in">
       <SEO 
-        title="Our Services | GST, IT Support & Website Development"
-        description="Explore our services including GST filing, IT support, cloud setup, and website development designed for small businesses in Tamil Nadu and Bengaluru."
+        title="GST Filing, IT Support & Website Development Services | VT Business Support"
+        description="We offer GST registration & filing, income tax services, accounting, IT support, cloud setup, and website development for growing businesses."
       />
       {/* Hero Header */}
       <section style={{ 
