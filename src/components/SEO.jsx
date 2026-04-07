@@ -4,8 +4,10 @@ import { useLocation } from 'react-router-dom';
 const SEO = ({ title, description, schema, image, type = 'website' }) => {
   const location = useLocation();
   const baseUrl = 'https://vtconsulting.in';
-  const currentUrl = `${baseUrl}${location.pathname}`;
-  const defaultImage = `${baseUrl}/favicon.svg`;
+  const currentUrl = `${baseUrl}${location.pathname.replace(/\/$/, '') || '/'}`;
+  
+  // Use professional PNG for social sharing to ensure WhatsApp compatibility
+  const defaultImage = `${baseUrl}/og-image.png`;
   const seoImage = image ? (image.startsWith('http') ? image : `${baseUrl}${image}`) : defaultImage;
 
   useEffect(() => {
@@ -13,7 +15,7 @@ const SEO = ({ title, description, schema, image, type = 'website' }) => {
     if (title) {
       document.title = title;
       
-      // OG Title
+      // OG/Twitter Title
       updateMetaTag('property', 'og:title', title);
       updateMetaTag('name', 'twitter:title', title);
     }
@@ -32,11 +34,17 @@ const SEO = ({ title, description, schema, image, type = 'website' }) => {
     // 4. Image
     updateMetaTag('property', 'og:image', seoImage);
     updateMetaTag('name', 'twitter:image', seoImage);
+    
+    // 5. Image Dimensions (Specifically for WhatsApp/Facebook)
+    if (seoImage.includes('og-image.png')) {
+        updateMetaTag('property', 'og:image:width', '1200');
+        updateMetaTag('property', 'og:image:height', '630');
+    }
 
-    // 5. Type
+    // 6. Type
     updateMetaTag('property', 'og:type', type);
 
-    // 6. Structured Data
+    // 7. Structured Data
     if (schema) {
       const scriptId = 'structured-data-page';
       let script = document.getElementById(scriptId);
