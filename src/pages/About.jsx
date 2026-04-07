@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Target, Users, MapPin, CheckCircle, MessageCircle, 
   Award, Zap, Store, Plane, Building2, Rocket, 
@@ -148,7 +149,10 @@ const About = () => {
           <h2 style={{ fontSize: 'clamp(2rem, 6vw, 3rem)', marginBottom: '1.5rem', letterSpacing: '-1px' }}>Need help with your business?</h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem', marginBottom: '3rem' }}>Call or WhatsApp us now for quick response and support.</p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
-            <a href="tel:+919498856100" className="btn btn-primary" style={{ padding: '1.2rem 2.5rem', borderRadius: '100px', display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+            <Link to="/contact" className="btn btn-primary" style={{ padding: '1.2rem 2.5rem', borderRadius: '100px', display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+              Get Started
+            </Link>
+            <a href="tel:+919498856100" className="btn" style={{ padding: '1.2rem 2.5rem', borderRadius: '100px', backgroundColor: 'var(--bg-soft)', color: 'var(--bg-dark)', border: '1px solid var(--border-light)', display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
               <Phone size={20} />
               Call Now
             </a>

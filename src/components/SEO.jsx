@@ -1,40 +1,44 @@
 import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
-const SEO = ({ title, description, schema }) => {
+const SEO = ({ title, description, schema, image, type = 'website' }) => {
+  const location = useLocation();
+  const baseUrl = 'https://vtconsulting.in';
+  const currentUrl = `${baseUrl}${location.pathname}`;
+  const defaultImage = `${baseUrl}/favicon.svg`;
+  const seoImage = image ? (image.startsWith('http') ? image : `${baseUrl}${image}`) : defaultImage;
+
   useEffect(() => {
+    // 1. Title
     if (title) {
       document.title = title;
+      
+      // OG Title
+      updateMetaTag('property', 'og:title', title);
+      updateMetaTag('name', 'twitter:title', title);
     }
     
+    // 2. Description
     if (description) {
-      let metaDescription = document.querySelector('meta[name="description"]');
-      if (metaDescription) {
-        metaDescription.setAttribute('content', description);
-      } else {
-        metaDescription = document.createElement('meta');
-        metaDescription.name = "description";
-        metaDescription.content = description;
-        document.head.appendChild(metaDescription);
-      }
-      
-      // Update OG description
-      let ogDescription = document.querySelector('meta[property="og:description"]');
-      if (ogDescription) {
-        ogDescription.setAttribute('content', description);
-      }
+      updateMetaTag('name', 'description', description);
+      updateMetaTag('property', 'og:description', description);
+      updateMetaTag('name', 'twitter:description', description);
     }
 
-    if (title) {
-        // Update OG title
-        let ogTitle = document.querySelector('meta[property="og:title"]');
-        if (ogTitle) {
-          ogTitle.setAttribute('content', title);
-        }
-    }
+    // 3. URL
+    updateMetaTag('property', 'og:url', currentUrl);
+    updateMetaTag('name', 'twitter:url', currentUrl);
 
-    // Handle Schema
+    // 4. Image
+    updateMetaTag('property', 'og:image', seoImage);
+    updateMetaTag('name', 'twitter:image', seoImage);
+
+    // 5. Type
+    updateMetaTag('property', 'og:type', type);
+
+    // 6. Structured Data
     if (schema) {
-      const scriptId = 'structured-data';
+      const scriptId = 'structured-data-page';
       let script = document.getElementById(scriptId);
       if (script) {
         script.textContent = JSON.stringify(schema);
@@ -47,12 +51,19 @@ const SEO = ({ title, description, schema }) => {
       }
     }
 
-    return () => {
-      // Cleanup schema on unmount if it's page-specific
-      // Usually, LocalBusiness is global, so we might not want to remove it,
-      // but let's keep it clean for different schemas.
-    };
-  }, [title, description, schema]);
+  }, [title, description, schema, seoImage, currentUrl, type]);
+
+  const updateMetaTag = (attr, value, content) => {
+    let element = document.querySelector(`meta[${attr}="${value}"]`);
+    if (element) {
+      element.setAttribute('content', content);
+    } else {
+      element = document.createElement('meta');
+      element.setAttribute(attr, value);
+      element.setAttribute('content', content);
+      document.head.appendChild(element);
+    }
+  };
 
   return null;
 };

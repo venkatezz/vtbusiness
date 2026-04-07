@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Smartphone, Globe, Cloud, FileText, Settings, Briefcase, 
   CheckCircle, Phone, Calculator, BookText, 
@@ -206,6 +207,7 @@ const Services = () => {
                   <img 
                     src={service.image} 
                     alt={service.title}
+                    loading="lazy"
                     style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(0.1) brightness(1.05)' }}
                   />
                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.1))' }} />
@@ -348,13 +350,16 @@ const Services = () => {
           <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', marginBottom: '1rem' }}>Ready to optimize?</h2>
           <p style={{ color: 'var(--primary)', fontSize: '1.2rem', fontWeight: 700, marginBottom: '1rem' }}>Call or WhatsApp for quick support</p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap', marginTop: '2rem' }}>
-            <a href="tel:+919498856100" className="btn btn-primary" style={{ padding: '1rem 2.5rem', borderRadius: '100px' }}>
-               <Phone size={20} />
-               Call +91 94988 56100
+            <Link to="/contact" className="btn btn-primary" style={{ padding: '1rem 2.5rem', borderRadius: '100px' }}>
+               Get Started
+            </Link>
+            <a href="tel:+919498856100" className="btn" style={{ padding: '1.2rem 2rem', borderRadius: '100px', backgroundColor: 'var(--bg-soft)', color: 'var(--bg-dark)', border: '1px solid var(--border-light)' }}>
+               <Phone size={18} />
+               Call Now
             </a>
             <a href="https://api.whatsapp.com/send?phone=919498856100" className="btn btn-whatsapp" style={{ padding: '1rem 2.5rem', borderRadius: '100px' }}>
               <WhatsAppIcon size={20} />
-              Chat on WhatsApp
+              WhatsApp Us
             </a>
           </div>
         </div>
