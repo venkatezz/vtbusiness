@@ -14,8 +14,8 @@ const Home = () => {
   return (
     <div className="fade-in" style={{ position: 'relative' }}>
       <SEO 
-        title="VT Business Support | GST Filing, Income Tax, IT Support & Website Services in Tamil Nadu & Bengaluru"
-        description="Get expert GST filing, income tax return services, accounting, IT support, and website development for small businesses in Tamil Nadu & Bengaluru. Simple, reliable, and fast support."
+        title="GST Filing, Income Tax, IT Support & Website Services | VT Business Support"
+        description="Get GST filing, income tax return, accounting, IT support, and website services in Tamil Nadu & Bengaluru. Simple, fast, and reliable support for businesses."
       />
       {/* Decorative Blobs */}
       <div className="blob" style={{ top: '10%', left: '-5%' }} />
@@ -29,9 +29,10 @@ const Home = () => {
         alignItems: 'center',
         padding: '0',
         overflow: 'hidden',
-        background: `linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.8)), url('/hero.png')`,
+        background: `linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.65)), url('/hero.png')`,
         backgroundSize: 'cover',
-        backgroundPosition: 'center'
+        backgroundPosition: 'center',
+        backdropFilter: 'blur(1px)'
       }}>
         <div className="container" style={{ position: 'relative', zIndex: 2, padding: '40px 1.5rem' }}>
           <div style={{ maxWidth: '850px', margin: '0 auto', textAlign: 'center' }}>
@@ -46,19 +47,19 @@ const Home = () => {
               border: '1px solid rgba(255,255,255,0.2)' 
             }}>
               <Zap size={18} className="text-secondary" />
-              <span style={{ fontWeight: 600, fontSize: '0.85rem', color: 'white' }}>Fast & Reliable Business Support</span>
+              <span style={{ fontWeight: 600, fontSize: '0.85rem', color: 'white' }}>Serving businesses across Tamil Nadu & Bengaluru</span>
             </div>
             
             <h1 style={{ color: 'white', marginBottom: '0.8rem', fontSize: 'clamp(2.5rem, 6vw, 3.8rem)', lineHeight: 1.1, letterSpacing: '-2px' }}>
-              Optimize Your Business <br /> <span className="text-secondary">Operations Today</span>
+              Optimize Your Business <span className="text-secondary">Operations</span>
             </h1>
             
-            <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.2rem', fontWeight: 600, marginBottom: '1.5rem', letterSpacing: '0.5px' }}>
-              GST, Accounting & IT Support for Small Businesses
+            <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.2rem', fontWeight: 600, marginBottom: '1rem', letterSpacing: '0.5px' }}>
+              GST Filing, Income Tax Return, Accounting & IT Support in Tamil Nadu & Bengaluru
             </p>
             
             <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.1rem', maxWidth: '700px', margin: '0 auto 2rem', lineHeight: 1.6 }}>
-              Reliable financial compliance and high-performance IT infrastructure for growing enterprises across Tamil Nadu & Bengaluru.
+              Simple, reliable support for small businesses.
             </p>
 
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -66,34 +67,13 @@ const Home = () => {
                 <Phone size={18} />
                 <span>Call Us</span>
               </a>
-              <a href="https://api.whatsapp.com/send?phone=919498856100" className="btn btn-whatsapp">
-                <WhatsAppIcon size={18} />
-                <span>Chat on WhatsApp</span>
-              </a>
-            </div>
-            
-            <div style={{ 
-              display: 'inline-flex', 
-              alignItems: 'center', 
-              gap: '0.6rem', 
-              color: 'rgba(255,255,255,0.8)', 
-              fontSize: '0.85rem', 
-              fontWeight: 600, 
-              marginTop: '2rem',
-              padding: '0.4rem 0.8rem',
-              backgroundColor: 'rgba(255,255,255,0.05)',
-              borderRadius: '100px',
-              border: '1px solid rgba(255,255,255,0.1)'
-            }}>
-              <MapPin size={14} color="var(--secondary)" />
-              <span>Serving Tamil Nadu and Bengaluru businesses</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Trust Quote / Stats */}
-      <section className="section" style={{ padding: 'var(--section-padding)', background: 'var(--bg-soft)', borderBottom: '1px solid var(--border-light)' }}>
+      <section className="section" style={{ padding: 'var(--section-padding)', background: 'var(--bg-soft)', borderBottom: '1px solid var(--border-light)', marginTop: '40px' }}>
         <div className="container">
           <div className="grid-responsive" style={{
             display: 'grid',
@@ -102,7 +82,7 @@ const Home = () => {
             textAlign: 'center'
           }}>
             <div>
-              <p style={{ fontSize: '2.2rem', marginBottom: '0.2rem', color: 'var(--primary)', fontWeight: 700 }}>100+</p>
+              <p style={{ fontSize: '2.2rem', marginBottom: '0.2rem', color: 'var(--primary)', fontWeight: 700 }}>30+</p>
               <p style={{ color: 'var(--text-muted)', fontWeight: 500 }}>Clients Supported</p>
             </div>
             <div>
@@ -110,12 +90,12 @@ const Home = () => {
               <p style={{ color: 'var(--text-muted)', fontWeight: 500 }}>Years Experience</p>
             </div>
             <div>
-              <p style={{ fontSize: '2.2rem', marginBottom: '0.2rem', color: 'var(--primary)', fontWeight: 700 }}>24/7</p>
-              <p style={{ color: 'var(--text-muted)', fontWeight: 500 }}>Support Availability</p>
+              <p style={{ fontSize: '2.2rem', marginBottom: '0.2rem', color: 'var(--primary)', fontWeight: 700 }}>Quick</p>
+              <p style={{ color: 'var(--text-muted)', fontWeight: 500 }}>Fast & Practical Support</p>
             </div>
             <div>
-              <p style={{ fontSize: '2.2rem', marginBottom: '0.2rem', color: 'var(--primary)', fontWeight: 700 }}>99%</p>
-              <p style={{ color: 'var(--text-muted)', fontWeight: 500 }}>Satisfaction Rate</p>
+              <p style={{ fontSize: '2.2rem', marginBottom: '0.2rem', color: 'var(--primary)', fontWeight: 700 }}>Trusted</p>
+              <p style={{ color: 'var(--text-muted)', fontWeight: 500 }}>by Small Businesses</p>
             </div>
           </div>
         </div>
@@ -317,6 +297,26 @@ const Home = () => {
         </div>
       </section>
 
+      {/* SEO Content Section */}
+      <section className="section" style={{ borderTop: '1px solid var(--border-light)', backgroundColor: 'white' }}>
+        <div className="container">
+          <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
+            <h2 style={{ fontSize: '1.8rem', marginBottom: '1.5rem', color: 'var(--bg-dark)' }}>Our Services in Tamil Nadu & Bengaluru</h2>
+            <div style={{ color: 'var(--text-muted)', fontSize: '1rem', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <p>
+                We offer complete business support services including <strong>GST filing, income tax return filing, accounting, IT support, website development, and cloud setup</strong>.
+              </p>
+              <p>
+                Whether you are a small business, startup, or freelancer, we help you manage your financial and technical operations smoothly.
+              </p>
+              <p>
+                Serving clients in <strong>Tamil Nadu, Bengaluru</strong>, and nearby areas with reliable and practical solutions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="section" style={{ textAlign: 'center', padding: 'var(--section-padding-desktop)', position: 'relative', overflow: 'hidden', marginBottom: '50px' }}>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
@@ -329,10 +329,6 @@ const Home = () => {
               <Phone size={20} />
               Call +91 94988 56100
             </a>
-            <a href="https://api.whatsapp.com/send?phone=919498856100" className="btn btn-whatsapp">
-              <WhatsAppIcon size={20} />
-              WhatsApp Us
-            </a>
           </div>
         </div>
       </section>
@@ -341,4 +337,3 @@ const Home = () => {
 };
 
 export default Home;
-

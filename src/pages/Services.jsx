@@ -125,8 +125,8 @@ const Services = () => {
       title: 'Server Setup & Maintenance',
       icon: <Server size={30} />,
       image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc48?auto=format&fit=crop&q=80&w=800",
-      content: 'Windows & Linux server deployment and 24/7 remote monitoring.',
-      benefit: '99.9% Server uptime'
+      content: 'Set up and manage secure servers for your business with backup, monitoring, and remote support.',
+      benefit: 'Secure & stable systems'
     },
     {
       title: 'Website & App Development',
@@ -182,7 +182,7 @@ const Services = () => {
       icon: <Zap size={30} />,
       image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=800",
       content: 'Smart AI tools for auto-replying, document parsing, and lead sorting.',
-      benefit: 'Future-ready operations'
+      benefit: 'Save time with automation'
     }
   ];
 
@@ -190,7 +190,7 @@ const Services = () => {
     <div className="fade-in">
       <SEO
         title="GST Filing, IT Support & Website Development Services | VT Business Support"
-        description="We offer GST registration & filing, income tax services, accounting, IT support, cloud setup, and website development for growing businesses."
+        description="We provide GST registration, GST return filing, income tax services, accounting, IT support, cloud setup, and website development."
       />
       {/* Hero Header */}
       <section style={{
@@ -375,6 +375,26 @@ const Services = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SEO Content Section */}
+      <section className="section" style={{ borderTop: '1px solid var(--border-light)', backgroundColor: 'white' }}>
+        <div className="container">
+          <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
+            <h2 style={{ fontSize: '1.8rem', marginBottom: '1.5rem', color: 'var(--bg-dark)' }}>Our Services in Tamil Nadu & Bengaluru</h2>
+            <div style={{ color: 'var(--text-muted)', fontSize: '1rem', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <p>
+                We offer complete business support services including <strong>GST filing, income tax return filing, accounting, IT support, website development, and cloud setup</strong>.
+              </p>
+              <p>
+                Whether you are a small business, startup, or freelancer, we help you manage your financial and technical operations smoothly.
+              </p>
+              <p>
+                Serving clients in <strong>Tamil Nadu, Bengaluru</strong>, and nearby areas with reliable and practical solutions.
+              </p>
+            </div>
           </div>
         </div>
       </section>
