@@ -15,13 +15,21 @@ const About = () => {
         description="VT Business Support provides practical GST, accounting, IT support, and website solutions to help small businesses grow smoothly."
       />
       {/* Hero Section */}
-      <section style={{ backgroundColor: 'var(--bg-dark)', color: 'white', padding: 'var(--section-padding)', textAlign: 'center' }}>
-        <div className="container">
-          <h1 style={{ color: 'white', marginBottom: '0.5rem', fontSize: 'clamp(2.2rem, 6vw, 3.5rem)' }}>Our Mission & Values</h1>
-          <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.2rem', fontWeight: 600, marginBottom: '1.5rem', letterSpacing: '0.5px' }}>
+      <section style={{ 
+        position: 'relative',
+        padding: 'var(--section-padding-desktop) !important', 
+        textAlign: 'center',
+        backgroundImage: 'linear-gradient(to bottom, rgba(7, 8, 25, 0.9), rgba(7, 8, 25, 0.8)), url("https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1200")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        color: 'white'
+      }}>
+        <div className="container" style={{ padding: '60px 1.5rem' }}>
+          <h1 style={{ color: 'white', marginBottom: '0.5rem', fontSize: 'clamp(2.2rem, 6vw, 3rem)' }}>Our Mission & Values</h1>
+          <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.1rem', fontWeight: 600, marginBottom: '1rem', letterSpacing: '0.5px' }}>
             GST, Accounting & IT Support for Small Businesses
           </p>
-          <p style={{ color: 'rgba(255,255,255,0.7)', maxWidth: '800px', margin: '0 auto', fontSize: 'clamp(1rem, 4vw, 1.2rem)' }}>
+          <p style={{ color: 'rgba(255,255,255,0.7)', maxWidth: '800px', margin: '0 auto', fontSize: '1rem' }}>
             Empowering small businesses in Tamil Nadu with integrated IT and Financial excellence. We bridge the gap between compliance and technology.
           </p>
         </div>
@@ -144,21 +152,18 @@ const About = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section className="section" style={{ textAlign: 'center' }}>
+      <section className="section" style={{ textAlign: 'center', marginBottom: '50px' }}>
         <div className="container">
-          <h2 style={{ fontSize: 'clamp(2rem, 6vw, 3rem)', marginBottom: '1.5rem', letterSpacing: '-1px' }}>Need help with your business?</h2>
-          <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem', marginBottom: '3rem' }}>Call or WhatsApp us now for quick response and support.</p>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
-            <Link to="/contact" className="btn btn-primary" style={{ padding: '1.2rem 2.5rem', borderRadius: '100px', display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-              Get Started
-            </Link>
-            <a href="tel:+919498856100" className="btn" style={{ padding: '1.2rem 2.5rem', borderRadius: '100px', backgroundColor: 'var(--bg-soft)', color: 'var(--bg-dark)', border: '1px solid var(--border-light)', display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-              <Phone size={20} />
+          <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', marginBottom: '1.2rem', letterSpacing: '-1px' }}>Need help with your business?</h2>
+          <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', marginBottom: '2rem' }}>Call or WhatsApp us now for quick response and support.</p>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <a href="tel:+919498856100" className="btn btn-primary">
+              <Phone size={18} />
               Call Now
             </a>
-            <a href="https://wa.me/919498856100" className="btn btn-whatsapp" style={{ padding: '1.2rem 2.5rem', borderRadius: '100px', display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-              <MessageCircle size={20} />
-              Chat on WhatsApp
+            <a href="https://api.whatsapp.com/send?phone=919498856100" className="btn btn-whatsapp">
+              <MessageCircle size={18} />
+              WhatsApp Us
             </a>
           </div>
         </div>

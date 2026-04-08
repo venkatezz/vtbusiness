@@ -4,15 +4,23 @@ import SEO from '../components/SEO';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
+    name: '', // This will store Company Name
     phone: '',
-    requirement: ''
+    requirement: '',
+    message: ''
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Thank you ${formData.name}! Someone from VT Business Support will get back to you shortly.`);
-    setFormData({ name: '', phone: '', requirement: '' });
+    
+    const message = `Hi, I need support.\n\nCompany Name: ${formData.name}\nPhone: ${formData.phone}\nService Required: ${formData.requirement || 'Not specified'}\nMessage: ${formData.message}`;
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/919498856100?text=${encodedMessage}`;
+    
+    window.open(whatsappUrl, '_blank');
+    
+    // Clear form
+    setFormData({ name: '', phone: '', requirement: '', message: '' });
   };
 
   const handleChange = (e) => {
@@ -48,14 +56,22 @@ const Contact = () => {
         description="Contact VT Business Support for GST filing, income tax, IT support, and website services. Call or WhatsApp for quick assistance."
       />
       {/* Hero Header */}
-      <section style={{ backgroundColor: 'var(--bg-dark)', color: 'white', padding: 'var(--section-padding)', textAlign: 'center' }}>
-        <div className="container">
-          <div style={{ backgroundColor: 'rgba(255,100,100,0.1)', padding: '0.6rem 1.2rem', borderRadius: '100px', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.5rem', border: '1px solid rgba(255,100,100,0.2)', color: '#FF8A8A', fontWeight: 600 }}>
-            <Zap size={20} />
+      <section style={{ 
+        position: 'relative',
+        padding: 'var(--section-padding-desktop) !important', 
+        textAlign: 'center',
+        backgroundImage: 'linear-gradient(to bottom, rgba(7, 8, 25, 0.92), rgba(7, 8, 25, 0.85)), url("https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&q=80&w=1200")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        color: 'white'
+      }}>
+        <div className="container" style={{ padding: '60px 1.5rem' }}>
+          <div style={{ backgroundColor: 'rgba(255,100,100,0.1)', padding: '0.4rem 1rem', borderRadius: '100px', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', border: '1px solid rgba(255,100,100,0.2)', color: '#FF8A8A', fontWeight: 600 }}>
+            <Zap size={18} />
             <span>Serving Tamil Nadu & Bengaluru</span>
           </div>
-          <h1 style={{ color: 'white', marginBottom: '1.5rem', fontSize: 'clamp(2rem, 6vw, 3.5rem)', letterSpacing: '-1.5px' }}>Start Your Optimization</h1>
-          <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.2rem', maxWidth: '700px', margin: '0 auto', fontWeight: 500 }}>
+          <h1 style={{ color: 'white', marginBottom: '1rem', fontSize: 'clamp(2rem, 6vw, 3rem)', letterSpacing: '-1.5px' }}>Start Your Optimization</h1>
+          <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.1rem', maxWidth: '700px', margin: '0 auto', fontWeight: 500 }}>
             Call or WhatsApp now for quick response. Available for on-site IT support in Bengaluru and GST services in Tamil Nadu.
           </p>
         </div>
@@ -170,10 +186,17 @@ const Contact = () => {
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                   <label style={{ fontWeight: 600, fontSize: '0.9rem' }}>How can we help?</label>
-                  <textarea rows={4} placeholder="Tell us about your requirements..." style={{ width: '100%', padding: '1rem', borderRadius: '10px', border: '1px solid var(--border-light)', backgroundColor: 'var(--bg-soft)', resize: 'none' }}></textarea>
+                  <textarea 
+                    rows={4} 
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Tell us about your requirements..." 
+                    style={{ width: '100%', padding: '1rem', borderRadius: '10px', border: '1px solid var(--border-light)', backgroundColor: 'var(--bg-soft)', resize: 'none' }}
+                  ></textarea>
                 </div>
-                <button type="submit" className="btn btn-primary" style={{ padding: '1.2rem', fontSize: '1.1rem', borderRadius: '100px' }}>
-                  <Send size={20} />
+                <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>
+                  <Send size={18} />
                   <span>Get Quick Support</span>
                 </button>
               </form>

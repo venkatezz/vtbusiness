@@ -24,77 +24,52 @@ const Home = () => {
       {/* Hero Section */}
       <section style={{
         position: 'relative',
-        minHeight: '85vh',
+        minHeight: '65vh',
         display: 'flex',
         alignItems: 'center',
-        padding: 'var(--section-padding)',
+        padding: '0',
         overflow: 'hidden',
-        background: `linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.8)), url('/hero.png')`,
+        background: `linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.8)), url('/hero.png')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center'
       }}>
-        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+        <div className="container" style={{ position: 'relative', zIndex: 2, padding: '40px 1.5rem' }}>
           <div style={{ maxWidth: '850px', margin: '0 auto', textAlign: 'center' }}>
             <div style={{ 
               backgroundColor: 'rgba(255,255,255,0.1)', 
-              padding: '0.6rem 1.2rem', 
+              padding: '0.4rem 1rem', 
               borderRadius: '100px', 
               display: 'inline-flex', 
               alignItems: 'center', 
               gap: '0.5rem', 
-              marginBottom: '1.5rem', 
+              marginBottom: '1rem', 
               border: '1px solid rgba(255,255,255,0.2)' 
             }}>
-              <Zap size={20} className="text-secondary" />
-              <span style={{ fontWeight: 600, fontSize: '0.9rem', color: 'white' }}>Fast & Reliable Business Support</span>
+              <Zap size={18} className="text-secondary" />
+              <span style={{ fontWeight: 600, fontSize: '0.85rem', color: 'white' }}>Fast & Reliable Business Support</span>
             </div>
             
-            <h1 style={{ color: 'white', marginBottom: '1rem', fontSize: 'clamp(2.5rem, 8vw, 4.5rem)', lineHeight: 1.1, letterSpacing: '-2px' }}>
+            <h1 style={{ color: 'white', marginBottom: '0.8rem', fontSize: 'clamp(2.5rem, 6vw, 3.8rem)', lineHeight: 1.1, letterSpacing: '-2px' }}>
               Optimize Your Business <br /> <span className="text-secondary">Operations Today</span>
             </h1>
             
-            <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.4rem', fontWeight: 600, marginBottom: '2rem', letterSpacing: '0.5px' }}>
+            <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.2rem', fontWeight: 600, marginBottom: '1.5rem', letterSpacing: '0.5px' }}>
               GST, Accounting & IT Support for Small Businesses
             </p>
             
-            <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.2rem', maxWidth: '700px', margin: '0 auto 2.5rem', lineHeight: 1.6 }}>
+            <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.1rem', maxWidth: '700px', margin: '0 auto 2rem', lineHeight: 1.6 }}>
               Reliable financial compliance and high-performance IT infrastructure for growing enterprises across Tamil Nadu & Bengaluru.
             </p>
 
-            <div className="responsive-stack" style={{
-              justifyContent: 'center',
-              gap: '1.5rem',
-              marginBottom: '3rem',
-              color: 'white'
-            }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <CheckCircle size={18} color="var(--secondary)" />
-                <span style={{ fontWeight: 500, fontSize: '0.95rem' }}>GST & Tax Support</span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <CheckCircle size={18} color="var(--secondary)" />
-                <span style={{ fontWeight: 500, fontSize: '0.95rem' }}>IT Support & Setup</span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <CheckCircle size={18} color="var(--secondary)" />
-                <span style={{ fontWeight: 500, fontSize: '0.95rem' }}>Websites & Cloud Services</span>
-              </div>
-            </div>
-
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <a href="https://api.whatsapp.com/send?phone=919498856100" className="btn btn-whatsapp" style={{ padding: '1rem 2.5rem', borderRadius: '100px' }}>
-                <WhatsAppIcon size={20} />
+              <a href="tel:+919498856100" className="btn btn-primary">
+                <Phone size={18} />
+                <span>Call Us</span>
+              </a>
+              <a href="https://api.whatsapp.com/send?phone=919498856100" className="btn btn-whatsapp">
+                <WhatsAppIcon size={18} />
                 <span>Chat on WhatsApp</span>
               </a>
-              <Link to="/contact" className="btn" style={{
-                backgroundColor: 'rgba(255,255,255,0.1)',
-                color: 'white',
-                border: '1px solid rgba(255,255,255,0.2)',
-                backdropFilter: 'blur(10px)',
-                padding: '1rem 2rem'
-              }}>
-                Get Started
-              </Link>
             </div>
             
             <div style={{ 
@@ -102,15 +77,15 @@ const Home = () => {
               alignItems: 'center', 
               gap: '0.6rem', 
               color: 'rgba(255,255,255,0.8)', 
-              fontSize: '0.9rem', 
+              fontSize: '0.85rem', 
               fontWeight: 600, 
-              marginTop: '2.5rem',
-              padding: '0.5rem 1rem',
+              marginTop: '2rem',
+              padding: '0.4rem 0.8rem',
               backgroundColor: 'rgba(255,255,255,0.05)',
               borderRadius: '100px',
               border: '1px solid rgba(255,255,255,0.1)'
             }}>
-              <MapPin size={16} color="var(--secondary)" />
+              <MapPin size={14} color="var(--secondary)" />
               <span>Serving Tamil Nadu and Bengaluru businesses</span>
             </div>
           </div>
@@ -343,19 +318,19 @@ const Home = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="section" style={{ textAlign: 'center', padding: 'var(--section-padding)', position: 'relative', overflow: 'hidden' }}>
+      <section className="section" style={{ textAlign: 'center', padding: 'var(--section-padding-desktop)', position: 'relative', overflow: 'hidden', marginBottom: '50px' }}>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 3rem)', marginBottom: '1.5rem' }}>Ready to offload the stress?</h2>
-          <p style={{ color: 'var(--primary)', fontSize: '1.25rem', fontWeight: 600, marginBottom: '1rem' }}>
+          <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 3rem)', marginBottom: '1.2rem' }}>Ready to offload the stress?</h2>
+          <p style={{ color: 'var(--primary)', fontSize: '1.2rem', fontWeight: 600, marginBottom: '0.8rem' }}>
             Call or WhatsApp for quick support
           </p>
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', marginTop: '2.5rem' }}>
-            <a href="tel:+919498856100" className="btn btn-primary" style={{ padding: '1rem 2.5rem', borderRadius: '100px' }}>
-              <Phone size={22} />
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', marginTop: '2rem' }}>
+            <a href="tel:+919498856100" className="btn btn-primary">
+              <Phone size={20} />
               Call +91 94988 56100
             </a>
-            <a href="https://api.whatsapp.com/send?phone=919498856100" className="btn btn-whatsapp" style={{ padding: '1rem 2.5rem', borderRadius: '100px' }}>
-              <WhatsAppIcon size={22} />
+            <a href="https://api.whatsapp.com/send?phone=919498856100" className="btn btn-whatsapp">
+              <WhatsAppIcon size={20} />
               WhatsApp Us
             </a>
           </div>
