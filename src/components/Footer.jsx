@@ -9,7 +9,7 @@ const Footer = () => {
     <footer style={{
       backgroundColor: 'var(--bg-dark)',
       color: 'white',
-      padding: '3rem 0 1.5rem',
+      padding: '2rem 0 1rem',
       marginTop: 'auto',
       borderTop: '1px solid rgba(255,255,255,0.05)'
     }}>
@@ -17,7 +17,7 @@ const Footer = () => {
         <div className="grid-responsive" style={{
           display: 'grid',
           gridTemplateColumns: '1.2fr 0.8fr 1fr 1.5fr',
-          gap: '2rem',
+          gap: '1.5rem',
           alignItems: 'start'
         }}>
 
@@ -62,10 +62,10 @@ const Footer = () => {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
               <a href="tel:+919498856100" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', textDecoration: 'none' }}>
-                <Phone size={14} style={{ color: 'var(--primary-glow)' }} /> +91 94988 56100
+                <Phone size={14} style={{ color: 'var(--secondary)' }} /> +91 94988 56100
               </a>
               <a href="mailto:vtconsulting.in@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', textDecoration: 'none' }}>
-                <Mail size={14} style={{ color: 'var(--primary-glow)' }} /> vtconsulting.in@gmail.com
+                <Mail size={14} style={{ color: 'var(--secondary)' }} /> vtconsulting.in@gmail.com
               </a>
             </div>
 
@@ -103,7 +103,7 @@ const Footer = () => {
           gap: '1rem'
         }}>
           <div>
-            <span style={{ fontWeight: 700, color: 'rgba(255,255,255,0.5)' }}>Serving Tamil Nadu & Bengaluru</span>
+            <span style={{ fontWeight: 700, color: 'rgba(255,255,255,0.5)' }}>Serving 50+ clients across Tamil Nadu & Bengaluru</span>
             <p style={{ marginTop: '0.1rem' }}>© 2021 – 2026 VT Business Support. All rights reserved.</p>
           </div>
           <p style={{ fontStyle: 'italic' }}>"Crafting Business Excellence in TN & Karnataka"</p>

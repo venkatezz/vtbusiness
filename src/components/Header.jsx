@@ -69,7 +69,7 @@ const Header = () => {
               style={({ isActive }) => ({
                 fontWeight: 600,
                 fontSize: '0.95rem',
-                color: isActive ? 'var(--primary)' : 'var(--text-main)',
+                color: isActive ? 'var(--bg-dark)' : 'var(--text-main)',
                 position: 'relative',
                 padding: '5px 0'
               })}
@@ -84,7 +84,7 @@ const Header = () => {
                       left: 0,
                       width: '100%',
                       height: '2px',
-                      backgroundColor: 'var(--primary)',
+                      backgroundColor: 'var(--bg-dark)',
                       borderRadius: '2px'
                     }} />
                   )}
@@ -92,7 +92,7 @@ const Header = () => {
               )}
             </NavLink>
           ))}
-          <a href="tel:+919498856100" className="btn btn-primary" style={{ padding: '0.7rem 1.5rem', borderRadius: '100px' }}>
+          <a href="tel:+919498856100" className="btn" style={{ padding: '0.7rem 1.5rem', borderRadius: '100px', backgroundColor: 'var(--bg-dark)', color: 'white', border: 'none' }}>
              <Phone size={18} />
              <span>Call us</span>
           </a>
@@ -137,14 +137,14 @@ const Header = () => {
             }}
             style={({ isActive }) => ({
               fontWeight: 700,
-              color: isActive ? 'var(--primary)' : 'var(--text-main)',
+              color: isActive ? 'var(--bg-dark)' : 'var(--text-main)',
               fontSize: '1.5rem'
             })}
           >
             {link.title}
           </NavLink>
         ))}
-        <a href="tel:+919498856100" className="btn btn-primary" style={{ marginTop: 'auto', padding: '1.2rem' }}>
+        <a href="tel:+919498856100" className="btn" style={{ marginTop: 'auto', padding: '1.2rem', backgroundColor: 'var(--bg-dark)', color: 'white' }}>
           Call Now
         </a>
       </div>

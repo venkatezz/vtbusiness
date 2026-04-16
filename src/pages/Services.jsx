@@ -195,7 +195,7 @@ const Services = () => {
       {/* Hero Header */}
       <section style={{
         position: 'relative',
-        padding: 'clamp(3rem, 10vw, 6rem) var(--section-padding)',
+        padding: 'clamp(2.5rem, 8vw, 4rem) var(--section-padding)',
         textAlign: 'center',
         backgroundImage: 'linear-gradient(to bottom, rgba(7, 8, 25, 0.85), rgba(7, 8, 25, 0.7)), url("https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1200")',
         backgroundSize: 'cover',
@@ -204,23 +204,28 @@ const Services = () => {
       }}>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <h1 style={{
-            fontSize: 'clamp(2.2rem, 8vw, 3.8rem)',
+            fontSize: 'clamp(2rem, 5vw, 3rem)',
             fontWeight: 800,
             marginBottom: '1rem',
-            letterSpacing: '-2px',
+            letterSpacing: '-1px',
             color: 'white'
           }}>Professional Services</h1>
           <p style={{
-            maxWidth: '750px',
+            maxWidth: '650px',
             margin: '0 auto',
-            fontSize: '1.2rem',
+            fontSize: '1.05rem',
             color: 'rgba(255, 255, 255, 0.9)',
             lineHeight: 1.6,
             fontWeight: 500
           }}>
             Practical financial solutions and high-performance IT automation
-            designed to scale your business across <span style={{ color: '#60A5FA', fontWeight: 700 }}>Tamil Nadu & Bengaluru</span>.
+            designed to scale your business across <span style={{ color: 'var(--secondary)', fontWeight: 700 }}>Tamil Nadu & Bengaluru</span>.
           </p>
+          <div style={{ marginTop: '1.5rem', display: 'inline-flex', padding: '0.6rem 1.2rem', backgroundColor: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '100px' }}>
+            <p style={{ color: 'white', fontSize: '0.95rem', fontWeight: 600, margin: 0, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <WhatsAppIcon size={16} /> Choose a service below and get instant support via WhatsApp
+            </p>
+          </div>
         </div>
       </section>
 
@@ -236,13 +241,13 @@ const Services = () => {
                 style={{
                   padding: '0',
                   backgroundColor: 'white',
-                  borderRadius: '20px',
+                  borderRadius: '12px',
                   border: '1px solid var(--border-light)',
                   boxShadow: 'var(--shadow-sm)',
                   display: 'flex',
                   flexDirection: 'column',
                   overflow: 'hidden',
-                  transition: 'all 0.4s ease'
+                  transition: 'var(--transition)'
                 }}
               >
                 <div style={{ height: '160px', overflow: 'hidden', position: 'relative', backgroundColor: '#f1f5f9' }}>
@@ -287,13 +292,13 @@ const Services = () => {
                 style={{
                   padding: '0',
                   backgroundColor: 'white',
-                  borderRadius: '20px',
+                  borderRadius: '12px',
                   border: '1px solid var(--border-light)',
                   boxShadow: 'var(--shadow-sm)',
                   display: 'flex',
                   flexDirection: 'column',
                   overflow: 'hidden',
-                  transition: 'all 0.4s ease'
+                  transition: 'var(--transition)'
                 }}
               >
                 <div style={{ height: '160px', overflow: 'hidden', position: 'relative', backgroundColor: '#f1f5f9' }}>
@@ -338,13 +343,13 @@ const Services = () => {
                 style={{
                   padding: '0',
                   backgroundColor: 'white',
-                  borderRadius: '20px',
+                  borderRadius: '12px',
                   border: '1px solid var(--border-light)',
                   boxShadow: 'var(--shadow-sm)',
                   display: 'flex',
                   flexDirection: 'column',
                   overflow: 'hidden',
-                  transition: 'all 0.4s ease'
+                  transition: 'var(--transition)'
                 }}
               >
                 <div style={{ height: '160px', overflow: 'hidden', position: 'relative', backgroundColor: '#f1f5f9' }}>
@@ -400,7 +405,7 @@ const Services = () => {
       </section>
 
       {/* Quick CTA */}
-      <section className="section" style={{ textAlign: 'center', backgroundColor: 'var(--bg-soft)', padding: 'var(--section-padding-desktop)', overflow: 'hidden', marginBottom: '50px' }}>
+      <section className="section" style={{ textAlign: 'center', backgroundColor: 'var(--bg-soft)', position: 'relative', overflow: 'hidden' }}>
         <div className="container">
           <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', marginBottom: '1rem' }}>Ready to optimize?</h2>
           <p style={{ color: 'var(--primary)', fontSize: '1.2rem', fontWeight: 700, marginBottom: '1rem' }}>Call or WhatsApp for quick support</p>

@@ -17,14 +17,11 @@ const Home = () => {
         title="GST Filing, Income Tax, IT Support & Website Services | VT Business Support"
         description="Get GST filing, income tax return, accounting, IT support, and website services in Tamil Nadu & Bengaluru. Simple, fast, and reliable support for businesses."
       />
-      {/* Decorative Blobs */}
-      <div className="blob" style={{ top: '10%', left: '-5%' }} />
-      <div className="blob" style={{ top: '60%', right: '-5%', backgroundColor: 'var(--secondary)' }} />
-
+      {/* Decorative Elements Removed for Cleaner Background */}
       {/* Hero Section */}
       <section style={{
         position: 'relative',
-        minHeight: '65vh',
+        minHeight: '50vh',
         display: 'flex',
         alignItems: 'center',
         padding: '0',
@@ -50,30 +47,40 @@ const Home = () => {
               <span style={{ fontWeight: 600, fontSize: '0.85rem', color: 'white' }}>Serving businesses across Tamil Nadu & Bengaluru</span>
             </div>
             
-            <h1 style={{ color: 'white', marginBottom: '0.8rem', fontSize: 'clamp(2.5rem, 6vw, 3.8rem)', lineHeight: 1.1, letterSpacing: '-2px' }}>
-              Optimize Your Business <span className="text-secondary">Operations</span>
+            <h1 style={{ color: 'white', marginBottom: '0.8rem', fontSize: 'clamp(2.2rem, 5vw, 3.2rem)', lineHeight: 1.1, letterSpacing: '-1px' }}>
+              Optimize Your Business <span style={{ color: 'var(--secondary)' }}>Operations</span>
             </h1>
             
-            <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.2rem', fontWeight: 600, marginBottom: '1rem', letterSpacing: '0.5px' }}>
-              GST Filing, Income Tax Return, Accounting & IT Support in Tamil Nadu & Bengaluru
-            </p>
-            
-            <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.1rem', maxWidth: '700px', margin: '0 auto 2rem', lineHeight: 1.6 }}>
-              Simple, reliable support for small businesses.
+            <p style={{ color: 'rgba(255,255,255,0.95)', fontSize: '1.2rem', fontWeight: 600, marginBottom: '2rem', letterSpacing: '0.5px' }}>
+              GST Filing, Income Tax & IT Support — Simple, Fast & Reliable for Small Businesses
             </p>
 
-            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <a href="tel:+919498856100" className="btn btn-primary">
-                <Phone size={18} />
-                <span>Call Us</span>
+            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+              <a href="https://api.whatsapp.com/send?phone=919498856100" className="btn btn-whatsapp">
+                <WhatsAppIcon size={18} />
+                <span>Chat on WhatsApp</span>
+              </a>
+              <Link to="/contact" className="btn" style={{ backgroundColor: 'rgba(255,255,255,0.1)', color: 'white', border: '1px solid rgba(255,255,255,0.3)' }}>
+                <span>Get Free Consultation</span>
+              </Link>
+              <a href="tel:+919498856100" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'underline', fontSize: '0.9rem', marginLeft: '0.5rem' }}>
+                Call Us
               </a>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Trust Banner Below Hero */}
+      <section style={{ backgroundColor: 'var(--bg-dark)', padding: '1rem 0', textAlign: 'center' }}>
+        <p style={{ color: 'white', fontSize: '0.95rem', fontWeight: 600, margin: 0, letterSpacing: '0.5px' }}>
+          <CheckCircle size={14} style={{ display: 'inline', color: 'var(--secondary)', marginRight: '6px', verticalAlign: '-2px' }} />
+          Trusted by 50+ businesses across Tamil Nadu & Bengaluru
+        </p>
+      </section>
+
       {/* Trust Quote / Stats */}
-      <section className="section" style={{ padding: 'var(--section-padding)', background: 'var(--bg-soft)', borderBottom: '1px solid var(--border-light)', marginTop: '40px' }}>
+      <section className="section" style={{ padding: 'var(--section-padding-mobile)', background: 'var(--bg-soft)', borderBottom: '1px solid var(--border-light)' }}>
         <div className="container">
           <div className="grid-responsive" style={{
             display: 'grid',
@@ -82,19 +89,19 @@ const Home = () => {
             textAlign: 'center'
           }}>
             <div>
-              <p style={{ fontSize: '2.2rem', marginBottom: '0.2rem', color: 'var(--primary)', fontWeight: 700 }}>30+</p>
+              <p style={{ fontSize: '2.2rem', marginBottom: '0.2rem', color: 'var(--bg-dark)', fontWeight: 700 }}>50+</p>
               <p style={{ color: 'var(--text-muted)', fontWeight: 500 }}>Clients Supported</p>
             </div>
             <div>
-              <p style={{ fontSize: '2.2rem', marginBottom: '0.2rem', color: 'var(--primary)', fontWeight: 700 }}>5+</p>
+              <p style={{ fontSize: '2.2rem', marginBottom: '0.2rem', color: 'var(--bg-dark)', fontWeight: 700 }}>5+</p>
               <p style={{ color: 'var(--text-muted)', fontWeight: 500 }}>Years Experience</p>
             </div>
             <div>
-              <p style={{ fontSize: '2.2rem', marginBottom: '0.2rem', color: 'var(--primary)', fontWeight: 700 }}>Quick</p>
+              <p style={{ fontSize: '2.2rem', marginBottom: '0.2rem', color: 'var(--bg-dark)', fontWeight: 700 }}>Quick</p>
               <p style={{ color: 'var(--text-muted)', fontWeight: 500 }}>Fast & Practical Support</p>
             </div>
             <div>
-              <p style={{ fontSize: '2.2rem', marginBottom: '0.2rem', color: 'var(--primary)', fontWeight: 700 }}>Trusted</p>
+              <p style={{ fontSize: '2.2rem', marginBottom: '0.2rem', color: 'var(--bg-dark)', fontWeight: 700 }}>Trusted</p>
               <p style={{ color: 'var(--text-muted)', fontWeight: 500 }}>by Small Businesses</p>
             </div>
           </div>
@@ -104,8 +111,8 @@ const Home = () => {
       {/* Services Section */}
       <section className="section">
         <div className="container">
-          <div className="section-title">
-            <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)' }}>Our Core Expertise</h2>
+          <div className="section-title" style={{ marginBottom: '2.5rem' }}>
+            <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)' }}>Our Core Expertise</h2>
             <p style={{ maxWidth: '600px', margin: '0 auto', color: 'var(--text-muted)' }}>Tailored solutions designed to make business management effortless.</p>
           </div>
 
@@ -116,7 +123,7 @@ const Home = () => {
           }}>
             <div className="card-premium">
               <div style={{
-                backgroundColor: 'rgba(79, 70, 229, 0.1)',
+                backgroundColor: 'rgba(30, 64, 175, 0.08)',
                 width: '60px', height: '60px', borderRadius: '15px',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 marginBottom: '1.5rem'
@@ -171,15 +178,46 @@ const Home = () => {
         </div>
       </section>
 
+      {/* How It Works (User Guidance) */}
+      <section className="section" style={{ backgroundColor: 'var(--bg-soft)', borderTop: '1px solid var(--border-light)' }}>
+        <div className="container">
+          <div className="section-title" style={{ marginBottom: '2.5rem' }}>
+            <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)' }}>How It Works</h2>
+          </div>
+          <div className="grid-responsive" style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+            gap: '2rem',
+            textAlign: 'center'
+          }}>
+            <div style={{ backgroundColor: 'white', padding: '2rem 1.5rem', borderRadius: '12px', border: '1px solid var(--border-light)' }}>
+              <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'var(--secondary)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem', fontWeight: 700, margin: '0 auto 1rem' }}>1</div>
+              <h4 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', color: 'var(--bg-dark)' }}>Contact us on WhatsApp</h4>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>Reach out instantly from your phone.</p>
+            </div>
+            <div style={{ backgroundColor: 'white', padding: '2rem 1.5rem', borderRadius: '12px', border: '1px solid var(--border-light)' }}>
+              <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'var(--primary)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem', fontWeight: 700, margin: '0 auto 1rem' }}>2</div>
+              <h4 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', color: 'var(--bg-dark)' }}>We Understand Your Requirement</h4>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>Fast evaluation of your exact needs.</p>
+            </div>
+            <div style={{ backgroundColor: 'white', padding: '2rem 1.5rem', borderRadius: '12px', border: '1px solid var(--border-light)' }}>
+              <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'var(--bg-dark)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem', fontWeight: 700, margin: '0 auto 1rem' }}>3</div>
+              <h4 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', color: 'var(--bg-dark)' }}>Get Quick Solution</h4>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>Resolved professionally within hours.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Why Section */}
       <section className="section" style={{ background: 'var(--bg-dark)', color: 'white' }}>
         <div className="container">
           <div className="grid-responsive" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '3rem', alignItems: 'center' }}>
             <div>
-              <h2 style={{ color: 'white', fontSize: 'clamp(2rem, 5vw, 3rem)', marginBottom: '1.5rem' }}>Why Our Clients Choose Us</h2>
+              <h2 style={{ color: 'white', fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', marginBottom: '1.5rem' }}>Why Our Clients Choose Us</h2>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.8rem' }}>
                 <div style={{ display: 'flex', gap: '1rem' }}>
-                  <div style={{ color: 'var(--primary-glow)', flexShrink: 0 }}><Shield size={28} /></div>
+                  <div style={{ color: 'var(--primary)', flexShrink: 0 }}><Shield size={28} /></div>
                   <div>
                     <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '0.3rem' }}>Professional Integrity</h4>
                     <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.95rem' }}>We operate with full transparency, ensuring your business stays 100% compliant and secure.</p>
@@ -236,7 +274,7 @@ const Home = () => {
               gap: '0.8rem',
               border: '1px solid var(--border-light)'
             }}>
-              <div style={{ color: 'var(--primary)', backgroundColor: 'rgba(79, 70, 229, 0.1)', width: '45px', height: '45px', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <div style={{ color: 'var(--primary)', backgroundColor: 'rgba(30, 64, 175, 0.1)', width: '45px', height: '45px', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <Shield size={22} />
               </div>
               <h4 style={{ fontSize: '1.1rem', color: 'var(--bg-dark)' }}>Fast response and support</h4>
@@ -287,7 +325,7 @@ const Home = () => {
               gap: '0.8rem',
               border: '1px solid var(--border-light)'
             }}>
-              <div style={{ color: 'var(--primary-glow)', backgroundColor: 'rgba(129, 140, 248, 0.1)', width: '45px', height: '45px', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <div style={{ color: 'var(--primary)', backgroundColor: 'rgba(30, 64, 175, 0.08)', width: '45px', height: '45px', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <Briefcase size={22} />
               </div>
               <h4 style={{ fontSize: '1.1rem', color: 'var(--bg-dark)' }}>One place for Finance + IT</h4>
@@ -316,18 +354,61 @@ const Home = () => {
           </div>
         </div>
       </section>
-
+      {/* Testimonials Section */}
+      <section className="section" style={{ backgroundColor: 'var(--bg-soft)' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
+            <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', color: 'var(--bg-dark)', marginBottom: '0.5rem' }}>What Clients Say</h2>
+            <p style={{ color: 'var(--text-muted)', fontWeight: 600 }}>⭐ Rated 4.5 on Google</p>
+          </div>
+          
+          <div className="grid-responsive" style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '1.5rem'
+          }}>
+            {[
+              { name: 'Karthik R.', rating: 5, text: '"Their GST filing process is flawless. No more late fees and I finally understand my taxes. Their active WhatsApp support is a lifesaver."' },
+              { name: 'Priya Sharma', rating: 5, text: '"Extremely quick IT setup for my new office in Bengaluru! From networking to software setup, they handled everything smoothly."' },
+              { name: 'Sakthi Traders', rating: 5, text: '"Best choice we made for accounting. They handle the messy book-keeping while we just focus on sales. Very reliable team."' }
+            ].map((review, idx) => (
+              <div key={idx} style={{ 
+                backgroundColor: 'white', 
+                padding: '1.5rem', 
+                borderRadius: '12px', 
+                border: '1px solid var(--border-light)'
+              }}>
+                <div style={{ display: 'flex', gap: '4px', marginBottom: '0.8rem' }}>
+                  {[...Array(review.rating)].map((_, i) => (
+                    <svg key={i} width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B" color="#F59E0B"><path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/></svg>
+                  ))}
+                </div>
+                <p style={{ color: 'var(--text-main)', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '1rem', fontStyle: 'italic' }}>
+                  {review.text}
+                </p>
+                <div style={{ fontWeight: 600, color: 'var(--bg-dark)', fontSize: '0.9rem' }}>
+                  - {review.name}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
       {/* Final CTA */}
-      <section className="section" style={{ textAlign: 'center', padding: 'var(--section-padding-desktop)', position: 'relative', overflow: 'hidden', marginBottom: '50px' }}>
+      <section className="section" style={{ textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 3rem)', marginBottom: '1.2rem' }}>Ready to offload the stress?</h2>
-          <p style={{ color: 'var(--primary)', fontSize: '1.2rem', fontWeight: 600, marginBottom: '0.8rem' }}>
+          <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', marginBottom: '1rem' }}>Ready to offload the stress?</h2>
+          <p style={{ color: 'var(--bg-dark)', fontSize: '1.2rem', fontWeight: 600, marginBottom: '0.8rem' }}>
             Call or WhatsApp for quick support
           </p>
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', marginTop: '2rem' }}>
-            <a href="tel:+919498856100" className="btn btn-primary">
-              <Phone size={20} />
-              Call +91 94988 56100
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', marginTop: '2rem' }}>
+            <a href="https://api.whatsapp.com/send?phone=919498856100" className="btn btn-whatsapp">
+              <WhatsAppIcon size={18} />
+              <span>Chat on WhatsApp</span>
+            </a>
+            <a href="tel:+919498856100" className="btn" style={{ backgroundColor: 'var(--bg-soft)', color: 'var(--bg-dark)', border: '1px solid var(--border-light)' }}>
+              <Phone size={18} />
+              Call us
             </a>
           </div>
         </div>

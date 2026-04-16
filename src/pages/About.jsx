@@ -17,14 +17,14 @@ const About = () => {
       {/* Hero Section */}
       <section style={{ 
         position: 'relative',
-        padding: 'var(--section-padding-desktop) !important', 
+        padding: '3rem 1.5rem', 
         textAlign: 'center',
         backgroundImage: 'linear-gradient(to bottom, rgba(7, 8, 25, 0.9), rgba(7, 8, 25, 0.8)), url("https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1200")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         color: 'white'
       }}>
-        <div className="container" style={{ padding: '60px 1.5rem' }}>
+        <div className="container">
           <h1 style={{ color: 'white', marginBottom: '0.5rem', fontSize: 'clamp(2.2rem, 6vw, 3rem)' }}>Our Mission & Values</h1>
           <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.1rem', fontWeight: 600, marginBottom: '1rem', letterSpacing: '0.5px' }}>
             GST, Accounting & IT Support for Small Businesses
@@ -66,7 +66,7 @@ const About = () => {
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800"
                 alt="VT Business Support Team Meeting"
                 loading="lazy"
-                style={{ width: '100%', borderRadius: '20px', boxShadow: 'var(--shadow-lg)' }}
+                style={{ width: '100%', borderRadius: '12px', boxShadow: 'var(--shadow-lg)' }}
               />
             </div>
           </div>
@@ -87,7 +87,7 @@ const About = () => {
               { icon: <Building2 size={24} />, title: 'Professional Offices', desc: 'Reliable networking and system upkeep for smooth operations.' },
               { icon: <Rocket size={24} />, title: 'Growing Startups', desc: 'Scalable cloud services and business compliance from Day 1.' }
             ].map((item, idx) => (
-              <div key={idx} style={{ backgroundColor: 'white', padding: '2rem', borderRadius: '15px', border: '1px solid var(--border-light)' }}>
+              <div key={idx} style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '12px', border: '1px solid var(--border-light)' }}>
                 <div style={{ color: 'var(--primary)', marginBottom: '1rem' }}>{item.icon}</div>
                 <h4 style={{ marginBottom: '0.5rem', fontSize: '1.1rem' }}>{item.title}</h4>
                 <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: 0 }}>{item.desc}</p>
@@ -141,7 +141,7 @@ const About = () => {
               { icon: <Award />, title: 'Affordable pricing', desc: 'Premium quality services tailored to fit the budget of small businesses and startups.' },
               { icon: <ShieldCheck />, title: 'Finance + IT in One Place', desc: 'Stop managing multiple vendors. We handle your digital and financial health.' }
             ].map((item, idx) => (
-              <div key={idx} style={{ backgroundColor: 'rgba(255,255,255,0.05)', padding: '2rem', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.1)' }}>
+              <div key={idx} style={{ backgroundColor: 'rgba(255,255,255,0.05)', padding: '1.5rem', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <div style={{ color: 'var(--secondary)', marginBottom: '1.2rem' }}>{item.icon}</div>
                 <h3 style={{ fontSize: '1.3rem', marginBottom: '1rem', color: 'white' }}>{item.title}</h3>
                 <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: 0 }}>{item.desc}</p>
@@ -152,7 +152,7 @@ const About = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section className="section" style={{ textAlign: 'center', marginBottom: '50px' }}>
+      <section className="section" style={{ textAlign: 'center' }}>
         <div className="container">
           <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', marginBottom: '1.2rem', letterSpacing: '-1px' }}>Need help with your business?</h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', marginBottom: '2rem' }}>Call or WhatsApp us now for quick response and support.</p>

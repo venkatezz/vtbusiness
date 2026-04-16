@@ -44,8 +44,8 @@ const GoogleRating = () => {
           target="_blank"
           rel="noopener noreferrer"
           style={{
-            color: 'var(--primary-glow)',
-            fontSize: '0.75rem',
+            color: 'var(--accent)',
+            fontSize: '0.85rem',
             fontWeight: 600,
             textDecoration: 'none',
             transition: 'var(--transition)'

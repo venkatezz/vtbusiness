@@ -19,7 +19,7 @@ const WhatsAppButton = () => {
       aria-label="Chat on WhatsApp"
     >
       <WhatsAppIcon size={20} color="white" />
-      <span>Chat on WhatsApp</span>
+      <span>Chat with us</span>
     </a>
   );
 };

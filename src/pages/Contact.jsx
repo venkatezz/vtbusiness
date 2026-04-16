@@ -13,7 +13,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    const message = `Hi, I need support.\n\nCompany Name: ${formData.name}\nPhone: ${formData.phone}\nService Required: ${formData.requirement || 'Not specified'}\nMessage: ${formData.message}`;
+    const message = `Hi, I need support for ${formData.requirement || 'my business'}.\n\nCompany Name: ${formData.name}\nPhone: ${formData.phone}\nMessage: ${formData.message}`;
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/919498856100?text=${encodedMessage}`;
     
@@ -58,14 +58,14 @@ const Contact = () => {
       {/* Hero Header */}
       <section style={{ 
         position: 'relative',
-        padding: 'var(--section-padding-desktop) !important', 
+        padding: '3rem 1.5rem', 
         textAlign: 'center',
         backgroundImage: 'linear-gradient(to bottom, rgba(7, 8, 25, 0.92), rgba(7, 8, 25, 0.85)), url("https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&q=80&w=1200")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         color: 'white'
       }}>
-        <div className="container" style={{ padding: '60px 1.5rem' }}>
+        <div className="container">
           <div style={{ backgroundColor: 'rgba(255,100,100,0.1)', padding: '0.4rem 1rem', borderRadius: '100px', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', border: '1px solid rgba(255,100,100,0.2)', color: '#FF8A8A', fontWeight: 600 }}>
             <Zap size={18} />
             <span>Serving Tamil Nadu & Bengaluru</span>
@@ -136,13 +136,13 @@ const Contact = () => {
             </div>
 
             {/* Right Column: Contact Form */}
-            <div className="card-premium" style={{ boxShadow: 'var(--shadow-xl)', height: 'fit-content' }}>
-              <h3 style={{ marginBottom: '2rem', fontSize: '1.5rem' }}>Send a Message</h3>
-              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <div className="card-premium" style={{ boxShadow: 'var(--shadow-lg)' }}>
+              <h3 style={{ marginBottom: '1.5rem', fontSize: '1.5rem' }}>Send a Message</h3>
+              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
                 <div className="grid-responsive" style={{ 
                   display: 'grid', 
                   gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', 
-                  gap: '1.5rem' 
+                  gap: '1.2rem' 
                 }}>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                     <label style={{ fontWeight: 600, fontSize: '0.9rem' }}>Company Name</label>
@@ -153,7 +153,7 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       placeholder="VT Business Support"
-                      style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border-light)', backgroundColor: 'var(--bg-soft)' }}
+                      style={{ padding: '0.8rem', borderRadius: '8px', border: '1px solid var(--border-light)', backgroundColor: 'var(--bg-soft)' }}
                     />
                   </div>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
@@ -165,7 +165,7 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       placeholder="+91 94988 56100"
-                      style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border-light)', backgroundColor: 'var(--bg-soft)' }}
+                      style={{ padding: '0.8rem', borderRadius: '8px', border: '1px solid var(--border-light)', backgroundColor: 'var(--bg-soft)' }}
                     />
                   </div>
                 </div>
@@ -175,7 +175,7 @@ const Contact = () => {
                     name="requirement"
                     value={formData.requirement}
                     onChange={handleChange}
-                    style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border-light)', backgroundColor: 'var(--bg-soft)' }}
+                    style={{ padding: '0.8rem', borderRadius: '8px', border: '1px solid var(--border-light)', backgroundColor: 'var(--bg-soft)' }}
                   >
                     <option value="">Select a service</option>
                     <option value="GST & Tax Compliance">GST & Tax Compliance</option>
@@ -192,12 +192,17 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Tell us about your requirements..." 
-                    style={{ width: '100%', padding: '1rem', borderRadius: '10px', border: '1px solid var(--border-light)', backgroundColor: 'var(--bg-soft)', resize: 'none' }}
+                    style={{ width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1px solid var(--border-light)', backgroundColor: 'var(--bg-soft)', resize: 'none' }}
                   ></textarea>
                 </div>
-                <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>
-                  <Send size={18} />
-                  <span>Get Quick Support</span>
+                <div style={{ textAlign: 'center', marginTop: '0.4rem' }}>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', fontWeight: 500, margin: 0 }}>
+                    We usually respond within 10–15 minutes on WhatsApp
+                  </p>
+                </div>
+                <button type="submit" className="btn btn-whatsapp" style={{ width: '100%', marginTop: '0.2rem' }}>
+                  <MessageCircle size={18} />
+                  <span>Send via WhatsApp</span>
                 </button>
               </form>
             </div>
