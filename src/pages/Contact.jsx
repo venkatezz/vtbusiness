@@ -52,27 +52,27 @@ const Contact = () => {
   return (
     <div className="fade-in">
       <SEO 
-        title="Contact VT Business Support | GST & IT Services in TN & Bengaluru"
-        description="Contact VT Business Support for GST filing, income tax, IT support, and website services. Call or WhatsApp for quick assistance."
+        title="Contact Us | Professional Business Support in TN & Bengaluru"
+        description="Get in touch with VT Business Support for GST filing, accounting, IT support, and website development. We serve clients across Tamil Nadu and Bengaluru."
       />
       {/* Hero Header */}
       <section style={{ 
         position: 'relative',
-        padding: '3rem 1.5rem', 
+        padding: '80px 0', 
         textAlign: 'center',
-        backgroundImage: 'linear-gradient(to bottom, rgba(7, 8, 25, 0.92), rgba(7, 8, 25, 0.85)), url("https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&q=80&w=1200")',
+        backgroundImage: 'linear-gradient(to bottom, rgba(8, 16, 40, 0.95), rgba(8, 16, 40, 0.85)), url("https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&q=80&w=1200")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         color: 'white'
       }}>
         <div className="container">
-          <div style={{ backgroundColor: 'rgba(255,100,100,0.1)', padding: '0.4rem 1rem', borderRadius: '100px', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', border: '1px solid rgba(255,100,100,0.2)', color: '#FF8A8A', fontWeight: 600 }}>
-            <Zap size={18} />
+          <div style={{ backgroundColor: 'rgba(74, 63, 224, 0.15)', padding: '0.5rem 1.25rem', borderRadius: '100px', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.25rem', border: '1px solid rgba(74, 63, 224, 0.3)', color: 'var(--primary-hover)', fontWeight: 700, fontSize: '0.9rem' }}>
+            <Zap size={16} />
             <span>Serving Tamil Nadu & Bengaluru</span>
           </div>
-          <h1 style={{ color: 'white', marginBottom: '1rem', fontSize: 'clamp(2rem, 6vw, 3rem)', letterSpacing: '-1.5px' }}>Start Your Optimization</h1>
-          <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.1rem', maxWidth: '700px', margin: '0 auto', fontWeight: 500 }}>
-            Call or WhatsApp now for quick response. Available for on-site IT support in Bengaluru and GST services in Tamil Nadu.
+          <h1 style={{ color: 'white', marginBottom: '1.25rem', fontSize: 'clamp(2.5rem, 6vw, 3.5rem)', fontWeight: 800, letterSpacing: '-0.02em' }}>Start Your Optimization</h1>
+          <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.15rem', maxWidth: '700px', margin: '0 auto', fontWeight: 500, lineHeight: 1.6 }}>
+            Connect with our experts today. We provide on-site IT infrastructure support in Bengaluru and professional tax services across Tamil Nadu.
           </p>
         </div>
       </section>
@@ -86,78 +86,94 @@ const Contact = () => {
           }}>
             {/* Left Column: Contact Info */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-              <div className="card-premium" style={{ backgroundColor: 'white', padding: '1.8rem', border: '1px solid var(--border-light)' }}>
-                <h3 style={{ marginBottom: '1.8rem', fontSize: '1.4rem', color: 'var(--bg-dark)' }}>Direct Line</h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              <div className="card-premium" style={{ backgroundColor: 'white', padding: '2.25rem', border: '1px solid var(--border-light)', borderRadius: '20px' }}>
+                <h3 style={{ marginBottom: '2rem', fontSize: '1.5rem', color: 'var(--dark)', fontWeight: 800 }}>Direct Line</h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>
                   {contactList.map((item, idx) => (
                     <a
                       key={idx}
                       href={item.href}
                       style={{
                         display: 'flex',
-                        gap: '1.2rem',
+                        gap: '1.25rem',
                         alignItems: 'center',
                         textDecoration: 'none',
-                        color: 'inherit'
+                        color: 'inherit',
+                        transition: 'var(--transition)'
                       }}
+                      className="contact-item-hover"
                     >
                       <div style={{
-                        backgroundColor: 'white',
-                        padding: '0.8rem',
-                        borderRadius: '12px',
-                        color: idx === 3 ? 'var(--secondary)' : 'var(--primary)',
+                        backgroundColor: 'var(--bg-soft)',
+                        padding: '0.85rem',
+                        borderRadius: '14px',
+                        color: idx === 3 ? '#25D366' : 'var(--primary)',
                         flexShrink: 0,
-                        boxShadow: 'var(--shadow-sm)',
                         display: 'flex',
                         alignItems: 'center',
-                        justifyContent: 'center'
+                        justifyContent: 'center',
+                        border: '1px solid var(--border-light)'
                       }}>
                         {React.cloneElement(item.icon, { size: 22 })}
                       </div>
                       <div style={{ flex: 1, minWidth: 0 }}>
-                        <h4 style={{ color: 'var(--text-muted)', fontSize: '0.8rem', marginBottom: '0.1rem', fontWeight: 600 }}>{item.title}</h4>
-                        <p style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--bg-dark)', overflowWrap: 'anywhere' }}>{item.value}</p>
+                        <h4 style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginBottom: '0.15rem', fontWeight: 600 }}>{item.title}</h4>
+                        <p style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--dark)', overflowWrap: 'anywhere' }}>{item.value}</p>
                       </div>
                     </a>
                   ))}
                 </div>
-                <div style={{ marginTop: '2rem', padding: '1rem', backgroundColor: 'white', borderRadius: '12px', border: '1px solid var(--border-light)' }}>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', fontWeight: 500, lineHeight: 1.4 }}>
-                    <span style={{ color: 'var(--primary)', fontWeight: 700 }}>Need quick help?</span> Call or WhatsApp us for fast response on GST, IT support, or business setup.
+                <div style={{ marginTop: '2.5rem', padding: '1.25rem', backgroundColor: 'var(--bg-soft)', borderRadius: '16px', border: '1px solid var(--border-light)' }}>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', fontWeight: 500, lineHeight: 1.5, margin: 0 }}>
+                    <span style={{ color: 'var(--primary)', fontWeight: 800 }}>Need quick help?</span> Call or WhatsApp us for fast response on GST, IT support, or business setup.
                   </p>
                 </div>
               </div>
 
-              <div className="card-premium" style={{ border: '2px dashed var(--primary)', background: 'transparent' }}>
-                <h4 style={{ marginBottom: '1rem', color: 'var(--primary)' }}>Business Hours</h4>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', fontWeight: 500 }}>Monday – Saturday: 9:00 AM – 7:30 PM</p>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', fontWeight: 500 }}>Sunday: Closed (WhatsApp support available)</p>
+              <div className="card-premium" style={{ border: '2px dashed var(--primary)', background: 'transparent', borderRadius: '20px', padding: '2rem' }}>
+                <h4 style={{ marginBottom: '1.25rem', color: 'var(--primary)', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <Shield size={20} />
+                  Business Hours
+                </h4>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ color: 'var(--text-muted)', fontWeight: 600 }}>Mon – Sat:</span>
+                    <span style={{ color: 'var(--dark)', fontWeight: 700 }}>9:00 AM – 7:30 PM</span>
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ color: 'var(--text-muted)', fontWeight: 600 }}>Sunday:</span>
+                    <span style={{ color: 'var(--primary)', fontWeight: 700 }}>WhatsApp Support</span>
+                  </div>
+                </div>
               </div>
             </div>
 
             {/* Right Column: Contact Form */}
-            <div className="card-premium" style={{ boxShadow: 'var(--shadow-lg)' }}>
-              <h3 style={{ marginBottom: '1.5rem', fontSize: '1.5rem' }}>Send a Message</h3>
-              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+            <div className="card-premium" style={{ boxShadow: 'var(--shadow-lg)', borderRadius: '24px', padding: '2.5rem' }}>
+              <h3 style={{ marginBottom: '0.5rem', fontSize: '1.75rem', fontWeight: 800, color: 'var(--dark)' }}>Send a Message</h3>
+              <p style={{ color: 'var(--text-muted)', marginBottom: '2rem', fontWeight: 500 }}>Tell us about your business needs.</p>
+              
+              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                 <div className="grid-responsive" style={{ 
                   display: 'grid', 
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', 
-                  gap: '1.2rem' 
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', 
+                  gap: '1.5rem' 
                 }}>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                    <label style={{ fontWeight: 600, fontSize: '0.9rem' }}>Company Name</label>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                    <label style={{ fontWeight: 700, fontSize: '0.9rem', color: 'var(--dark)' }}>Company Name</label>
                     <input
                       type="text"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      placeholder="VT Business Support"
-                      style={{ padding: '0.8rem', borderRadius: '8px', border: '1px solid var(--border-light)', backgroundColor: 'var(--bg-soft)' }}
+                      placeholder="Your Business Name"
+                      style={{ padding: '1rem', borderRadius: '12px', border: '1px solid var(--border-light)', backgroundColor: 'var(--bg-soft)', fontSize: '1rem', transition: 'var(--transition)' }}
+                      className="form-input"
                     />
                   </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                    <label style={{ fontWeight: 600, fontSize: '0.9rem' }}>Contact Number</label>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                    <label style={{ fontWeight: 700, fontSize: '0.9rem', color: 'var(--dark)' }}>Contact Number</label>
                     <input
                       type="tel"
                       name="phone"
@@ -165,44 +181,48 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       placeholder="+91 94988 56100"
-                      style={{ padding: '0.8rem', borderRadius: '8px', border: '1px solid var(--border-light)', backgroundColor: 'var(--bg-soft)' }}
+                      style={{ padding: '1rem', borderRadius: '12px', border: '1px solid var(--border-light)', backgroundColor: 'var(--bg-soft)', fontSize: '1rem', transition: 'var(--transition)' }}
+                      className="form-input"
                     />
                   </div>
                 </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                  <label style={{ fontWeight: 600, fontSize: '0.9rem' }}>Service Required</label>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                  <label style={{ fontWeight: 700, fontSize: '0.9rem', color: 'var(--dark)' }}>Service Required</label>
                   <select
                     name="requirement"
                     value={formData.requirement}
                     onChange={handleChange}
-                    style={{ padding: '0.8rem', borderRadius: '8px', border: '1px solid var(--border-light)', backgroundColor: 'var(--bg-soft)' }}
+                    style={{ padding: '1rem', borderRadius: '12px', border: '1px solid var(--border-light)', backgroundColor: 'var(--bg-soft)', fontSize: '1rem', cursor: 'pointer', transition: 'var(--transition)' }}
+                    className="form-input"
                   >
-                    <option value="">Select a service</option>
+                    <option value="">Select a service category</option>
                     <option value="GST & Tax Compliance">GST & Tax Compliance</option>
                     <option value="Accounting & Bookkeeping">Accounting & Bookkeeping</option>
                     <option value="IT Infrastructure & Setup">IT Infrastructure & Setup</option>
                     <option value="Web & Cloud Growth">Web & Cloud Growth</option>
                   </select>
                 </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                  <label style={{ fontWeight: 600, fontSize: '0.9rem' }}>How can we help?</label>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                  <label style={{ fontWeight: 700, fontSize: '0.9rem', color: 'var(--dark)' }}>How can we help?</label>
                   <textarea 
                     rows={4} 
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Tell us about your requirements..." 
-                    style={{ width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1px solid var(--border-light)', backgroundColor: 'var(--bg-soft)', resize: 'none' }}
+                    placeholder="Describe your requirements or questions..." 
+                    style={{ width: '100%', padding: '1rem', borderRadius: '12px', border: '1px solid var(--border-light)', backgroundColor: 'var(--bg-soft)', resize: 'none', fontSize: '1rem', transition: 'var(--transition)' }}
+                    className="form-input"
                   ></textarea>
                 </div>
-                <div style={{ textAlign: 'center', marginTop: '0.4rem' }}>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', fontWeight: 500, margin: 0 }}>
-                    We usually respond within 10–15 minutes on WhatsApp
+                <div style={{ textAlign: 'center', marginTop: '0.5rem' }}>
+                  <p style={{ color: 'var(--primary)', fontSize: '0.9rem', fontWeight: 700, margin: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+                    <MessageCircle size={16} />
+                    Instant Response via WhatsApp
                   </p>
                 </div>
-                <button type="submit" className="btn btn-whatsapp" style={{ width: '100%', marginTop: '0.2rem' }}>
-                  <MessageCircle size={18} />
-                  <span>Send via WhatsApp</span>
+                <button type="submit" className="btn btn-whatsapp" style={{ width: '100%', height: '56px', fontSize: '1.1rem', borderRadius: '12px', fontWeight: 700 }}>
+                  <Send size={20} />
+                  <span>Send WhatsApp Message</span>
                 </button>
               </form>
             </div>

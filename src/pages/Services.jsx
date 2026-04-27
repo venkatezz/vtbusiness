@@ -189,41 +189,41 @@ const Services = () => {
   return (
     <div className="fade-in">
       <SEO
-        title="GST Filing, IT Support & Website Development Services | VT Business Support"
-        description="We provide GST registration, GST return filing, income tax services, accounting, IT support, cloud setup, and website development."
+        title="Professional Business Services | GST, IT & Web | VT Business Support"
+        description="Comprehensive business solutions including GST filing, income tax, accounting, IT support, website development, and cloud services in Tamil Nadu & Bengaluru."
       />
       {/* Hero Header */}
       <section style={{
         position: 'relative',
-        padding: 'clamp(2.5rem, 8vw, 4rem) var(--section-padding)',
+        padding: '80px 0',
         textAlign: 'center',
-        backgroundImage: 'linear-gradient(to bottom, rgba(7, 8, 25, 0.85), rgba(7, 8, 25, 0.7)), url("https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1200")',
+        backgroundImage: 'linear-gradient(to bottom, rgba(8, 16, 40, 0.9), rgba(8, 16, 40, 0.75)), url("https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1200")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         color: 'white'
       }}>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <h1 style={{
-            fontSize: 'clamp(2rem, 5vw, 3rem)',
+            fontSize: 'clamp(2.5rem, 6vw, 3.5rem)',
             fontWeight: 800,
-            marginBottom: '1rem',
-            letterSpacing: '-1px',
+            marginBottom: '1.25rem',
+            letterSpacing: '-0.02em',
             color: 'white'
           }}>Professional Services</h1>
           <p style={{
-            maxWidth: '650px',
+            maxWidth: '700px',
             margin: '0 auto',
-            fontSize: '1.05rem',
-            color: 'rgba(255, 255, 255, 0.9)',
+            fontSize: '1.15rem',
+            color: 'rgba(255, 255, 255, 0.85)',
             lineHeight: 1.6,
             fontWeight: 500
           }}>
-            Practical financial solutions and high-performance IT automation
-            designed to scale your business across <span style={{ color: 'var(--secondary)', fontWeight: 700 }}>Tamil Nadu & Bengaluru</span>.
+            Practical financial solutions and high-performance IT infrastructure
+            designed to scale your business across <span style={{ color: 'var(--primary-hover)', fontWeight: 700 }}>Tamil Nadu & Bengaluru</span>.
           </p>
-          <div style={{ marginTop: '1.5rem', display: 'inline-flex', padding: '0.6rem 1.2rem', backgroundColor: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '100px' }}>
-            <p style={{ color: 'white', fontSize: '0.95rem', fontWeight: 600, margin: 0, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <WhatsAppIcon size={16} /> Choose a service below and get instant support via WhatsApp
+          <div style={{ marginTop: '2.5rem', display: 'inline-flex', padding: '0.75rem 1.5rem', backgroundColor: 'rgba(74, 63, 224, 0.15)', border: '1px solid rgba(74, 63, 224, 0.3)', borderRadius: '12px', backdropFilter: 'blur(10px)' }}>
+            <p style={{ color: 'white', fontSize: '0.95rem', fontWeight: 600, margin: 0, display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              <WhatsAppIcon size={18} /> Choose a service below for instant support
             </p>
           </div>
         </div>
@@ -232,7 +232,7 @@ const Services = () => {
       {/* Financial Services Section */}
       <section className="section" id="finance">
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <h2 style={{ marginBottom: '1.2rem', color: 'var(--primary)', borderBottom: '2px solid var(--primary)', paddingBottom: '0.5rem', display: 'inline-block' }}>Primary: GST, Tax & Accounting</h2>
+          <h2 style={{ marginBottom: '1.25rem', color: 'var(--primary)', borderBottom: '3px solid var(--primary)', paddingBottom: '0.5rem', display: 'inline-block', fontWeight: 800 }}>GST, Tax & Accounting</h2>
           <div className="grid-responsive" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginTop: '3rem' }}>
             {financialServices.map((service, idx) => (
               <div
@@ -259,17 +259,17 @@ const Services = () => {
                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.05))' }} />
                 </div>
 
-                <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem', flex: 1 }}>
+                  <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem', flex: 1 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
                     <div style={{ color: 'var(--primary)', flexShrink: 0 }}>
                       {React.cloneElement(service.icon, { size: 22 })}
                     </div>
-                    <h3 style={{ fontSize: '1.25rem', color: 'var(--bg-dark)', fontWeight: 800, letterSpacing: '-0.5px' }}>{service.title}</h3>
+                    <h3 style={{ fontSize: '1.25rem', color: 'var(--dark)', fontWeight: 800, letterSpacing: '-0.02em' }}>{service.title}</h3>
                   </div>
 
                   <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.6 }}>{service.content}</p>
 
-                  <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', color: 'var(--primary)', fontWeight: '700', padding: '0.8rem', backgroundColor: 'var(--bg-soft)', borderRadius: '10px' }}>
+                  <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.85rem', color: 'var(--primary)', fontWeight: '700', padding: '1rem', backgroundColor: 'var(--bg-soft)', borderRadius: '12px' }}>
                     <CheckCircle size={16} />
                     <span>{service.benefit}</span>
                   </div>
@@ -281,9 +281,9 @@ const Services = () => {
       </section>
 
       {/* Business Registration Section */}
-      <section className="section" id="registration" style={{ backgroundColor: '#F8FAFC' }}>
+      <section className="section" id="registration" style={{ backgroundColor: 'var(--bg-soft)' }}>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <h2 style={{ marginBottom: '1.2rem', color: 'var(--primary)', borderBottom: '2px solid var(--primary)', paddingBottom: '0.5rem', display: 'inline-block' }}>New: Business Registration & Compliance</h2>
+          <h2 style={{ marginBottom: '1.25rem', color: 'var(--primary)', borderBottom: '3px solid var(--primary)', paddingBottom: '0.5rem', display: 'inline-block', fontWeight: 800 }}>Registration & Compliance</h2>
           <div className="grid-responsive" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginTop: '3rem' }}>
             {registrationServices.map((service, idx) => (
               <div
@@ -310,17 +310,17 @@ const Services = () => {
                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.05))' }} />
                 </div>
 
-                <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem', flex: 1 }}>
+                  <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem', flex: 1 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
                     <div style={{ color: 'var(--primary)', flexShrink: 0 }}>
                       {React.cloneElement(service.icon, { size: 22 })}
                     </div>
-                    <h3 style={{ fontSize: '1.25rem', color: 'var(--bg-dark)', fontWeight: 800, letterSpacing: '-0.5px' }}>{service.title}</h3>
+                    <h3 style={{ fontSize: '1.25rem', color: 'var(--dark)', fontWeight: 800, letterSpacing: '-0.02em' }}>{service.title}</h3>
                   </div>
 
                   <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.6 }}>{service.content}</p>
 
-                  <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', color: 'var(--primary)', fontWeight: '700', padding: '0.8rem', backgroundColor: 'var(--bg-soft)', borderRadius: '10px' }}>
+                  <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.85rem', color: 'var(--primary)', fontWeight: '700', padding: '1rem', backgroundColor: 'var(--white)', borderRadius: '12px' }}>
                     <CheckCircle size={16} />
                     <span>{service.benefit}</span>
                   </div>
@@ -334,7 +334,7 @@ const Services = () => {
       {/* Advanced IT & Automation Section */}
       <section className="section" id="automation">
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <h2 style={{ marginBottom: '1.2rem', color: 'var(--primary)', borderBottom: '2px solid var(--primary)', paddingBottom: '0.5rem', display: 'inline-block' }}>Advanced IT & Automation Services</h2>
+          <h2 style={{ marginBottom: '1.25rem', color: 'var(--primary)', borderBottom: '3px solid var(--primary)', paddingBottom: '0.5rem', display: 'inline-block', fontWeight: 800 }}>IT & Cloud Solutions</h2>
           <div className="grid-responsive" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginTop: '3rem' }}>
             {advancedServices.map((service, idx) => (
               <div
@@ -361,21 +361,19 @@ const Services = () => {
                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.05))' }} />
                 </div>
 
-                <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem', flex: 1 }}>
+                  <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem', flex: 1 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
                     <div style={{ color: 'var(--primary)', flexShrink: 0 }}>
                       {React.cloneElement(service.icon, { size: 22 })}
                     </div>
-                    <h3 style={{ fontSize: '1.25rem', color: 'var(--bg-dark)', fontWeight: 800, letterSpacing: '-0.5px' }}>{service.title}</h3>
+                    <h3 style={{ fontSize: '1.25rem', color: 'var(--dark)', fontWeight: 800, letterSpacing: '-0.02em' }}>{service.title}</h3>
                   </div>
 
                   <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.6 }}>{service.content}</p>
 
-                  <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.85rem', color: 'var(--primary)', fontWeight: '700', padding: '0.8rem', backgroundColor: 'var(--bg-soft)', borderRadius: '10px' }}>
-                    <div style={{ color: 'var(--primary)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                      <CheckCircle size={16} />
-                      <span>{service.benefit}</span>
-                    </div>
+                  <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.85rem', color: 'var(--primary)', fontWeight: '700', padding: '1rem', backgroundColor: 'var(--bg-soft)', borderRadius: '12px' }}>
+                    <CheckCircle size={16} />
+                    <span>{service.benefit}</span>
                   </div>
                 </div>
               </div>
@@ -385,19 +383,16 @@ const Services = () => {
       </section>
 
       {/* SEO Content Section */}
-      <section className="section" style={{ borderTop: '1px solid var(--border-light)', backgroundColor: 'white' }}>
+      <section className="section" style={{ borderTop: '1px solid var(--border-light)', backgroundColor: 'var(--white)' }}>
         <div className="container">
           <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
-            <h2 style={{ fontSize: '1.8rem', marginBottom: '1.5rem', color: 'var(--bg-dark)' }}>Our Services in Tamil Nadu & Bengaluru</h2>
-            <div style={{ color: 'var(--text-muted)', fontSize: '1rem', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <h2 style={{ fontSize: '1.75rem', marginBottom: '1.5rem', color: 'var(--dark)', fontWeight: 800 }}>Business Support Across TN & Bengaluru</h2>
+            <div style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               <p>
-                We offer complete business support services including <strong>GST filing, income tax return filing, accounting, IT support, website development, and cloud setup</strong>.
+                From <strong>GST registration</strong> to <strong>cloud infrastructure setup</strong>, VT Business Support offers end-to-end solutions for growing enterprises. We specialize in reducing the operational burden on small business owners.
               </p>
               <p>
-                Whether you are a small business, startup, or freelancer, we help you manage your financial and technical operations smoothly.
-              </p>
-              <p>
-                Serving clients in <strong>Tamil Nadu, Bengaluru</strong>, and nearby areas with reliable and practical solutions.
+                Our services are designed to be practical, affordable, and fast. Whether you need a <strong>tax consultant in Tamil Nadu</strong> or <strong>IT support in Bengaluru</strong>, we are just a message away.
               </p>
             </div>
           </div>
@@ -407,16 +402,16 @@ const Services = () => {
       {/* Quick CTA */}
       <section className="section" style={{ textAlign: 'center', backgroundColor: 'var(--bg-soft)', position: 'relative', overflow: 'hidden' }}>
         <div className="container">
-          <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', marginBottom: '1rem' }}>Ready to optimize?</h2>
-          <p style={{ color: 'var(--primary)', fontSize: '1.2rem', fontWeight: 700, marginBottom: '1rem' }}>Call or WhatsApp for quick support</p>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap', marginTop: '2rem' }}>
-            <a href="tel:+919498856100" className="btn btn-primary">
-              <Phone size={18} />
-              Call Us
+          <h2 style={{ fontSize: 'clamp(2rem, 5vw, 2.5rem)', marginBottom: '1.25rem', fontWeight: 800, color: 'var(--dark)' }}>Ready to optimize your operations?</h2>
+          <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem', fontWeight: 500, marginBottom: '2.5rem' }}>Contact us now for professional support and a free consultation.</p>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
+            <a href="https://api.whatsapp.com/send?phone=919498856100" className="btn btn-whatsapp" style={{ padding: '0 2.5rem', height: '52px', fontSize: '1.1rem', borderRadius: '10px' }}>
+              <WhatsAppIcon size={22} />
+              <span>WhatsApp Us</span>
             </a>
-            <a href="https://api.whatsapp.com/send?phone=919498856100" className="btn btn-whatsapp">
-              <WhatsAppIcon size={20} />
-              WhatsApp Us
+            <a href="tel:+919498856100" className="btn" style={{ backgroundColor: 'var(--dark)', color: 'white', padding: '0 2.5rem', height: '52px', fontSize: '1.1rem', borderRadius: '10px' }}>
+              <Phone size={20} />
+              <span>Call Now</span>
             </a>
           </div>
         </div>

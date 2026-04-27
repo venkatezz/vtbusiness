@@ -1,0 +1,17 @@
+{
+  "name": "VT Business Support",
+  "short_name": "VT Business",
+  "description": "GST Filing, Income Tax, IT Support & Business Services",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#081028",
+  "theme_color": "#4A3FE0",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

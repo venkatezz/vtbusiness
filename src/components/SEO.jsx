@@ -27,19 +27,27 @@ const SEO = ({ title, description, schema, image, type = 'website' }) => {
       updateMetaTag('name', 'twitter:description', description);
     }
 
-    // 3. URL
+    // 3. URL & Canonical
     updateMetaTag('property', 'og:url', currentUrl);
     updateMetaTag('name', 'twitter:url', currentUrl);
+    
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) {
+      canonical.setAttribute('href', currentUrl);
+    } else {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      canonical.setAttribute('href', currentUrl);
+      document.head.appendChild(canonical);
+    }
 
     // 4. Image
     updateMetaTag('property', 'og:image', seoImage);
     updateMetaTag('name', 'twitter:image', seoImage);
     
     // 5. Image Dimensions (Specifically for WhatsApp/Facebook)
-    if (seoImage.includes('og-image.png')) {
-        updateMetaTag('property', 'og:image:width', '1200');
-        updateMetaTag('property', 'og:image:height', '630');
-    }
+    updateMetaTag('property', 'og:image:width', '1200');
+    updateMetaTag('property', 'og:image:height', '630');
 
     // 6. Type
     updateMetaTag('property', 'og:type', type);
@@ -48,13 +56,15 @@ const SEO = ({ title, description, schema, image, type = 'website' }) => {
     if (schema) {
       const scriptId = 'structured-data-page';
       let script = document.getElementById(scriptId);
+      const schemaData = typeof schema === 'string' ? schema : JSON.stringify(schema);
+      
       if (script) {
-        script.textContent = JSON.stringify(schema);
+        script.textContent = schemaData;
       } else {
         script = document.createElement('script');
         script.id = scriptId;
         script.type = 'application/ld+json';
-        script.textContent = JSON.stringify(schema);
+        script.textContent = schemaData;
         document.head.appendChild(script);
       }
     }

@@ -1,37 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Premium Palette */
-  --primary: #1E40AF; /* Corporate Blue-800 to match logo */
-  --primary-glow: #60A5FA; /* Blue-400 */
-  --primary-dark: #1E3A8A; /* Blue-900 */
-  --secondary: #10B981; /* Emerald-500 (WhatsApp) */
-  --accent: #F59E0B; /* Amber-500 (Ratings/Stars) */
-  
-  /* Neutral Palette */
-  --bg-main: #FFFFFF;
+  /* Official VT Brand Palette */
+  --primary: #4A3FE0;
+  --primary-hover: #6C63FF;
+  --dark: #081028;
   --bg-soft: #F8FAFC;
-  --bg-dark: #0F172A;
   --text-main: #1E293B;
   --text-muted: #64748B;
+  --white: #FFFFFF;
+  
+  /* Semantic Palette */
+  --secondary: #10B981; /* WhatsApp Green */
+  --accent: #F59E0B; /* Ratings/Stars */
   --border-light: #E2E8F0;
   
   /* Effects */
-  --glass: rgba(255, 255, 255, 0.7);
-  --glass-dark: rgba(15, 23, 42, 0.8);
-  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --glass: rgba(255, 255, 255, 0.85);
+  --glass-dark: rgba(8, 16, 40, 0.9);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 10px 15px -3px rgba(8, 16, 40, 0.05), 0 4px 6px -2px rgba(8, 16, 40, 0.025);
+  --shadow-xl: 0 20px 25px -5px rgba(8, 16, 40, 0.1), 0 10px 10px -5px rgba(8, 16, 40, 0.04);
   
   /* Typography */
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
   
+  /* Spacing (Refined per requirements) */
+  --section-padding-desktop: 64px 0;
+  --section-padding-mobile: 40px 0;
+  
   /* Transitions */
-  --transition: all 0.3s ease;
-  --section-padding-desktop: 32px 0;
-  --section-padding-mobile: 20px 0;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 html {
@@ -47,7 +48,7 @@ html {
 body {
   font-family: var(--font-body);
   color: var(--text-main);
-  background-color: var(--bg-main);
+  background-color: var(--white);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -59,7 +60,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.2;
-  color: var(--bg-dark);
+  color: var(--dark);
 }
 
 a {
@@ -95,9 +96,10 @@ button {
 }
 
 .section-title h2 {
-  font-size: 2.8rem;
-  margin-bottom: 1rem;
-  color: var(--bg-dark);
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--dark);
+  letter-spacing: -0.02em;
 }
 
 /* Glassmorphism Header */
@@ -128,12 +130,13 @@ button {
 .btn-primary {
   background-color: var(--primary);
   color: white;
-  box-shadow: 0 4px 6px -1px rgba(30, 64, 175, 0.2);
+  box-shadow: 0 4px 6px -1px rgba(74, 63, 224, 0.2);
 }
 
 .btn-primary:hover {
-  background-color: var(--primary-dark);
-  box-shadow: 0 6px 10px -1px rgba(30, 64, 175, 0.3);
+  background-color: var(--primary-hover);
+  box-shadow: 0 6px 12px -1px rgba(74, 63, 224, 0.3);
+  transform: translateY(-1px);
 }
 
 .btn-whatsapp {
@@ -158,9 +161,9 @@ button {
 }
 
 .card-premium:hover {
-  transform: translateY(-10px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-xl);
-  border-color: var(--primary-glow);
+  border-color: var(--primary);
 }
 
 /* Animations */
@@ -185,17 +188,7 @@ button {
   animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-/* Decorative Blobs */
-.blob {
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  background: var(--primary);
-  filter: blur(100px);
-  opacity: 0.15;
-  border-radius: 50%;
-  z-index: -1;
-}
+/* Removed Decorative Blobs for Clean Branding */
 
 @media (max-width: 1024px) {
   :root {
@@ -251,38 +244,42 @@ button {
   }
 }
 
-/* WhatsApp Floating Button - Clean Side Aligned */
+/* WhatsApp Floating Button - Professional Rectangular Side Aligned */
 .whatsapp-float-btn {
   position: fixed;
-  bottom: 30px;
+  bottom: 40px;
   right: 0;
-  background-color: var(--secondary);
+  background-color: var(--primary);
   color: white;
-  padding: 0.5rem 1rem 0.5rem 0.8rem;
-  border-radius: 6px 0 0 6px;
+  padding: 0.75rem 1.25rem 0.75rem 1rem;
+  border-radius: 12px 0 0 12px;
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  box-shadow: var(--shadow-sm);
+  gap: 0.75rem;
+  box-shadow: var(--shadow-lg);
   z-index: 9999;
-  font-weight: 600;
-  font-size: 0.85rem;
+  font-weight: 700;
+  font-size: 0.95rem;
   transition: var(--transition);
   text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: none;
+  backdrop-filter: blur(10px);
 }
 
 .whatsapp-float-btn:hover {
-  background-color: #059669; /* Emerald 600 */
-  padding-right: 1.25rem;
-  box-shadow: var(--shadow-md);
+  background-color: var(--primary-hover);
+  padding-right: 1.75rem;
+  box-shadow: var(--shadow-xl);
   color: white;
+  transform: translateX(-5px);
 }
 
 @media (max-width: 768px) {
   .whatsapp-float-btn {
-    bottom: 20px;
-    padding: 0.5rem 0.75rem;
-    border-radius: 6px 0 0 6px;
+    bottom: 30px;
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
   }
   .whatsapp-float-btn span {
     display: none;

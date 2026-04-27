@@ -69,7 +69,7 @@ const Header = () => {
               style={({ isActive }) => ({
                 fontWeight: 600,
                 fontSize: '0.95rem',
-                color: isActive ? 'var(--bg-dark)' : 'var(--text-main)',
+                color: isActive ? 'var(--primary)' : 'var(--text-main)',
                 position: 'relative',
                 padding: '5px 0'
               })}
@@ -84,7 +84,7 @@ const Header = () => {
                       left: 0,
                       width: '100%',
                       height: '2px',
-                      backgroundColor: 'var(--bg-dark)',
+                      backgroundColor: 'var(--primary)',
                       borderRadius: '2px'
                     }} />
                   )}
@@ -92,14 +92,14 @@ const Header = () => {
               )}
             </NavLink>
           ))}
-          <a href="tel:+919498856100" className="btn" style={{ padding: '0.7rem 1.5rem', borderRadius: '100px', backgroundColor: 'var(--bg-dark)', color: 'white', border: 'none' }}>
+          <a href="tel:+919498856100" className="btn" style={{ padding: '0.7rem 1.5rem', borderRadius: '100px', backgroundColor: 'var(--dark)', color: 'white', border: 'none' }}>
              <Phone size={18} />
              <span>Call us</span>
           </a>
         </nav>
 
         {/* Mobile Menu Toggle */}
-        <button onClick={toggleMenu} className="mobile-toggle" style={{ color: 'var(--bg-dark)' }}>
+        <button onClick={toggleMenu} className="mobile-toggle" style={{ color: 'var(--dark)' }}>
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
@@ -114,7 +114,7 @@ const Header = () => {
         height: '100vh',
         backgroundColor: 'white',
         padding: '5rem 2rem',
-        boxShadow: '-10px 0 30px rgba(0,0,0,0.1)',
+        boxShadow: '-10px 0 30px rgba(8, 16, 40, 0.1)',
         display: isOpen ? 'flex' : 'none',
         flexDirection: 'column',
         gap: '2rem',
@@ -123,7 +123,7 @@ const Header = () => {
       }}>
         <button 
           onClick={toggleMenu} 
-          style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', color: 'var(--bg-dark)' }}
+          style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', color: 'var(--dark)' }}
         >
           <X size={32} />
         </button>
@@ -137,14 +137,14 @@ const Header = () => {
             }}
             style={({ isActive }) => ({
               fontWeight: 700,
-              color: isActive ? 'var(--bg-dark)' : 'var(--text-main)',
+              color: isActive ? 'var(--primary)' : 'var(--dark)',
               fontSize: '1.5rem'
             })}
           >
             {link.title}
           </NavLink>
         ))}
-        <a href="tel:+919498856100" className="btn" style={{ marginTop: 'auto', padding: '1.2rem', backgroundColor: 'var(--bg-dark)', color: 'white' }}>
+        <a href="tel:+919498856100" className="btn" style={{ marginTop: 'auto', padding: '1.2rem', backgroundColor: 'var(--dark)', color: 'white' }}>
           Call Now
         </a>
       </div>

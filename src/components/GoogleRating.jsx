@@ -3,7 +3,7 @@ import { Star, StarHalf, ArrowRight } from 'lucide-react';
 
 const GoogleRating = () => {
   // Static values for manual updates
-  const ratingValue = "4.5";
+  const ratingValue = "4.9";
   const reviewCount = "5";
   const googleReviewLink = "https://g.page/r/CTyatitaEf93EBM/review";
 
