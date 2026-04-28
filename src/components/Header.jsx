@@ -92,7 +92,7 @@ const Header = () => {
               )}
             </NavLink>
           ))}
-          <a href="tel:+919498856100" className="btn" style={{ padding: '0.7rem 1.5rem', borderRadius: '100px', backgroundColor: 'var(--dark)', color: 'white', border: 'none' }}>
+          <a href="tel:+918925063980" className="btn" style={{ padding: '0.7rem 1.5rem', borderRadius: '100px', backgroundColor: 'var(--dark)', color: 'white', border: 'none' }}>
              <Phone size={18} />
              <span>Call us</span>
           </a>
@@ -144,7 +144,7 @@ const Header = () => {
             {link.title}
           </NavLink>
         ))}
-        <a href="tel:+919498856100" className="btn" style={{ marginTop: 'auto', padding: '1.2rem', backgroundColor: 'var(--dark)', color: 'white' }}>
+        <a href="tel:+918925063980" className="btn" style={{ marginTop: 'auto', padding: '1.2rem', backgroundColor: 'var(--dark)', color: 'white' }}>
           Call Now
         </a>
       </div>

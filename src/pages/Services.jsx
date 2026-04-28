@@ -405,11 +405,11 @@ const Services = () => {
           <h2 style={{ fontSize: 'clamp(2rem, 5vw, 2.5rem)', marginBottom: '1.25rem', fontWeight: 800, color: 'var(--dark)' }}>Ready to optimize your operations?</h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem', fontWeight: 500, marginBottom: '2.5rem' }}>Contact us now for professional support and a free consultation.</p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
-            <a href="https://api.whatsapp.com/send?phone=919498856100" className="btn btn-whatsapp" style={{ padding: '0 2.5rem', height: '52px', fontSize: '1.1rem', borderRadius: '10px' }}>
+            <a href="https://api.whatsapp.com/send?phone=918925063980" className="btn btn-whatsapp" style={{ padding: '0 2.5rem', height: '52px', fontSize: '1.1rem', borderRadius: '10px' }}>
               <WhatsAppIcon size={22} />
               <span>WhatsApp Us</span>
             </a>
-            <a href="tel:+919498856100" className="btn" style={{ backgroundColor: 'var(--dark)', color: 'white', padding: '0 2.5rem', height: '52px', fontSize: '1.1rem', borderRadius: '10px' }}>
+            <a href="tel:+918925063980" className="btn" style={{ backgroundColor: 'var(--dark)', color: 'white', padding: '0 2.5rem', height: '52px', fontSize: '1.1rem', borderRadius: '10px' }}>
               <Phone size={20} />
               <span>Call Now</span>
             </a>

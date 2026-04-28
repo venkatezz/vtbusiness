@@ -62,8 +62,8 @@ const Footer = () => {
             <h4 style={{ color: 'white', fontSize: '1rem', fontWeight: 700, marginBottom: '0.25rem' }}>Contact Info</h4>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              <a href="tel:+919498856100" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', textDecoration: 'none' }}>
-                <Phone size={16} style={{ color: 'var(--primary)' }} /> +91 94988 56100
+              <a href="tel:+918925063980" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', textDecoration: 'none' }}>
+                <Phone size={16} style={{ color: 'var(--primary)' }} /> +91 89250 63980
               </a>
               <a href="mailto:vtconsulting.in@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', textDecoration: 'none' }}>
                 <Mail size={16} style={{ color: 'var(--primary)' }} /> vtconsulting.in@gmail.com
@@ -84,7 +84,7 @@ const Footer = () => {
                   <MapPin size={15} style={{ color: 'var(--primary)' }} /> Bengaluru (E-City)
                 </h5>
                 <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.85rem', lineHeight: 1.5 }}>
-                  1219, Kammasandra, Electronic City, BLR 560099
+                  #79, Electronic City, BLR 560100
                 </p>
               </div>
             </div>

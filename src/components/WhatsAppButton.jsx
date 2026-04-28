@@ -7,7 +7,7 @@ const WhatsAppIcon = ({ size = 20, color = "currentColor" }) => (
 );
 
 const WhatsAppButton = () => {
-  const whatsappNumber = "919498856100"; 
+  const whatsappNumber = "918925063980"; 
   const message = "Hi I need help with my business";
 
   return (

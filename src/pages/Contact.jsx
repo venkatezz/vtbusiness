@@ -15,7 +15,7 @@ const Contact = () => {
     
     const message = `Hi, I need support for ${formData.requirement || 'my business'}.\n\nCompany Name: ${formData.name}\nPhone: ${formData.phone}\nMessage: ${formData.message}`;
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/919498856100?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/918925063980?text=${encodedMessage}`;
     
     window.open(whatsappUrl, '_blank');
     
@@ -29,7 +29,7 @@ const Contact = () => {
   };
 
   const contactList = [
-    { icon: <Phone size={24} />, title: 'Call Us', value: '+91 94988 56100', href: 'tel:+919498856100' },
+    { icon: <Phone size={24} />, title: 'Call Us', value: '+91 89250 63980', href: 'tel:+918925063980' },
     { icon: <Mail size={24} />, title: 'Email Us', value: 'vtconsulting.in@gmail.com', href: 'mailto:vtconsulting.in@gmail.com' },
     {
       icon: <MapPin size={24} />,
@@ -45,7 +45,7 @@ const Contact = () => {
       ), 
       title: 'WhatsApp', 
       value: 'Chat for Instant Support', 
-      href: 'https://api.whatsapp.com/send?phone=919498856100' 
+      href: 'https://api.whatsapp.com/send?phone=918925063980' 
     }
   ];
 
@@ -180,7 +180,7 @@ const Contact = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       required
-                      placeholder="+91 94988 56100"
+                      placeholder="+91 89250 63980"
                       style={{ padding: '1rem', borderRadius: '12px', border: '1px solid var(--border-light)', backgroundColor: 'var(--bg-soft)', fontSize: '1rem', transition: 'var(--transition)' }}
                       className="form-input"
                     />

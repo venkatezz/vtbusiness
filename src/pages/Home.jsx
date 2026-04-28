@@ -5,7 +5,7 @@ import SEO from '../components/SEO';
 
 const WhatsAppIcon = ({ size = 20, color = "currentColor" }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill={color}>
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.393 0 12.029c0 2.119.554 4.187 1.605 6.006L0 24l6.11-1.603a11.783 11.783 0 005.937 1.603h.005c6.635 0 12.03-5.393 12.034-12.031a11.813 11.813 0 00-3.528-8.503z"/>
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.393 0 12.029c0 2.119.554 4.187 1.605 6.006L0 24l6.11-1.603a11.783 11.783 0 005.937 1.603h.005c6.635 0 12.03-5.393 12.034-12.031a11.813 11.813 0 00-3.528-8.503z" />
   </svg>
 );
 
@@ -13,11 +13,11 @@ const WhatsAppIcon = ({ size = 20, color = "currentColor" }) => (
 const Home = () => {
   return (
     <div className="fade-in" style={{ position: 'relative' }}>
-      <SEO 
+      <SEO
         title="VT Business Support | GST Filing, Income Tax, IT Support & Business Services"
         description="VT Business Support provides GST filing, income tax filing, accounting, IT support, website development, cloud setup, and business solutions for individuals and small businesses in Tamil Nadu & Bengaluru."
       />
-      
+
       {/* Hero Section */}
       <section style={{
         position: 'relative',
@@ -32,37 +32,37 @@ const Home = () => {
       }}>
         <div className="container" style={{ position: 'relative', zIndex: 2, padding: '64px 1.5rem' }}>
           <div style={{ maxWidth: '850px', margin: '0 auto', textAlign: 'center' }}>
-            <div style={{ 
-              backgroundColor: 'rgba(74, 63, 224, 0.15)', 
-              padding: '0.5rem 1.25rem', 
-              borderRadius: '100px', 
-              display: 'inline-flex', 
-              alignItems: 'center', 
-              gap: '0.6rem', 
-              marginBottom: '1.5rem', 
+            <div style={{
+              backgroundColor: 'rgba(74, 63, 224, 0.15)',
+              padding: '0.5rem 1.25rem',
+              borderRadius: '100px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.6rem',
+              marginBottom: '1.5rem',
               border: '1px solid rgba(74, 63, 224, 0.3)',
               backdropFilter: 'blur(10px)'
             }}>
               <Zap size={16} style={{ color: 'var(--primary-hover)' }} />
               <span style={{ fontWeight: 600, fontSize: '0.875rem', color: 'white', letterSpacing: '0.01em' }}>Serving Tamil Nadu & Bengaluru</span>
             </div>
-            
-            <h1 style={{ 
-              color: 'white', 
-              marginBottom: '1.25rem', 
-              fontSize: 'clamp(2.5rem, 6vw, 3.75rem)', 
-              lineHeight: 1.1, 
+
+            <h1 style={{
+              color: 'white',
+              marginBottom: '1.25rem',
+              fontSize: 'clamp(2.5rem, 6vw, 3.75rem)',
+              lineHeight: 1.1,
               letterSpacing: '-0.03em',
               fontWeight: 800
             }}>
               Professional Support for <span style={{ color: 'var(--primary-hover)' }}>Your Business</span>
             </h1>
-            
-            <p style={{ 
-              color: 'rgba(255,255,255,0.85)', 
-              fontSize: 'clamp(1.1rem, 2vw, 1.35rem)', 
-              fontWeight: 500, 
-              marginBottom: '2.5rem', 
+
+            <p style={{
+              color: 'rgba(255,255,255,0.85)',
+              fontSize: 'clamp(1.1rem, 2vw, 1.35rem)',
+              fontWeight: 500,
+              marginBottom: '2.5rem',
               lineHeight: 1.5,
               maxWidth: '700px',
               margin: '0 auto 2.5rem'
@@ -71,7 +71,7 @@ const Home = () => {
             </p>
 
             <div style={{ display: 'flex', gap: '1.25rem', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
-              <a href="https://api.whatsapp.com/send?phone=919498856100" className="btn btn-whatsapp" style={{ padding: '0 2rem', height: '48px', fontSize: '1rem', borderRadius: '8px' }}>
+              <a href="https://api.whatsapp.com/send?phone=918925063980" className="btn btn-whatsapp" style={{ padding: '0 2rem', height: '48px', fontSize: '1rem', borderRadius: '8px' }}>
                 <WhatsAppIcon size={20} />
                 <span>Chat on WhatsApp</span>
               </a>
@@ -372,9 +372,9 @@ const Home = () => {
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <h2 style={{ color: 'var(--dark)', marginBottom: '0.5rem', fontWeight: 800 }}>What Our Clients Say</h2>
-            <p style={{ color: 'var(--primary)', fontWeight: 700, fontSize: '1.1rem' }}>⭐ Rated 4.5 on Google Business</p>
+            <p style={{ color: 'var(--primary)', fontWeight: 700, fontSize: '1.1rem' }}>⭐ Rated 4.9 on Google Business</p>
           </div>
-          
+
           <div className="grid-responsive" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
@@ -385,16 +385,16 @@ const Home = () => {
               { name: 'Priya Sharma', location: 'Bengaluru', text: '"Extremely quick IT setup for my new office! From networking to software setup, they handled everything smoothly and professionally."' },
               { name: 'Sakthi Traders', location: 'Retail Business', text: '"Best choice we made for accounting. They handle the messy bookkeeping while we focus on sales. Very reliable team."' }
             ].map((review, idx) => (
-              <div key={idx} style={{ 
-                backgroundColor: 'white', 
-                padding: '2rem', 
-                borderRadius: '16px', 
+              <div key={idx} style={{
+                backgroundColor: 'white',
+                padding: '2rem',
+                borderRadius: '16px',
                 border: '1px solid var(--border-light)',
                 boxShadow: 'var(--shadow-sm)'
               }}>
                 <div style={{ display: 'flex', gap: '4px', marginBottom: '1rem' }}>
                   {[...Array(5)].map((_, i) => (
-                    <svg key={i} width="18" height="18" viewBox="0 0 24 24" fill="var(--accent)"><path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/></svg>
+                    <svg key={i} width="18" height="18" viewBox="0 0 24 24" fill="var(--accent)"><path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" /></svg>
                   ))}
                 </div>
                 <p style={{ color: 'var(--text-main)', fontSize: '1rem', lineHeight: 1.7, marginBottom: '1.5rem', fontStyle: 'italic', color: 'var(--text-muted)' }}>
@@ -419,11 +419,11 @@ const Home = () => {
               Get expert business support today. One message away from professional peace of mind.
             </p>
             <div style={{ display: 'flex', gap: '1.25rem', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
-              <a href="https://api.whatsapp.com/send?phone=919498856100" className="btn btn-whatsapp" style={{ padding: '0 2.5rem', height: '52px', fontSize: '1.1rem', borderRadius: '10px' }}>
+              <a href="https://api.whatsapp.com/send?phone=918925063980" className="btn btn-whatsapp" style={{ padding: '0 2.5rem', height: '52px', fontSize: '1.1rem', borderRadius: '10px' }}>
                 <WhatsAppIcon size={22} />
                 <span>Chat on WhatsApp</span>
               </a>
-              <a href="tel:+919498856100" className="btn" style={{ backgroundColor: 'var(--dark)', color: 'white', padding: '0 2.5rem', height: '52px', fontSize: '1.1rem', borderRadius: '10px' }}>
+              <a href="tel:+918925063980" className="btn" style={{ backgroundColor: 'var(--dark)', color: 'white', padding: '0 2.5rem', height: '52px', fontSize: '1.1rem', borderRadius: '10px' }}>
                 <Phone size={20} />
                 <span>Call Now</span>
               </a>
