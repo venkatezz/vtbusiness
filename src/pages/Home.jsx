@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { 
   Shield, Smartphone, Globe, Cloud, FileText, Settings, Briefcase, 
   Users, CheckCircle, ArrowRight, Phone, Zap, Star, AlertCircle, 
-  ChevronDown, HelpCircle, HardDrive, Cpu, HeartHandshake, Award
+  ChevronDown, HelpCircle, HardDrive, Cpu, HeartHandshake, Award, Landmark
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import DynamicLeadForm from '../components/DynamicLeadForm';
@@ -18,7 +18,6 @@ const WhatsAppIcon = ({ size = 20, color = "currentColor" }) => (
 
 const Home = () => {
   // Dynamic Hooks for Scroll Reveal states to build premium smooth fade-ins
-  const [heroRef, heroActive] = useScrollReveal();
   const [tickerRef, tickerActive] = useScrollReveal();
   const [tabsRef, tabsActive] = useScrollReveal();
   const [calcRef, calcActive] = useScrollReveal();
@@ -102,8 +101,7 @@ const Home = () => {
 
       {/* Dual-Engine Splitted Hero Section */}
       <section 
-        ref={heroRef}
-        className={`section reveal-item ${heroActive ? 'active' : ''}`}
+        className="section fade-in"
         style={{
           minHeight: '85vh',
           display: 'flex',

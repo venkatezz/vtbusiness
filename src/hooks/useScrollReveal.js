@@ -5,7 +5,8 @@ import { useEffect, useRef, useState } from 'react';
  * Returns a ref to attach to the target DOM element, and a boolean indicating
  * if the element has scrolled into view.
  */
-export function useScrollReveal(options = { threshold: 0.15, rootMargin: '0px' }) {
+export function useScrollReveal(options = {}) {
+  const { threshold = 0.05, rootMargin = '0px' } = options;
   const elementRef = useRef(null);
   
   // Safe initial check: If the browser lacks IntersectionObserver, default isRevealed to true
@@ -27,7 +28,7 @@ export function useScrollReveal(options = { threshold: 0.15, rootMargin: '0px' }
           observer.unobserve(elementRef.current);
         }
       }
-    }, options);
+    }, { threshold, rootMargin });
 
     const currentEl = elementRef.current;
     if (currentEl) {
@@ -39,7 +40,7 @@ export function useScrollReveal(options = { threshold: 0.15, rootMargin: '0px' }
         observer.unobserve(currentEl);
       }
     };
-  }, [options]);
+  }, [threshold, rootMargin]);
 
   return [elementRef, isRevealed];
 }
