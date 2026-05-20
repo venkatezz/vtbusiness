@@ -1,113 +1,155 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin, Shield, CheckCircle } from 'lucide-react';
 import GoogleRating from './GoogleRating';
 import VTLogo from '../assets/VTlogo.svg';
 
 const Footer = () => {
   return (
     <footer style={{
-      backgroundColor: 'var(--dark)',
+      background: 'radial-gradient(circle at 10% 20%, rgba(74, 63, 224, 0.06), transparent 45%), linear-gradient(180deg, hsl(224, 71%, 7%) 0%, hsl(224, 71%, 4%) 100%)',
       color: 'white',
-      padding: '48px 0 24px',
+      padding: '80px 0 32px',
       marginTop: 'auto',
-      borderTop: '1px solid rgba(255,255,255,0.05)'
+      borderTop: '1px solid rgba(255, 255, 255, 0.05)',
+      position: 'relative',
+      overflow: 'hidden'
     }}>
+      {/* Visual Accent Top Line */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '2px',
+        background: 'linear-gradient(to right, var(--primary), var(--secondary))'
+      }} />
+
       <div className="container">
         <div className="grid-responsive" style={{
           display: 'grid',
           gridTemplateColumns: '1.2fr 0.8fr 1fr 1.5fr',
-          gap: '2.5rem',
+          gap: '3rem',
           alignItems: 'start',
-          marginBottom: '32px'
+          marginBottom: '50px'
         }}>
 
           {/* Column 1: Brand & Google Rating */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <img
-              src={VTLogo}
-              alt="VT Business Support Logo"
-              style={{ height: '44px', width: 'auto', alignSelf: 'start', filter: 'brightness(0) invert(1)' }}
-            />
-            <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', lineHeight: 1.5, maxWidth: '260px' }}>
-              Professional GST filing, accounting, IT support, and business solutions for small businesses in TN & Bengaluru.
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+            <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+              <img
+                src={VTLogo}
+                alt="VT Business Support Logo"
+                className="logo-footer"
+                style={{ filter: 'brightness(0) invert(1)', maxHeight: '48px', width: 'auto' }}
+              />
+            </Link>
+            <p style={{ color: 'rgba(255, 255, 255, 0.65)', fontSize: '0.9rem', lineHeight: 1.6, maxWidth: '280px' }}>
+              Direct statutory tax compliance, comprehensive cloud systems setups, and professional bookkeeping architectures for individual & corporate leaders in TN & Karnataka.
             </p>
-            <GoogleRating />
+            <div style={{ marginTop: '0.5rem' }}>
+              <GoogleRating />
+            </div>
           </div>
 
-          {/* Column 2: Quick Links */}
-          <div style={{ alignSelf: 'start' }}>
-            <h4 style={{ color: 'white', fontSize: '1rem', fontWeight: 700, marginBottom: '1.25rem' }}>Quick Links</h4>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              <li><Link to="/" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem', transition: 'var(--transition)' }}>Home</Link></li>
-              <li><Link to="/services" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem', transition: 'var(--transition)' }}>Services</Link></li>
-              <li><Link to="/about" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem', transition: 'var(--transition)' }}>About Us</Link></li>
-              <li><Link to="/contact" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem', transition: 'var(--transition)' }}>Contact</Link></li>
+          {/* Column 2: Navigations */}
+          <div>
+            <h4 className="footer-heading">Corporate Links</h4>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', listStyle: 'none' }}>
+              <li><Link to="/" className="footer-link">Home Portal</Link></li>
+              <li><Link to="/services" className="footer-link">Expertise Segments</Link></li>
+              <li><Link to="/about" className="footer-link">Our Narrative</Link></li>
+              <li><Link to="/contact" className="footer-link">Get in Touch</Link></li>
             </ul>
           </div>
 
-          {/* Column 3: Our Services */}
-          <div style={{ alignSelf: 'start' }}>
-            <h4 style={{ color: 'white', fontSize: '1rem', fontWeight: 700, marginBottom: '1.25rem' }}>Our Services</h4>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              <li style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem' }}>GST & Tax Support</li>
-              <li style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem' }}>IT Support & Setup</li>
-              <li style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem' }}>Cloud Solutions</li>
-              <li style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem' }}>Websites & SEO</li>
+          {/* Column 3: Core Segments */}
+          <div>
+            <h4 className="footer-heading">Key Capabilities</h4>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', listStyle: 'none' }}>
+              <li>
+                <a href="/services" className="footer-link" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <CheckCircle size={12} style={{ color: 'var(--primary-hover)' }} />
+                  <span>GST & Tax returns</span>
+                </a>
+              </li>
+              <li>
+                <a href="/services" className="footer-link" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <CheckCircle size={12} style={{ color: 'var(--primary-hover)' }} />
+                  <span>Corporate SME Accounts</span>
+                </a>
+              </li>
+              <li>
+                <a href="/services" className="footer-link" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <CheckCircle size={12} style={{ color: 'var(--primary-hover)' }} />
+                  <span>AWS & Cloud Linux Setup</span>
+                </a>
+              </li>
+              <li>
+                <a href="/services" className="footer-link" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <CheckCircle size={12} style={{ color: 'var(--primary-hover)' }} />
+                  <span>React Code & SEO Build</span>
+                </a>
+              </li>
             </ul>
           </div>
 
-          {/* Column 4: Contact & Address */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', alignSelf: 'start' }}>
-            <h4 style={{ color: 'white', fontSize: '1rem', fontWeight: 700, marginBottom: '0.25rem' }}>Contact Info</h4>
+          {/* Column 4: Contact & Coordinates */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+            <h4 className="footer-heading">Connect Coordinates</h4>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              <a href="tel:+918925063980" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', textDecoration: 'none' }}>
-                <Phone size={16} style={{ color: 'var(--primary)' }} /> +91 89250 63980
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              <a href="tel:+918925063980" className="footer-link" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontWeight: 600 }}>
+                <Phone size={15} style={{ color: 'var(--secondary)' }} />
+                <span>+91 89250 63980</span>
               </a>
-              <a href="mailto:vtconsulting.in@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', textDecoration: 'none' }}>
-                <Mail size={16} style={{ color: 'var(--primary)' }} /> vtconsulting.in@gmail.com
+              <a href="mailto:vtconsulting.in@gmail.com" className="footer-link" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                <Mail size={15} style={{ color: 'var(--primary-hover)' }} />
+                <span>vtconsulting.in@gmail.com</span>
               </a>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '1.25rem' }}>
-              <div>
-                <h5 style={{ color: 'white', fontSize: '0.9rem', fontWeight: 700, marginBottom: '0.25rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <MapPin size={15} style={{ color: 'var(--primary)' }} /> Tamil Nadu (Harur)
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '0.5rem' }}>
+              <div className="footer-address-block">
+                <h5 style={{ color: 'white', fontSize: '0.88rem', fontWeight: 700, marginBottom: '0.25rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <MapPin size={14} style={{ color: 'var(--primary-hover)' }} />
+                  <span>Tamil Nadu (Harur Center)</span>
                 </h5>
-                <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.85rem', lineHeight: 1.5 }}>
-                  Administrative Office, 5/1B16, Harur, TN 636903
+                <p style={{ color: 'rgba(255, 255, 255, 0.55)', fontSize: '0.8rem', lineHeight: 1.4 }}>
+                  Administrative Office, 5/1B16, Harur Town, Dharmapuri, TN - 636903
                 </p>
               </div>
-              <div>
-                <h5 style={{ color: 'white', fontSize: '0.9rem', fontWeight: 700, marginBottom: '0.25rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <MapPin size={15} style={{ color: 'var(--primary)' }} /> Bengaluru (E-City)
+
+              <div className="footer-address-block">
+                <h5 style={{ color: 'white', fontSize: '0.88rem', fontWeight: 700, marginBottom: '0.25rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <MapPin size={14} style={{ color: 'var(--secondary)' }} />
+                  <span>Bengaluru (E-City Hub)</span>
                 </h5>
-                <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.85rem', lineHeight: 1.5 }}>
-                  #79, Electronic City, BLR 560100
+                <p style={{ color: 'rgba(255, 255, 255, 0.55)', fontSize: '0.8rem', lineHeight: 1.4 }}>
+                  #79, 3rd Floor, Phase 1, Electronic City, Bengaluru, KA - 560100
                 </p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Copyright Bottom */}
+        {/* Bottom copyright & details */}
         <div style={{
-          borderTop: '1px solid rgba(255,255,255,0.1)',
-          paddingTop: '24px',
+          borderTop: '1px solid rgba(255,255,255,0.06)',
+          paddingTop: '30px',
           fontSize: '0.85rem',
-          color: 'rgba(255,255,255,0.4)',
+          color: 'rgba(255,255,255,0.45)',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
           flexWrap: 'wrap',
-          gap: '1rem'
+          gap: '1.5rem'
         }}>
-          <div>
-            <span style={{ fontWeight: 700, color: 'rgba(255,255,255,0.7)' }}>Serving 50+ clients across Tamil Nadu & Bengaluru</span>
-            <p style={{ marginTop: '0.25rem' }}>© 2021 – 2026 VT Business Support. All rights reserved.</p>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Shield size={16} style={{ color: 'var(--secondary)' }} />
+            <span>Authorized Corporate Tax Practitioners & Tech Architects</span>
           </div>
-          <p style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>"Crafting Business Excellence in TN & Karnataka"</p>
+          <p>© 2021 – 2026 VT Business Support. All rights and systems reserved.</p>
         </div>
       </div>
     </footer>

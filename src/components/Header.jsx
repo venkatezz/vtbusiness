@@ -27,24 +27,13 @@ const Header = () => {
   ];
 
   return (
-    <header 
-      className={`glass-nav ${scrolled ? 'scrolled' : ''}`}
-      style={{
-        position: 'sticky',
-        top: 0,
-        zIndex: 1000,
-        transition: 'var(--transition)',
-        boxShadow: scrolled ? 'var(--shadow-md)' : 'none',
-        borderBottom: scrolled ? '1px solid var(--border-light)' : '1px solid transparent'
-      }}
-    >
+    <header className={`glass-nav ${scrolled ? 'scrolled' : ''}`}>
       <div className="container" style={{
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        padding: scrolled ? '0.8rem 1.5rem' : '1.2rem 1.5rem',
         height: scrolled ? '70px' : '90px',
-        transition: 'var(--transition)'
+        transition: 'height 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
       }}>
         {/* Logo */}
         <Link 
@@ -60,41 +49,20 @@ const Header = () => {
         </Link>
 
         {/* Desktop Nav */}
-        <nav style={{ display: 'flex', gap: '2.5rem', alignItems: 'center' }} className="desktop-nav">
+        <nav style={{ display: 'flex', gap: '2rem', alignItems: 'center' }} className="desktop-nav">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
               onClick={() => window.scrollTo(0, 0)}
-              style={({ isActive }) => ({
-                fontWeight: 600,
-                fontSize: '0.95rem',
-                color: isActive ? 'var(--primary)' : 'var(--text-main)',
-                position: 'relative',
-                padding: '5px 0'
-              })}
+              className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
             >
-              {({ isActive }) => (
-                <>
-                  {link.title}
-                  {isActive && (
-                    <span style={{
-                      position: 'absolute',
-                      bottom: 0,
-                      left: 0,
-                      width: '100%',
-                      height: '2px',
-                      backgroundColor: 'var(--primary)',
-                      borderRadius: '2px'
-                    }} />
-                  )}
-                </>
-              )}
+              {link.title}
             </NavLink>
           ))}
-          <a href="tel:+918925063980" className="btn" style={{ padding: '0.7rem 1.5rem', borderRadius: '100px', backgroundColor: 'var(--dark)', color: 'white', border: 'none' }}>
-             <Phone size={18} />
-             <span>Call us</span>
+          <a href="tel:+918925063980" className="nav-cta-btn">
+             <Phone size={16} />
+             <span>Call Us</span>
           </a>
         </nav>
 
@@ -104,28 +72,20 @@ const Header = () => {
         </button>
       </div>
 
-      {/* Mobile Nav */}
-      <div style={{
-        position: 'fixed',
-        top: '0',
-        right: isOpen ? '0' : '-100%',
-        width: '80%',
-        maxWidth: '280px',
-        height: '100vh',
-        backgroundColor: 'white',
-        padding: '5rem 2rem',
-        boxShadow: '-10px 0 30px rgba(8, 16, 40, 0.1)',
-        display: isOpen ? 'flex' : 'none',
-        flexDirection: 'column',
-        gap: '2rem',
-        transition: '0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-        zIndex: 1001
-      }}>
+      {/* Mobile Drawer Overlay */}
+      <div 
+        className={`mobile-menu-overlay ${isOpen ? 'open' : ''}`}
+        onClick={toggleMenu}
+      />
+
+      {/* Mobile Drawer Menu */}
+      <div className={`mobile-menu-drawer ${isOpen ? 'open' : ''}`}>
         <button 
           onClick={toggleMenu} 
           style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', color: 'var(--dark)' }}
+          className="mobile-toggle"
         >
-          <X size={32} />
+          <X size={28} />
         </button>
         {navLinks.map((link) => (
           <NavLink
@@ -135,35 +95,16 @@ const Header = () => {
               setIsOpen(false);
               window.scrollTo(0, 0);
             }}
-            style={({ isActive }) => ({
-              fontWeight: 700,
-              color: isActive ? 'var(--primary)' : 'var(--dark)',
-              fontSize: '1.5rem'
-            })}
+            className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`}
           >
             {link.title}
           </NavLink>
         ))}
-        <a href="tel:+918925063980" className="btn" style={{ marginTop: 'auto', padding: '1.2rem', backgroundColor: 'var(--dark)', color: 'white' }}>
-          Call Now
+        <a href="tel:+918925063980" className="nav-cta-btn" style={{ marginTop: 'auto', justifyContent: 'center' }}>
+          <Phone size={16} />
+          <span>Call Now</span>
         </a>
       </div>
-      
-      {isOpen && (
-        <div 
-          onClick={toggleMenu}
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            backgroundColor: 'rgba(0,0,0,0.5)',
-            backdropFilter: 'blur(4px)',
-            zIndex: 1000
-          }}
-        />
-      )}
     </header>
   );
 };

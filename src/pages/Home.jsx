@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Shield, Smartphone, Globe, Cloud, FileText, Settings, Briefcase, 
@@ -7,7 +7,6 @@ import {
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import DynamicLeadForm from '../components/DynamicLeadForm';
-import { useScrollReveal } from '../hooks/useScrollReveal';
 
 // Reusable WhatsApp Icon for CTA integration
 const WhatsAppIcon = ({ size = 20, color = "currentColor" }) => (
@@ -17,14 +16,27 @@ const WhatsAppIcon = ({ size = 20, color = "currentColor" }) => (
 );
 
 const Home = () => {
-  // Dynamic Hooks for Scroll Reveal states to build premium smooth fade-ins
-  const [tickerRef, tickerActive] = useScrollReveal();
-  const [tabsRef, tabsActive] = useScrollReveal();
-  const [calcRef, calcActive] = useScrollReveal();
-  const [timelineRef, timelineActive] = useScrollReveal();
-  const [whyRef, whyActive] = useScrollReveal();
-  const [funnelRef, funnelActive] = useScrollReveal();
-  const [faqRef, faqActive] = useScrollReveal();
+  // Pure Native IntersectionObserver Scroll Reveal Engine (Zero React re-renders)
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.05 }
+    );
+
+    const elements = document.querySelectorAll('.reveal-item');
+    elements.forEach((el) => observer.observe(el));
+
+    return () => {
+      elements.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
 
   // Tab Selection state for Services Matrix
   const [activeTab, setActiveTab] = useState('compliance');
@@ -252,8 +264,7 @@ const Home = () => {
 
       {/* Infinite Scrolling Ticker of Credentials & Social Proof */}
       <div 
-        ref={tickerRef}
-        className={`reveal-item ${tickerActive ? 'active' : ''}`}
+        className="reveal-item"
         style={{ width: '100%' }}
       >
         <div className="marquee-ticker-container">
@@ -283,8 +294,7 @@ const Home = () => {
 
       {/* Dynamic Services Tabs Matrix */}
       <section 
-        ref={tabsRef}
-        className={`section reveal-item ${tabsActive ? 'active' : ''}`}
+        className="section reveal-item"
         style={{ backgroundColor: 'var(--bg-soft)', borderBottom: '1px solid var(--border-light)' }}
       >
         <div className="container" style={{ textAlign: 'center' }}>
@@ -437,8 +447,7 @@ const Home = () => {
       {/* Dynamic Bookkeeping Pricing Calculator Section */}
       <section 
         id="tax-calculator"
-        ref={calcRef}
-        className={`section reveal-item ${calcActive ? 'active' : ''}`}
+        className="section reveal-item"
         style={{ borderBottom: '1px solid var(--border-light)' }}
       >
         <div className="container">
@@ -509,8 +518,7 @@ const Home = () => {
 
       {/* Step-by-Step Interactive Compliance Roadmap */}
       <section 
-        ref={timelineRef}
-        className={`section reveal-item ${timelineActive ? 'active' : ''}`}
+        className="section reveal-item"
         style={{ backgroundColor: 'var(--bg-soft)', borderBottom: '1px solid var(--border-light)' }}
       >
         <div className="container">
@@ -560,8 +568,7 @@ const Home = () => {
 
       {/* Why Clients Choose VT Business Support */}
       <section 
-        ref={whyRef}
-        className={`section reveal-item ${whyActive ? 'active' : ''}`}
+        className="section reveal-item"
         style={{ background: 'var(--dark)', color: 'white' }}
       >
         <div className="container">
@@ -619,8 +626,7 @@ const Home = () => {
       {/* Dynamic Multi-Step Pre-Qualifying Lead Funnel Section */}
       <section 
         id="quote-funnel"
-        ref={funnelRef}
-        className={`section reveal-item ${funnelActive ? 'active' : ''}`}
+        className="section reveal-item"
         style={{ borderBottom: '1px solid var(--border-light)' }}
       >
         <div className="container">
@@ -635,8 +641,7 @@ const Home = () => {
 
       {/* Accordion-Style Intent Mapped smart FAQs */}
       <section 
-        ref={faqRef}
-        className={`section reveal-item ${faqActive ? 'active' : ''}`}
+        className="section reveal-item"
         style={{ backgroundColor: 'var(--bg-soft)' }}
       >
         <div className="container" style={{ maxWidth: '800px' }}>
