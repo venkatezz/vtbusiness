@@ -1,25 +1,38 @@
-import React, { useState } from 'react';
-import { Phone, Mail, MapPin, MessageCircle, Send, Shield, Zap } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Phone, Mail, MapPin, MessageCircle, Send, Shield, Zap, Clock, CheckCircle, ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '', // This will store Company Name
+    name: '',
     phone: '',
     requirement: '',
     message: ''
   });
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.05 }
+    );
+    const elements = document.querySelectorAll('.reveal-item');
+    elements.forEach((el) => observer.observe(el));
+    return () => elements.forEach((el) => observer.unobserve(el));
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    
     const message = `Hi, I need support for ${formData.requirement || 'my business'}.\n\nCompany Name: ${formData.name}\nPhone: ${formData.phone}\nMessage: ${formData.message}`;
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/918925063980?text=${encodedMessage}`;
-    
     window.open(whatsappUrl, '_blank');
-    
-    // Clear form
     setFormData({ name: '', phone: '', requirement: '', message: '' });
   };
 
@@ -28,204 +41,310 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const contactList = [
-    { icon: <Phone size={24} />, title: 'Call Us', value: '+91 89250 63980', href: 'tel:+918925063980' },
-    { icon: <Mail size={24} />, title: 'Email Us', value: 'vtconsulting.in@gmail.com', href: 'mailto:vtconsulting.in@gmail.com' },
+  const contactItems = [
+    { icon: <Phone size={22} />, label: 'Direct Line', value: '+91 89250 63980', href: 'tel:+918925063980', color: 'var(--primary)' },
+    { icon: <Mail size={22} />, label: 'Email Address', value: 'vtconsulting.in@gmail.com', href: 'mailto:vtconsulting.in@gmail.com', color: 'var(--primary-hover)' },
+    { icon: <MapPin size={22} />, label: 'Office Locations', value: 'Tamil Nadu & Bengaluru', href: '#', color: 'var(--secondary)' },
     {
-      icon: <MapPin size={24} />,
-      title: 'Serving',
-      value: 'Tamil Nadu & Bengaluru',
-      href: '#'
-    },
-    { 
       icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.393 0 12.029c0 2.119.554 4.187 1.605 6.006L0 24l6.11-1.603a11.783 11.783 0 005.937 1.603h.005c6.635 0 12.03-5.393 12.034-12.031a11.813 11.813 0 00-3.528-8.503z"/>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.393 0 12.029c0 2.119.554 4.187 1.605 6.006L0 24l6.11-1.603a11.783 11.783 0 005.937 1.603h.005c6.635 0 12.03-5.393 12.034-12.031a11.813 11.813 0 00-3.528-8.503z" />
         </svg>
-      ), 
-      title: 'WhatsApp', 
-      value: 'Chat for Instant Support', 
-      href: 'https://api.whatsapp.com/send?phone=918925063980' 
+      ),
+      label: 'WhatsApp',
+      value: 'Instant Chat Support',
+      href: 'https://api.whatsapp.com/send?phone=918925063980',
+      color: '#25D366'
     }
   ];
 
   return (
-    <div className="fade-in">
-      <SEO 
-        title="Contact Us | Professional Business Support in TN & Bengaluru"
+    <div>
+      <SEO
+        title="Contact VT Business Support | GST, IT & Tax Advisory"
         description="Get in touch with VT Business Support for GST filing, accounting, IT support, and website development. We serve clients across Tamil Nadu and Bengaluru."
       />
-      {/* Hero Header */}
-      <section style={{ 
+
+      {/* Hero Banner */}
+      <section style={{
         position: 'relative',
-        padding: '80px 0', 
+        padding: '100px 0 80px',
         textAlign: 'center',
-        backgroundImage: 'linear-gradient(to bottom, rgba(8, 16, 40, 0.95), rgba(8, 16, 40, 0.85)), url("https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&q=80&w=1200")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        color: 'white'
+        background: `radial-gradient(circle at top left, rgba(74, 63, 224, 0.15), transparent 55%), linear-gradient(180deg, hsl(224, 71%, 5%), hsl(224, 71%, 10%))`,
+        color: 'white',
+        overflow: 'hidden'
       }}>
+        <div style={{
+          position: 'absolute', top: 0, left: 0, width: '100%', height: '2px',
+          background: 'linear-gradient(to right, var(--primary), var(--secondary))'
+        }} />
         <div className="container">
-          <div style={{ backgroundColor: 'rgba(74, 63, 224, 0.15)', padding: '0.5rem 1.25rem', borderRadius: '100px', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.25rem', border: '1px solid rgba(74, 63, 224, 0.3)', color: 'var(--primary-hover)', fontWeight: 700, fontSize: '0.9rem' }}>
-            <Zap size={16} />
-            <span>Serving Tamil Nadu & Bengaluru</span>
+          <div style={{
+            display: 'inline-flex', alignItems: 'center', gap: '0.6rem',
+            backgroundColor: 'rgba(74,63,224,0.15)', padding: '0.45rem 1.25rem',
+            borderRadius: '100px', border: '1px solid rgba(74,63,224,0.3)',
+            marginBottom: '1.5rem'
+          }}>
+            <Zap size={15} style={{ color: 'var(--primary-hover)' }} />
+            <span style={{ fontWeight: 700, fontSize: '0.8rem', color: 'white', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+              Serving Tamil Nadu & Bengaluru
+            </span>
           </div>
-          <h1 style={{ color: 'white', marginBottom: '1.25rem', fontSize: 'clamp(2.5rem, 6vw, 3.5rem)', fontWeight: 800, letterSpacing: '-0.02em' }}>Start Your Optimization</h1>
-          <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.15rem', maxWidth: '700px', margin: '0 auto', fontWeight: 500, lineHeight: 1.6 }}>
-            Connect with our experts today. We provide on-site IT infrastructure support in Bengaluru and professional tax services across Tamil Nadu.
+          <h1 style={{
+            color: 'white', fontSize: 'clamp(2.5rem, 6vw, 3.75rem)',
+            fontWeight: 800, letterSpacing: '-0.03em', marginBottom: '1.25rem', lineHeight: 1.1
+          }}>
+            Let's Build Your Solution
+          </h1>
+          <p style={{
+            color: 'rgba(255,255,255,0.75)', maxWidth: '660px', margin: '0 auto',
+            fontSize: 'clamp(1rem, 1.6vw, 1.2rem)', lineHeight: 1.65, fontWeight: 400
+          }}>
+            Connect with our experts today. We provide on-site IT infrastructure support in Bengaluru and professional tax services across Tamil Nadu — all with a 30-minute response guarantee.
           </p>
         </div>
       </section>
 
-      <section className="section">
+      {/* Trust Badges Strip */}
+      <div style={{
+        backgroundColor: 'var(--bg-soft)', borderBottom: '1px solid var(--border-light)',
+        padding: '1.25rem 0'
+      }}>
         <div className="container">
-          <div className="grid-responsive" style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
-            gap: '2.5rem' 
+          <div style={{
+            display: 'flex', justifyContent: 'center', gap: '3rem', flexWrap: 'wrap',
+            alignItems: 'center'
           }}>
-            {/* Left Column: Contact Info */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-              <div className="card-premium" style={{ backgroundColor: 'white', padding: '2.25rem', border: '1px solid var(--border-light)', borderRadius: '20px' }}>
-                <h3 style={{ marginBottom: '2rem', fontSize: '1.5rem', color: 'var(--dark)', fontWeight: 800 }}>Direct Line</h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>
-                  {contactList.map((item, idx) => (
-                    <a
-                      key={idx}
-                      href={item.href}
+            {[
+              { icon: <CheckCircle size={15} style={{ color: 'var(--secondary)' }} />, text: '30-min Response Guarantee' },
+              { icon: <Shield size={15} style={{ color: 'var(--primary)' }} />, text: '100% Secure & Confidential' },
+              { icon: <Clock size={15} style={{ color: 'var(--accent)' }} />, text: 'Mon–Sat: 9AM to 7:30PM' },
+            ].map((b, i) => (
+              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-main)' }}>
+                {b.icon}<span>{b.text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <section className="section reveal-item">
+        <div className="container">
+          <div className="grid-responsive" style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '2.5rem'
+          }}>
+            {/* Left: Contact Cards */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>
+              {/* Direct Line Card */}
+              <div style={{
+                background: 'white', border: '1px solid var(--border-light)',
+                borderRadius: '20px', padding: '2.25rem',
+                boxShadow: 'var(--shadow-sm)'
+              }}>
+                <h3 style={{ marginBottom: '2rem', fontSize: '1.4rem', color: 'var(--dark)', fontWeight: 800 }}>Direct Lines</h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                  {contactItems.map((item, idx) => (
+                    <a key={idx} href={item.href}
                       style={{
-                        display: 'flex',
-                        gap: '1.25rem',
-                        alignItems: 'center',
-                        textDecoration: 'none',
-                        color: 'inherit',
-                        transition: 'var(--transition)'
+                        display: 'flex', gap: '1rem', alignItems: 'center',
+                        textDecoration: 'none', color: 'inherit', transition: 'var(--transition)'
                       }}
-                      className="contact-item-hover"
                     >
                       <div style={{
-                        backgroundColor: 'var(--bg-soft)',
-                        padding: '0.85rem',
-                        borderRadius: '14px',
-                        color: idx === 3 ? '#25D366' : 'var(--primary)',
-                        flexShrink: 0,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
+                        width: '48px', height: '48px', borderRadius: '14px',
+                        backgroundColor: 'var(--bg-soft)', display: 'flex',
+                        alignItems: 'center', justifyContent: 'center',
+                        color: item.color, flexShrink: 0,
                         border: '1px solid var(--border-light)'
                       }}>
-                        {React.cloneElement(item.icon, { size: 22 })}
+                        {item.icon}
                       </div>
-                      <div style={{ flex: 1, minWidth: 0 }}>
-                        <h4 style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginBottom: '0.15rem', fontWeight: 600 }}>{item.title}</h4>
-                        <p style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--dark)', overflowWrap: 'anywhere' }}>{item.value}</p>
+                      <div>
+                        <div style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-muted)', marginBottom: '2px', letterSpacing: '0.04em', textTransform: 'uppercase' }}>{item.label}</div>
+                        <div style={{ fontSize: '0.97rem', fontWeight: 700, color: 'var(--dark)', overflowWrap: 'anywhere' }}>{item.value}</div>
                       </div>
                     </a>
                   ))}
                 </div>
-                <div style={{ marginTop: '2.5rem', padding: '1.25rem', backgroundColor: 'var(--bg-soft)', borderRadius: '16px', border: '1px solid var(--border-light)' }}>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', fontWeight: 500, lineHeight: 1.5, margin: 0 }}>
-                    <span style={{ color: 'var(--primary)', fontWeight: 800 }}>Need quick help?</span> Call or WhatsApp us for fast response on GST, IT support, or business setup.
+                <div style={{
+                  marginTop: '2rem', padding: '1.25rem', backgroundColor: 'rgba(74,63,224,0.05)',
+                  borderRadius: '14px', border: '1px dashed rgba(74,63,224,0.25)'
+                }}>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', fontWeight: 500, lineHeight: 1.55, margin: 0 }}>
+                    <span style={{ color: 'var(--primary)', fontWeight: 800 }}>Need quick help?</span> Call or WhatsApp us for fast response on GST, IT support, or business setup queries.
                   </p>
                 </div>
               </div>
 
-              <div className="card-premium" style={{ border: '2px dashed var(--primary)', background: 'transparent', borderRadius: '20px', padding: '2rem' }}>
-                <h4 style={{ marginBottom: '1.25rem', color: 'var(--primary)', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <Shield size={20} />
+              {/* Business Hours Card */}
+              <div style={{
+                background: 'white', border: '1px solid var(--border-light)',
+                borderRadius: '20px', padding: '2rem',
+                boxShadow: 'var(--shadow-sm)'
+              }}>
+                <h4 style={{
+                  marginBottom: '1.5rem', color: 'var(--dark)', fontWeight: 800,
+                  display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '1.1rem'
+                }}>
+                  <Clock size={18} style={{ color: 'var(--primary)' }} />
                   Business Hours
                 </h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ color: 'var(--text-muted)', fontWeight: 600 }}>Mon – Sat:</span>
-                    <span style={{ color: 'var(--dark)', fontWeight: 700 }}>9:00 AM – 7:30 PM</span>
-                  </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ color: 'var(--text-muted)', fontWeight: 600 }}>Sunday:</span>
-                    <span style={{ color: 'var(--primary)', fontWeight: 700 }}>WhatsApp Support</span>
-                  </div>
+                  {[
+                    { day: 'Monday – Friday', time: '9:00 AM – 7:30 PM', badge: 'Open' },
+                    { day: 'Saturday', time: '9:00 AM – 5:00 PM', badge: 'Open' },
+                    { day: 'Sunday', time: 'WhatsApp Only', badge: 'Limited' },
+                  ].map((slot, i) => (
+                    <div key={i} style={{
+                      display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                      padding: '0.75rem 0', borderBottom: i < 2 ? '1px solid var(--border-light)' : 'none'
+                    }}>
+                      <span style={{ color: 'var(--text-muted)', fontWeight: 600, fontSize: '0.9rem' }}>{slot.day}</span>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                        <span style={{ color: 'var(--dark)', fontWeight: 700, fontSize: '0.9rem' }}>{slot.time}</span>
+                        <span style={{
+                          fontSize: '0.7rem', fontWeight: 700, padding: '2px 8px', borderRadius: '100px',
+                          backgroundColor: slot.badge === 'Open' ? 'rgba(16,185,129,0.1)' : 'rgba(245,158,11,0.1)',
+                          color: slot.badge === 'Open' ? 'var(--secondary)' : 'var(--accent)'
+                        }}>{slot.badge}</span>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
 
-            {/* Right Column: Contact Form */}
-            <div className="card-premium" style={{ boxShadow: 'var(--shadow-lg)', borderRadius: '24px', padding: '2.5rem' }}>
-              <h3 style={{ marginBottom: '0.5rem', fontSize: '1.75rem', fontWeight: 800, color: 'var(--dark)' }}>Send a Message</h3>
-              <p style={{ color: 'var(--text-muted)', marginBottom: '2rem', fontWeight: 500 }}>Tell us about your business needs.</p>
-              
+            {/* Right: Contact Form */}
+            <div style={{
+              background: 'white', border: '1px solid var(--border-light)',
+              borderRadius: '24px', padding: '2.5rem',
+              boxShadow: 'var(--shadow-lg)'
+            }}>
+              <div style={{ marginBottom: '2rem' }}>
+                <h3 style={{ fontSize: '1.75rem', fontWeight: 800, color: 'var(--dark)', marginBottom: '0.35rem' }}>Send a Message</h3>
+                <p style={{ color: 'var(--text-muted)', fontWeight: 500 }}>Tell us about your business needs. We respond via WhatsApp immediately.</p>
+              </div>
+
               <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                <div className="grid-responsive" style={{ 
-                  display: 'grid', 
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', 
-                  gap: '1.5rem' 
-                }}>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-                    <label style={{ fontWeight: 700, fontSize: '0.9rem', color: 'var(--dark)' }}>Company Name</label>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))', gap: '1.25rem' }}>
+                  <div className="form-group" style={{ margin: 0 }}>
+                    <label className="form-label">Company / Your Name *</label>
                     <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      placeholder="Your Business Name"
-                      style={{ padding: '1rem', borderRadius: '12px', border: '1px solid var(--border-light)', backgroundColor: 'var(--bg-soft)', fontSize: '1rem', transition: 'var(--transition)' }}
+                      type="text" name="name"
+                      value={formData.name} onChange={handleChange}
+                      required placeholder="Your Business Name"
                       className="form-input"
                     />
                   </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-                    <label style={{ fontWeight: 700, fontSize: '0.9rem', color: 'var(--dark)' }}>Contact Number</label>
+                  <div className="form-group" style={{ margin: 0 }}>
+                    <label className="form-label">WhatsApp Number *</label>
                     <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      required
-                      placeholder="+91 89250 63980"
-                      style={{ padding: '1rem', borderRadius: '12px', border: '1px solid var(--border-light)', backgroundColor: 'var(--bg-soft)', fontSize: '1rem', transition: 'var(--transition)' }}
+                      type="tel" name="phone"
+                      value={formData.phone} onChange={handleChange}
+                      required placeholder="+91 89250 63980"
                       className="form-input"
                     />
                   </div>
                 </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-                  <label style={{ fontWeight: 700, fontSize: '0.9rem', color: 'var(--dark)' }}>Service Required</label>
+
+                <div className="form-group" style={{ margin: 0 }}>
+                  <label className="form-label">Service Required</label>
                   <select
                     name="requirement"
                     value={formData.requirement}
                     onChange={handleChange}
-                    style={{ padding: '1rem', borderRadius: '12px', border: '1px solid var(--border-light)', backgroundColor: 'var(--bg-soft)', fontSize: '1rem', cursor: 'pointer', transition: 'var(--transition)' }}
                     className="form-input"
+                    style={{ cursor: 'pointer', height: '48px' }}
                   >
                     <option value="">Select a service category</option>
-                    <option value="GST & Tax Compliance">GST & Tax Compliance</option>
-                    <option value="Accounting & Bookkeeping">Accounting & Bookkeeping</option>
-                    <option value="IT Infrastructure & Setup">IT Infrastructure & Setup</option>
-                    <option value="Web & Cloud Growth">Web & Cloud Growth</option>
+                    <option value="GST & Tax Compliance">GST &amp; Tax Compliance</option>
+                    <option value="Accounting & Bookkeeping">Accounting &amp; Bookkeeping</option>
+                    <option value="IT Infrastructure & Setup">IT Infrastructure &amp; Setup</option>
+                    <option value="Web & Cloud Growth">Web &amp; Cloud Growth</option>
+                    <option value="Company Registration">Company Registration</option>
                   </select>
                 </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-                  <label style={{ fontWeight: 700, fontSize: '0.9rem', color: 'var(--dark)' }}>How can we help?</label>
-                  <textarea 
-                    rows={4} 
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Describe your requirements or questions..." 
-                    style={{ width: '100%', padding: '1rem', borderRadius: '12px', border: '1px solid var(--border-light)', backgroundColor: 'var(--bg-soft)', resize: 'none', fontSize: '1rem', transition: 'var(--transition)' }}
+
+                <div className="form-group" style={{ margin: 0 }}>
+                  <label className="form-label">How can we help?</label>
+                  <textarea
+                    rows={4} name="message"
+                    value={formData.message} onChange={handleChange}
+                    placeholder="Describe your requirements or specific questions..."
                     className="form-input"
-                  ></textarea>
+                    style={{ height: '110px', resize: 'none', paddingTop: '0.85rem' }}
+                  />
                 </div>
-                <div style={{ textAlign: 'center', marginTop: '0.5rem' }}>
-                  <p style={{ color: 'var(--primary)', fontSize: '0.9rem', fontWeight: 700, margin: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
-                    <MessageCircle size={16} />
-                    Instant Response via WhatsApp
+
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
+                  <Shield size={14} style={{ color: 'var(--primary)', flexShrink: 0 }} />
+                  <span>Your data is 100% secure &amp; confidential. We never share your information.</span>
+                </div>
+
+                <button type="submit" className="btn btn-whatsapp" style={{ width: '100%', height: '54px', fontSize: '1rem', fontWeight: 700 }}>
+                  <Send size={18} />
+                  <span>Send via WhatsApp Now</span>
+                </button>
+
+                <div style={{ textAlign: 'center' }}>
+                  <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
+                    Prefer a call?{' '}
+                    <a href="tel:+918925063980" style={{ color: 'var(--primary)', fontWeight: 700 }}>
+                      Dial +91 89250 63980 →
+                    </a>
                   </p>
                 </div>
-                <button type="submit" className="btn btn-whatsapp" style={{ width: '100%', height: '56px', fontSize: '1.1rem', borderRadius: '12px', fontWeight: 700 }}>
-                  <Send size={20} />
-                  <span>Send WhatsApp Message</span>
-                </button>
               </form>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Office Locations Strip */}
+      <section className="section reveal-item" style={{ backgroundColor: 'var(--bg-soft)', borderTop: '1px solid var(--border-light)', paddingTop: '60px', paddingBottom: '60px' }}>
+        <div className="container">
+          <div className="section-title" style={{ marginBottom: '2.5rem' }}>
+            <h2>Our Office Locations</h2>
+            <p>Administrative and operational hubs serving clients across Tamil Nadu and Karnataka.</p>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', maxWidth: '800px', margin: '0 auto' }}>
+            {[
+              {
+                icon: <MapPin size={20} />,
+                city: 'Harur, Tamil Nadu',
+                address: '5/1B16, Administrative Office, Harur Town, Dharmapuri District, Tamil Nadu – 636903',
+                tag: 'Registered HQ',
+                color: 'var(--primary)'
+              },
+              {
+                icon: <MapPin size={20} />,
+                city: 'Electronic City, Bengaluru',
+                address: '#79, 3rd Floor, Phase 1, Electronic City, Bengaluru, Karnataka – 560100',
+                tag: 'Operations Hub',
+                color: 'var(--secondary)'
+              }
+            ].map((office, idx) => (
+              <div key={idx} className="footer-address-block" style={{
+                backgroundColor: 'white', borderRadius: '18px', padding: '2rem',
+                border: '1px solid var(--border-light)', boxShadow: 'var(--shadow-sm)',
+                display: 'flex', flexDirection: 'column', gap: '1rem'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                  <div style={{ color: office.color }}>{office.icon}</div>
+                  <h4 style={{ fontWeight: 800, fontSize: '1.05rem', color: 'var(--dark)' }}>{office.city}</h4>
+                </div>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6 }}>{office.address}</p>
+                <span style={{
+                  alignSelf: 'flex-start', fontSize: '0.75rem', fontWeight: 700,
+                  padding: '3px 10px', borderRadius: '100px',
+                  backgroundColor: `${office.color}12`, color: office.color,
+                  letterSpacing: '0.04em'
+                }}>{office.tag}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>

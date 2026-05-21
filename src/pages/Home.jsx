@@ -111,156 +111,146 @@ const Home = () => {
         schema={localBusinessSchema}
       />
 
-      {/* Dual-Engine Splitted Hero Section */}
-      <section 
-        className="section fade-in"
-        style={{
-          minHeight: '85vh',
-          display: 'flex',
-          alignItems: 'center',
-          background: `radial-gradient(circle at top right, rgba(74, 63, 224, 0.12), transparent), linear-gradient(180deg, hsl(224, 71%, 5%), var(--dark))`,
-          padding: '100px 0 80px',
-          color: 'white'
-        }}
-      >
+      {/* ─── HERO SECTION ──────────────────────────────────────────────────── */}
+      <section className="hero-section">
+        {/* Subtle ambient grid overlay */}
+        <div className="hero-grid-overlay" aria-hidden="true" />
+
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3.5rem', alignItems: 'center' }}>
-            
-            {/* Split Hero Left: Authority Headline & Pitch */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-              <div style={{
-                backgroundColor: 'rgba(74, 63, 224, 0.15)',
-                padding: '0.5rem 1.25rem',
-                borderRadius: '100px',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.6rem',
-                border: '1px solid rgba(74, 63, 224, 0.3)',
-                alignSelf: 'flex-start'
-              }}>
-                <Zap size={15} style={{ color: 'var(--primary-hover)' }} />
-                <span style={{ fontWeight: 700, fontSize: '0.8rem', color: 'white', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
-                  Serving Tamil Nadu & Bengaluru
-                </span>
+          <div className="hero-inner">
+
+            {/* ── LEFT COLUMN ── */}
+            <div className="hero-left">
+
+              {/* Trust badge */}
+              <div className="hero-badge hero-anim-1">
+                <span className="hero-badge-dot" />
+                <Users size={13} />
+                <span>Trusted by 50+ Businesses</span>
               </div>
 
-              <h1 style={{
-                color: 'white',
-                fontSize: 'clamp(2.5rem, 5vw, 3.8rem)',
-                lineHeight: 1.1,
-                fontWeight: 800,
-                letterSpacing: '-0.03em'
-              }}>
-                Simplify Compliance. <br />
-                <span style={{ background: 'linear-gradient(to right, #6C63FF, #10B981)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                  Scale Your Tech.
-                </span>
+              {/* Heading */}
+              <h1 className="hero-heading hero-anim-2">
+                GST, Income Tax &amp;{' '}
+                <span className="hero-heading-highlight">IT Support</span>{' '}
+                for Small Businesses
               </h1>
 
-              <p style={{
-                color: 'rgba(255, 255, 255, 0.78)',
-                fontSize: 'clamp(1.05rem, 1.8vw, 1.25rem)',
-                lineHeight: 1.55,
-                fontWeight: 400
-              }}>
-                Unified elite solutions for individual tax compliance, monthly corporate bookkeeping, and resilient web/cloud setup. Zero friction, total accuracy.
+              {/* Supporting paragraph */}
+              <p className="hero-subtext hero-anim-3">
+                Professional financial, compliance, and technical support for startups, freelancers, and growing businesses across{' '}
+                <strong>Tamil Nadu &amp; Bengaluru</strong>.
               </p>
 
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', marginTop: '0.5rem' }}>
-                <a href="#quote-funnel" className="btn btn-primary" style={{ height: '50px', fontSize: '0.95rem' }}>
-                  Get Free Consultation <ArrowRight size={18} />
-                </a>
-                <a 
-                  href="https://api.whatsapp.com/send?phone=918925063980" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="btn btn-whatsapp" 
-                  style={{ height: '50px', fontSize: '0.95rem' }}
+              {/* CTA Buttons */}
+              <div className="hero-cta-row hero-anim-4">
+                {/* PRIMARY — WhatsApp */}
+                <a
+                  href="https://api.whatsapp.com/send?phone=918925063980"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hero-btn-whatsapp"
+                  id="hero-whatsapp-cta"
                 >
-                  <WhatsAppIcon size={20} />
-                  <span>Instant WhatsApp Connect</span>
+                  <WhatsAppIcon size={20} color="white" />
+                  <span>Chat on WhatsApp</span>
                 </a>
+                {/* SECONDARY */}
+                <a href="#quote-funnel" className="hero-btn-secondary">
+                  Get Free Consultation
+                  <ArrowRight size={16} />
+                </a>
+              </div>
+
+              {/* Trust points */}
+              <div className="hero-trust-row hero-anim-5">
+                {[
+                  'Fast Response',
+                  '5+ Years Experience',
+                  'GST + IT Hybrid Support',
+                ].map((t) => (
+                  <span key={t} className="hero-trust-item">
+                    <CheckCircle size={14} className="hero-trust-icon" />
+                    {t}
+                  </span>
+                ))}
               </div>
             </div>
 
-            {/* Split Hero Right: Interactive Visual Engine Router */}
-            <div style={{
-              background: 'rgba(255, 255, 255, 0.03)',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
-              borderRadius: '24px',
-              padding: '2.5rem 2rem',
-              backdropFilter: 'blur(20px)',
-              boxShadow: '0 30px 60px rgba(0,0,0,0.4)',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '1.75rem'
-            }}>
-              <div style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.1)', paddingBottom: '1rem' }}>
-                <h3 style={{ color: 'white', fontSize: '1.25rem', fontWeight: 800, marginBottom: '0.25rem' }}>Select Your Engine</h3>
-                <p style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.85rem' }}>Where should we direct you today?</p>
-              </div>
-
-              {/* Engine 1: B2C Salaried/Filer */}
-              <div style={{
-                background: 'rgba(255, 255, 255, 0.03)',
-                border: '1.5px solid rgba(255, 255, 255, 0.06)',
-                borderRadius: '16px',
-                padding: '1.25rem',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                transition: 'var(--transition-fast)',
-                cursor: 'pointer'
-              }}
-              className="card-premium-hover"
-              onClick={() => {
-                const element = document.getElementById("quote-funnel");
-                if (element) element.scrollIntoView({ behavior: 'smooth' });
-              }}
-              >
-                <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '0.25rem' }}>
-                    <FileText size={18} style={{ color: 'var(--primary-hover)' }} />
-                    <span style={{ fontWeight: 700, fontSize: '0.95rem', color: 'white' }}>Individual Tax Filer (B2C)</span>
-                  </div>
-                  <p style={{ fontSize: '0.8rem', color: 'rgba(255, 255, 255, 0.5)' }}>ITR filing, capital gains returns & deductions starting ₹499.</p>
+            {/* ── RIGHT COLUMN — Visual Panel ── */}
+            <div className="hero-right hero-anim-6">
+              {/* Floating card */}
+              <div className="hero-visual-card">
+                {/* Browser topbar */}
+                <div className="hero-visual-topbar">
+                  <span className="hero-dot hero-dot-red" />
+                  <span className="hero-dot hero-dot-yellow" />
+                  <span className="hero-dot hero-dot-green" />
+                  <div className="hero-url-bar">vtbusinesssupport.in</div>
                 </div>
-                <ArrowRight size={18} style={{ color: 'var(--primary-hover)' }} />
-              </div>
 
-              {/* Engine 2: B2B Enterprise Setup */}
-              <div style={{
-                background: 'rgba(255, 255, 255, 0.03)',
-                border: '1.5px solid rgba(255, 255, 255, 0.06)',
-                borderRadius: '16px',
-                padding: '1.25rem',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                transition: 'var(--transition-fast)',
-                cursor: 'pointer'
-              }}
-              className="card-premium-hover"
-              onClick={() => {
-                const element = document.getElementById("tax-calculator");
-                if (element) element.scrollIntoView({ behavior: 'smooth' });
-              }}
-              >
-                <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '0.25rem' }}>
-                    <Landmark size={18} style={{ color: 'var(--secondary)' }} />
-                    <span style={{ fontWeight: 700, fontSize: '0.95rem', color: 'white' }}>Corporate SME Support (B2B)</span>
-                  </div>
-                  <p style={{ fontSize: '0.8rem', color: 'rgba(255, 255, 255, 0.5)' }}>Monthly books, GST filing, cloud web setup & fractional CFO advisory.</p>
+                {/* Stats row */}
+                <div className="hero-stats-row">
+                  {[
+                    { value: '₹0', label: 'Penalty Risk', accent: 'var(--secondary)' },
+                    { value: '4.9★', label: 'Google Rating', accent: 'var(--accent)' },
+                    { value: '30 min', label: 'Response SLA', accent: 'var(--primary-hover)' },
+                  ].map((s) => (
+                    <div key={s.label} className="hero-stat-chip">
+                      <span className="hero-stat-val" style={{ color: s.accent }}>{s.value}</span>
+                      <span className="hero-stat-label">{s.label}</span>
+                    </div>
+                  ))}
                 </div>
-                <ArrowRight size={18} style={{ color: 'var(--secondary)' }} />
+
+                {/* Service rows */}
+                <div className="hero-service-list">
+                  {[
+                    { icon: <FileText size={16} />, title: 'GST & Income Tax Filing', sub: 'ITR · GSTR-1 · GSTR-3B', color: 'var(--primary)' },
+                    { icon: <Shield size={16} />, title: 'Accounting & Compliance', sub: 'Bookkeeping · ROC · MCA', color: 'var(--secondary)' },
+                    { icon: <HardDrive size={16} />, title: 'IT & Cloud Infrastructure', sub: 'AWS · Linux · Networking', color: 'var(--accent)' },
+                  ].map((item) => (
+                    <div key={item.title} className="hero-service-row">
+                      <div className="hero-service-icon" style={{ background: `${item.color}18`, color: item.color }}>
+                        {item.icon}
+                      </div>
+                      <div>
+                        <div className="hero-service-title">{item.title}</div>
+                        <div className="hero-service-sub">{item.sub}</div>
+                      </div>
+                      <div className="hero-service-check">
+                        <CheckCircle size={14} style={{ color: 'var(--secondary)' }} />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Bottom CTA strip */}
+                <a
+                  href="https://api.whatsapp.com/send?phone=918925063980"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hero-card-cta"
+                >
+                  <WhatsAppIcon size={16} color="white" />
+                  <span>Message us now — free consultation</span>
+                </a>
               </div>
 
+              {/* Google rating badge — top-right only */}
+              <div className="hero-float-badge hero-float-right">
+                <Star size={14} fill="var(--accent)" stroke="var(--accent)" />
+                <div>
+                  <div className="hero-float-name">Google Rated 4.9</div>
+                  <div className="hero-float-status">Verified Reviews</div>
+                </div>
+              </div>
             </div>
 
           </div>
         </div>
       </section>
+      {/* ─── END HERO ──────────────────────────────────────────────────────── */}
 
       {/* Infinite Scrolling Ticker of Credentials & Social Proof */}
       <div 
