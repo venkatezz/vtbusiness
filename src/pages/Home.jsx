@@ -262,19 +262,33 @@ const Home = () => {
             {[...Array(2)].map((_, index) => (
               <React.Fragment key={index}>
                 <span className="marquee-ticker-item">
-                  <Star size={16} fill="var(--accent)" stroke="var(--accent)" /> GOOGLE BUSINESS RATED 4.9★
+                  <CheckCircle size={16} style={{ color: 'var(--secondary)' }} />
+                  GST Filing & Compliance
                 </span>
+
                 <span className="marquee-ticker-item">
-                  <Shield size={16} style={{ color: 'var(--primary-hover)' }} /> 100% SECURE DIRECT COMPLIANCE
+                  <FileText size={16} style={{ color: 'var(--primary)' }} />
+                  Income Tax Returns
                 </span>
+
                 <span className="marquee-ticker-item">
-                  <Landmark size={16} style={{ color: 'var(--secondary)' }} /> 50+ REGISTERED CORPS IN TN & BENGALURU
+                  <Briefcase size={16} style={{ color: 'var(--accent)' }} />
+                  Accounting & Bookkeeping
                 </span>
+
                 <span className="marquee-ticker-item">
-                  <HardDrive size={16} style={{ color: 'white' }} /> CLOUD LINUX AWS NETWORKING
+                  <Cpu size={16} style={{ color: '#CBD5E1' }} />
+                  IT Support & Office Setup
                 </span>
+
                 <span className="marquee-ticker-item">
-                  <Briefcase size={16} style={{ color: 'var(--accent)' }} /> FRACTIONAL BOOKKEEPING SOLUTIONS
+                  <Cloud size={16} style={{ color: 'var(--secondary)' }} />
+                  Cloud & Server Support
+                </span>
+
+                <span className="marquee-ticker-item">
+                  <Globe size={16} style={{ color: 'var(--primary-hover)' }} />
+                  Website Development
                 </span>
               </React.Fragment>
             ))}
@@ -385,7 +399,7 @@ const Home = () => {
                   </div>
                   <h3 style={{ marginBottom: '0.75rem', fontSize: '1.35rem', fontWeight: 800 }}>Office IT Support & setups</h3>
                   <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '0.92rem', lineHeight: 1.6, textAlign: 'left' }}>
-                    Complete corporate laptop deployment, operating system setups, firewall installations, local networks routing, and recurring remote tech support SLA.
+                    Laptop setup, networking, office systems, printer setup, and remote IT support for businesses.
                   </p>
                   <a href="#quote-funnel" style={{ fontWeight: 700, color: 'var(--dark)', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', marginTop: 'auto' }}>
                     Configure Support <ArrowRight size={16} />
@@ -403,7 +417,7 @@ const Home = () => {
                   </div>
                   <h3 style={{ marginBottom: '0.75rem', fontSize: '1.35rem', fontWeight: 800 }}>Cloud administration (AWS/Linux)</h3>
                   <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '0.92rem', lineHeight: 1.6, textAlign: 'left' }}>
-                    Institutional AWS, Linode & VPS configuration, secure Linux administration, automated backup setups, shell scripting, and web app deployments.
+                    AWS, Linux VPS, backups, domains, and cloud server support for growing businesses.
                   </p>
                   <a href="#quote-funnel" style={{ fontWeight: 700, color: 'var(--primary)', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', marginTop: 'auto' }}>
                     Configure Cloud <ArrowRight size={16} />
@@ -421,7 +435,7 @@ const Home = () => {
                   </div>
                   <h3 style={{ marginBottom: '0.75rem', fontSize: '1.35rem', fontWeight: 800 }}>Website Development & SEO</h3>
                   <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '0.92rem', lineHeight: 1.6, textAlign: 'left' }}>
-                    Beautiful custom React website engineering, robust search engine optimization (SEO) configurations, speed optimizations, and dynamic domain administration.
+                    Business websites, SEO setup, speed optimization, and domain management support.
                   </p>
                   <a href="#quote-funnel" style={{ fontWeight: 700, color: 'var(--secondary)', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', marginTop: 'auto' }}>
                     Develop Site <ArrowRight size={16} />
@@ -434,73 +448,92 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Dynamic Bookkeeping Pricing Calculator Section */}
-      <section 
-        id="tax-calculator"
+      <section
         className="section reveal-item"
-        style={{ borderBottom: '1px solid var(--border-light)' }}
+        style={{
+          background: 'var(--bg-soft)',
+          borderTop: '1px solid var(--border-light)',
+          borderBottom: '1px solid var(--border-light)'
+        }}
       >
         <div className="container">
+
           <div className="section-title">
-            <h2>Bookkeeping Calculator</h2>
-            <p>Move the range selector to estimate your business's monthly accounts management rate instantly.</p>
+            <h2>Why Businesses Choose VT</h2>
+            <p>
+              Practical GST, tax, and IT support designed for small businesses,
+              freelancers, startups, and local companies.
+            </p>
           </div>
 
-          <div className="pricing-calculator-card">
-            <h4 style={{ fontSize: '1.15rem', color: 'var(--text-muted)', fontWeight: 600 }}>Estimated Annual Corporate Turnover</h4>
-            <div style={{ fontSize: '2.5rem', color: 'var(--dark)', fontWeight: 800, marginTop: '0.5rem', fontFamily: 'var(--font-heading)' }}>
-              ₹{turnoverSlider} Lakhs
-            </div>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+              gap: '1.5rem'
+            }}
+          >
 
-            {/* Translucent premium range slider */}
-            <input 
-              type="range"
-              min="5"
-              max="150"
-              step="5"
-              value={turnoverSlider}
-              onChange={(e) => setTurnoverSlider(parseInt(e.target.value))}
-              className="slider-input-premium"
-            />
+            {[
+              {
+                icon: <Zap size={22} />,
+                title: 'Fast WhatsApp Support',
+                desc: 'Quick responses for GST, income tax, and IT-related issues.'
+              },
+              {
+                icon: <Shield size={22} />,
+                title: 'Finance + IT Expertise',
+                desc: 'One place for compliance, websites, cloud, and technical support.'
+              },
+              {
+                icon: <Briefcase size={22} />,
+                title: 'Affordable for Small Businesses',
+                desc: 'Professional support without enterprise-level pricing.'
+              },
+              {
+                icon: <Users size={22} />,
+                title: 'Tamil Nadu & Bengaluru Support',
+                desc: 'Remote and local support for businesses across both regions.'
+              }
+            ].map((item) => (
+              <div className="card-premium" key={item.title}>
+                <div
+                  style={{
+                    width: '48px',
+                    height: '48px',
+                    borderRadius: '12px',
+                    background: 'rgba(30,58,138,0.06)',
+                    border: '1px solid rgba(30,58,138,0.08)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: 'var(--primary)',
+                    marginBottom: '1rem'
+                  }}
+                >
+                  {item.icon}
+                </div>
 
-            <div style={{
-              backgroundColor: 'rgba(74, 63, 224, 0.05)',
-              border: '1px dashed var(--primary)',
-              borderRadius: '12px',
-              padding: '1.5rem',
-              margin: '1.5rem 0 2rem'
-            }}>
-              <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                Estimated Service Fee
-              </span>
-              <div style={{ fontSize: '2rem', color: 'var(--primary)', fontWeight: 800, marginTop: '0.25rem' }}>
-                {getEstimatedFee()}
+                <h3
+                  style={{
+                    fontSize: '1.05rem',
+                    marginBottom: '0.65rem'
+                  }}
+                >
+                  {item.title}
+                </h3>
+
+                <p
+                  style={{
+                    color: 'var(--text-muted)',
+                    fontSize: '0.92rem',
+                    lineHeight: 1.65
+                  }}
+                >
+                  {item.desc}
+                </p>
               </div>
-            </div>
-
-            <div style={{ textAlign: 'left' }}>
-              <h5 style={{ fontSize: '0.95rem', color: 'var(--dark)', fontWeight: 700, marginBottom: '0.75rem', borderBottom: '1px solid var(--border-light)', paddingBottom: '0.5rem' }}>
-                Included Deliverables:
-              </h5>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '0.75rem' }}>
-                {getCalculatorDeliverables().map((item, idx) => (
-                  <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.88rem', color: 'var(--text-main)', fontWeight: 500 }}>
-                    <CheckCircle size={16} style={{ color: 'var(--secondary)', flexShrink: 0 }} />
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div style={{ marginTop: '2.25rem' }}>
-              <a 
-                href="#quote-funnel"
-                className="btn btn-primary"
-                style={{ width: '100%', height: '48px', borderRadius: '10px' }}
-              >
-                Claim This Plan Package
-              </a>
-            </div>
+            ))}
 
           </div>
         </div>
@@ -621,8 +654,8 @@ const Home = () => {
       >
         <div className="container">
           <div className="section-title">
-            <h2>Get an Instant Service Quote</h2>
-            <p>Complete our pre-qualifying micro-funnel. We will match you with a specialized strategist immediately.</p>
+            <h2>Tell Us Your Requirement</h2>
+            <p>Select your service category and we’ll connect you with the right support team quickly.</p>
           </div>
 
           <DynamicLeadForm />
