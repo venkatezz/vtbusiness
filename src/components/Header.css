@@ -46,7 +46,7 @@
 }
 
 .nh-header.scrolled .nh-link:hover {
-  color: #1E3A8A;
+  color: #ffffff;
 }
 
 .nh-header.scrolled .nh-link.active {
@@ -124,29 +124,32 @@
   font-family: inherit;
   white-space: nowrap;
   line-height: 1;
+  color: rgba(255,255,255,0.78);
   transition: color 0.14s ease, background 0.14s ease;
 }
 
 .nh-link:hover {
-  color: var(--nh-text);
-  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  background: transparent;
 }
 
 .nh-link--active {
-  color: #fff !important;
+  color: #ffffff !important;
+  background: transparent !important;
 }
 
 .nh-link--active::after {
   content: '';
   position: absolute;
-  bottom: 4px;
+  bottom: 2px;
   left: 12px;
   right: 12px;
   height: 2px;
-  background: var(--nh-primary);
-  border-radius: 2px;
-  opacity: 0.9;
+  background: linear-gradient(90deg, #4A3FE0, #5B4DFF);
+  border-radius: 999px;
+  opacity: 1;
 }
+
 
 /* ── Chevron ───────────────────────────────────────────────────── */
 .nh-chevron {
@@ -209,7 +212,8 @@
 /* ── Mega menu panel ───────────────────────────────────────────── */
 .nh-dropdown {
   position: absolute;
-  top: calc(100% + 12px);
+  top: calc(100% + 20px);
+  margin-top: 4px;
   left: 50%;
   transform: translateX(-50%) translateY(10px);
   width: clamp(500px, 40vw, 560px);
@@ -231,6 +235,7 @@
     transform 0.22s ease;
 
   overflow: hidden;
+  background-clip: padding-box;
 }
 /* ── Dropdown category header ──────────────────────────────────── */
 .nh-drop-header {
@@ -620,4 +625,27 @@
   .nh-dropdown {
     width: clamp(460px, 56vw, 580px);
   }
+}
+
+/* MOBILE DRAWER TEXT FIX */
+
+@media (max-width: 900px) {
+
+  .nh-mob-sub-link {
+    color: rgba(255,255,255,0.82) !important;
+  }
+
+  .nh-mob-sub-link:hover {
+    color: #ffffff !important;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .nh-mob-group {
+    background: transparent !important;
+  }
+
+  .nh-mob-acc-panel {
+    background: transparent !important;
+  }
+
 }

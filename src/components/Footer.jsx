@@ -9,7 +9,7 @@ const Footer = () => {
     <footer style={{
       background: 'radial-gradient(circle at 10% 20%, rgba(74, 63, 224, 0.06), transparent 45%), linear-gradient(180deg, hsl(224, 71%, 7%) 0%, hsl(224, 71%, 4%) 100%)',
       color: 'white',
-      padding: '80px 0 32px',
+      padding: '64px 0 28px',
       marginTop: 'auto',
       borderTop: '1px solid rgba(255, 255, 255, 0.05)',
       position: 'relative',
@@ -45,7 +45,10 @@ const Footer = () => {
               />
             </Link>
             <p style={{ color: 'rgba(255, 255, 255, 0.65)', fontSize: '0.9rem', lineHeight: 1.6, maxWidth: '280px' }}>
-              Direct statutory tax compliance, comprehensive cloud systems setups, and professional bookkeeping architectures for individual & corporate leaders in TN & Karnataka.
+              Reliable GST filing, income tax, ROC compliance,
+              bookkeeping, and IT support services for startups,
+              small businesses, freelancers, and growing companies
+              across Tamil Nadu & Bengaluru.
             </p>
             <div style={{ marginTop: '0.5rem' }}>
               <GoogleRating />
@@ -54,49 +57,81 @@ const Footer = () => {
 
           {/* Column 2: Navigations */}
           <div>
-            <h4 className="footer-heading">Corporate Links</h4>
+            <h4 className="footer-heading">Quick Links</h4>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', listStyle: 'none' }}>
-              <li><Link to="/" className="footer-link">Home Portal</Link></li>
-              <li><Link to="/services" className="footer-link">Expertise Segments</Link></li>
-              <li><Link to="/about" className="footer-link">Our Narrative</Link></li>
-              <li><Link to="/contact" className="footer-link">Get in Touch</Link></li>
+              <li><Link to="/" className="footer-link">Home</Link></li>
+              <li><Link to="/services" className="footer-link">Services</Link></li>
+              <li><Link to="/about" className="footer-link">About Us</Link></li>
+              <li><Link to="/contact" className="footer-link">Contact</Link></li>
             </ul>
           </div>
 
           {/* Column 3: Core Segments */}
           <div>
-            <h4 className="footer-heading">Key Capabilities</h4>
+            <h4 className="footer-heading">Core Services</h4>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', listStyle: 'none' }}>
-              <li>
-                <a href="/services" className="footer-link" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <CheckCircle size={12} style={{ color: 'var(--primary-hover)' }} />
-                  <span>GST & Tax returns</span>
-                </a>
-              </li>
-              <li>
-                <a href="/services" className="footer-link" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <CheckCircle size={12} style={{ color: 'var(--primary-hover)' }} />
-                  <span>Corporate SME Accounts</span>
-                </a>
-              </li>
-              <li>
-                <a href="/services" className="footer-link" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <CheckCircle size={12} style={{ color: 'var(--primary-hover)' }} />
-                  <span>AWS & Cloud Linux Setup</span>
-                </a>
-              </li>
-              <li>
-                <a href="/services" className="footer-link" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <CheckCircle size={12} style={{ color: 'var(--primary-hover)' }} />
-                  <span>React Code & SEO Build</span>
-                </a>
-              </li>
-            </ul>
+
+            <li>
+              <Link
+                to="/services/gst-filing"
+                className="footer-link"
+                style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
+              >
+                <CheckCircle size={12} style={{ color: 'var(--primary-hover)' }} />
+                <span>GST Filing</span>
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                to="/services/income-tax"
+                className="footer-link"
+                style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
+              >
+                <CheckCircle size={12} style={{ color: 'var(--primary-hover)' }} />
+                <span>Income Tax Filing</span>
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                to="/services/accounting-bookkeeping"
+                className="footer-link"
+                style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
+              >
+                <CheckCircle size={12} style={{ color: 'var(--primary-hover)' }} />
+                <span>Accounting & Bookkeeping</span>
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                to="/services/roc-compliance"
+                className="footer-link"
+                style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
+              >
+                <CheckCircle size={12} style={{ color: 'var(--primary-hover)' }} />
+                <span>ROC Compliance</span>
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                to="/services/tds-filing"
+                className="footer-link"
+                style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
+              >
+                <CheckCircle size={12} style={{ color: 'var(--primary-hover)' }} />
+                <span>TDS Filing</span>
+              </Link>
+            </li>
+
+          </ul>
           </div>
 
           {/* Column 4: Contact & Coordinates */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-            <h4 className="footer-heading">Connect Coordinates</h4>
+            <h4 className="footer-heading">Contact Information</h4>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               <a href="tel:+918925063980" className="footer-link" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontWeight: 600 }}>
@@ -113,7 +148,7 @@ const Footer = () => {
               <div className="footer-address-block">
                 <h5 style={{ color: 'white', fontSize: '0.88rem', fontWeight: 700, marginBottom: '0.25rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
                   <MapPin size={14} style={{ color: 'var(--primary-hover)' }} />
-                  <span>Tamil Nadu (Harur Center)</span>
+                  <span>Tamil Nadu Office</span>
                 </h5>
                 <p style={{ color: 'rgba(255, 255, 255, 0.55)', fontSize: '0.8rem', lineHeight: 1.4 }}>
                   Administrative Office, 5/1B16, Harur Town, Dharmapuri, TN - 636903
@@ -123,7 +158,7 @@ const Footer = () => {
               <div className="footer-address-block">
                 <h5 style={{ color: 'white', fontSize: '0.88rem', fontWeight: 700, marginBottom: '0.25rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
                   <MapPin size={14} style={{ color: 'var(--secondary)' }} />
-                  <span>Bengaluru (E-City Hub)</span>
+                  <span>Bengaluru Office</span>
                 </h5>
                 <p style={{ color: 'rgba(255, 255, 255, 0.55)', fontSize: '0.8rem', lineHeight: 1.4 }}>
                   #79, 3rd Floor, Phase 1, Electronic City, Bengaluru, KA - 560100
@@ -147,9 +182,9 @@ const Footer = () => {
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <Shield size={16} style={{ color: 'var(--secondary)' }} />
-            <span>Authorized Corporate Tax Practitioners & Tech Architects</span>
+            <span>Trusted Business Compliance & IT Support Partner</span>
           </div>
-          <p>© 2021 – 2026 VT Business Support. All rights and systems reserved.</p>
+          <p>© 2021 – 2026 VT Business Support. All rights reserved.</p>
         </div>
       </div>
     </footer>

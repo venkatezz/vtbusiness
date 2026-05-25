@@ -19,7 +19,7 @@ const Accounting = () => {
       <section    
         className="gst-hero-section"
         style={{
-          padding: '82px 0 42px',
+          padding: '110px 0 48px',
           color: '#fff',
           position: 'relative',
           overflow: 'hidden',
@@ -80,6 +80,7 @@ const Accounting = () => {
                     border: '1px solid rgba(255,255,255,0.08)',
                     fontSize: '0.85rem',
                     fontWeight: '600',
+                    marginTop: '0.8rem',
                     marginBottom: '1.5rem'
                     }}
                 >
@@ -90,11 +91,11 @@ const Accounting = () => {
                 <h1
                   className="gst-hero-title"
                     style={{
-                        fontSize: 'clamp(2.8rem, 5vw, 4.1rem)',
+                        fontSize: 'clamp(2rem, 3.85vw, 3.8rem)',
                         lineHeight: '1.02',
                         fontWeight: '900',
                         marginBottom: '1.4rem',
-                        maxWidth: '760px',
+                        maxWidth: '620px',
                         color: '#FFFFFF',
                         letterSpacing: '-0.04em'
                     }}
@@ -102,10 +103,13 @@ const Accounting = () => {
                     Accounting &
                     Bookkeeping
                     <br />
+
                     <span style={{ color: '#5B4DFF' }}>
                     Services
                     </span>
+
                     <br />
+                    
                     for Growing Businesses
                 </h1>
 
@@ -116,7 +120,7 @@ const Accounting = () => {
                   fontSize: '1.05rem',
                   lineHeight: '1.8',
                   maxWidth: '620px',
-                  marginBottom: '2rem',
+                  marginBottom: '1rem',
                   position: 'relative',
                  
                 }}
@@ -185,13 +189,14 @@ const Accounting = () => {
 
               {/* TRUST ROW */}
               <div
-                className="gst-hero-cta"
+                className="gst-hero-trust"
                 style={{
                   display: 'flex',
                   gap: '1.5rem',
                   flexWrap: 'wrap',
                   color: 'rgba(255,255,255,0.7)',
-                  fontSize: '0.92rem'
+                  fontSize: '0.92rem',
+                  paddingBottom: '0.5rem'
                 }}
               >
                 <span>✔ Monthly Bookkeeping</span>
@@ -211,7 +216,7 @@ const Accounting = () => {
                   boxShadow: '0 24px 60px rgba(0,0,0,0.28)',
                   border: '1px solid rgba(255,255,255,0.08)',
                   borderRadius: '24px',
-                  padding: '1.7rem',
+                  padding: '2rem',
                   width: '100%',
                   maxWidth: '480px',
                   marginLeft: 'auto',
@@ -241,7 +246,7 @@ const Accounting = () => {
                         display: 'flex',
                         alignItems: 'center',
                         gap: '12px',
-                        paddingBottom: '0.9rem',
+                        paddingBottom: '0.5rem',
                         borderBottom: '1px solid rgba(255,255,255,0.04)'
                       }}
                     >
@@ -282,7 +287,17 @@ const Accounting = () => {
                             fontSize: '0.88rem'
                           }}
                         >
-                          Monthly bookkeeping assistance
+                          {
+                            item === 'Monthly Bookkeeping'
+                              ? 'Daily accounting management'
+                              : item === 'GST Reconciliation'
+                              ? 'Purchase & GST verification'
+                              : item === 'P&L & Balance Sheet'
+                              ? 'Financial reporting support'
+                              : item === 'Vendor & Expense Tracking'
+                              ? 'Expense monitoring support'
+                              : 'Accounting correction support'
+                          }
                         </div>
                       </div>
                     </div>

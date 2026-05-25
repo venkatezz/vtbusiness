@@ -84,7 +84,7 @@ const TdsFiling = () => {
                     }}
                 >
                     <CheckCircle size={15} style={{ color: '#10B981' }} />
-                Trusted GST Filing Support
+                Trusted TDS Filing Support
               </div>
 
                 <h1
@@ -99,13 +99,13 @@ const TdsFiling = () => {
                         letterSpacing: '-0.04em'
                     }}
                   >
-                    GST Filing
+                    TDS Filing
                     <br />
                     <span style={{ color: '#5B4DFF' }}>
                         Services
                     </span>
                     <br />
-                    for Small Businesses
+                    for Businesses
                 </h1>
 
               <p
@@ -120,9 +120,8 @@ const TdsFiling = () => {
                  
                 }}
               >
-                Monthly GST return filing, GST registration,
-                reconciliation, and compliance support for
-                businesses across Tamil Nadu & Bengaluru.
+                Monthly and quarterly TDS return filing, deduction compliance,
+                Form 16 support, and notice handling for businesses and professionals.
               </p>
 
               {/* CTA */}
@@ -155,7 +154,7 @@ const TdsFiling = () => {
                     fontWeight: '700'
                   }}
                 >
-                  Get GST Support
+                  Get TDS Support
                   <ArrowRight size={16} />
                 </a>
 
@@ -192,8 +191,8 @@ const TdsFiling = () => {
                   fontSize: '0.92rem'
                 }}
               >
-                <span>✔ GST Registration</span>
-                <span>✔ Monthly Filing</span>
+                <span>✔ Quarterly TDS Filing</span>
+                <span>✔ Form 16 Support</span>
                 <span>✔ Fast WhatsApp Support</span>
               </div>
 
@@ -226,11 +225,11 @@ const TdsFiling = () => {
                 >
 
                   {[
-                    'GSTR-1 Filing',
-                    'GSTR-3B Filing',
-                    'GST Registration',
-                    'GST Notice Support',
-                    'Input Tax Credit Reconciliation'
+                    'TDS Return Filing',
+                    'Form 16 & Form 16A',
+                    'TDS Payment Support',
+                    'Late Filing Corrections',
+                    'TDS Notice Assistance'
                   ].map((item) => (
 
                     <div
@@ -280,7 +279,19 @@ const TdsFiling = () => {
                             fontSize: '0.88rem'
                           }}
                         >
-                          Professional filing assistance
+                          {
+                            item === 'TDS Return Filing'
+                              ? 'Monthly and quarterly TDS return filing'
+                              : item === 'Form 16 & Form 16A'
+                              ? 'Employee tax certificate support'
+                              : item === 'TDS Payment Support'
+                              ? 'Challan & payment guidance'
+                              : item === 'Late Filing Corrections'
+                              ? 'Correction filing support'
+                              : item === 'TDS Notice Assistance'
+                              ? 'Compliance clarification support'
+                              : 'Accounting correction support'
+                          }
                         </div>
                       </div>
                     </div>
@@ -374,64 +385,64 @@ const TdsFiling = () => {
 
             <div className="section-title">
             <span className="section-badge">
-                COMPLETE GST SUPPORT
+                COMPLETE TDS SUPPORT
             </span>
 
-            <h2>GST Services Included</h2>
+            <h2>TDS Services Included</h2>
 
             <p>
-                End-to-end GST compliance, filing, registration, and reconciliation
-                support for startups, SMEs, agencies, and growing businesses.
+                End-to-end TDS deduction, filing, correction, and compliance
+                support for startups, agencies, and growing businesses.
             </p>
             </div>
 
             <div className="gst-services-grid">
 
             <div className="gst-service-card">
-                <h3>GST Registration</h3>
+                <h3>Quarterly TDS Filing</h3>
                 <p>
-                New GST registration support for proprietorships,
-                LLPs, private limited companies, and freelancers.
+                Accurate quarterly TDS return filing for salary, contractor,
+                and professional payments.
                 </p>
             </div>
 
             <div className="gst-service-card">
-                <h3>GSTR-1 & GSTR-3B Filing</h3>
+                <h3>Form 16 & 16A Support</h3>
                 <p>
-                Accurate monthly and quarterly return filing
-                with reconciliation and compliance review.
+                Preparation and sharing support for employee and vendor
+                TDS certificates.
                 </p>
             </div>
 
             <div className="gst-service-card">
-                <h3>Annual GST Returns</h3>
+                <h3>TDS Payment Assistance</h3>
                 <p>
-                Preparation and filing of annual GST returns
-                with transaction validation support.
+                Guidance for challan generation, payment tracking,
+                and deduction verification.
                 </p>
             </div>
 
             <div className="gst-service-card">
-                <h3>Input Tax Credit Reconciliation</h3>
+                <h3>Correction Filing</h3>
                 <p>
-                ITC matching, vendor reconciliation,
-                mismatch detection, and compliance assistance.
+                Correction return filing support for PAN mismatch,
+                short deductions, and filing errors.
                 </p>
             </div>
 
             <div className="gst-service-card">
-                <h3>GST Notice Handling</h3>
+                <h3>Vendor & Salary TDS</h3>
                 <p>
-                Assistance in replying to GST notices,
-                compliance clarifications, and departmental queries.
+                TDS handling support for employees, freelancers,
+                consultants, and vendors.
                 </p>
             </div>
 
             <div className="gst-service-card">
-                <h3>LUT & E-Invoice Support</h3>
+                <h3>TDS Notice Support</h3>
                 <p>
-                LUT filing, export compliance support,
-                and e-invoice configuration guidance.
+                    Assistance for TDS notices, mismatch clarification,
+                    and compliance communication.
                 </p>
             </div>
 
@@ -514,11 +525,11 @@ const TdsFiling = () => {
                         SIMPLE WORKFLOW
                     </span>
 
-                    <h2>Our GST Filing Process</h2>
+                    <h2>Our TDS Filing Process</h2>
 
                     <p>
-                        A smooth and transparent compliance workflow designed
-                        for fast turnaround and accurate filing.
+                        Simple and transparent TDS compliance workflow
+                        designed for timely and accurate filing.
                     </p>
                     </div>
 
@@ -526,10 +537,10 @@ const TdsFiling = () => {
 
                     <div className="gst-process-card">
                         <div className="gst-step-number">01</div>
-                        <h3>Share Documents</h3>
+                        <h3>Share TDS Documents</h3>
                         <p>
-                        Send invoices, purchase reports, GST portal access,
-                        or accounting exports through WhatsApp or email.
+                        Share salary sheets, vendor payments, challan details,
+                        and previous TDS records through WhatsApp or email.
                         </p>
                     </div>
 
@@ -537,17 +548,15 @@ const TdsFiling = () => {
                         <div className="gst-step-number">02</div>
                         <h3>Review & Reconciliation</h3>
                         <p>
-                        We verify sales, purchases, input tax credits,
-                        mismatches, and compliance requirements carefully.
+                           deduction records, challans, employee details, and PAN verification carefully.
                         </p>
                     </div>
 
                     <div className="gst-process-card">
                         <div className="gst-step-number">03</div>
-                        <h3>GST Return Filing</h3>
+                        <h3>TDS Return Filing</h3>
                         <p>
-                        Accurate GSTR filing submission with validation,
-                        correction support, and deadline management.
+                           Accurate TDS return filing submission with validation, correction support, and deadline management.
                         </p>
                     </div>
 
@@ -585,24 +594,24 @@ const TdsFiling = () => {
 
                     {[
                         {
-                        q: 'Who needs GST filing services?',
-                        a: 'Businesses registered under GST, including proprietorships, agencies, startups, traders, and companies must file GST returns regularly.'
+                        q: 'Who needs TDS filing services?',
+                        a: 'Businesses, companies, startups, agencies, and professionals deducting tax at source are required to file TDS returns regularly.'
                         },
                         {
-                        q: 'How often should GST returns be filed?',
-                        a: 'Depending on your business category, GST returns may be filed monthly or quarterly. We help identify the correct filing schedule.'
+                        q: 'How often should TDS returns be filed?',
+                        a: 'TDS returns are generally filed quarterly based on salary, contractor, or professional payment deductions.'
                         },
                         {
-                        q: 'Can you help with GST notices?',
-                        a: 'Yes. We assist with GST notice responses, reconciliation issues, mismatch clarifications, and compliance corrections.'
+                        q: 'Can you help with TDS notices?',
+                        a: 'Yes. We assist with TDS notices, short deduction corrections, mismatch clarification, and compliance support.'
                         },
                         {
-                        q: 'Do you support businesses outside Bengaluru?',
-                        a: 'Yes. We provide remote GST filing and support services across Tamil Nadu, Bengaluru, and other locations.'
+                        q: 'What is Form 16 and Form 16A?',
+                        a: 'Form 16 is issued for employee salary TDS, while Form 16A is issued for non-salary TDS deductions such as contractor or professional payments.'
                         },
                         {
-                        q: 'What documents are required for GST filing?',
-                        a: 'Sales invoices, purchase invoices, GST login details, bank statements, and accounting reports are usually required.'
+                        q: 'Can you correct old TDS filing mistakes?',
+                        a: 'Yes. We help correct old TDS filing mistakes, PAN mismatches, short deductions, and revised return submissions.'
                         }
                     ].map((faq, index) => (
                         <details key={index} className="gst-faq-item">
@@ -633,13 +642,12 @@ const TdsFiling = () => {
                     </span>
 
                     <h2>
-                        Get Professional GST Filing Support
+                        Get Professional TDS Filing Support
                     </h2>
 
                     <p>
-                        Fast GST return filing, reconciliation,
-                        registration, and compliance support for
-                        businesses across Tamil Nadu & Bengaluru.
+                        Reliable TDS filing, correction, payment,
+                        and compliance support for businesses and professionals.
                     </p>
 
                     <div className="gst-final-cta-buttons">
@@ -664,8 +672,8 @@ const TdsFiling = () => {
 
                     <div className="gst-final-trust">
                         <span>✔ Fast Response</span>
-                        <span>✔ GST Compliance Support</span>
-                        <span>✔ Small Business Friendly</span>
+                        <span>✔ TDS Compliance Support</span>
+                        <span>✔ Business Friendly Support</span>
                     </div>
 
                     </div>

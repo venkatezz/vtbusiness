@@ -50,7 +50,7 @@ const RocCompliance = () => {
                 className="gst-hero-left"
                 style={{
                     width: '100%',
-                    maxWidth: '680px',
+                    maxWidth: '620px',
                     position: 'relative',
                     zIndex: 2
                     
@@ -84,28 +84,31 @@ const RocCompliance = () => {
                     }}
                 >
                     <CheckCircle size={15} style={{ color: '#10B981' }} />
-                Trusted GST Filing Support
+                Trusted ROC Compliance Support
               </div>
 
                 <h1
                   className="gst-hero-title"
-                    style={{
-                        fontSize: 'clamp(2.9rem, 5vw, 4.5rem)',
-                        lineHeight: '1.02',
-                        fontWeight: '900',
-                        marginBottom: '1.4rem',
-                        maxWidth: '760px',
-                        color: '#FFFFFF',
-                        letterSpacing: '-0.04em'
-                    }}
-                  >
-                    GST Filing
-                    <br />
-                    <span style={{ color: '#5B4DFF' }}>
-                        Services
-                    </span>
-                    <br />
-                    for Small Businesses
+                  style={{
+                    fontSize: 'clamp(2.9rem, 5vw, 4.5rem)',
+                    lineHeight: '1.02',
+                    fontWeight: '900',
+                    marginBottom: '1.4rem',
+                    maxWidth: '620px',
+                    color: '#FFFFFF',
+                    letterSpacing: '-0.04em'
+                  }}
+                >
+                  ROC Compliance
+                  <br />
+
+                  <span style={{ color: '#5B4DFF' }}>
+                    Services
+                  </span>
+
+                  <br />
+
+                  for Growing Companies
                 </h1>
 
               <p
@@ -120,9 +123,10 @@ const RocCompliance = () => {
                  
                 }}
               >
-                Monthly GST return filing, GST registration,
-                reconciliation, and compliance support for
-                businesses across Tamil Nadu & Bengaluru.
+                ROC filing, MCA compliance,
+                director KYC, annual returns,
+                and company compliance support
+                for startups and private limited companies.
               </p>
 
               {/* CTA */}
@@ -155,7 +159,7 @@ const RocCompliance = () => {
                     fontWeight: '700'
                   }}
                 >
-                  Get GST Support
+                  Get ROC Support
                   <ArrowRight size={16} />
                 </a>
 
@@ -192,9 +196,9 @@ const RocCompliance = () => {
                   fontSize: '0.92rem'
                 }}
               >
-                <span>✔ GST Registration</span>
-                <span>✔ Monthly Filing</span>
-                <span>✔ Fast WhatsApp Support</span>
+                <span>✔ ROC Filing</span>
+                <span>✔ Director KYC</span>
+                <span>✔ MCA Compliance</span>
               </div>
 
             </div>
@@ -226,11 +230,11 @@ const RocCompliance = () => {
                 >
 
                   {[
-                    'GSTR-1 Filing',
-                    'GSTR-3B Filing',
-                    'GST Registration',
-                    'GST Notice Support',
-                    'Input Tax Credit Reconciliation'
+                    'Annual ROC Filing',
+                    'Director KYC Filing',
+                    'MCA Compliance Support',
+                    'Private Limited Compliance',
+                    'Company Annual Returns'
                   ].map((item) => (
 
                     <div
@@ -280,7 +284,17 @@ const RocCompliance = () => {
                             fontSize: '0.88rem'
                           }}
                         >
-                          Professional filing assistance
+                          {
+                            item === 'Annual ROC Filing'
+                              ? 'Yearly ROC compliance support'
+                              : item === 'Director KYC Filing'
+                              ? 'DIN & KYC filing assistance'
+                              : item === 'MCA Compliance Support'
+                              ? 'Registrar compliance guidance'
+                              : item === 'Private Limited Compliance'
+                              ? 'Company compliance management'
+                              : 'Annual company return support'
+                          }
                         </div>
                       </div>
                     </div>
@@ -374,64 +388,78 @@ const RocCompliance = () => {
 
             <div className="section-title">
             <span className="section-badge">
-                COMPLETE GST SUPPORT
+                COMPLETE ROC SUPPORT
             </span>
 
-            <h2>GST Services Included</h2>
+            <h2>ROC Compliance Services Included</h2>
 
             <p>
-                End-to-end GST compliance, filing, registration, and reconciliation
-                support for startups, SMEs, agencies, and growing businesses.
+                ROC filing, MCA compliance,
+                director KYC, annual returns,
+                and company compliance support
+                for startups and growing businesses.
             </p>
             </div>
 
             <div className="gst-services-grid">
 
             <div className="gst-service-card">
-                <h3>GST Registration</h3>
+                <h3>Annual ROC Filing</h3>
+
                 <p>
-                New GST registration support for proprietorships,
-                LLPs, private limited companies, and freelancers.
+                Preparation and filing of annual ROC returns,
+                financial statements,
+                and MCA compliance documents.
                 </p>
             </div>
 
             <div className="gst-service-card">
-                <h3>GSTR-1 & GSTR-3B Filing</h3>
+                <h3>Director KYC Filing</h3>
+
                 <p>
-                Accurate monthly and quarterly return filing
-                with reconciliation and compliance review.
+                DIN KYC filing support,
+                director compliance updates,
+                and yearly verification assistance.
                 </p>
             </div>
 
             <div className="gst-service-card">
-                <h3>Annual GST Returns</h3>
+             <h3>Private Limited Compliance</h3>
+
+             <p>
+             Compliance support for private limited companies,
+             startups,
+             and growing registered businesses.
+              </p>
+            </div>
+
+            <div className="gst-service-card">
+                <h3>MCA Filing Support</h3>
+
                 <p>
-                Preparation and filing of annual GST returns
-                with transaction validation support.
+                Registrar filing assistance,
+                document preparation,
+                and company status maintenance support.
                 </p>
             </div>
 
             <div className="gst-service-card">
-                <h3>Input Tax Credit Reconciliation</h3>
+                <h3>Compliance Tracking</h3>
+
                 <p>
-                ITC matching, vendor reconciliation,
-                mismatch detection, and compliance assistance.
+                Due date tracking,
+                penalty prevention,
+                and annual compliance reminders support.
                 </p>
             </div>
 
             <div className="gst-service-card">
-                <h3>GST Notice Handling</h3>
-                <p>
-                Assistance in replying to GST notices,
-                compliance clarifications, and departmental queries.
-                </p>
-            </div>
+                <h3>Startup ROC Support</h3>
 
-            <div className="gst-service-card">
-                <h3>LUT & E-Invoice Support</h3>
                 <p>
-                LUT filing, export compliance support,
-                and e-invoice configuration guidance.
+                ROC compliance support for startups,
+                small companies,
+                and agency businesses.
                 </p>
             </div>
 
@@ -450,8 +478,9 @@ const RocCompliance = () => {
                 <h2>Why Businesses Choose VT</h2>
 
                 <p>
-                    Reliable GST, tax, and compliance support designed for
-                    startups, agencies, traders, and growing businesses.
+                    Reliable ROC and MCA compliance support
+                    for startups, agencies,
+                    small businesses, and professionals.
                 </p>
                 </div>
 
@@ -514,11 +543,12 @@ const RocCompliance = () => {
                         SIMPLE WORKFLOW
                     </span>
 
-                    <h2>Our GST Filing Process</h2>
+                    <h2>Our ROC Compliance Workflow</h2>
 
                     <p>
-                        A smooth and transparent compliance workflow designed
-                        for fast turnaround and accurate filing.
+                        Share company documents,
+                        previous filings,
+                        and MCA details through WhatsApp or email.
                     </p>
                     </div>
 
@@ -526,28 +556,25 @@ const RocCompliance = () => {
 
                     <div className="gst-process-card">
                         <div className="gst-step-number">01</div>
-                        <h3>Share Documents</h3>
+                        <h3>Share Company Documents</h3>
                         <p>
-                        Send invoices, purchase reports, GST portal access,
-                        or accounting exports through WhatsApp or email.
+                           Share company incorporation details, previous ROC filings, and MCA information through WhatsApp or email.
                         </p>
                     </div>
 
                     <div className="gst-process-card">
                         <div className="gst-step-number">02</div>
-                        <h3>Review & Reconciliation</h3>
+                        <h3>Compliance Review</h3>
                         <p>
-                        We verify sales, purchases, input tax credits,
-                        mismatches, and compliance requirements carefully.
+                            We review ROC compliance status, director requirements, pending filings, and annual obligations carefully.
                         </p>
                     </div>
 
                     <div className="gst-process-card">
                         <div className="gst-step-number">03</div>
-                        <h3>GST Return Filing</h3>
+                        <h3>ROC Filing Submission</h3>
                         <p>
-                        Accurate GSTR filing submission with validation,
-                        correction support, and deadline management.
+                           ROC return filing, director KYC updates, and MCA submission support handled accurately.
                         </p>
                     </div>
 
@@ -555,8 +582,7 @@ const RocCompliance = () => {
                         <div className="gst-step-number">04</div>
                         <h3>Confirmation & Support</h3>
                         <p>
-                        Filing confirmation, reports, acknowledgements,
-                        and post-filing support for notices or clarifications.
+                           Acknowledgement reports, compliance confirmation, and ongoing ROC support assistance.
                         </p>
                     </div>
 
@@ -585,24 +611,24 @@ const RocCompliance = () => {
 
                     {[
                         {
-                        q: 'Who needs GST filing services?',
-                        a: 'Businesses registered under GST, including proprietorships, agencies, startups, traders, and companies must file GST returns regularly.'
+                        q: 'Who needs ROC compliance filing?',
+                        a: 'Private limited companies, LLPs, and registered businesses require yearly ROC and MCA compliance filing.'
                         },
                         {
-                        q: 'How often should GST returns be filed?',
-                        a: 'Depending on your business category, GST returns may be filed monthly or quarterly. We help identify the correct filing schedule.'
+                        q: 'What is Director KYC filing?',
+                        a: 'Director KYC is yearly verification of DIN details required by MCA for company directors.'
                         },
                         {
-                        q: 'Can you help with GST notices?',
-                        a: 'Yes. We assist with GST notice responses, reconciliation issues, mismatch clarifications, and compliance corrections.'
+                        q: 'Can you handle annual ROC returns?',
+                        a: 'Yes. We assist with annual return preparation, MCA filing, and compliance tracking support.'
                         },
                         {
-                        q: 'Do you support businesses outside Bengaluru?',
-                        a: 'Yes. We provide remote GST filing and support services across Tamil Nadu, Bengaluru, and other locations.'
+                        q: 'Do startups need ROC compliance?',
+                        a: 'Yes. Registered startups and private limited companies must complete yearly ROC obligations.'
                         },
                         {
-                        q: 'What documents are required for GST filing?',
-                        a: 'Sales invoices, purchase invoices, GST login details, bank statements, and accounting reports are usually required.'
+                        q: 'Can you help avoid ROC penalties?',
+                        a: 'Yes. We help track deadlines and complete filings on time to reduce compliance penalties.'
                         }
                     ].map((faq, index) => (
                         <details key={index} className="gst-faq-item">
@@ -633,13 +659,13 @@ const RocCompliance = () => {
                     </span>
 
                     <h2>
-                        Get Professional GST Filing Support
+                        Get Professional ROC Compliance Support
                     </h2>
 
                     <p>
-                        Fast GST return filing, reconciliation,
-                        registration, and compliance support for
-                        businesses across Tamil Nadu & Bengaluru.
+                        ROC filing, MCA compliance,
+                        director KYC,
+                        and annual return support for businesses.
                     </p>
 
                     <div className="gst-final-cta-buttons">
@@ -663,9 +689,9 @@ const RocCompliance = () => {
                     </div>
 
                     <div className="gst-final-trust">
-                        <span>✔ Fast Response</span>
-                        <span>✔ GST Compliance Support</span>
-                        <span>✔ Small Business Friendly</span>
+                        <span>✔ ROC Filing</span>
+                        <span>✔ Director KYC</span>
+                        <span>✔ Fast WhatsApp Support</span>
                     </div>
 
                     </div>
