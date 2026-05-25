@@ -14,7 +14,7 @@ import './Header.css';
 const gstTaxItems = [
   { icon: <FileText size={15} />,     title: 'GST Filing',              sub: 'GSTR-1 · GSTR-3B · ITC Matching',          to: '/services/gst-filing' },
   { icon: <Calculator size={15} />,   title: 'Income Tax Filing',       sub: 'ITR-1 to ITR-7 · Tax Audits · Deductions', to: '/services/income-tax' },
-  { icon: <BookOpen size={15} />,     title: 'Accounting & Bookkeeping',sub: 'P&L · Balance Sheets · Audits',             to: '/services/accounting' },
+  { icon: <BookOpen size={15} />,     title: 'Accounting & Bookkeeping',sub: 'P&L · Balance Sheets · Audits',             to: '/services/accounting-bookkeeping' },
   { icon: <ClipboardList size={15} />,title: 'ROC Compliance',          sub: 'Annual Filings · Director KYC · MCA',       to: '/services/roc-compliance' },
   { icon: <Receipt size={15} />,      title: 'TDS Filing',              sub: '24Q · 26Q · TDS Returns & Certificates',    to: '/services/tds-filing' },
 ];
