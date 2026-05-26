@@ -4,13 +4,11 @@ import {
   Menu, X, ChevronDown,
   FileText, Calculator, BookOpen, ClipboardList, Receipt,
   Monitor, Globe, Cloud, Mail, Server,
-  ArrowRight, LayoutGrid, Newspaper,
+  ArrowRight, LayoutGrid,
 } from 'lucide-react';
 import VTLogo from '../assets/VTlogo.svg';
-import './Header.css';
 
 /* ─── Nav data ─────────────────────────────────────────────────── */
-
 const gstTaxItems = [
   { icon: <FileText size={15} />,     title: 'GST Filing',              sub: 'GSTR-1 · GSTR-3B · ITC Matching',          to: '/services/gst-filing' },
   { icon: <Calculator size={15} />,   title: 'Income Tax Filing',       sub: 'ITR-1 to ITR-7 · Tax Audits · Deductions', to: '/services/income-tax' },
@@ -27,7 +25,6 @@ const itServiceItems = [
   { icon: <Server size={15} />,       title: 'AWS / Linux Support',     sub: 'EC2 · S3 · RDS · Server Hardening',           to: '/services/aws-linux' },
 ];
 
-/* accent colors */
 const GST_ACCENT = '#4A3FE0';
 const IT_ACCENT  = '#10B981';
 
@@ -35,27 +32,32 @@ const IT_ACCENT  = '#10B981';
 function useDropdown() {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
+  const timeoutRef = useRef(null);
 
   useEffect(() => {
     const handler = (e) => {
-      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+      if (ref.current && !ref.current.contains(e.target)) {
+        setOpen(false);
+      }
     };
     document.addEventListener('mousedown', handler);
-    return () => document.removeEventListener('mousedown', handler);
+    return () => {
+      document.removeEventListener('mousedown', handler);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
   }, []);
 
-  return { open, setOpen, ref };
+  return { open, setOpen, ref, timeoutRef };
 }
 
 /* ─── ServiceDropdown component ────────────────────────────────── */
-const ServiceDropdown = ({ label, items, accent, footerTo, footerLabel, onClose }) => {
+const ServiceDropdown = ({ items, accent, onClose }) => {
   const HALF = Math.ceil(items.length / 2);
   const col1 = items.slice(0, HALF);
   const col2 = items.slice(HALF);
 
   return (
     <div className="nh-drop-grid">
-      {/* Column 1 */}
       <div className="nh-drop-group">
         {col1.map((item) => (
           <Link
@@ -63,7 +65,6 @@ const ServiceDropdown = ({ label, items, accent, footerTo, footerLabel, onClose 
             to={item.to}
             className="nh-drop-item"
             onClick={onClose}
-            role="menuitem"
           >
             <span
               className="nh-drop-item-icon"
@@ -78,11 +79,7 @@ const ServiceDropdown = ({ label, items, accent, footerTo, footerLabel, onClose 
           </Link>
         ))}
       </div>
-
-      {/* Divider */}
-      <div className="nh-drop-divider" aria-hidden="true" />
-
-      {/* Column 2 */}
+      <div className="nh-drop-divider" />
       <div className="nh-drop-group">
         {col2.map((item) => (
           <Link
@@ -90,7 +87,6 @@ const ServiceDropdown = ({ label, items, accent, footerTo, footerLabel, onClose 
             to={item.to}
             className="nh-drop-item"
             onClick={onClose}
-            role="menuitem"
           >
             <span
               className="nh-drop-item-icon"
@@ -150,203 +146,202 @@ const MobileAccordion = ({ label, accent, items, onClose }) => {
 /* ─── Header ───────────────────────────────────────────────────── */
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);  // ADD THIS
+  const [scrolled, setScrolled] = useState(false);
 
   const gst = useDropdown();
   const it = useDropdown();
 
-  /* Close both dropdowns when one opens */
   const openGst = () => { gst.setOpen(true); it.setOpen(false); };
   const openIt = () => { it.setOpen(true); gst.setOpen(false); };
 
   const closeAll = () => {
     gst.setOpen(false);
     it.setOpen(false);
-    window.scrollTo(0, 0);
   };
 
   const closeDrawer = () => setIsOpen(false);
 
-  /* Scroll listener - ADD THIS */
+  /* Scroll listener */
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  /* Body scroll lock for mobile drawer */
+  /* Body scroll lock for mobile drawer - FIXED VERSION */
   useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    if (isOpen) {
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+      document.body.classList.add('nh-menu-open');
+    } else {
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+      document.body.classList.remove('nh-menu-open');
+      
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      }
+    }
+    
+    return () => {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+      document.body.classList.remove('nh-menu-open');
+    };
   }, [isOpen]);
 
   return (
-    <header className={`nh-header ${scrolled ? 'nh-scrolled' : ''}`}>  {/* ADD scrolled class */}
-      <div className="nh-inner container">
-
-        {/* ── Logo ── */}
-        <Link
-          to="/"
-          className="nh-logo-link"
-          
-        >
-          <img src={VTLogo} alt="VT Business Support" className="nh-logo-img" />
-        </Link>
-
-        {/* ── Desktop Nav ── */}
-        <nav className="nh-desktop-nav" aria-label="Main navigation">
-        
-          {/* Services*/}
-          <NavLink
-            to="/services"
-            className={({ isActive }) => `nh-link ${isActive ? 'nh-link--active' : ''}`}
-            onClick={() => window.scrollTo(0, 0)}
-          >
-            Services
-          </NavLink>
-
-          {/* GST & Tax — mega menu */}
-          <div className="nh-drop-root" ref={gst.ref}>
-            <button
-              className={`nh-link nh-link--btn ${gst.open ? 'nh-link--active' : ''}`}
-              aria-haspopup="true"
-              aria-expanded={gst.open}
-              onClick={() => gst.setOpen((v) => !v)}
-              onMouseEnter={openGst}
-            >
-              GST &amp; Tax
-              <ChevronDown size={13} className={`nh-chevron ${gst.open ? 'nh-chevron--open' : ''}`} />
-            </button>
-
-            <div
-              className={`nh-dropdown ${gst.open ? 'nh-dropdown--open' : ''}`}
-              onMouseLeave={() => gst.setOpen(false)}
-              role="menu"
-            >
-              <div className="nh-drop-header">
-                <span className="nh-drop-header-icon" style={{ '--icon-bg': `${GST_ACCENT}18`, '--icon-color': GST_ACCENT }}>
-                  <LayoutGrid size={13} />
-                </span>
-                <span className="nh-drop-header-label">GST &amp; Finance Services</span>
-              </div>
-
-              <ServiceDropdown
-                items={gstTaxItems}
-                accent={GST_ACCENT}
-                onClose={closeAll}
-              />
-
-              <div className="nh-drop-footer">
-                <Link to="/services" className="nh-drop-footer-link" onClick={closeAll}>
-                  View all GST &amp; Tax services <ArrowRight size={12} />
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* IT Services — mega menu */}
-          <div className="nh-drop-root" ref={it.ref}>
-            <button
-              className={`nh-link nh-link--btn ${it.open ? 'nh-link--active' : ''}`}
-              aria-haspopup="true"
-              aria-expanded={it.open}
-              onClick={() => it.setOpen((v) => !v)}
-              onMouseEnter={openIt}
-            >
-              IT Services
-              <ChevronDown size={13} className={`nh-chevron ${it.open ? 'nh-chevron--open' : ''}`} />
-            </button>
-
-            <div
-              className={`nh-dropdown ${it.open ? 'nh-dropdown--open' : ''}`}
-              onMouseLeave={() => it.setOpen(false)}
-              role="menu"
-            >
-              <div className="nh-drop-header">
-                <span className="nh-drop-header-icon" style={{ '--icon-bg': `${IT_ACCENT}18`, '--icon-color': IT_ACCENT }}>
-                  <LayoutGrid size={13} />
-                </span>
-                <span className="nh-drop-header-label">IT &amp; Digital Services</span>
-              </div>
-
-              <ServiceDropdown
-                items={itServiceItems}
-                accent={IT_ACCENT}
-                onClose={closeAll}
-              />
-
-              <div className="nh-drop-footer">
-                <Link to="/services" className="nh-drop-footer-link" onClick={closeAll}>
-                  View all IT services <ArrowRight size={12} />
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* Resources */}
-          <NavLink
-            to="/resources"
-            className={({ isActive }) => `nh-link ${isActive ? 'nh-link--active' : ''}`}
-            onClick={() => window.scrollTo(0, 0)}
-          >
-            Resources
-          </NavLink>
-
-          {/* About */}
-          <NavLink
-            to="/about"
-            className={({ isActive }) => `nh-link ${isActive ? 'nh-link--active' : ''}`}
-            onClick={() => window.scrollTo(0, 0)}
-          >
-            About
-          </NavLink>
-
-          {/* Contact */}
-          <NavLink
-            to="/contact"
-            className={({ isActive }) => `nh-link ${isActive ? 'nh-link--active' : ''}`}
-            onClick={() => window.scrollTo(0, 0)}
-          >
-            Talk to Us
-          </NavLink>
-
-          {/* CTA */}
-          <Link to="/contact" className="nh-cta" onClick={() => window.scrollTo(0, 0)}>
-            Free Consultation
+    <>
+      <header className={`nh-header ${scrolled ? 'nh-scrolled' : ''}`}>
+        <div className="nh-inner container">
+          {/* Logo */}
+          <Link to="/" className="nh-logo-link" onClick={() => window.scrollTo(0, 0)}>
+            <img src={VTLogo} alt="VT Business Support" className="nh-logo-img" />
           </Link>
-        </nav>
 
-        {/* ── Mobile hamburger ── */}
-        <button
-          className="nh-hamburger"
-          onClick={() => setIsOpen((v) => !v)}
-          aria-label={isOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={isOpen}
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
+          {/* Desktop Nav */}
+          <nav className="nh-desktop-nav" aria-label="Main navigation">
+            <NavLink
+              to="/services"
+              className={({ isActive }) => `nh-link ${isActive ? 'nh-link--active' : ''}`}
+              onClick={() => window.scrollTo(0, 0)}
+            >
+              Services
+            </NavLink>
 
-      {/* ── Mobile overlay ── */}
+            {/* GST & Tax Dropdown */}
+            <div className="nh-drop-root" ref={gst.ref}>
+              <button
+                className={`nh-link nh-link--btn ${gst.open ? 'nh-link--active' : ''}`}
+                aria-haspopup="true"
+                aria-expanded={gst.open}
+                onClick={() => gst.setOpen((v) => !v)}
+                onMouseEnter={openGst}
+              >
+                GST &amp; Tax
+                <ChevronDown size={13} className={`nh-chevron ${gst.open ? 'nh-chevron--open' : ''}`} />
+              </button>
+
+              <div
+                className={`nh-dropdown ${gst.open ? 'nh-dropdown--open' : ''}`}
+                onMouseLeave={() => gst.setOpen(false)}
+              >
+                <div className="nh-drop-header">
+                  <span className="nh-drop-header-icon" style={{ '--icon-bg': `${GST_ACCENT}18`, '--icon-color': GST_ACCENT }}>
+                    <LayoutGrid size={13} />
+                  </span>
+                  <span className="nh-drop-header-label">GST &amp; Finance Services</span>
+                </div>
+
+                <ServiceDropdown items={gstTaxItems} accent={GST_ACCENT} onClose={closeAll} />
+
+                <div className="nh-drop-footer">
+                  <Link to="/services" className="nh-drop-footer-link" onClick={closeAll}>
+                    View all GST &amp; Tax services <ArrowRight size={12} />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* IT Services Dropdown */}
+            <div className="nh-drop-root" ref={it.ref}>
+              <button
+                className={`nh-link nh-link--btn ${it.open ? 'nh-link--active' : ''}`}
+                aria-haspopup="true"
+                aria-expanded={it.open}
+                onClick={() => it.setOpen((v) => !v)}
+                onMouseEnter={openIt}
+              >
+                IT Services
+                <ChevronDown size={13} className={`nh-chevron ${it.open ? 'nh-chevron--open' : ''}`} />
+              </button>
+
+              <div
+                className={`nh-dropdown ${it.open ? 'nh-dropdown--open' : ''}`}
+                onMouseLeave={() => it.setOpen(false)}
+              >
+                <div className="nh-drop-header">
+                  <span className="nh-drop-header-icon" style={{ '--icon-bg': `${IT_ACCENT}18`, '--icon-color': IT_ACCENT }}>
+                    <LayoutGrid size={13} />
+                  </span>
+                  <span className="nh-drop-header-label">IT &amp; Digital Services</span>
+                </div>
+
+                <ServiceDropdown items={itServiceItems} accent={IT_ACCENT} onClose={closeAll} />
+
+                <div className="nh-drop-footer">
+                  <Link to="/services" className="nh-drop-footer-link" onClick={closeAll}>
+                    View all IT services <ArrowRight size={12} />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <NavLink
+              to="/resources"
+              className={({ isActive }) => `nh-link ${isActive ? 'nh-link--active' : ''}`}
+              onClick={() => window.scrollTo(0, 0)}
+            >
+              Resources
+            </NavLink>
+
+            <NavLink
+              to="/about"
+              className={({ isActive }) => `nh-link ${isActive ? 'nh-link--active' : ''}`}
+              onClick={() => window.scrollTo(0, 0)}
+            >
+              About
+            </NavLink>
+
+            <NavLink
+              to="/contact"
+              className={({ isActive }) => `nh-link ${isActive ? 'nh-link--active' : ''}`}
+              onClick={() => window.scrollTo(0, 0)}
+            >
+              Talk to Us
+            </NavLink>
+
+            <Link to="/contact" className="nh-cta" onClick={() => window.scrollTo(0, 0)}>
+              Free Consultation
+            </Link>
+          </nav>
+
+          {/* Mobile hamburger */}
+          <button
+            className="nh-hamburger"
+            onClick={() => setIsOpen((v) => !v)}
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </header>
+
+      {/* Mobile overlay - outside header */}
       <div
         className={`nh-overlay ${isOpen ? 'nh-overlay--open' : ''}`}
         onClick={closeDrawer}
-        aria-hidden="true"
       />
 
-      {/* ── Mobile drawer ── */}
-      <div className={`nh-drawer ${isOpen ? 'nh-drawer--open' : ''}`} aria-label="Mobile navigation">
-        {/* Drawer header */}
+      {/* Mobile drawer - outside header */}
+      <div className={`nh-drawer ${isOpen ? 'nh-drawer--open' : ''}`}>
         <div className="nh-drawer-top">
           <img src={VTLogo} alt="VT Business Support" className="nh-logo-img nh-logo-mobile" />
-          <button className="nh-hamburger" onClick={closeDrawer} aria-label="Close menu">
+          <button className="nh-hamburger" onClick={closeDrawer}>
             <X size={24} />
           </button>
         </div>
 
-        {/* Mobile links */}
         <nav className="nh-drawer-nav">
-
           <NavLink
             to="/"
             end
@@ -356,7 +351,6 @@ const Header = () => {
             Home
           </NavLink>
 
-          {/* GST & Tax accordion */}
           <MobileAccordion
             label="GST & Tax"
             accent={GST_ACCENT}
@@ -364,7 +358,6 @@ const Header = () => {
             onClose={closeDrawer}
           />
 
-          {/* IT Services accordion */}
           <MobileAccordion
             label="IT Services"
             accent={IT_ACCENT}
@@ -395,10 +388,8 @@ const Header = () => {
           >
             Contact
           </NavLink>
-
         </nav>
 
-        {/* Drawer CTA */}
         <div className="nh-drawer-footer">
           <Link to="/contact" className="nh-cta nh-cta--full" onClick={closeDrawer}>
             Free Consultation
@@ -408,7 +399,7 @@ const Header = () => {
           </a>
         </div>
       </div>
-    </header>
+    </>
   );
 };
 
