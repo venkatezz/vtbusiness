@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════════
    VT Business Support — Navbar
-   Style: CA firm · fintech consultancy · dark navy
+   Style: CA firm · fintech consultancy · white background
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
@@ -22,44 +22,17 @@
 /* ── Header shell ──────────────────────────────────────────────── */
 .nh-header {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 999999;
   width: 100%;
-  height: var(--nh-height);
-  background: rgba(8, 16, 40, 0.90);
-  border-bottom: 1px solid var(--nh-border);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  transition: background 0.2s var(--nh-ease), box-shadow 0.2s var(--nh-ease);
-}
-
-.nh-header.scrolled {
-  background: rgba(5, 10, 30, 0.92);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-}
-
-.nh-header.scrolled .nh-link {
-  color: rgba(255,255,255,0.78);
-}
-
-.nh-header.scrolled .nh-link:hover {
-  color: #ffffff;
-}
-
-.nh-header.scrolled .nh-link.active {
-  color: #1E3A8A;
-}
-
-.nh-header.scrolled .nh-cta {
-  background: linear-gradient(
-    135deg,
-    #4A3FE0,
-    #5B4DFF
-  );
-  color: white;
+  min-height: var(--nh-height);
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  overflow: visible !important;
 }
 
 /* ── Inner layout ──────────────────────────────────────────────── */
@@ -97,7 +70,7 @@
 .nh-desktop-nav {
   display: flex;
   align-items: center;
-  gap: 0;
+  gap: 2px;
   margin-left: auto;
 }
 
@@ -111,10 +84,10 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding: 8px 12px;
+  padding: 8px 16px;
   font-size: 13.5px;
   font-weight: 500;
-  color: var(--nh-text-muted);
+  color: #1E293B;
   text-decoration: none;
   background: none;
   border: none;
@@ -124,50 +97,45 @@
   font-family: inherit;
   white-space: nowrap;
   line-height: 1;
-  color: rgba(255,255,255,0.78);
-  transition: color 0.14s ease, background 0.14s ease;
+  transition: color 0.14s ease;
 }
 
 .nh-link:hover {
-  color: #ffffff;
-  background: transparent;
+  color: #1E3A8A;
 }
 
 .nh-link--active {
-  color: #ffffff !important;
-  background: transparent !important;
+  color: #1E3A8A !important;
 }
 
 .nh-link--active::after {
   content: '';
   position: absolute;
-  bottom: 2px;
-  left: 12px;
-  right: 12px;
+  left: 16px;
+  right: 16px;
+  bottom: 1px;
   height: 2px;
-  background: linear-gradient(90deg, #4A3FE0, #5B4DFF);
   border-radius: 999px;
-  opacity: 1;
+  background: linear-gradient(90deg, #4A3FE0, #5B4DFF);
 }
-
 
 /* ── Chevron ───────────────────────────────────────────────────── */
 .nh-chevron {
   flex-shrink: 0;
-  color: var(--nh-text-sub);
+  color: #94a3b8;
   transition: transform 0.18s var(--nh-ease), color 0.14s ease;
 }
 
 .nh-chevron--open {
   transform: rotate(180deg);
-  color: var(--nh-text-muted);
+  color: #1E3A8A;
 }
 
 /* ── CTA button ────────────────────────────────────────────────── */
 .nh-cta {
   display: inline-flex;
   align-items: center;
-  margin-left: 10px;
+  margin-left: 18px;
   padding: 9px 18px;
   font-size: 13px;
   font-weight: 600;
@@ -176,23 +144,16 @@
   background: var(--nh-primary);
   border-radius: 8px;
   border: none;
-  letter-spacing: 0.01em;
   cursor: pointer;
   font-family: inherit;
   white-space: nowrap;
   transition: background 0.14s ease, transform 0.12s ease;
-  box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.10);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.10);
 }
 
 .nh-cta:hover {
   background: var(--nh-primary-dark);
   transform: translateY(-1px);
-}
-
-.nh-cta:active {
-  transform: translateY(0);
 }
 
 .nh-cta--full {
@@ -217,34 +178,30 @@
   left: 50%;
   transform: translateX(-50%) translateY(10px);
   width: clamp(500px, 40vw, 560px);
-
   background: #ffffff;
   border: 1px solid rgba(15, 23, 42, 0.08);
   border-radius: 18px;
   padding: 0;
-
-  box-shadow:
-    0 10px 30px rgba(2, 6, 23, 0.08),
-    0 2px 10px rgba(2, 6, 23, 0.04);
-
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.08), 0 2px 10px rgba(2, 6, 23, 0.04);
   opacity: 0;
   pointer-events: none;
-
-  transition:
-    opacity 0.22s ease,
-    transform 0.22s ease;
-
+  transition: opacity 0.22s ease, transform 0.22s ease;
   overflow: hidden;
-  background-clip: padding-box;
+  z-index: 999999;
 }
+
+.nh-dropdown--open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
 /* ── Dropdown category header ──────────────────────────────────── */
 .nh-drop-header {
   display: flex;
   align-items: center;
   gap: 8px;
-
   padding: 18px 24px 14px;
-
   background: #ffffff;
   border-bottom: 1px solid rgba(15, 23, 42, 0.06);
 }
@@ -257,7 +214,7 @@
   height: 22px;
   border-radius: 5px;
   background: var(--icon-bg, rgba(74, 63, 224, 0.14));
-  color: var(--icon-color, var(--nh-primary));
+  color: var(--icon-color, #1E3A8A);
   flex-shrink: 0;
 }
 
@@ -277,10 +234,10 @@
   padding: 4px 4px 2px;
 }
 
-/* ── Column divider ────────────────────────────────────────────── */
+/* ── Column divider - VISIBLE on desktop ───────────────────────── */
 .nh-drop-divider {
   width: 1px;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(0, 0, 0, 0.1);
   margin: 6px 0;
 }
 
@@ -294,15 +251,10 @@
   display: flex;
   align-items: flex-start;
   gap: 14px;
-
   padding: 12px 16px;
-
   border-radius: 12px;
   text-decoration: none;
-
-  transition:
-    background 0.18s ease,
-    transform 0.18s ease;
+  transition: background 0.18s ease;
 }
 
 .nh-drop-item:hover {
@@ -313,31 +265,18 @@
   color: #1E3A8A;
 }
 
-/* ── Item icon ─────────────────────────────────────────────────── */
 .nh-drop-item-icon {
   flex-shrink: 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: 18px;
   height: 18px;
-
   background: transparent !important;
-  border: none !important;
-  border-radius: 0;
-
   color: var(--icon-color, #1E3A8A);
-
   margin-top: 3px;
-
-  transition:
-    transform 0.18s ease,
-    color 0.18s ease;
 }
 
-/* ── Item text ─────────────────────────────────────────────────── */
 .nh-drop-item-text {
   display: flex;
   flex-direction: column;
@@ -350,48 +289,39 @@
   font-weight: 600;
   color: #0F172A;
   line-height: 1.35;
-
-  transition: color 0.18s ease;
 }
 
 .nh-drop-item-sub {
   font-size: 13px;
   color: #64748B;
   line-height: 1.5;
-
-  white-space: normal;
-  overflow: visible;
-  text-overflow: unset;
 }
 
 /* ── Dropdown footer ───────────────────────────────────────────── */
 .nh-drop-footer {
   border-top: 1px solid rgba(15, 23, 42, 0.06);
-
   padding: 16px 22px;
-
   background: #FAFBFC;
 }
 
 .nh-drop-footer-link {
-   display: inline-flex;
+  display: inline-flex;
   align-items: center;
   gap: 6px;
-
   font-size: 14px;
   font-weight: 600;
-
   color: #1E3A8A;
-
   text-decoration: none;
-
   transition: gap 0.18s ease;
 }
 
 .nh-drop-footer-link:hover {
-  opacity: 1;
   gap: 8px;
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE DRAWER STYLES (Dark background #081028)
+   ═══════════════════════════════════════════════════════════════ */
 
 /* ── Hamburger ─────────────────────────────────────────────────── */
 .nh-hamburger {
@@ -400,17 +330,17 @@
   justify-content: center;
   width: 38px;
   height: 38px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--nh-border);
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
-  color: var(--nh-text);
+  color: #1E293B;
   cursor: pointer;
   flex-shrink: 0;
   transition: background 0.14s ease;
 }
 
 .nh-hamburger:hover {
-  background: rgba(255, 255, 255, 0.09);
+  background: #e2e8f0;
 }
 
 @media (max-width: 900px) {
@@ -433,10 +363,12 @@
   pointer-events: auto;
 }
 
-/* ── Mobile drawer ─────────────────────────────────────────────── */
+/* ── Mobile drawer container ───────────────────────────────────── */
 .nh-drawer {
   position: fixed;
-  top: 0; right: 0; bottom: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
   height: 100vh;
   width: min(300px, 88vw);
   background: #081028;
@@ -465,7 +397,7 @@
   flex-shrink: 0;
 }
 
-/* ── Drawer nav ────────────────────────────────────────────────── */
+/* ── Drawer navigation ─────────────────────────────────────────── */
 .nh-drawer-nav {
   flex: 1;
   padding: 8px 10px;
@@ -474,7 +406,7 @@
   gap: 1px;
 }
 
-/* ── Mobile link ───────────────────────────────────────────────── */
+/* ── Mobile base link ──────────────────────────────────────────── */
 .nh-mob-link {
   display: flex;
   align-items: center;
@@ -482,13 +414,12 @@
   padding: 11px 12px;
   font-size: 14px;
   font-weight: 500;
-  color: var(--nh-text-muted);
+  color: rgba(236, 238, 246, 0.7);
   text-decoration: none;
   background: none;
   border: none;
   cursor: pointer;
   border-radius: 8px;
-  letter-spacing: 0.01em;
   width: 100%;
   font-family: inherit;
   text-align: left;
@@ -497,8 +428,19 @@
 
 .nh-mob-link:hover,
 .nh-mob-link--active {
-  color: var(--nh-text);
+  color: #ffffff;
   background: rgba(255, 255, 255, 0.05);
+}
+
+/* ── Mobile chevron (visible on dark background) ───────────────── */
+.nh-mob-acc-btn .nh-chevron {
+  color: rgba(255, 255, 255, 0.5) !important;
+  transition: transform 0.18s ease;
+}
+
+.nh-mob-acc-btn .nh-chevron--open {
+  transform: rotate(180deg);
+  color: #ffffff !important;
 }
 
 /* ── Mobile accordion ──────────────────────────────────────────── */
@@ -535,10 +477,10 @@
   font-weight: 700;
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  opacity: 0.75;
+  color: rgba(255, 255, 255, 0.5);
 }
 
-/* ── Mobile sub-link ───────────────────────────────────────────── */
+/* ── Mobile sub-link (visible on dark) ─────────────────────────── */
 .nh-mob-sub-link {
   display: flex;
   align-items: center;
@@ -546,7 +488,7 @@
   padding: 9px 10px;
   font-size: 13.5px;
   font-weight: 500;
-  color: var(--nh-text-muted);
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   border-radius: 8px;
   margin-bottom: 1px;
@@ -554,11 +496,11 @@
 }
 
 .nh-mob-sub-link:hover {
-  color: var(--nh-text);
-  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
 }
 
-/* ── Drawer footer ─────────────────────────────────────────────── */
+/* ── Mobile drawer footer ──────────────────────────────────────── */
 .nh-drawer-footer {
   padding: 14px 16px 22px;
   border-top: 1px solid rgba(255, 255, 255, 0.07);
@@ -573,7 +515,7 @@
   text-align: center;
   font-size: 13px;
   font-weight: 500;
-  color: var(--nh-text-muted);
+  color: rgba(236, 238, 246, 0.6);
   text-decoration: none;
   padding: 8px;
   border-radius: 7px;
@@ -581,71 +523,144 @@
 }
 
 .nh-mob-tel:hover {
-  color: var(--nh-text);
+  color: #ffffff;
   background: rgba(255, 255, 255, 0.04);
 }
-/* ── Dropdown visibility fixes ───────────────────────── */
 
-.nh-dropdown {
-  z-index: 1200;
+/* ═══════════════════════════════════════════════════════════════
+   DROPDOWN INSIDE MOBILE DRAWER (Dark background fixes)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Divider color for mobile drawer - VISIBLE on dark */
+.nh-drawer .nh-drop-divider {
+  background: rgba(255, 255, 255, 0.1);
 }
 
-.nh-dropdown--open {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateX(-50%) translateY(0);
+/* Dropdown items in mobile drawer */
+.nh-drawer .nh-drop-item {
+  padding: 10px 12px;
 }
 
-.nh-dropdown * {
-  box-sizing: border-box;
+.nh-drawer .nh-drop-item-title {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  font-size: 14px;
+}
+.nh-drawer .nh-drop-item {
+  opacity: 1 !important;
 }
 
-.nh-dropdown .nh-drop-item-title {
-  color: #0F172A !important;
+.nh-drawer .nh-drop-item-text {
+  opacity: 1 !important;
+}
+.nh-drawer .nh-drop-item-sub {
+  color: rgba(255,255,255,0.65) !important;
 }
 
-.nh-dropdown .nh-drop-item-sub {
-  color: #64748B !important;
+.nh-drawer .nh-drop-item-sub {
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-size: 12px;
 }
 
-.nh-dropdown .nh-drop-header-label {
-  color: #1E3A8A !important;
+.nh-drawer .nh-drop-item-icon {
+  color: #4A3FE0 !important;
+}
+
+.nh-drawer .nh-drop-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nh-drawer .nh-drop-item:hover .nh-drop-item-title {
+  color: #ffffff !important;
+}
+
+/* Dropdown header in mobile drawer */
+.nh-drawer .nh-drop-header {
+  background: transparent;
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.nh-drawer .nh-drop-header-label {
+  color: #4A3FE0 !important;
+}
+
+/* Dropdown footer in mobile drawer */
+.nh-drawer .nh-drop-footer {
+  background: transparent;
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.nh-drawer .nh-drop-footer-link {
+  color: #4A3FE0;
+}
+
+.nh-drawer .nh-drop-grid {
+  padding: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   UTILITY & OVERRIDES
+   ═══════════════════════════════════════════════════════════════ */
+
+body,
+#root {
+  overflow-x: hidden;
 }
 
 .nh-header,
 .nh-inner,
-.nh-desktop-nav,
-.nh-drop-root {
-  overflow: visible;
+.nh-drop-root,
+.nh-dropdown {
+  overflow: visible !important;
 }
 
-/* ── Laptop edge handling ───────────────────────────── */
+main,
+section,
+.hero-section,
+.service-hero-section {
+  position: relative;
+  z-index: 1;
+}
 
+/* Responsive dropdown width */
 @media (max-width: 1080px) and (min-width: 901px) {
   .nh-dropdown {
     width: clamp(460px, 56vw, 580px);
   }
 }
+.nh-logo-img {
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
+/* MOBILE DRAWER DROPDOWN FIX */
 
-/* MOBILE DRAWER TEXT FIX */
+.nh-drawer .nh-mob-group {
+  background: transparent !important;
+  padding: 4px 4px 8px;
+}
 
-@media (max-width: 900px) {
+.nh-drawer .nh-drop-grid {
+  background: transparent !important;
+}
 
-  .nh-mob-sub-link {
-    color: rgba(255,255,255,0.82) !important;
-  }
+.nh-drawer .nh-drop-item {
+  background: transparent !important;
+}
 
-  .nh-mob-sub-link:hover {
-    color: #ffffff !important;
-    background: rgba(255,255,255,0.06);
-  }
+.nh-drawer .nh-drop-item:hover {
+  background: rgba(255,255,255,0.05) !important;
+}
 
-  .nh-mob-group {
-    background: transparent !important;
-  }
+.nh-drawer .nh-drop-item-title {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
 
-  .nh-mob-acc-panel {
-    background: transparent !important;
-  }
+.nh-drawer .nh-drop-item-sub {
+  color: rgba(255,255,255,0.65) !important;
+}
 
+.nh-drawer .nh-drop-item-text {
+  opacity: 1 !important;
 }

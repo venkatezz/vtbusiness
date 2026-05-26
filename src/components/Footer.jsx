@@ -87,7 +87,7 @@ const Footer = () => {
 
               <li>
                 <Link to="/contact" className="footer-link">
-                  Contact
+                  Support
                 </Link>
               </li>
             </ul>

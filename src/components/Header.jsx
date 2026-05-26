@@ -149,15 +149,15 @@ const MobileAccordion = ({ label, accent, items, onClose }) => {
 
 /* ─── Header ───────────────────────────────────────────────────── */
 const Header = () => {
-  const [isOpen,    setIsOpen]    = useState(false);
-  const [scrolled,  setScrolled]  = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);  // ADD THIS
 
   const gst = useDropdown();
-  const it  = useDropdown();
+  const it = useDropdown();
 
   /* Close both dropdowns when one opens */
-  const openGst = () => { gst.setOpen(true);  it.setOpen(false); };
-  const openIt  = () => { it.setOpen(true);   gst.setOpen(false); };
+  const openGst = () => { gst.setOpen(true); it.setOpen(false); };
+  const openIt = () => { it.setOpen(true); gst.setOpen(false); };
 
   const closeAll = () => {
     gst.setOpen(false);
@@ -167,7 +167,7 @@ const Header = () => {
 
   const closeDrawer = () => setIsOpen(false);
 
-  /* Scroll listener */
+  /* Scroll listener - ADD THIS */
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -181,14 +181,14 @@ const Header = () => {
   }, [isOpen]);
 
   return (
-    <header className={`nh-header ${scrolled ? 'nh-scrolled' : ''}`}>
+    <header className={`nh-header ${scrolled ? 'nh-scrolled' : ''}`}>  {/* ADD scrolled class */}
       <div className="nh-inner container">
 
         {/* ── Logo ── */}
         <Link
           to="/"
           className="nh-logo-link"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          
         >
           <img src={VTLogo} alt="VT Business Support" className="nh-logo-img" />
         </Link>
@@ -197,9 +197,13 @@ const Header = () => {
         <nav className="nh-desktop-nav" aria-label="Main navigation">
         
           {/* Services*/}
-          <Link to="/services" className="nav-link">
+          <NavLink
+            to="/services"
+            className={({ isActive }) => `nh-link ${isActive ? 'nh-link--active' : ''}`}
+            onClick={() => window.scrollTo(0, 0)}
+          >
             Services
-          </Link>
+          </NavLink>
 
           {/* GST & Tax — mega menu */}
           <div className="nh-drop-root" ref={gst.ref}>
@@ -303,7 +307,7 @@ const Header = () => {
             className={({ isActive }) => `nh-link ${isActive ? 'nh-link--active' : ''}`}
             onClick={() => window.scrollTo(0, 0)}
           >
-            Contact
+            Talk to Us
           </NavLink>
 
           {/* CTA */}

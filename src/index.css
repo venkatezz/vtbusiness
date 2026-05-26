@@ -1485,12 +1485,6 @@ img {
   transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
 }
 
-.nh-header.nh-scrolled {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  box-shadow: 0 1px 0 rgba(8, 16, 40, 0.07), 0 4px 24px rgba(8, 16, 40, 0.06);
-}
 
 /* ── Inner flex row ── */
 /* Fix 6: compact navbar height */
@@ -1518,9 +1512,6 @@ img {
   transition: filter 0.3s ease;
 }
 
-.nh-scrolled .nh-logo-img {
-  filter: none; /* show original logo colors on white bg */
-}
 
 .nh-logo-mobile {
   height: 38px;
@@ -1587,20 +1578,7 @@ img {
   transform: scaleX(1);
 }
 
-/* Scrolled state — links become dark */
-.nh-scrolled .nh-link {
-  color: var(--text-main);
-}
 
-.nh-scrolled .nh-link:hover,
-.nh-scrolled .nh-link:focus-visible {
-  color: var(--primary);
-  background: rgba(74, 63, 224, 0.045);
-}
-
-.nh-scrolled .nh-link--active {
-  color: var(--primary);
-}
 
 /* button-reset variant for Services */
 .nh-link--btn {
@@ -1840,19 +1818,8 @@ img {
   transition: background 0.2s ease, color 0.2s ease;
 }
 
-.nh-scrolled .nh-hamburger {
-  background: var(--bg-soft);
-  border-color: var(--border-light);
-  color: var(--dark);
-}
-
 .nh-hamburger:hover {
   background: rgba(255, 255, 255, 0.18);
-}
-
-.nh-scrolled .nh-hamburger:hover {
-  background: rgba(74, 63, 224, 0.08);
-  color: var(--primary);
 }
 
 /* ── Mobile overlay ── */
