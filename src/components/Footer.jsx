@@ -75,7 +75,7 @@ const Footer = () => {
 
               <li>
                 <Link to="/services" className="footer-link">
-                  Services
+                  Explore Services
                 </Link>
               </li>
 
@@ -87,7 +87,7 @@ const Footer = () => {
 
               <li>
                 <Link to="/contact" className="footer-link">
-                  Support
+                  Talk to Us
                 </Link>
               </li>
             </ul>

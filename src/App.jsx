@@ -11,6 +11,7 @@ import RocCompliance from './pages/services/RocCompliance';
 import TdsFiling from './pages/services/TdsFiling';
 import Accounting from './pages/services/Accounting';
 import Services from './pages/Services';
+import Resources from './pages/Resources';
 import About from './pages/About';
 import Contact from './pages/Contact';
 
@@ -29,6 +30,7 @@ function App() {
             <Route path="/services/tds-filing" element={<TdsFiling />} />
             <Route path="/services/accounting-bookkeeping" element={<Accounting />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/resources" element={<Resources />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>

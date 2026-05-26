@@ -94,13 +94,13 @@ const Contact = () => {
             color: 'white', fontSize: 'clamp(2.5rem, 6vw, 3.75rem)',
             fontWeight: 800, letterSpacing: '-0.03em', marginBottom: '1.25rem', lineHeight: 1.1
           }}>
-            Let's Build Your Solution
+            Talk to VT Business Support
           </h1>
           <p style={{
             color: 'rgba(255,255,255,0.75)', maxWidth: '660px', margin: '0 auto',
             fontSize: 'clamp(1rem, 1.6vw, 1.2rem)', lineHeight: 1.65, fontWeight: 400
           }}>
-            Connect with our experts today. We provide on-site IT infrastructure support in Bengaluru and professional tax services across Tamil Nadu — all with a 30-minute response guarantee.
+            Connect with us for GST filing, accounting, ROC compliance, IT support, cloud setup, and business operations support across Tamil Nadu and Bengaluru.
           </p>
         </div>
       </section>
@@ -116,7 +116,7 @@ const Contact = () => {
             alignItems: 'center'
           }}>
             {[
-              { icon: <CheckCircle size={15} style={{ color: 'var(--secondary)' }} />, text: '30-min Response Guarantee' },
+              { icon: <CheckCircle size={15} style={{ color: 'var(--secondary)' }} />, text: 'Fast Business Response' },
               { icon: <Shield size={15} style={{ color: 'var(--primary)' }} />, text: '100% Secure & Confidential' },
               { icon: <Clock size={15} style={{ color: 'var(--accent)' }} />, text: 'Mon–Sat: 9AM to 7:30PM' },
             ].map((b, i) => (
@@ -127,7 +127,98 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      {/* Support Areas */}
+      <section
+        className="section reveal-item"
+        style={{
+          paddingTop: '70px',
+          paddingBottom: '20px'
+        }}
+      >
+        <div className="container">
 
+          <div
+            className="section-title"
+            style={{ marginBottom: '2.5rem' }}
+          >
+            <h2>Business Support Areas</h2>
+
+            <p>
+              Practical support services for startups,
+              SMEs, freelancers, and growing businesses.
+            </p>
+          </div>
+
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns:
+                'repeat(auto-fit, minmax(220px, 1fr))',
+              gap: '1.25rem'
+            }}
+          >
+
+            {[
+              'GST Filing & Returns',
+              'ROC Compliance',
+              'Accounting & Bookkeeping',
+              'TDS Filing',
+              'Linux & AWS Support',
+              'Website Development',
+              'Business Email Setup',
+              'Cloud & IT Infrastructure'
+            ].map((service, index) => (
+
+              <div
+                key={index}
+                style={{
+                  background: 'white',
+                  border:
+                    '1px solid var(--border-light)',
+                  borderRadius: '18px',
+                  padding: '1.25rem 1.4rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.8rem',
+                  boxShadow: 'var(--shadow-sm)'
+                }}
+              >
+
+                <div
+                  style={{
+                    width: '34px',
+                    height: '34px',
+                    borderRadius: '10px',
+                    background:
+                      'rgba(74,63,224,0.08)',
+                    color: 'var(--primary)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0
+                  }}
+                >
+                  <CheckCircle size={16} />
+                </div>
+
+                <span
+                  style={{
+                    fontWeight: 700,
+                    color: 'var(--dark)',
+                    fontSize: '0.95rem'
+                  }}
+                >
+                  {service}
+                </span>
+
+              </div>
+
+            ))}
+
+          </div>
+
+        </div>
+      </section>
       {/* Main Content */}
       <section className="section reveal-item">
         <div className="container">
@@ -196,7 +287,7 @@ const Contact = () => {
                   {[
                     { day: 'Monday – Friday', time: '9:00 AM – 7:30 PM', badge: 'Open' },
                     { day: 'Saturday', time: '9:00 AM – 5:00 PM', badge: 'Open' },
-                    { day: 'Sunday', time: 'WhatsApp Only', badge: 'Limited' },
+                    { day: 'Sunday', time: 'Limited Support', badge: 'Limited' },
                   ].map((slot, i) => (
                     <div key={i} style={{
                       display: 'flex', justifyContent: 'space-between', alignItems: 'center',

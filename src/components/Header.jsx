@@ -210,13 +210,7 @@ const Header = () => {
 
           {/* Desktop Nav */}
           <nav className="nh-desktop-nav" aria-label="Main navigation">
-            <NavLink
-              to="/services"
-              className={({ isActive }) => `nh-link ${isActive ? 'nh-link--active' : ''}`}
-              onClick={() => window.scrollTo(0, 0)}
-            >
-              Services
-            </NavLink>
+           
 
             {/* GST & Tax Dropdown */}
             <div className="nh-drop-root" ref={gst.ref}>
