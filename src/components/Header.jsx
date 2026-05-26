@@ -195,6 +195,11 @@ const Header = () => {
 
         {/* ── Desktop Nav ── */}
         <nav className="nh-desktop-nav" aria-label="Main navigation">
+        
+          {/* Services*/}
+          <Link to="/services" className="nav-link">
+            Services
+          </Link>
 
           {/* GST & Tax — mega menu */}
           <div className="nh-drop-root" ref={gst.ref}>

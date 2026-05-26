@@ -121,6 +121,7 @@ const Home = () => {
 
               {/* CTA Buttons */}
               <div className="hero-cta-row hero-anim-4">
+
                 {/* PRIMARY — WhatsApp */}
                 <a
                   href="https://api.whatsapp.com/send?phone=918925063980"
@@ -132,11 +133,13 @@ const Home = () => {
                   <WhatsAppIcon size={20} color="white" />
                   <span>Chat on WhatsApp</span>
                 </a>
-                {/* SECONDARY */}
-                <Link to="/contact" className="hero-btn-secondary">
-                  Get Free Consultation
+
+                {/* NEW SERVICES BUTTON */}
+                <Link to="/services" className="hero-btn-secondary">
+                  Explore Services
                   <ArrowRight size={16} />
                 </Link>
+
               </div>
 
               {/* Trust points */}

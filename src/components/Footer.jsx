@@ -9,7 +9,7 @@ const Footer = () => {
     <footer style={{
       background: 'radial-gradient(circle at 10% 20%, rgba(74, 63, 224, 0.06), transparent 45%), linear-gradient(180deg, hsl(224, 71%, 7%) 0%, hsl(224, 71%, 4%) 100%)',
       color: 'white',
-      padding: '64px 0 28px',
+      padding: '52px 0 28px',
       marginTop: 'auto',
       borderTop: '1px solid rgba(255, 255, 255, 0.05)',
       position: 'relative',
@@ -28,7 +28,7 @@ const Footer = () => {
       <div className="container">
         <div className="grid-responsive" style={{
           display: 'grid',
-          gridTemplateColumns: '1.2fr 0.8fr 1fr 1.5fr',
+          gridTemplateColumns: '1.3fr 0.9fr 1fr 1fr 1.5fr',
           gap: '3rem',
           alignItems: 'start',
           marginBottom: '50px'
@@ -44,7 +44,7 @@ const Footer = () => {
                 style={{ filter: 'brightness(0) invert(1)', maxHeight: '48px', width: 'auto' }}
               />
             </Link>
-            <p style={{ color: 'rgba(255, 255, 255, 0.65)', fontSize: '0.9rem', lineHeight: 1.6, maxWidth: '280px' }}>
+            <p style={{ color: 'rgba(255, 255, 255, 0.65)', fontSize: '0.9rem', lineHeight: 1.6, maxWidth: '320px' }}>
               Reliable GST filing, income tax, ROC compliance,
               bookkeeping, and IT support services for startups,
               small businesses, freelancers, and growing companies
@@ -55,20 +55,47 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Column 2: Navigations */}
+         {/* Column 2: Navigations */}
           <div>
             <h4 className="footer-heading">Quick Links</h4>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', listStyle: 'none' }}>
-              <li><Link to="/" className="footer-link">Home</Link></li>
-              <li><Link to="/services" className="footer-link">Services</Link></li>
-              <li><Link to="/about" className="footer-link">About Us</Link></li>
-              <li><Link to="/contact" className="footer-link">Contact</Link></li>
+
+            <ul
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '0.85rem',
+                listStyle: 'none'
+              }}
+            >
+              <li>
+                <Link to="/" className="footer-link">
+                  Home
+                </Link>
+              </li>
+
+              <li>
+                <Link to="/services" className="footer-link">
+                  Services
+                </Link>
+              </li>
+
+              <li>
+                <Link to="/about" className="footer-link">
+                  About Us
+                </Link>
+              </li>
+
+              <li>
+                <Link to="/contact" className="footer-link">
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Column 3: Core Segments */}
           <div>
-            <h4 className="footer-heading">Core Services</h4>
+            <h4 className="footer-heading">GST & TAX Services</h4>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', listStyle: 'none' }}>
 
             <li>
@@ -129,6 +156,76 @@ const Footer = () => {
           </ul>
           </div>
 
+          {/* Column 4: IT Services */}
+          <div>
+            <h4 className="footer-heading">IT Services</h4>
+
+            <ul
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '0.85rem',
+                listStyle: 'none'
+              }}
+            >
+
+              <li>
+                <Link
+                  to="/services/it-support"
+                  className="footer-link"
+                  style={{ display: 'flex', alignItems: 'flex-start', gap: '6px' }}
+                >
+                  <CheckCircle size={12} style={{ color: 'var(--secondary)', marginTop: '4px' }} />
+                  <span>IT Support</span>
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  to="/services/website-development"
+                  className="footer-link"
+                  style={{ display: 'flex', alignItems: 'flex-start', gap: '6px' }}
+                >
+                  <CheckCircle size={12} style={{ color: 'var(--secondary)', marginTop: '4px' }} />
+                  <span>Website Development</span>
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  to="/services/cloud-server-setup"
+                  className="footer-link"
+                  style={{ display: 'flex', alignItems: 'flex-start', gap: '6px' }}
+                >
+                  <CheckCircle size={12} style={{ color: 'var(--secondary)', marginTop: '4px' }} />
+                  <span>Cloud & Server Setup</span>
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  to="/services/business-email-setup"
+                  className="footer-link"
+                  style={{ display: 'flex', alignItems: 'flex-start', gap: '6px' }}
+                >
+                  <CheckCircle size={12} style={{ color: 'var(--secondary)', marginTop: '4px' }} />
+                  <span>Business Email Setup</span>
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  to="/services/aws-linux-support"
+                  className="footer-link"
+                  style={{ display: 'flex', alignItems: 'flex-start', gap: '6px' }}
+                >
+                  <CheckCircle size={12} style={{ color: 'var(--secondary)', marginTop: '4px' }} />
+                  <span>AWS & Linux Support</span>
+                </Link>
+              </li>
+
+            </ul>
+          </div>
           {/* Column 4: Contact & Coordinates */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             <h4 className="footer-heading">Contact Information</h4>
