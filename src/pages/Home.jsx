@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  Shield, Smartphone, Globe, Cloud, FileText, Settings, Briefcase, 
-  Users, CheckCircle, ArrowRight, Phone, Zap, Star, AlertCircle, 
-  ChevronDown, HelpCircle, HardDrive, Cpu, HeartHandshake, Award, Landmark
+  Shield, Globe, Cloud, FileText, Briefcase, 
+  Users, CheckCircle, ArrowRight, Zap, Star,
+  ChevronDown, HelpCircle, HardDrive, Cpu, Landmark
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import DynamicLeadForm from '../components/DynamicLeadForm';
@@ -38,36 +38,13 @@ const Home = () => {
     };
   }, []);
 
-  // Tab Selection state for Services Matrix
-  const [activeTab, setActiveTab] = useState('compliance');
 
-  // Bookkeeping Dynamic pricing calculator values
-  const [turnoverSlider, setTurnoverSlider] = useState(20); // range 5 to 150 (Lakhs)
-  
+   
   // Dynamic FAQ Accordion state toggles
   const [activeFaq, setActiveFaq] = useState(null);
 
   const toggleFaq = (idx) => {
     setActiveFaq(activeFaq === idx ? null : idx);
-  };
-
-  // Pricing calculation algorithms to establish upfront qualification
-  const getEstimatedFee = () => {
-    if (turnoverSlider <= 10) return "₹999 / mo";
-    if (turnoverSlider <= 25) return "₹1,999 / mo";
-    if (turnoverSlider <= 50) return "₹3,499 / mo";
-    if (turnoverSlider <= 100) return "₹5,999 / mo";
-    return "Custom Advisory";
-  };
-
-  const getCalculatorDeliverables = () => {
-    if (turnoverSlider <= 25) {
-      return ["Monthly GST Returns", "Quarterly Income Tax Filing", "Basic Accounting LEDGER", "WhatsApp Advisor Line"];
-    }
-    if (turnoverSlider <= 100) {
-      return ["Dedicated Accountant Allocation", "Fortnightly Books reconciliation", "GST Filing & ROC audits", "Extended Phone / Email consultation"];
-    }
-    return ["Fractional CFO Support", "Complete Cloud Books Management", "Tax planning strategies", "Priority 24/7 dedicated support SLA"];
   };
 
   const localBusinessSchema = {
@@ -106,7 +83,7 @@ const Home = () => {
   return (
     <div style={{ position: 'relative', overflowX: 'hidden' }}>
       <SEO
-        title="VT Business Support | Dual-Engine GST Tax & IT Infrastructure Platform"
+        title="VT Business Support | GST, Tax & IT Support for Small Businesses"
         description="VT Business Support offers high-converting GST returns, income tax planning, custom server configurations, web coding, and office infrastructure setup across Tamil Nadu & Bengaluru."
         schema={localBusinessSchema}
       />
@@ -156,10 +133,10 @@ const Home = () => {
                   <span>Chat on WhatsApp</span>
                 </a>
                 {/* SECONDARY */}
-                <a href="#quote-funnel" className="hero-btn-secondary">
+                <Link to="/contact" className="hero-btn-secondary">
                   Get Free Consultation
                   <ArrowRight size={16} />
-                </a>
+                </Link>
               </div>
 
               {/* Trust points */}
@@ -296,153 +273,146 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Dynamic Services Tabs Matrix */}
-      <section 
+   
+      {/* SERVICES GRID */}
+
+      <section
         className="section reveal-item"
-        style={{ backgroundColor: 'var(--bg-soft)', borderBottom: '1px solid var(--border-light)' }}
+        style={{
+          background: 'var(--white)',
+          borderBottom: '1px solid var(--border-light)'
+        }}
       >
-        <div className="container" style={{ textAlign: 'center' }}>
+        <div className="container">
+
           <div className="section-title">
-            <h2>Expertise Segments</h2>
-            <p>We combine elite business tax compliance with institutional-grade web/cloud infrastructure support.</p>
+            <h2>Our Professional Services</h2>
+            <p>
+              GST, tax, accounting, compliance, and IT support services
+              for startups, freelancers, and growing businesses.
+            </p>
           </div>
 
-          {/* Interactive tab control buttons */}
-          <div className="tabs-header-container">
-            <button 
-              className={`tab-trigger-btn ${activeTab === 'compliance' ? 'active' : ''}`}
-              onClick={() => setActiveTab('compliance')}
-            >
-              Tax & Corporate Compliance
-            </button>
-            <button 
-              className={`tab-trigger-btn ${activeTab === 'technology' ? 'active' : ''}`}
-              onClick={() => setActiveTab('technology')}
-            >
-              IT Support & Cloud setups
-            </button>
-          </div>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+              gap: '1.5rem'
+            }}
+          >
 
-          {/* Tab contents with smooth React animation renders */}
-          <div className="grid-responsive" style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(310px, 1fr))',
-            gap: '2rem'
-          }}>
-            
-            {activeTab === 'compliance' ? (
-              <>
-                <div className="card-premium fade-in">
-                  <div style={{
-                    backgroundColor: 'rgba(74, 63, 224, 0.1)',
-                    width: '52px', height: '52px', borderRadius: '12px',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    marginBottom: '1.5rem'
-                  }}>
-                    <FileText style={{ color: 'var(--primary)' }} size={24} />
-                  </div>
-                  <h3 style={{ marginBottom: '0.75rem', fontSize: '1.35rem', fontWeight: 800 }}>Income Tax / ITR Filing</h3>
-                  <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '0.92rem', lineHeight: 1.6, textAlign: 'left' }}>
-                    Speedy individual, salaried, Capital Gains & professional IT returns. Avoid penalties and optimize your legal deductions with expert advisory checking.
-                  </p>
-                  <a href="#quote-funnel" style={{ fontWeight: 700, color: 'var(--primary)', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', marginTop: 'auto' }}>
-                    Get Quotation Now <ArrowRight size={16} />
-                  </a>
-                </div>
+            {[
+              {
+                title: 'GST Filing',
+                desc: 'GST registration, GSTR filing, reconciliation, and notice support.',
+                icon: <FileText size={22} />,
+                path: '/services/gst-filing'
+              },
 
-                <div className="card-premium fade-in">
-                  <div style={{
-                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                    width: '52px', height: '52px', borderRadius: '12px',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    marginBottom: '1.5rem'
-                  }}>
-                    <Landmark style={{ color: 'var(--secondary)' }} size={24} />
-                  </div>
-                  <h3 style={{ marginBottom: '0.75rem', fontSize: '1.35rem', fontWeight: 800 }}>GST Returns & Reconciliation</h3>
-                  <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '0.92rem', lineHeight: 1.6, textAlign: 'left' }}>
-                    Hassle-free GSTR-1, GSTR-3B filings, and continuous input tax credit matching. Perfect for e-commerce operators, manufacturers, and service hubs.
-                  </p>
-                  <a href="#quote-funnel" style={{ fontWeight: 700, color: 'var(--secondary)', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', marginTop: 'auto' }}>
-                    Manage Your GST <ArrowRight size={16} />
-                  </a>
-                </div>
+              {
+                title: 'Income Tax Filing',
+                desc: 'ITR filing for salaried employees, freelancers, and businesses.',
+                icon: <Landmark size={22} />,
+                path: '/services/income-tax'
+              },
 
-                <div className="card-premium fade-in">
-                  <div style={{
-                    backgroundColor: 'rgba(245, 158, 11, 0.1)',
-                    width: '52px', height: '52px', borderRadius: '12px',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    marginBottom: '1.5rem'
-                  }}>
-                    <Briefcase style={{ color: 'var(--accent)' }} size={24} />
-                  </div>
-                  <h3 style={{ marginBottom: '0.75rem', fontSize: '1.35rem', fontWeight: 800 }}>Corporate Registry & Bookkeeping</h3>
-                  <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '0.92rem', lineHeight: 1.6, textAlign: 'left' }}>
-                    Seamless Private Limited incorporation, LLP filings, ROC returns, and recurring professional accounts bookkeeping tailored to regional regulations.
-                  </p>
-                  <a href="#quote-funnel" style={{ fontWeight: 700, color: 'var(--accent)', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', marginTop: 'auto' }}>
-                    Incorporate SME <ArrowRight size={16} />
-                  </a>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="card-premium fade-in">
-                  <div style={{
-                    backgroundColor: 'rgba(8, 16, 40, 0.1)',
-                    width: '52px', height: '52px', borderRadius: '12px',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    marginBottom: '1.5rem'
-                  }}>
-                    <Cpu style={{ color: 'var(--dark)' }} size={24} />
-                  </div>
-                  <h3 style={{ marginBottom: '0.75rem', fontSize: '1.35rem', fontWeight: 800 }}>Office IT Support & setups</h3>
-                  <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '0.92rem', lineHeight: 1.6, textAlign: 'left' }}>
-                    Laptop setup, networking, office systems, printer setup, and remote IT support for businesses.
-                  </p>
-                  <a href="#quote-funnel" style={{ fontWeight: 700, color: 'var(--dark)', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', marginTop: 'auto' }}>
-                    Configure Support <ArrowRight size={16} />
-                  </a>
+              {
+                title: 'Accounting & Bookkeeping',
+                desc: 'Monthly bookkeeping, accounting reports, and compliance support.',
+                icon: <Briefcase size={22} />,
+                path: '/services/accounting-bookkeeping'
+              },
+
+              {
+                title: 'ROC Compliance',
+                desc: 'MCA filing, annual returns, DIN KYC, and ROC compliance.',
+                icon: <Shield size={22} />,
+                path: '/services/roc-compliance'
+              },
+
+              {
+                title: 'TDS Filing',
+                desc: 'Quarterly TDS filing, Form 16 support, and corrections.',
+                icon: <CheckCircle size={22} />,
+                path: '/services/tds-filing'
+              },
+
+              {
+                title: 'IT Support Services',
+                desc: 'Office setup, cloud support, websites, Linux & AWS support.',
+                icon: <Cpu size={22} />,
+                path: '/services/it-support'
+              }
+
+            ].map((service) => (
+
+              <Link
+                key={service.title}
+                to={service.path}
+                className="card-premium"
+                style={{
+                  textDecoration: 'none',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '1rem',
+                  transition: 'var(--transition)'
+                }}
+              >
+
+                <div
+                  style={{
+                    width: '52px',
+                    height: '52px',
+                    borderRadius: '14px',
+                    background: 'rgba(74,63,224,0.08)',
+                    color: 'var(--primary)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}
+                >
+                  {service.icon}
                 </div>
 
-                <div className="card-premium fade-in">
-                  <div style={{
-                    backgroundColor: 'rgba(74, 63, 224, 0.1)',
-                    width: '52px', height: '52px', borderRadius: '12px',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    marginBottom: '1.5rem'
-                  }}>
-                    <Cloud style={{ color: 'var(--primary)' }} size={24} />
-                  </div>
-                  <h3 style={{ marginBottom: '0.75rem', fontSize: '1.35rem', fontWeight: 800 }}>Cloud administration (AWS/Linux)</h3>
-                  <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '0.92rem', lineHeight: 1.6, textAlign: 'left' }}>
-                    AWS, Linux VPS, backups, domains, and cloud server support for growing businesses.
+                <div>
+                  <h3
+                    style={{
+                      fontSize: '1.1rem',
+                      marginBottom: '0.7rem',
+                      color: 'var(--dark)'
+                    }}
+                  >
+                    {service.title}
+                  </h3>
+
+                  <p
+                    style={{
+                      color: 'var(--text-muted)',
+                      fontSize: '0.92rem',
+                      lineHeight: 1.7
+                    }}
+                  >
+                    {service.desc}
                   </p>
-                  <a href="#quote-funnel" style={{ fontWeight: 700, color: 'var(--primary)', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', marginTop: 'auto' }}>
-                    Configure Cloud <ArrowRight size={16} />
-                  </a>
                 </div>
 
-                <div className="card-premium fade-in">
-                  <div style={{
-                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                    width: '52px', height: '52px', borderRadius: '12px',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    marginBottom: '1.5rem'
-                  }}>
-                    <Globe style={{ color: 'var(--secondary)' }} size={24} />
-                  </div>
-                  <h3 style={{ marginBottom: '0.75rem', fontSize: '1.35rem', fontWeight: 800 }}>Website Development & SEO</h3>
-                  <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '0.92rem', lineHeight: 1.6, textAlign: 'left' }}>
-                    Business websites, SEO setup, speed optimization, and domain management support.
-                  </p>
-                  <a href="#quote-funnel" style={{ fontWeight: 700, color: 'var(--secondary)', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', marginTop: 'auto' }}>
-                    Develop Site <ArrowRight size={16} />
-                  </a>
+                <div
+                  style={{
+                    marginTop: 'auto',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.45rem',
+                    color: 'var(--primary)',
+                    fontWeight: 700,
+                    fontSize: '0.92rem'
+                  }}
+                >
+                  View Service
+                  <ArrowRight size={16} />
                 </div>
-              </>
-            )}
+
+              </Link>
+            ))}
 
           </div>
         </div>
@@ -535,113 +505,6 @@ const Home = () => {
               </div>
             ))}
 
-          </div>
-        </div>
-      </section>
-
-      {/* Step-by-Step Interactive Compliance Roadmap */}
-      <section 
-        className="section reveal-item"
-        style={{ backgroundColor: 'var(--bg-soft)', borderBottom: '1px solid var(--border-light)' }}
-      >
-        <div className="container">
-          <div className="section-title">
-            <h2>Seamless Integration Process</h2>
-            <p>How we transition your financial records and IT support structure effortlessly.</p>
-          </div>
-
-          <div className="timeline-path">
-            
-            <div className="timeline-node-card">
-              <div className="timeline-node-dot" />
-              <div className="timeline-node-content">
-                <span className="timeline-node-num">01</span>
-                <h4 style={{ fontSize: '1.2rem', marginBottom: '0.5rem', fontWeight: 800 }}>Dynamic Inquiry Intake</h4>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.55 }}>
-                  Submit details through our pre-qualifying funnel or message us via WhatsApp. We analyze your requirements in 15 minutes.
-                </p>
-              </div>
-            </div>
-
-            <div className="timeline-node-card">
-              <div className="timeline-node-dot" />
-              <div className="timeline-node-content">
-                <span className="timeline-node-num">02</span>
-                <h4 style={{ fontSize: '1.2rem', marginBottom: '0.5rem', fontWeight: 800 }}>Assigned Advisor Consult</h4>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.55 }}>
-                  A specialized tax strategist or senior systems architect holds a discovery call to build your dynamic service blueprint.
-                </p>
-              </div>
-            </div>
-
-            <div className="timeline-node-card">
-              <div className="timeline-node-dot" />
-              <div className="timeline-node-content">
-                <span className="timeline-node-num">03</span>
-                <h4 style={{ fontSize: '1.2rem', marginBottom: '0.5rem', fontWeight: 800 }}>Seamless Active Delivery</h4>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.55 }}>
-                  We set up ledger syncing, compile tax returns, or provision your server/networking systems. Your accounts are instantly secured.
-                </p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* Why Clients Choose VT Business Support */}
-      <section 
-        className="section reveal-item"
-        style={{ background: 'var(--dark)', color: 'white' }}
-      >
-        <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '4rem', alignItems: 'center' }}>
-            <div>
-              <h2 style={{ color: 'white', fontSize: 'clamp(2rem, 4vw, 2.5rem)', marginBottom: '2rem', fontWeight: 800 }}>
-                Why Clients Partner With Us
-              </h2>
-              
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-                <div style={{ display: 'flex', gap: '1.25rem' }}>
-                  <div style={{ color: 'var(--primary-hover)', flexShrink: 0 }}><Shield size={28} /></div>
-                  <div>
-                    <h4 style={{ color: 'white', fontSize: '1.15rem', marginBottom: '0.4rem', fontWeight: 700 }}>Absolute Regulatory Security</h4>
-                    <p style={{ color: 'rgba(255,255,255,0.72)', fontSize: '0.95rem', lineHeight: 1.5 }}>
-                      Fully certified tax practitioners ensuring 100% compliance matching with state and central direct/indirect taxation databases.
-                    </p>
-                  </div>
-                </div>
-
-                <div style={{ display: 'flex', gap: '1.25rem' }}>
-                  <div style={{ color: 'var(--secondary)', flexShrink: 0 }}><HeartHandshake size={28} /></div>
-                  <div>
-                    <h4 style={{ color: 'white', fontSize: '1.15rem', marginBottom: '0.4rem', fontWeight: 700 }}>Dedicated SLA Response</h4>
-                    <p style={{ color: 'rgba(255,255,255,0.72)', fontSize: '0.95rem', lineHeight: 1.5 }}>
-                      We do not keep you waiting. Active email, ticket, or phone callback response guarantees in under 30 minutes.
-                    </p>
-                  </div>
-                </div>
-
-                <div style={{ display: 'flex', gap: '1.25rem' }}>
-                  <div style={{ color: 'var(--accent)', flexShrink: 0 }}><Award size={28} /></div>
-                  <div>
-                    <h4 style={{ color: 'white', fontSize: '1.15rem', marginBottom: '0.4rem', fontWeight: 700 }}>Unified Tech + Finance Engine</h4>
-                    <p style={{ color: 'rgba(255,255,255,0.72)', fontSize: '0.95rem', lineHeight: 1.5 }}>
-                      Eliminate the headache of managing multiple agencies. One single professional partner handling your accounts and infrastructure setup.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div style={{ position: 'relative' }}>
-              <img
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800"
-                alt="VT Business Support Professional Advisory Meeting"
-                loading="lazy"
-                style={{ width: '100%', borderRadius: '20px', position: 'relative', zIndex: 1, boxShadow: '0 25px 50px rgba(0,0,0,0.5)' }}
-              />
-            </div>
           </div>
         </div>
       </section>

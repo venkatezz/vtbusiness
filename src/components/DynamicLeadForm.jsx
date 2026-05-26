@@ -14,20 +14,25 @@ const DynamicLeadForm = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
   const handleServiceSelect = (val) => {
     setFormData(prev => ({ ...prev, serviceType: val }));
-    setStep(2);
   };
 
   const handleScaleSelect = (val) => {
     setFormData(prev => ({ ...prev, scale: val }));
-    setStep(3);
   };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+
+    setError('');
+
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
   const handlePrev = () => {
@@ -36,8 +41,8 @@ const DynamicLeadForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.phone || !formData.email) {
-      alert('Please fill out all required contact fields.');
+    if (!formData.name || !formData.phone) {
+      setError('Please fill all required fields.');
       return;
     }
 
@@ -73,7 +78,22 @@ const DynamicLeadForm = () => {
           style={{ width: `${isSubmitted ? 100 : ((step - 1) / 3) * 100}%` }}
         />
       </div>
-
+       {error && (
+          <div
+            style={{
+              background: 'rgba(239,68,68,0.08)',
+              border: '1px solid rgba(239,68,68,0.18)',
+              color: '#dc2626',
+              padding: '0.9rem 1rem',
+              borderRadius: '10px',
+              fontSize: '0.9rem',
+              fontWeight: 600,
+              marginBottom: '1rem'
+            }}
+          >
+            {error}
+          </div>
+        )}
       {!isSubmitted ? (
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
           
@@ -145,7 +165,19 @@ const DynamicLeadForm = () => {
                   </div>
                 </div>
               </div>
+              <div style={{ marginTop: '1.5rem' }}>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  disabled={!formData.serviceType}
+                  onClick={() => setStep(2)}
+                  style={{ width: '100%' }}
+                >
+                  Continue
+                </button>
+              </div>
             </div>
+
           )}
 
           {/* Step 2: Scale and Turnover Qualification */}
@@ -200,7 +232,15 @@ const DynamicLeadForm = () => {
                 </div>
               )}
 
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '1.5rem' }}>
+              <div
+                className="dynamic-form-actions"
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  gap: '1rem',
+                  marginTop: '1.5rem'
+                }}
+              >
                 <button 
                   type="button" 
                   onClick={handlePrev}
@@ -208,6 +248,14 @@ const DynamicLeadForm = () => {
                   style={{ backgroundColor: 'var(--bg-soft)', color: 'var(--dark)', width: 'auto', padding: '0 1.25rem' }}
                 >
                   <ArrowLeft size={16} /> Back
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  disabled={!formData.scale}
+                  onClick={() => setStep(3)}
+                >
+                  Continue
                 </button>
               </div>
             </div>
@@ -220,7 +268,7 @@ const DynamicLeadForm = () => {
                 Let's book your consultation
               </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
-                Enter your contact info. We will respond within 30 minutes.
+                Enter your contact info. Our team will contact you shortly on WhatsApp or phone.
               </p>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
@@ -259,13 +307,13 @@ const DynamicLeadForm = () => {
                 </div>
 
                 <div className="form-group" style={{ margin: 0 }}>
-                  <label className="form-label">Email Address *</label>
+                  <label className="form-label">Email Address</label>
                   <div style={{ position: 'relative' }}>
                     <Mail size={18} style={{ position: 'absolute', left: '12px', top: '15px', color: 'var(--text-muted)' }} />
                     <input 
                       type="email" 
                       name="email"
-                      required
+                      
                       placeholder="name@company.com" 
                       value={formData.email}
                       onChange={handleInputChange}
@@ -344,6 +392,15 @@ const DynamicLeadForm = () => {
               <span>Instant Chat on WhatsApp</span>
               <ArrowRight size={18} />
             </a>
+            <p
+              style={{
+                fontSize: '0.82rem',
+                color: 'var(--text-muted)',
+                marginTop: '0.5rem'
+              }}
+            >
+              Prefer direct call? +91 89250 63980
+            </p>
 
             <div style={{ 
               display: 'flex', 
@@ -358,7 +415,7 @@ const DynamicLeadForm = () => {
               justifyContent: 'center'
             }}>
               <ShieldCheck size={16} style={{ color: 'var(--secondary)' }} />
-              <span>100% Secure & Private Compliance Standards</span>
+              <span>Your details are kept private and used only for support communication.</span>
             </div>
           </div>
         </div>

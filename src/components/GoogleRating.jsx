@@ -11,34 +11,81 @@ const GoogleLogo = () => (
 );
 
 const GoogleRating = () => {
-  // Static values for manual updates
+
   const ratingValue = "4.9";
   const reviewCount = "5";
   const googleReviewLink = "https://g.page/r/CTyatitaEf93EBM/review";
 
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '0.4rem',
-      color: 'white',
-      textAlign: 'left'
-    }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '0.45rem',
+        color: 'var(--text-light)',
+        textAlign: 'left',
+        maxWidth: '220px'
+      }}
+    >
+
+      {/* TOP ROW */}
+
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.6rem',
+          flexWrap: 'wrap'
+        }}
+      >
         <GoogleLogo />
+
         <div style={{ display: 'flex', gap: '2px' }}>
           {[...Array(4)].map((_, i) => (
-            <Star key={i} size={14} fill="#FBBC05" color="#FBBC05" />
+            <Star
+              key={i}
+              size={14}
+              fill="#FBBC05"
+              color="#FBBC05"
+            />
           ))}
-          <StarHalf size={14} fill="#FBBC05" color="#FBBC05" />
+
+          <StarHalf
+            size={14}
+            fill="#FBBC05"
+            color="#FBBC05"
+          />
         </div>
-        <span style={{ fontWeight: 700, fontSize: '0.9rem' }}>{ratingValue}</span>
+
+        <span
+          style={{
+            fontWeight: 700,
+            fontSize: '0.9rem'
+          }}
+        >
+          {ratingValue}
+        </span>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem' }}>
-          Based on {reviewCount} reviews
+      {/* REVIEW TEXT */}
+
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '0.2rem'
+        }}
+      >
+        <span
+          style={{
+            color: 'rgba(255,255,255,0.65)',
+            fontSize: '0.75rem',
+            lineHeight: '1.5'
+          }}
+        >
+          Based on {reviewCount} Google reviews
         </span>
+
         <a
           href={googleReviewLink}
           target="_blank"
@@ -48,14 +95,20 @@ const GoogleRating = () => {
             fontSize: '0.85rem',
             fontWeight: 600,
             textDecoration: 'none',
-            transition: 'var(--transition)'
+            transition: '0.3s ease'
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.opacity = '0.8';
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.opacity = '1';
           }}
         >
           Rate us on Google →
         </a>
       </div>
+
     </div>
   );
 };
-
 export default GoogleRating;

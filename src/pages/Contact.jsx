@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Mail, MapPin, MessageCircle, Send, Shield, Zap, Clock, CheckCircle, ArrowRight } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, Shield, Zap, Clock, CheckCircle } from 'lucide-react';
 import SEO from '../components/SEO';
 
 const Contact = () => {
@@ -29,7 +29,7 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const message = `Hi, I need support for ${formData.requirement || 'my business'}.\n\nCompany Name: ${formData.name}\nPhone: ${formData.phone}\nMessage: ${formData.message}`;
+    const message = `Hi, I need support for ${formData.requirement || 'my business'}.\n\nName / Business: ${formData.name}\nPhone: ${formData.phone}\nMessage: ${formData.message}`;
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/918925063980?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');
@@ -242,7 +242,7 @@ const Contact = () => {
                   <div className="form-group" style={{ margin: 0 }}>
                     <label className="form-label">WhatsApp Number *</label>
                     <input
-                      type="tel" name="phone"
+                      pattern="[0-9]{10}" name="phone"
                       value={formData.phone} onChange={handleChange}
                       required placeholder="+91 89250 63980"
                       className="form-input"

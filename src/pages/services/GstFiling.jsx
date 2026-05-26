@@ -17,8 +17,8 @@ const GstFiling = () => {
 
       {/* HERO */}
       <section    
-        className="gst-hero-section"
-        style={{
+        className="gst-hero-section service-hero-section"
+          style={{
           padding: '72px 0 64px',
           color: '#fff',
           position: 'relative',
@@ -36,7 +36,8 @@ const GstFiling = () => {
         <div className="container">
 
           <div
-            className="gst-hero-grid"
+            className="gst-hero-grid service-hero-grid"
+            
             style={{
               display: 'grid',
               gridTemplateColumns: '1.1fr 0.92fr',
@@ -47,7 +48,7 @@ const GstFiling = () => {
 
             {/* LEFT */}
             <div
-                className="gst-hero-left"
+                className="gst-hero-left service-hero-left"
                 style={{
                     width: '100%',
                     maxWidth: '680px',
@@ -88,7 +89,7 @@ const GstFiling = () => {
               </div>
 
                 <h1
-                  className="gst-hero-title"
+                  className="gst-hero-title service-hero-title"
                     style={{
                         fontSize: 'clamp(2.9rem, 5vw, 4.5rem)',
                         lineHeight: '1.02',
@@ -109,7 +110,7 @@ const GstFiling = () => {
                 </h1>
 
               <p
-                className="gst-hero-desc"
+                className="gst-hero-desc service-hero-desc"
                 style={{
                   color: 'rgba(255,255,255,0.72)',
                   fontSize: '1.05rem',
@@ -127,7 +128,7 @@ const GstFiling = () => {
 
               {/* CTA */}
               <div
-                className="gst-hero-buttons"
+                className="gst-hero-buttons service-hero-buttons"
                 style={{
                   display: 'flex',
                   gap: '1rem',
@@ -183,7 +184,7 @@ const GstFiling = () => {
 
               {/* TRUST ROW */}
               <div
-                className="gst-hero-cta"
+                className="gst-hero-cta service-hero-trust"
                 style={{
                   display: 'flex',
                   gap: '1.5rem',
@@ -203,7 +204,7 @@ const GstFiling = () => {
             <div className="gst-hero-right">
 
               <div
-                className="gst-hero-card"
+                className="gst-hero-card service-hero-card"
                 style={{
                   background: 'rgba(15,23,42,0.72)',
                   boxShadow: '0 24px 60px rgba(0,0,0,0.28)',

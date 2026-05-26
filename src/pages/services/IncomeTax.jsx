@@ -17,7 +17,7 @@ const IncomeTax = () => {
 
       {/* HERO */}
       <section    
-        className="gst-hero-section"
+        className="gst-hero-section service-hero-section"
         style={{
           padding: '72px 0 64px',
           color: '#fff',
@@ -47,7 +47,7 @@ const IncomeTax = () => {
 
             {/* LEFT */}
             <div
-                className="gst-hero-left"
+                className="gst-hero-left service-hero-left"
                 style={{
                     width: '100%',
                     maxWidth: '680px',
@@ -88,7 +88,7 @@ const IncomeTax = () => {
               </div>
 
                 <h1
-                  className="gst-hero-title"
+                  className="gst-hero-title   service-hero-title"
                     style={{
                         fontSize: 'clamp(2.9rem, 5vw, 4.5rem)',
                         lineHeight: '1.02',
@@ -109,7 +109,7 @@ const IncomeTax = () => {
                 </h1>
 
               <p
-                className="gst-hero-desc"
+                className="gst-hero-desc service-hero-desc"
                 style={{
                   color: 'rgba(255,255,255,0.72)',
                   fontSize: '1.05rem',
@@ -128,7 +128,7 @@ const IncomeTax = () => {
 
               {/* CTA */}
               <div
-                className="gst-hero-buttons"
+                className="gst-hero-buttons service-hero-buttons"
                 style={{
                   display: 'flex',
                   gap: '1rem',
@@ -184,7 +184,7 @@ const IncomeTax = () => {
 
               {/* TRUST ROW */}
               <div
-                className="gst-hero-cta"
+                className="gst-hero-cta service-hero-trust"
                 style={{
                   display: 'flex',
                   gap: '1.5rem',
@@ -204,7 +204,7 @@ const IncomeTax = () => {
             <div className="gst-hero-right">
 
               <div
-                className="gst-hero-card"
+                className="gst-hero-card service-hero-card"
                 style={{
                   background: 'rgba(15,23,42,0.72)',
                   boxShadow: '0 24px 60px rgba(0,0,0,0.28)',
