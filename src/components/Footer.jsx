@@ -224,6 +224,17 @@ const Footer = () => {
                 </Link>
               </li>
 
+              <li>
+                <Link
+                  to="/services/technical-consulting"
+                  className="footer-link"
+                  style={{ display: 'flex', alignItems: 'flex-start', gap: '6px' }}
+                >
+                  <CheckCircle size={12} style={{ color: 'var(--secondary)', marginTop: '4px' }} />
+                  <span>Technical Consulting</span>
+                </Link>
+              </li>
+
             </ul>
           </div>
           {/* Column 4: Contact & Coordinates */}

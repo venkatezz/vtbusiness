@@ -5,6 +5,7 @@ import {
   FileText, Calculator, BookOpen, ClipboardList, Receipt,
   Monitor, Globe, Cloud, Mail, Server,
   ArrowRight, LayoutGrid,
+  Briefcase,
 } from 'lucide-react';
 import VTLogo from '../assets/VTlogo.svg';
 
@@ -19,10 +20,12 @@ const gstTaxItems = [
 
 const itServiceItems = [
   { icon: <Monitor size={15} />,      title: 'IT Support',              sub: 'Office Setup · Networking · Active Directory', to: '/services/it-support' },
-  { icon: <Globe size={15} />,        title: 'Website Development',     sub: 'Custom React Sites · SEO · Speed',             to: '/services/web-development' },
-  { icon: <Cloud size={15} />,        title: 'Cloud & Server Setup',    sub: 'AWS · Linux VPS · Security & Backups',         to: '/services/cloud-server' },
-  { icon: <Mail size={15} />,         title: 'Business Email Setup',    sub: 'Google Workspace · Microsoft 365',             to: '/services/business-email' },
-  { icon: <Server size={15} />,       title: 'AWS / Linux Support',     sub: 'EC2 · S3 · RDS · Server Hardening',           to: '/services/aws-linux' },
+  { icon: <Globe size={15} />,        title: 'Website Development',     sub: 'Custom React Sites · SEO · Speed',             to: '/services/website-development' },
+  { icon: <Cloud size={15} />,        title: 'Cloud & Server Setup',    sub: 'AWS · Linux VPS · Security & Backups',         to: '/services/cloud-server-setup' },
+  { icon: <Mail size={15} />,         title: 'Business Email Setup',    sub: 'Google Workspace · Microsoft 365',             to: '/services/business-email-setup' },
+  { icon: <Server size={15} />,       title: 'AWS / Linux Support',     sub: 'EC2 · S3 · RDS · Server Hardening',           to: '/services/aws-linux-support' },
+  { icon: <Briefcase size={15} />,       title: 'Technical Consulting',     sub: 'Business IT Guidance · Infrastructure Planning',           to: '/services/technical-consulting' },
+  
 ];
 
 const GST_ACCENT = '#4A3FE0';

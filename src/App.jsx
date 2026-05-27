@@ -10,6 +10,12 @@ import IncomeTax from './pages/services/IncomeTax';
 import RocCompliance from './pages/services/RocCompliance';
 import TdsFiling from './pages/services/TdsFiling';
 import Accounting from './pages/services/Accounting';
+import ITSupport from './pages/services/ITSupport';
+import WebsiteDevelopment from './pages/services/WebsiteDevelopment';
+import BusinessEmailSetup from './pages/services/BusinessEmailSetup';
+import CloudServer from './pages/services/CloudServerSetup';
+import AWSLinuxSupport from './pages/services/AWSLinuxSupport';
+import TechnicalConsulting from './pages/services/TechnicalConsulting';
 import Services from './pages/Services';
 import Resources from './pages/Resources';
 import About from './pages/About';
@@ -29,6 +35,12 @@ function App() {
             <Route path="/services/roc-compliance" element={<RocCompliance />} />
             <Route path="/services/tds-filing" element={<TdsFiling />} />
             <Route path="/services/accounting-bookkeeping" element={<Accounting />} />
+            <Route path="/services/it-support" element={<ITSupport />} />
+            <Route path="/services/website-development" element={<WebsiteDevelopment />} />
+            <Route path="/services/business-email-setup" element={<BusinessEmailSetup />} />
+            <Route path="/services/cloud-server-setup" element={<CloudServer />} />
+            <Route path="/services/aws-linux-support" element={<AWSLinuxSupport />} />
+            <Route path="/services/technical-consulting" element={<TechnicalConsulting />} />
             <Route path="/services" element={<Services />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/about" element={<About />} />

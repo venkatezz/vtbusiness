@@ -47,9 +47,44 @@ const gstTaxServices = [
 const itServices = [
   {
     title: 'IT Support Services',
-    desc: 'Office systems, Linux, AWS cloud, website, and technical support.',
+    desc: 'Office systems, Linux, networking, and business technical support.',
     icon: <Monitor size={22} />,
     path: '/services/it-support'
+  },
+
+  {
+    title: 'AWS & Linux Support',
+    desc: 'AWS cloud setup, Linux server administration, VPS hosting, and infrastructure support.',
+    icon: <ShieldCheck size={22} />,
+    path: '/services/aws-linux-support'
+  },
+
+  {
+    title: 'Website Development',
+    desc: 'Professional business websites, landing pages, responsive UI, and hosting setup.',
+    icon: <Briefcase size={22} />,
+    path: '/services/website-development'
+  },
+
+  {
+    title: 'Business Email Setup',
+    desc: 'Google Workspace, Microsoft 365, domain email configuration, and communication setup.',
+    icon: <FileText size={22} />,
+    path: '/services/business-email-setup'
+  },
+
+  {
+    title: 'Cloud Infrastructure',
+    desc: 'Cloud server deployment, SSL setup, monitoring, backups, and infrastructure maintenance.',
+    icon: <Calculator size={22} />,
+    path: '/services/cloud-server-setup'
+  },
+
+  {
+    title: 'Technical Consulting',
+    desc: 'Business-focused technical consulting for infrastructure, systems, websites, and operations.',
+    icon: <ClipboardList size={22} />,
+    path: '/services/technical-consulting'
   }
 ];
 

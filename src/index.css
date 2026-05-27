@@ -1578,7 +1578,7 @@ img {
 }
 
 .nh-drop-item:hover {
-  background: rgba(74, 63, 224, 0.045);
+  background: rgba(74, 63, 224, 0.06);
 }
 
 .nh-drop-item-icon {
@@ -3315,26 +3315,33 @@ body {
 /* ── Dropdown Item ── */
 .nh-drop-item {
   display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.65rem 0.85rem;
-  border-radius: 12px;
+  align-items: flex-start;
+  gap: 14px;
+
+  padding: 14px 16px;
+
+  min-height: 92px;
+
+  border-radius: 14px;
+
   text-decoration: none;
-  color: var(--text-main, #1e293b);
-  transition: background 0.2s ease, transform 0.2s ease;
-  cursor: pointer;
+
+  transition:
+    background 0.18s ease,
+    transform 0.18s ease;
 }
 
 /* Only transform on hover, not on open/close */
 .nh-drop-item:hover {
   background: rgba(74, 63, 224, 0.06);
-  transform: translateX(2px);
+  transform: translateY(-1px);
 }
 
 .nh-drop-item-icon {
   width: 32px;
   height: 32px;
   border-radius: 10px;
+  margin-top: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3356,11 +3363,11 @@ body {
 }
 
 .nh-drop-item-title {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--dark, #081028);
-  line-height: 1.3;
-  transition: color 0.2s ease;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0F172A;
+  line-height: 1.35;
+  transition: color 0.18s ease;
 }
 
 .nh-drop-item:hover .nh-drop-item-title {
@@ -3490,6 +3497,7 @@ body {
   
   .nh-drop-item-sub {
     font-size: 0.68rem;
+    min-height: 92px;
   }
 }
 
@@ -3562,4 +3570,126 @@ body.nh-menu-open {
 body:not(.nh-menu-open) {
   overflow: auto !important;
   position: static !important;
+}
+/* =========================================================
+   GLOBAL MOBILE HERO FIXES
+========================================================= */
+
+@media (max-width: 768px) {
+
+  /* ALL HERO SECTIONS */
+
+  .hero-section,
+  .svc-hero,
+  .gst-hero,
+  .tax-hero,
+  .service-hero,
+  .page-hero {
+    overflow-x: hidden !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* ALL CONTAINERS */
+
+  .hero-section .container,
+  .svc-hero .container,
+  .gst-hero .container,
+  .tax-hero .container,
+  .service-hero .container,
+  .page-hero .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  /* ALL HERO HEADINGS */
+
+  .hero-heading,
+  .svc-hero-heading,
+  .gst-hero-heading,
+  .tax-hero-heading,
+  .service-hero-heading {
+    font-size: clamp(2rem, 9vw, 3rem) !important;
+    line-height: 1.08 !important;
+    word-break: break-word;
+  }
+
+  /* ALL HERO SUBTEXT */
+
+  .hero-subtext,
+  .svc-hero-sub,
+  .gst-hero-sub,
+  .tax-hero-sub,
+  .service-hero-sub {
+    max-width: 100% !important;
+    font-size: 1rem !important;
+    line-height: 1.7 !important;
+  }
+
+  /* ALL BUTTON ROWS */
+
+  .hero-cta-row,
+  .svc-cta-btns,
+  .hero-buttons,
+  .service-hero-buttons {
+    flex-direction: column !important;
+    width: 100% !important;
+    align-items: stretch !important;
+  }
+
+  /* ALL BUTTONS */
+
+  .hero-btn-whatsapp,
+  .hero-btn-secondary,
+  .btn,
+  .svc-tab-btn,
+  .svc-cta-btns a {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* GRID OVERFLOW FIX */
+
+  .svc-cards-grid,
+  .hero-inner,
+  .service-grid,
+  .gst-grid {
+    grid-template-columns: 1fr !important;
+    overflow-x: hidden !important;
+  }
+
+}
+/* =========================================================
+   FINAL MOBILE OVERFLOW FIX
+========================================================= */
+
+html,
+body {
+  overflow-x: hidden !important;
+  width: 100%;
+}
+
+* {
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+
+  .hero-float-left,
+  .hero-float-right {
+    display: none !important;
+  }
+
+  .hero-right,
+  .hero-visual-card,
+  .svc-cards-grid,
+  .svc-card,
+  .svc-tabs-wrapper,
+  .svc-tabs-track {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
 }
