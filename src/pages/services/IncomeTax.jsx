@@ -269,7 +269,7 @@ const IncomeTax = () => {
                         <div
                           style={{
                             fontWeight: '600',
-                            marginBottom: '2px'
+                            marginBottom: '0.50px'
                           }}
                         >
                           {item}
@@ -281,12 +281,23 @@ const IncomeTax = () => {
                             fontSize: '0.88rem'
                           }}
                         >
-                          Professional filing assistance
+                          {
+                            item === 'ITR-1 Filing'
+                              ? 'Income tax filing for salaried individuals'
+                              : item === 'ITR-2 Filing'
+                              ? 'Tax filing for capital gains and multiple income sources'
+                              : item === 'Salary & Capital Gains'
+                              ? 'Professional tax computation and filing assistance'
+                              : item === 'Tax Notice Support'
+                              ? 'Response preparation and tax compliance guidance'
+                              : 'Tax planning and advance tax payment support'
+                          }
                         </div>
                       </div>
                     </div>
 
                   ))}
+
 
                 </div>
 
@@ -297,7 +308,7 @@ const IncomeTax = () => {
                     display: 'grid',
                     gridTemplateColumns: 'repeat(3,1fr)',
                     gap: '1rem',
-                    marginTop: '2rem'
+                    marginTop: '1rem'
                   }}
                 >
 
