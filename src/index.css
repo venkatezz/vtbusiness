@@ -3660,36 +3660,3 @@ body:not(.nh-menu-open) {
   }
 
 }
-/* =========================================================
-   FINAL MOBILE OVERFLOW FIX
-========================================================= */
-
-html,
-body {
-  overflow-x: hidden !important;
-  width: 100%;
-}
-
-* {
-  max-width: 100%;
-}
-
-@media (max-width: 768px) {
-
-  .hero-float-left,
-  .hero-float-right {
-    display: none !important;
-  }
-
-  .hero-right,
-  .hero-visual-card,
-  .svc-cards-grid,
-  .svc-card,
-  .svc-tabs-wrapper,
-  .svc-tabs-track {
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow-x: hidden !important;
-  }
-
-}
