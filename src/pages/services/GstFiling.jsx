@@ -281,13 +281,26 @@ const GstFiling = () => {
                             fontSize: '0.88rem'
                           }}
                         >
-                          Professional filing assistance
+                          {
+                            item === 'GSTR-1 Filing'
+                              ? 'Monthly and quarterly outward supply return filing'
+                              : item === 'GSTR-3B Filing'
+                              ? 'GST summary return filing and tax payment support'
+                              : item === 'GST Registration'
+                              ? 'New business GST registration and compliance setup'
+                              : item === 'GST Notice Support'
+                              ? 'Professional assistance for GST notices and replies'
+                              : item === 'Input Tax Credit Reconciliation'
+                              ? 'Accurate ITC verification and reconciliation support'
+                              : 'Accounting correction support'
+                          }
                         </div>
                       </div>
                     </div>
 
                   ))}
-
+                       
+  
                 </div>
 
                 {/* Bottom Stats */}
