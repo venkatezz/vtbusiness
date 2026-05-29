@@ -68,22 +68,21 @@ const SEO = ({ title, description, schema, image, type = 'website' }) => {
         document.head.appendChild(script);
       }
     }
-
   }, [title, description, schema, seoImage, currentUrl, type]);
-
-  const updateMetaTag = (attr, value, content) => {
-    let element = document.querySelector(`meta[${attr}="${value}"]`);
-    if (element) {
-      element.setAttribute('content', content);
-    } else {
-      element = document.createElement('meta');
-      element.setAttribute(attr, value);
-      element.setAttribute('content', content);
-      document.head.appendChild(element);
-    }
-  };
 
   return null;
 };
+
+function updateMetaTag(attr, value, content) {
+  let element = document.querySelector(`meta[${attr}="${value}"]`);
+  if (element) {
+    element.setAttribute('content', content);
+  } else {
+    element = document.createElement('meta');
+    element.setAttribute(attr, value);
+    element.setAttribute('content', content);
+    document.head.appendChild(element);
+  }
+}
 
 export default SEO;

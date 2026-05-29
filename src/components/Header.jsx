@@ -1,172 +1,403 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { Menu, X, Phone } from 'lucide-react';
+import {
+  Menu, X, ChevronDown,
+  FileText, Calculator, BookOpen, ClipboardList, Receipt,
+  Monitor, Globe, Cloud, Mail, Server,
+  ArrowRight, LayoutGrid,
+  Briefcase,
+} from 'lucide-react';
 import VTLogo from '../assets/VTlogo.svg';
 
+/* ─── Nav data ─────────────────────────────────────────────────── */
+const gstTaxItems = [
+  { icon: <FileText size={15} />,     title: 'GST Filing',              sub: 'GSTR-1 · GSTR-3B · ITC Matching',          to: '/services/gst-filing' },
+  { icon: <Calculator size={15} />,   title: 'Income Tax Filing',       sub: 'ITR-1 to ITR-7 · Tax Audits · Deductions', to: '/services/income-tax' },
+  { icon: <BookOpen size={15} />,     title: 'Accounting & Bookkeeping',sub: 'P&L · Balance Sheets · Audits',             to: '/services/accounting-bookkeeping' },
+  { icon: <ClipboardList size={15} />,title: 'ROC Compliance',          sub: 'Annual Filings · Director KYC · MCA',       to: '/services/roc-compliance' },
+  { icon: <Receipt size={15} />,      title: 'TDS Filing',              sub: '24Q · 26Q · TDS Returns & Certificates',    to: '/services/tds-filing' },
+];
+
+const itServiceItems = [
+  { icon: <Monitor size={15} />,      title: 'IT Support',              sub: 'Office Setup · Networking · Active Directory', to: '/services/it-support' },
+  { icon: <Globe size={15} />,        title: 'Website Development',     sub: 'Custom React Sites · SEO · Speed',             to: '/services/website-development' },
+  { icon: <Cloud size={15} />,        title: 'Cloud & Server Setup',    sub: 'AWS · Linux VPS · Security & Backups',         to: '/services/cloud-server-setup' },
+  { icon: <Mail size={15} />,         title: 'Business Email Setup',    sub: 'Google Workspace · Microsoft 365',             to: '/services/business-email-setup' },
+  { icon: <Server size={15} />,       title: 'AWS / Linux Support',     sub: 'EC2 · S3 · RDS · Server Hardening',           to: '/services/aws-linux-support' },
+  { icon: <Briefcase size={15} />,       title: 'Technical Consulting',     sub: 'Business IT Guidance · Infrastructure Planning',           to: '/services/technical-consulting' },
+  
+];
+
+const GST_ACCENT = '#4A3FE0';
+const IT_ACCENT  = '#10B981';
+
+/* ─── Reusable dropdown hook ───────────────────────────────────── */
+function useDropdown() {
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+  const timeoutRef = useRef(null);
+
+  useEffect(() => {
+    const handler = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handler);
+    return () => {
+      document.removeEventListener('mousedown', handler);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
+
+  return { open, setOpen, ref, timeoutRef };
+}
+
+/* ─── ServiceDropdown component ────────────────────────────────── */
+const ServiceDropdown = ({ items, accent, onClose }) => {
+  const HALF = Math.ceil(items.length / 2);
+  const col1 = items.slice(0, HALF);
+  const col2 = items.slice(HALF);
+
+  return (
+    <div className="nh-drop-grid">
+      <div className="nh-drop-group">
+        {col1.map((item) => (
+          <Link
+            key={item.title}
+            to={item.to}
+            className="nh-drop-item"
+            onClick={onClose}
+          >
+            <span
+              className="nh-drop-item-icon"
+              style={{ '--icon-bg': `${accent}18`, '--icon-color': accent }}
+            >
+              {item.icon}
+            </span>
+            <span className="nh-drop-item-text">
+              <span className="nh-drop-item-title">{item.title}</span>
+              <span className="nh-drop-item-sub">{item.sub}</span>
+            </span>
+          </Link>
+        ))}
+      </div>
+      <div className="nh-drop-divider" />
+      <div className="nh-drop-group">
+        {col2.map((item) => (
+          <Link
+            key={item.title}
+            to={item.to}
+            className="nh-drop-item"
+            onClick={onClose}
+          >
+            <span
+              className="nh-drop-item-icon"
+              style={{ '--icon-bg': `${accent}18`, '--icon-color': accent }}
+            >
+              {item.icon}
+            </span>
+            <span className="nh-drop-item-text">
+              <span className="nh-drop-item-title">{item.title}</span>
+              <span className="nh-drop-item-sub">{item.sub}</span>
+            </span>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+/* ─── MobileAccordion component ────────────────────────────────── */
+const MobileAccordion = ({ label, accent, items, onClose }) => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="nh-mob-acc">
+      <button
+        className="nh-mob-link nh-mob-acc-btn"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+      >
+        {label}
+        <ChevronDown size={16} className={`nh-chevron ${open ? 'nh-chevron--open' : ''}`} />
+      </button>
+      <div className={`nh-mob-acc-panel ${open ? 'nh-mob-acc-panel--open' : ''}`}>
+        <div className="nh-mob-group">
+          {items.map((item) => (
+            <Link
+              key={item.title}
+              to={item.to}
+              className="nh-mob-sub-link"
+              onClick={onClose}
+            >
+              <span
+                className="nh-drop-item-icon"
+                style={{ '--icon-bg': `${accent}18`, '--icon-color': accent }}
+              >
+                {item.icon}
+              </span>
+              {item.title}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+/* ─── Header ───────────────────────────────────────────────────── */
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  const gst = useDropdown();
+  const it = useDropdown();
+
+  const openGst = () => { gst.setOpen(true); it.setOpen(false); };
+  const openIt = () => { it.setOpen(true); gst.setOpen(false); };
+
+  const closeAll = () => {
+    gst.setOpen(false);
+    it.setOpen(false);
+  };
+
+  const closeDrawer = () => setIsOpen(false);
+
+  /* Scroll listener */
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
-
-  const navLinks = [
-    { title: 'Home', path: '/' },
-    { title: 'Services', path: '/services' },
-    { title: 'About', path: '/about' },
-    { title: 'Contact', path: '/contact' },
-  ];
+  /* Body scroll lock for mobile drawer - FIXED VERSION */
+  useEffect(() => {
+    if (isOpen) {
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+      document.body.classList.add('nh-menu-open');
+    } else {
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+      document.body.classList.remove('nh-menu-open');
+      
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      }
+    }
+    
+    return () => {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+      document.body.classList.remove('nh-menu-open');
+    };
+  }, [isOpen]);
 
   return (
-    <header 
-      className={`glass-nav ${scrolled ? 'scrolled' : ''}`}
-      style={{
-        position: 'sticky',
-        top: 0,
-        zIndex: 1000,
-        transition: 'var(--transition)',
-        boxShadow: scrolled ? 'var(--shadow-md)' : 'none',
-        borderBottom: scrolled ? '1px solid var(--border-light)' : '1px solid transparent'
-      }}
-    >
-      <div className="container" style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: scrolled ? '0.8rem 1.5rem' : '1.2rem 1.5rem',
-        height: scrolled ? '70px' : '90px',
-        transition: 'var(--transition)'
-      }}>
-        {/* Logo */}
-        <Link 
-          to="/" 
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
-        >
-          <img 
-            src={VTLogo} 
-            alt="VT Business Support Logo" 
-            className="logo-header"
-          />
-        </Link>
+    <>
+      <header className={`nh-header ${scrolled ? 'nh-scrolled' : ''}`}>
+        <div className="nh-inner container">
+          {/* Logo */}
+          <Link to="/" className="nh-logo-link" onClick={() => window.scrollTo(0, 0)}>
+            <img src={VTLogo} alt="VT Business Support" className="nh-logo-img" />
+          </Link>
 
-        {/* Desktop Nav */}
-        <nav style={{ display: 'flex', gap: '2.5rem', alignItems: 'center' }} className="desktop-nav">
-          {navLinks.map((link) => (
+          {/* Desktop Nav */}
+          <nav className="nh-desktop-nav" aria-label="Main navigation">
+           
+
+            {/* GST & Tax Dropdown */}
+            <div className="nh-drop-root" ref={gst.ref}>
+              <button
+                className={`nh-link nh-link--btn ${gst.open ? 'nh-link--active' : ''}`}
+                aria-haspopup="true"
+                aria-expanded={gst.open}
+                onClick={() => gst.setOpen((v) => !v)}
+                onMouseEnter={openGst}
+              >
+                GST &amp; Tax
+                <ChevronDown size={13} className={`nh-chevron ${gst.open ? 'nh-chevron--open' : ''}`} />
+              </button>
+
+              <div
+                className={`nh-dropdown ${gst.open ? 'nh-dropdown--open' : ''}`}
+                onMouseLeave={() => gst.setOpen(false)}
+              >
+                <div className="nh-drop-header">
+                  <span className="nh-drop-header-icon" style={{ '--icon-bg': `${GST_ACCENT}18`, '--icon-color': GST_ACCENT }}>
+                    <LayoutGrid size={13} />
+                  </span>
+                  <span className="nh-drop-header-label">GST &amp; Finance Services</span>
+                </div>
+
+                <ServiceDropdown items={gstTaxItems} accent={GST_ACCENT} onClose={closeAll} />
+
+                <div className="nh-drop-footer">
+                  <Link to="/services" className="nh-drop-footer-link" onClick={closeAll}>
+                    View all GST &amp; Tax services <ArrowRight size={12} />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* IT Services Dropdown */}
+            <div className="nh-drop-root" ref={it.ref}>
+              <button
+                className={`nh-link nh-link--btn ${it.open ? 'nh-link--active' : ''}`}
+                aria-haspopup="true"
+                aria-expanded={it.open}
+                onClick={() => it.setOpen((v) => !v)}
+                onMouseEnter={openIt}
+              >
+                IT Services
+                <ChevronDown size={13} className={`nh-chevron ${it.open ? 'nh-chevron--open' : ''}`} />
+              </button>
+
+              <div
+                className={`nh-dropdown ${it.open ? 'nh-dropdown--open' : ''}`}
+                onMouseLeave={() => it.setOpen(false)}
+              >
+                <div className="nh-drop-header">
+                  <span className="nh-drop-header-icon" style={{ '--icon-bg': `${IT_ACCENT}18`, '--icon-color': IT_ACCENT }}>
+                    <LayoutGrid size={13} />
+                  </span>
+                  <span className="nh-drop-header-label">IT &amp; Digital Services</span>
+                </div>
+
+                <ServiceDropdown items={itServiceItems} accent={IT_ACCENT} onClose={closeAll} />
+
+                <div className="nh-drop-footer">
+                  <Link to="/services" className="nh-drop-footer-link" onClick={closeAll}>
+                    View all IT services <ArrowRight size={12} />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
             <NavLink
-              key={link.path}
-              to={link.path}
+              to="/resources"
+              className={({ isActive }) => `nh-link ${isActive ? 'nh-link--active' : ''}`}
               onClick={() => window.scrollTo(0, 0)}
-              style={({ isActive }) => ({
-                fontWeight: 600,
-                fontSize: '0.95rem',
-                color: isActive ? 'var(--primary)' : 'var(--text-main)',
-                position: 'relative',
-                padding: '5px 0'
-              })}
             >
-              {({ isActive }) => (
-                <>
-                  {link.title}
-                  {isActive && (
-                    <span style={{
-                      position: 'absolute',
-                      bottom: 0,
-                      left: 0,
-                      width: '100%',
-                      height: '2px',
-                      backgroundColor: 'var(--primary)',
-                      borderRadius: '2px'
-                    }} />
-                  )}
-                </>
-              )}
+              Resources
             </NavLink>
-          ))}
-          <a href="tel:+918925063980" className="btn" style={{ padding: '0.7rem 1.5rem', borderRadius: '100px', backgroundColor: 'var(--dark)', color: 'white', border: 'none' }}>
-             <Phone size={18} />
-             <span>Call us</span>
-          </a>
+
+            <NavLink
+              to="/about"
+              className={({ isActive }) => `nh-link ${isActive ? 'nh-link--active' : ''}`}
+              onClick={() => window.scrollTo(0, 0)}
+            >
+              About
+            </NavLink>
+
+            <NavLink
+              to="/contact"
+              className={({ isActive }) => `nh-link ${isActive ? 'nh-link--active' : ''}`}
+              onClick={() => window.scrollTo(0, 0)}
+            >
+              Talk to Us
+            </NavLink>
+
+            <Link to="/contact" className="nh-cta" onClick={() => window.scrollTo(0, 0)}>
+              Free Consultation
+            </Link>
+          </nav>
+
+          {/* Mobile hamburger */}
+          <button
+            className="nh-hamburger"
+            onClick={() => setIsOpen((v) => !v)}
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </header>
+
+      {/* Mobile overlay - outside header */}
+      <div
+        className={`nh-overlay ${isOpen ? 'nh-overlay--open' : ''}`}
+        onClick={closeDrawer}
+      />
+
+      {/* Mobile drawer - outside header */}
+      <div className={`nh-drawer ${isOpen ? 'nh-drawer--open' : ''}`}>
+        <div className="nh-drawer-top">
+          <img src={VTLogo} alt="VT Business Support" className="nh-logo-img nh-logo-mobile" />
+          <button className="nh-hamburger" onClick={closeDrawer}>
+            <X size={24} />
+          </button>
+        </div>
+
+        <nav className="nh-drawer-nav">
+          <NavLink
+            to="/"
+            end
+            className={({ isActive }) => `nh-mob-link ${isActive ? 'nh-mob-link--active' : ''}`}
+            onClick={closeDrawer}
+          >
+            Home
+          </NavLink>
+
+          <MobileAccordion
+            label="GST & Tax"
+            accent={GST_ACCENT}
+            items={gstTaxItems}
+            onClose={closeDrawer}
+          />
+
+          <MobileAccordion
+            label="IT Services"
+            accent={IT_ACCENT}
+            items={itServiceItems}
+            onClose={closeDrawer}
+          />
+
+          <NavLink
+            to="/resources"
+            className={({ isActive }) => `nh-mob-link ${isActive ? 'nh-mob-link--active' : ''}`}
+            onClick={closeDrawer}
+          >
+            Resources
+          </NavLink>
+
+          <NavLink
+            to="/about"
+            className={({ isActive }) => `nh-mob-link ${isActive ? 'nh-mob-link--active' : ''}`}
+            onClick={closeDrawer}
+          >
+            About
+          </NavLink>
+
+          <NavLink
+            to="/contact"
+            className={({ isActive }) => `nh-mob-link ${isActive ? 'nh-mob-link--active' : ''}`}
+            onClick={closeDrawer}
+          >
+            Contact
+          </NavLink>
         </nav>
 
-        {/* Mobile Menu Toggle */}
-        <button onClick={toggleMenu} className="mobile-toggle" style={{ color: 'var(--dark)' }}>
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
+        <div className="nh-drawer-footer">
+          <Link to="/contact" className="nh-cta nh-cta--full" onClick={closeDrawer}>
+            Free Consultation
+          </Link>
+          <a href="tel:+918925063980" className="nh-mob-tel">
+            +91 89250 63980
+          </a>
+        </div>
       </div>
-
-      {/* Mobile Nav */}
-      <div style={{
-        position: 'fixed',
-        top: '0',
-        right: isOpen ? '0' : '-100%',
-        width: '80%',
-        maxWidth: '280px',
-        height: '100vh',
-        backgroundColor: 'white',
-        padding: '5rem 2rem',
-        boxShadow: '-10px 0 30px rgba(8, 16, 40, 0.1)',
-        display: isOpen ? 'flex' : 'none',
-        flexDirection: 'column',
-        gap: '2rem',
-        transition: '0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-        zIndex: 1001
-      }}>
-        <button 
-          onClick={toggleMenu} 
-          style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', color: 'var(--dark)' }}
-        >
-          <X size={32} />
-        </button>
-        {navLinks.map((link) => (
-          <NavLink
-            key={link.path}
-            to={link.path}
-            onClick={() => {
-              setIsOpen(false);
-              window.scrollTo(0, 0);
-            }}
-            style={({ isActive }) => ({
-              fontWeight: 700,
-              color: isActive ? 'var(--primary)' : 'var(--dark)',
-              fontSize: '1.5rem'
-            })}
-          >
-            {link.title}
-          </NavLink>
-        ))}
-        <a href="tel:+918925063980" className="btn" style={{ marginTop: 'auto', padding: '1.2rem', backgroundColor: 'var(--dark)', color: 'white' }}>
-          Call Now
-        </a>
-      </div>
-      
-      {isOpen && (
-        <div 
-          onClick={toggleMenu}
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            backgroundColor: 'rgba(0,0,0,0.5)',
-            backdropFilter: 'blur(4px)',
-            zIndex: 1000
-          }}
-        />
-      )}
-    </header>
+    </>
   );
 };
 
 export default Header;
-
