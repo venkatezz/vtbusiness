@@ -594,16 +594,18 @@
    MOBILE
 ========================================================= */
 
+@media (max-width: 960px) {
+  .tech-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
 @media (max-width: 768px) {
 
   .tech-hero {
     padding-top: 100px;
     padding-bottom: 50px;
-  }
-
-  .tech-hero-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
   }
 
   .tech-title {
