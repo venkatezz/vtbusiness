@@ -278,7 +278,7 @@ const Services = () => {
       <section
         className="section"
         style={{
-          background: 'var(--light-bg)'
+          background: 'var(--bg-soft)'
         }}
       >
         <div className="container">
