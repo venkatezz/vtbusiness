@@ -35,7 +35,6 @@ const IT_ACCENT  = '#10B981';
 function useDropdown() {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
-  const timeoutRef = useRef(null);
 
   useEffect(() => {
     const handler = (e) => {
@@ -46,11 +45,10 @@ function useDropdown() {
     document.addEventListener('mousedown', handler);
     return () => {
       document.removeEventListener('mousedown', handler);
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
   }, []);
 
-  return { open, setOpen, ref, timeoutRef };
+  return { open, setOpen, ref };
 }
 
 /* ─── ServiceDropdown component ────────────────────────────────── */
@@ -151,15 +149,15 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const gst = useDropdown();
-  const it = useDropdown();
+  const { open: gstOpen, setOpen: setGstOpen, ref: gstRef } = useDropdown();
+  const { open: itOpen, setOpen: setItOpen, ref: itRef } = useDropdown();
 
-  const openGst = () => { gst.setOpen(true); it.setOpen(false); };
-  const openIt = () => { it.setOpen(true); gst.setOpen(false); };
+  const openGst = () => { setGstOpen(true); setItOpen(false); };
+  const openIt = () => { setItOpen(true); setGstOpen(false); };
 
   const closeAll = () => {
-    gst.setOpen(false);
-    it.setOpen(false);
+    setGstOpen(false);
+    setItOpen(false);
   };
 
   const closeDrawer = () => setIsOpen(false);
@@ -216,21 +214,21 @@ const Header = () => {
            
 
             {/* GST & Tax Dropdown */}
-            <div className="nh-drop-root" ref={gst.ref}>
+            <div className="nh-drop-root" ref={gstRef}>
               <button
-                className={`nh-link nh-link--btn ${gst.open ? 'nh-link--active' : ''}`}
+                className={`nh-link nh-link--btn ${gstOpen ? 'nh-link--active' : ''}`}
                 aria-haspopup="true"
-                aria-expanded={gst.open}
-                onClick={() => gst.setOpen((v) => !v)}
+                aria-expanded={gstOpen}
+                onClick={() => setGstOpen((v) => !v)}
                 onMouseEnter={openGst}
               >
                 GST &amp; Tax
-                <ChevronDown size={13} className={`nh-chevron ${gst.open ? 'nh-chevron--open' : ''}`} />
+                <ChevronDown size={13} className={`nh-chevron ${gstOpen ? 'nh-chevron--open' : ''}`} />
               </button>
 
               <div
-                className={`nh-dropdown ${gst.open ? 'nh-dropdown--open' : ''}`}
-                onMouseLeave={() => gst.setOpen(false)}
+                className={`nh-dropdown ${gstOpen ? 'nh-dropdown--open' : ''}`}
+                onMouseLeave={() => setGstOpen(false)}
               >
                 <div className="nh-drop-header">
                   <span className="nh-drop-header-icon" style={{ '--icon-bg': `${GST_ACCENT}18`, '--icon-color': GST_ACCENT }}>
@@ -250,21 +248,21 @@ const Header = () => {
             </div>
 
             {/* IT Services Dropdown */}
-            <div className="nh-drop-root" ref={it.ref}>
+            <div className="nh-drop-root" ref={itRef}>
               <button
-                className={`nh-link nh-link--btn ${it.open ? 'nh-link--active' : ''}`}
+                className={`nh-link nh-link--btn ${itOpen ? 'nh-link--active' : ''}`}
                 aria-haspopup="true"
-                aria-expanded={it.open}
-                onClick={() => it.setOpen((v) => !v)}
+                aria-expanded={itOpen}
+                onClick={() => setItOpen((v) => !v)}
                 onMouseEnter={openIt}
               >
                 IT Services
-                <ChevronDown size={13} className={`nh-chevron ${it.open ? 'nh-chevron--open' : ''}`} />
+                <ChevronDown size={13} className={`nh-chevron ${itOpen ? 'nh-chevron--open' : ''}`} />
               </button>
 
               <div
-                className={`nh-dropdown ${it.open ? 'nh-dropdown--open' : ''}`}
-                onMouseLeave={() => it.setOpen(false)}
+                className={`nh-dropdown ${itOpen ? 'nh-dropdown--open' : ''}`}
+                onMouseLeave={() => setItOpen(false)}
               >
                 <div className="nh-drop-header">
                   <span className="nh-drop-header-icon" style={{ '--icon-bg': `${IT_ACCENT}18`, '--icon-color': IT_ACCENT }}>
