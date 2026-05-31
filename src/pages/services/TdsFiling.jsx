@@ -10,10 +10,28 @@ import {
   Building2,
   BarChart3
 } from 'lucide-react';
+import SEO from '../../components/SEO';
+
+const tdsFilingSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "TDS Filing & Compliance Services",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "VT Business Support",
+    "telephone": "+918925063980"
+  },
+  "description": "Accurate quarterly TDS return filing, Form 16/16A generation, TCS compliance, and TDS reconciliation support for businesses and employers."
+};
 
 const TdsFiling = () => {
   return (
     <>
+      <SEO 
+        title="TDS Filing & Compliance Services | VT Business Support"
+        description="Accurate quarterly TDS return filing, Form 16/16A generation, TCS compliance, and TDS reconciliation support for businesses and employers."
+        schema={tdsFilingSchema}
+      />
 
       {/* HERO */}
       <section    

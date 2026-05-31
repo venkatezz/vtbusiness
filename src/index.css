@@ -370,6 +370,15 @@ button {
   color: var(--primary);
 }
 
+.form-card-option:focus-visible {
+  outline: 3px solid var(--primary) !important;
+  outline-offset: 2px !important;
+  background-color: var(--primary-glow) !important;
+  color: var(--primary) !important;
+  transform: translateY(-2px) !important;
+}
+
+
 /* Custom Dual-Engine Tabs */
 .tabs-header-container {
   display: inline-flex;
@@ -640,6 +649,16 @@ button {
 @media (max-width: 1024px) {
   :root {
     --section-padding-desktop: 64px 0;
+  }
+}
+
+@media (max-width: 1100px) {
+  footer .grid-responsive {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+    gap: 2rem !important;
+  }
+  .nh-dropdown {
+    width: 520px !important;
   }
 }
 
@@ -2447,7 +2466,7 @@ img {
 
 .gst-services-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
 }
 
@@ -2483,10 +2502,6 @@ img {
 }
 
 @media (max-width: 960px) {
-  .gst-services-grid {
-    grid-template-columns: 1fr;
-  }
-
   .gst-included-section {
     padding: 70px 0;
   }
@@ -2499,7 +2514,7 @@ img {
 
 .why-vt-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
 }
 
@@ -2561,11 +2576,7 @@ img {
   font-size: 0.94rem;
 }
 
-@media (max-width: 960px) {
-  .why-vt-grid {
-    grid-template-columns: 1fr;
-  }
-}
+/* why-vt-grid naturally collapses via auto-fit */
 
 .gst-process-section {
   padding: 72px 0;
@@ -2574,7 +2585,7 @@ img {
 
 .gst-process-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5rem;
 }
 
@@ -2630,10 +2641,6 @@ img {
 }
 
 @media (max-width: 960px) {
-  .gst-process-grid {
-    grid-template-columns: 1fr;
-  }
-
   .gst-process-section {
     padding: 70px 0;
   }
@@ -3001,15 +3008,11 @@ img {
 
 }
 
-html,
-body {
-  overflow-x: hidden;
-}
-* {
-  box-sizing: border-box;
-}
-
 @media (max-width: 640px) {
+
+  .form-step-container {
+    padding: 1.5rem 1.15rem !important;
+  }
 
   .dynamic-form-actions {
     flex-direction: column;
@@ -3018,6 +3021,33 @@ body {
   .dynamic-form-actions button {
     width: 100% !important;
     justify-content: center;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .gst-hero-grid,
+  .service-hero-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .gst-hero-right,
+  .service-hero-card,
+  .gst-hero-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  .gst-hero-card,
+  .service-hero-card {
+    padding: 1.25rem !important;
+  }
+
+  .gst-hero-stats {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
   }
 
 }
@@ -3179,24 +3209,19 @@ body {
 
 /* Mobile responsive */
 @media (max-width: 880px) {
+  .nh-overlay {
+    top: 0 !important;
+    height: 100vh !important;
+  }
   .nh-drawer {
-    top: 0;
-    height: 100vh;
+    top: 0 !important;
+    height: 100vh !important;
   }
 }
 /* Small mobile devices */
 @media (max-width: 480px) {
   body {
     padding-top: 60px;
-  }
-  
-  .nh-overlay {
-    top: 60px !important;
-  }
-  
-  .nh-drawer {
-    top: 60px !important;
-    height: calc(100vh - 60px);
   }
   
   .nh-logo-img {

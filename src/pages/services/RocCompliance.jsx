@@ -10,10 +10,28 @@ import {
   Building2,
   BarChart3
 } from 'lucide-react';
+import SEO from '../../components/SEO';
+
+const rocComplianceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "ROC Compliance & MCA Services",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "VT Business Support",
+    "telephone": "+918925063980"
+  },
+  "description": "Company annual returns filing, director KYC, MCA compliance support, and company maintenance services for private limited companies and LLPs."
+};
 
 const RocCompliance = () => {
   return (
     <>
+      <SEO 
+        title="ROC Compliance & MCA Filing Services | VT Business Support"
+        description="Company annual returns filing, director KYC, MCA compliance support, and company maintenance services for private limited companies and LLPs."
+        schema={rocComplianceSchema}
+      />
 
       {/* HERO */}
       <section    

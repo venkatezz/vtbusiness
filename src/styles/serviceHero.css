@@ -1,0 +1,238 @@
+/* =========================================================
+   STANDARDIZED SERVICE HERO SYSTEM (OPTION C)
+   ========================================================= */
+
+.service-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 110px 0 70px;
+  background: 
+    radial-gradient(circle at top left, rgba(74, 63, 224, 0.08), transparent 35%),
+    linear-gradient(135deg, #ffffff 0%, #f8fafc 55%, #eef2ff 100%);
+}
+
+.service-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.service-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.6rem 1.1rem;
+  margin-bottom: 1.4rem;
+  border-radius: 999px;
+  background: rgba(74, 63, 224, 0.07);
+  border: 1px solid rgba(74, 63, 224, 0.1);
+  color: #4A3FE0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.service-badge svg {
+  color: #4A3FE0;
+}
+
+.service-title {
+  font-size: clamp(2.6rem, 5.8vw, 4.4rem);
+  line-height: 1.02;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: #081028;
+  margin-bottom: 1.4rem;
+}
+
+.service-title span {
+  color: #5B4DFF;
+}
+
+.service-desc {
+  max-width: 620px;
+  font-size: 1.06rem;
+  line-height: 1.85;
+  color: #475569;
+  margin-bottom: 2rem;
+}
+
+.service-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.service-btn-primary,
+.service-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 1rem 1.6rem;
+  border-radius: 14px;
+  font-weight: 700;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.service-btn-primary {
+  background: linear-gradient(135deg, #4A3FE0, #5B4DFF);
+  color: white;
+  box-shadow: 0 10px 30px rgba(74, 63, 224, 0.18);
+}
+
+.service-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(74, 63, 224, 0.24);
+}
+
+.service-btn-secondary {
+  background: white;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  color: #0F172A;
+}
+
+.service-btn-secondary:hover {
+  background: #f8fafc;
+  transform: translateY(-2px);
+}
+
+.service-trust-strip {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.service-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #475569;
+  font-size: 0.94rem;
+  font-weight: 600;
+}
+
+.service-trust-item svg {
+  color: #10B981;
+}
+
+/* --- Right-Side Responsive Visual --- */
+.service-hero-visual {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.hybrid-visual-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.visual-backdrop-diagram {
+  width: 100%;
+  height: auto;
+}
+
+.floating-trust-card {
+  position: absolute;
+  top: 10%;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.9rem 1.15rem;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(8, 16, 40, 0.08);
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.floating-trust-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 56px rgba(8, 16, 40, 0.12);
+}
+
+.floating-trust-card .card-icon-wrapper {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(16, 185, 129, 0.1);
+  color: #10B981;
+}
+
+.floating-trust-card .card-text-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.floating-trust-card .card-label {
+  font-size: 0.75rem;
+  color: #64748B;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.floating-trust-card .card-value {
+  font-size: 0.95rem;
+  color: #0F172A;
+  font-weight: 800;
+}
+
+@keyframes floatSlow {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+/* =========================================================
+   RESPONSIVE OVERRIDES
+   ========================================================= */
+
+@media (max-width: 960px) {
+  .service-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-hero {
+    padding: 100px 0 60px;
+  }
+  
+  .visual-backdrop-diagram {
+    display: none; /* Mobile performance trim */
+  }
+  
+  .floating-trust-card {
+    position: static;
+    margin: 1.5rem auto 0;
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+    animation: none; /* Disable keyframes for static mobile render */
+  }
+}
+
+@media (max-width: 480px) {
+  .service-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .service-btn-primary,
+  .service-btn-secondary {
+    width: 100%;
+  }
+}

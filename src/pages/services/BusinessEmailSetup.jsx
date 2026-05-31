@@ -1,4 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
+import ServiceHeroVisual from '../../components/ServiceHeroVisual';
 
 import {
   Mail,
@@ -8,10 +11,24 @@ import {
   Smartphone,
   Settings,
   ArrowRight,
-  CheckCircle
+  CheckCircle,
+  ShieldCheck
 } from 'lucide-react';
 
 import '../../styles/business-email-setup.css';
+import '../../styles/serviceHero.css';
+
+const emailSetupSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Business Email Setup & Google Workspace",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "VT Business Support",
+    "telephone": "+918925063980"
+  },
+  "description": "Professional custom business email setup, Google Workspace, Microsoft 365, DNS configuration, MX records, and domain email configuration."
+};
 
 const emailServices = [
   {
@@ -63,72 +80,110 @@ const processSteps = [
   'Setup Devices & Security',
 ];
 
+// Flat Professional Corporate Email Communication SVG
+const BusinessEmailSetupIllustration = () => (
+  <svg viewBox="0 0 400 300" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {/* Background Grid & Envelope paths */}
+    <rect x="30" y="30" width="340" height="240" rx="14" fill="rgba(74, 63, 224, 0.02)" stroke="rgba(74, 63, 224, 0.04)" strokeWidth="1.5" />
+    
+    {/* Floating Secure Envelope */}
+    <rect x="80" y="70" width="240" height="150" rx="12" fill="#0F172A" stroke="rgba(255,255,255,0.06)" strokeWidth="2" />
+    
+    {/* Envelope fold paths */}
+    <path d="M80 72 L200 160 L320 72" stroke="#5B4DFF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M82 218 L170 140" stroke="rgba(255,255,255,0.08)" strokeWidth="2" strokeLinecap="round" />
+    <path d="M318 218 L230 140" stroke="rgba(255,255,255,0.08)" strokeWidth="2" strokeLinecap="round" />
+    
+    {/* Floating Security Checkmarks */}
+    <circle cx="200" cy="180" r="28" fill="#ffffff" filter="drop-shadow(0 8px 16px rgba(8,16,40,0.1))" />
+    <circle cx="200" cy="180" r="20" fill="rgba(16, 185, 129, 0.1)" stroke="#10B981" strokeWidth="2" />
+    <path d="M193 180 L198 185 L208 175" stroke="#10B981" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    
+    {/* Miniature status signals */}
+    <circle cx="270" cy="110" r="14" fill="#1E293B" stroke="rgba(255,255,255,0.1)" />
+    <circle cx="270" cy="110" r="4" fill="#10B981" />
+  </svg>
+);
+
 const BusinessEmailSetup = () => {
   return (
     <main className="email-page">
+      <SEO 
+        title="Business Email Setup & Google Workspace | VT Business Support"
+        description="Professional custom business email setup, Google Workspace, Microsoft 365, DNS configuration, MX records, and domain email configuration."
+        schema={emailSetupSchema}
+      />
 
       {/* HERO */}
-      <section className="email-hero">
+      <section className="service-hero">
 
         <div className="container">
 
-          <div className="email-badge">
-            Professional Business Communication
-          </div>
+          <div className="service-hero-grid">
 
-          <h1 className="email-title">
-           Business Email
-           <br />
-           <span>Setup Services</span>
-          </h1>
+            {/* LEFT COLUMN */}
+            <div className="service-hero-content">
 
-          <p className="email-desc">
-            Professional email setup using Google Workspace,
-            Microsoft 365, and domain-based business communication
-            solutions for startups and growing companies.
-          </p>
+              <div className="service-badge">
+                <ShieldCheck size={14} />
+                <span>Professional Business Communication</span>
+              </div>
 
-          <div className="email-buttons">
+              <h1 className="service-title">
+                Business Email
+                <span> Setup Services</span>
+              </h1>
 
-            <a
-              href="https://api.whatsapp.com/send?phone=918925063980"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="email-btn-primary"
-            >
-              Setup Business Email
-            </a>
+              <p className="service-desc">
+                Professional email setup using Google Workspace,
+                Microsoft 365, and domain-based business communication
+                solutions for startups and growing companies.
+              </p>
 
-            <a
-              href="/contact"
-              className="email-btn-secondary"
-            >
-              Talk to Us
-            </a>
+              <div className="service-buttons">
 
-          </div>
+                <a
+                  href="https://api.whatsapp.com/send?phone=918925063980"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="service-btn-primary"
+                >
+                  Setup Business Email
+                </a>
 
-          <div className="email-trust-strip">
-
-            {[
-              'Google Workspace',
-              'Microsoft 365',
-              'Secure Email Setup',
-              'Multi-device Access',
-            ].map((item, index) => (
-
-              <div
-                className="email-trust-item"
-                key={index}
-              >
-
-                <CheckCircle size={16} />
-
-                <span>{item}</span>
+                <Link
+                  to="/contact"
+                  className="service-btn-secondary"
+                >
+                  Talk to Us
+                </Link>
 
               </div>
 
-            ))}
+              <div className="service-trust-strip">
+                <div className="service-trust-item">
+                  <CheckCircle size={16} />
+                  <span>Google Workspace</span>
+                </div>
+                <div className="service-trust-item">
+                  <CheckCircle size={16} />
+                  <span>Microsoft 365</span>
+                </div>
+                <div className="service-trust-item">
+                  <CheckCircle size={16} />
+                  <span>Secure Setup</span>
+                </div>
+              </div>
+
+            </div>
+
+            {/* RIGHT COLUMN */}
+            <ServiceHeroVisual
+              svgIllustration={BusinessEmailSetupIllustration}
+              trustLabel="SPF Verified"
+              trustValue="DKIM ENABLED"
+              trustIcon={ShieldCheck}
+            />
 
           </div>
 

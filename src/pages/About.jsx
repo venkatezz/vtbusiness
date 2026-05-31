@@ -6,6 +6,7 @@ import {
   Search, Lightbulb, Phone, ShieldCheck, HeartPulse, ArrowRight
 } from 'lucide-react';
 import SEO from '../components/SEO';
+import "../styles/about.css";
 
 const About = () => {
   useEffect(() => {
@@ -76,7 +77,7 @@ const About = () => {
       {/* Story Section */}
       <section className="section reveal-item">
         <div className="container">
-          <div className="grid-responsive" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'center' }}>
+          <div className="about-story-grid">
             <div>
               <div style={{
                 display: 'inline-block', fontSize: '0.8rem', fontWeight: 700,
@@ -100,7 +101,7 @@ const About = () => {
               }}>
                 "We focus on solving real business problems — not adding complexity."
               </blockquote>
-              <div style={{ display: 'flex', gap: '3rem', marginTop: '2rem' }}>
+              <div className="about-stats-row">
                 <div>
                   <div style={{ fontSize: '2.25rem', color: 'var(--primary)', fontWeight: 800, fontFamily: 'var(--font-heading)', lineHeight: 1 }}>5+</div>
                   <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', fontWeight: 600, marginTop: '0.35rem' }}>Years Experience</p>
@@ -194,7 +195,15 @@ const About = () => {
               { step: '02', icon: <Lightbulb />, title: 'Customized Service Blueprint', desc: 'We design a practical, no-nonsense plan — never one-size-fits-all. Your advisor creates a dedicated service package tailored to your exact compliance and tech requirements.', color: 'var(--secondary)' },
               { step: '03', icon: <CheckCircle />, title: 'Delivery & Ongoing SLA', desc: 'We implement the solution and stay committed to you long term. Monthly reviews, proactive filing, and dedicated IT maintenance ensure we keep your operations at peak efficiency.', color: 'var(--accent)' }
             ].map((item, idx) => (
-              <div key={idx} style={{ display: 'flex', gap: '2.5rem', alignItems: 'flex-start' }}>
+              <div
+                key={idx}
+                className="about-process-step"
+                style={{
+                  display: 'flex',
+                  gap: '2.5rem',
+                  alignItems: 'flex-start'
+                }}
+              >
                 <div style={{
                   background: `linear-gradient(135deg, ${item.color}, ${item.color}cc)`,
                   color: 'white', width: '64px', height: '64px', borderRadius: '18px',
@@ -204,7 +213,14 @@ const About = () => {
                 }}>
                   {item.step}
                 </div>
-                <div style={{ borderLeft: '1px solid var(--border-light)', paddingLeft: '2.5rem', paddingTop: '0.5rem' }}>
+                 <div
+                  className="about-process-step-content"
+                  style={{
+                    borderLeft: '1px solid var(--border-light)',
+                    paddingLeft: '2.5rem',
+                    paddingTop: '0.5rem'
+                  }}
+                 >
                   <h4 style={{
                     fontSize: '1.3rem', fontWeight: 800, color: 'var(--dark)',
                     marginBottom: '0.65rem', display: 'flex', alignItems: 'center', gap: '0.6rem'
