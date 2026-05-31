@@ -13,7 +13,8 @@
   position: relative;
   overflow: hidden;
 
-  padding: 120px 0 90px;
+  padding-top: 120px;
+  padding-bottom: 80px;
 
   background:
     radial-gradient(circle at top left,
@@ -50,13 +51,12 @@
 
   text-transform: uppercase;
 }
-
 .tech-title {
-  max-width: 760px;
+  max-width: 700px;
 
-  font-size: clamp(3rem, 7vw, 5.2rem);
+  font-size: clamp(3rem, 6vw, 4.8rem);
 
-  line-height: 0.98;
+  line-height: 1.05;
 
   font-weight: 850;
 
@@ -64,7 +64,7 @@
 
   color: #081028;
 
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.5rem;
 }
 
 .tech-title span {
@@ -492,3 +492,127 @@
   }
 
 }
+/* =========================================================
+   HERO VISUAL SYSTEM CARD
+========================================================= */
+
+.tech-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 420px);
+
+  gap: 3rem;
+
+  align-items: center;
+}
+
+.tech-hero-content {
+  width: 100%;
+}
+
+.tech-hero-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.tech-system-card {
+  width: 100%;
+  max-width: 380px;
+
+  background: #ffffff;
+
+  border: 1px solid rgba(15, 23, 42, 0.08);
+
+  border-radius: 28px;
+
+  padding: 2rem;
+
+  box-shadow:
+    0 20px 50px rgba(15, 23, 42, 0.08);
+}
+
+/* individual nodes */
+
+.tech-node {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  padding: 1rem 1.1rem;
+
+  border-radius: 14px;
+
+  background: #f8fafc;
+
+  margin-bottom: 1rem;
+
+  font-weight: 600;
+
+  color: #0f172a;
+
+  transition: all 0.2s ease;
+}
+
+.tech-node:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 20px rgba(15, 23, 42, 0.08);
+}
+
+.tech-node-main {
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #4A3FE0,
+      #5B4DFF
+    );
+
+  color: white;
+
+  text-align: center;
+
+  font-size: 1.15rem;
+
+  font-weight: 700;
+}
+
+.tech-node-main small {
+  display: block;
+
+  margin-top: 4px;
+
+  font-size: 0.8rem;
+
+  color: rgba(255,255,255,0.8);
+
+  font-weight: 500;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .tech-hero {
+    padding-top: 100px;
+    padding-bottom: 50px;
+  }
+
+  .tech-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .tech-title {
+    font-size: 2.6rem;
+    line-height: 1.08;
+  }
+
+  .tech-hero-visual {
+    display: none;
+  }
+}
+

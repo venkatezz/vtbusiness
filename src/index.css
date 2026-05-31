@@ -3021,6 +3021,33 @@ body {
   }
 
 }
+
+@media (max-width: 768px) {
+
+  .gst-hero-grid,
+  .service-hero-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .gst-hero-right,
+  .service-hero-card,
+  .gst-hero-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  .gst-hero-card,
+  .service-hero-card {
+    padding: 1.25rem !important;
+  }
+
+  .gst-hero-stats {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+}
 /* ============================================
    FIX MOBILE MENU OVERLAPPING ISSUE
    ============================================ */

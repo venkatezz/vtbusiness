@@ -71,69 +71,108 @@ const TechnicalConsulting = () => {
       <section className="tech-hero">
 
         <div className="container">
+          <div className="tech-hero-grid">
 
-          <div className="tech-badge">
-            Business Technology Consulting
-          </div>
+            {/* LEFT SIDE */}
 
-          <h1 className="tech-title">
-            Technical Consulting
-            <br />
-            <span>For Modern Businesses</span>
-          </h1>
+            <div className="tech-hero-content">
 
-          <p className="tech-desc">
-            Practical technical consulting for IT infrastructure,
-            websites, cloud systems, communication setup,
-            and business technology operations.
-          </p>
+              <div className="tech-badge">
+                Business Technology Consulting
+              </div>
 
-          <div className="tech-buttons">
+              <h1 className="tech-title">
+                Technical Consulting
+                
+                <span>For Modern Businesses</span>
+              </h1>
 
-            <a
-              href="https://api.whatsapp.com/send?phone=918925063980"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="tech-btn-primary"
-            >
-              Discuss Technical Requirements
-            </a>
+              <p className="tech-desc">
+                Practical technical consulting for IT infrastructure,
+                websites, cloud systems, communication setup,
+                and business technology operations.
+              </p>
 
-            <a
-              href="/contact"
-              className="tech-btn-secondary"
-            >
-              Talk to Us
-            </a>
+              <div className="tech-buttons">
 
-          </div>
+                <a
+                  href="https://api.whatsapp.com/send?phone=918925063980"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="tech-btn-primary"
+                >
+                  Discuss Technical Requirements
+                </a>
 
-          <div className="tech-trust-strip">
-
-            {[
-              'Business-focused Solutions',
-              'Cloud & Infrastructure',
-              'Reliable Technical Guidance',
-              'Operational Support',
-            ].map((item, index) => (
-
-              <div
-                className="tech-trust-item"
-                key={index}
-              >
-
-                <CheckCircle size={16} />
-
-                <span>{item}</span>
+                <a
+                  href="/contact"
+                  className="tech-btn-secondary"
+                >
+                  Talk to Us
+                </a>
 
               </div>
 
-            ))}
+              <div className="tech-trust-strip">
+
+                {[
+                  'Business-focused Solutions',
+                  'Cloud & Infrastructure',
+                  'Reliable Technical Guidance',
+                  'Operational Support',
+                ].map((item, index) => (
+
+                  <div
+                    className="tech-trust-item"
+                    key={index}
+                  >
+                    <CheckCircle size={16} />
+                    <span>{item}</span>
+                  </div>
+
+                ))}
+
+              </div>
+
+            </div>
+
+            {/* RIGHT SIDE */}
+
+            <div className="tech-hero-visual">
+
+              <div className="tech-system-card">
+
+                <div className="tech-node">
+                  <Cloud size={18} />
+                  AWS Cloud
+                </div>
+
+                <div className="tech-node">
+                  <Globe size={18} />
+                  Website Solutions
+                </div>
+
+                <div className="tech-node tech-node-main">
+                  <div>
+                    VT Business Support
+                    <small>Technology Consulting Hub</small>
+                  </div>
+                </div>
+
+                <div className="tech-node">
+                  <Mail size={18} />
+                  Business Email
+                </div>
+
+                <div className="tech-node">
+                  <MonitorCog size={18} />
+                  IT Support
+                </div>
+              </div>
+            </div>
 
           </div>
-
         </div>
-
       </section>
 
       {/* SERVICES */}
