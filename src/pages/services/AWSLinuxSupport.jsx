@@ -1,4 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
+import ServiceHeroVisual from '../../components/ServiceHeroVisual';
 
 import {
   Server,
@@ -8,10 +11,24 @@ import {
   Activity,
   HardDrive,
   ArrowRight,
-  CheckCircle
+  CheckCircle,
+  ShieldCheck
 } from 'lucide-react';
 
 import '../../styles/aws-linux-support.css';
+import '../../styles/serviceHero.css';
+
+const awsSupportSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "AWS & Linux Server Administration Support",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "VT Business Support",
+    "telephone": "+918925063980"
+  },
+  "description": "Professional AWS cloud support, EC2 instance setup, Linux server administration, database backups, shell scripting, and server migration services."
+};
 
 const supportServices = [
   {
@@ -63,72 +80,113 @@ const processSteps = [
   'Monitor & Maintain Operations',
 ];
 
+// Flat Professional Cloud Infrastructure / Server Management SVG
+const AWSLinuxSupportIllustration = () => (
+  <svg viewBox="0 0 400 300" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {/* Cloud Background Rings */}
+    <circle cx="200" cy="150" r="110" stroke="rgba(74, 63, 224, 0.05)" strokeWidth="4" strokeDasharray="10 10" />
+    <circle cx="200" cy="150" r="80" stroke="rgba(74, 63, 224, 0.08)" strokeWidth="2" />
+    
+    {/* Main Central Cloud Icon representation */}
+    <path d="M245 130 C245 105 225 85 200 85 C180 85 163 98 157 117 C153 115 149 114 145 114 C128 114 115 127 115 144 C115 160 128 173 145 173 L245 173 C261 173 275 160 275 144 C275 128 261 130 245 130 Z" fill="#1E293B" stroke="#4A3FE0" strokeWidth="2" />
+    
+    {/* Physical Server Rack inside Cloud */}
+    <rect x="150" y="125" width="100" height="36" rx="4" fill="#0F172A" stroke="rgba(255,255,255,0.08)" strokeWidth="1.5" />
+    <circle cx="165" cy="143" r="4" fill="#10B981" />
+    <circle cx="180" cy="143" r="4" fill="#10B981" />
+    <line x1="198" y1="143" x2="236" y2="143" stroke="#475569" strokeWidth="3" strokeLinecap="round" />
+    
+    {/* Action connection lines */}
+    <path d="M145 144 L80 144" stroke="#5B4DFF" strokeWidth="2" strokeDasharray="4 4" />
+    <path d="M245 144 L320 144" stroke="#5B4DFF" strokeWidth="2" strokeDasharray="4 4" />
+    
+    <circle cx="80" cy="144" r="12" fill="#ffffff" filter="drop-shadow(0 4px 10px rgba(8,16,40,0.08))" />
+    <circle cx="80" cy="144" r="6" fill="#10B981" />
+    
+    <circle cx="320" cy="144" r="12" fill="#ffffff" filter="drop-shadow(0 4px 10px rgba(8,16,40,0.08))" />
+    <circle cx="320" cy="144" r="6" fill="#4A3FE0" />
+  </svg>
+);
+
 const AWSLinuxSupport = () => {
   return (
     <main className="aws-page">
+      <SEO 
+        title="AWS & Linux Server Administration Support | VT Business Support"
+        description="Professional AWS cloud support, EC2 instance setup, Linux server administration, database backups, shell scripting, and server migration services."
+        schema={awsSupportSchema}
+      />
 
       {/* HERO */}
-      <section className="aws-hero">
+      <section className="service-hero">
 
         <div className="container">
 
-          <div className="aws-badge">
-            Business Infrastructure Support
-          </div>
+          <div className="service-hero-grid">
 
-          <h1 className="aws-title">
-            AWS & Linux
-            <br />
-            <span>Infrastructure Support</span>
-          </h1>
+            {/* LEFT COLUMN */}
+            <div className="service-hero-content">
 
-          <p className="aws-desc">
-            Reliable AWS cloud setup, Linux server administration,
-            VPS deployment, security hardening, and infrastructure
-            support for startups and growing businesses.
-          </p>
+              <div className="service-badge">
+                <ShieldCheck size={14} />
+                <span>Business Infrastructure Support</span>
+              </div>
 
-          <div className="aws-buttons">
+              <h1 className="service-title">
+                AWS & Linux
+                <span> Infrastructure Support</span>
+              </h1>
 
-            <a
-              href="https://api.whatsapp.com/send?phone=918925063980"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="aws-btn-primary"
-            >
-              Discuss Infrastructure Support
-            </a>
+              <p className="service-desc">
+                Reliable AWS cloud setup, Linux server administration,
+                VPS deployment, security hardening, and infrastructure
+                support for startups and growing businesses.
+              </p>
 
-            <a
-              href="/contact"
-              className="aws-btn-secondary"
-            >
-              Talk to Us
-            </a>
+              <div className="service-buttons">
 
-          </div>
+                <a
+                  href="https://api.whatsapp.com/send?phone=918925063980"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="service-btn-primary"
+                >
+                  Discuss Infrastructure Support
+                </a>
 
-          <div className="aws-trust-strip">
-
-            {[
-              'AWS Cloud Support',
-              'Linux Administration',
-              'Secure Infrastructure',
-              'Reliable Hosting',
-            ].map((item, index) => (
-
-              <div
-                className="aws-trust-item"
-                key={index}
-              >
-
-                <CheckCircle size={16} />
-
-                <span>{item}</span>
+                <Link
+                  to="/contact"
+                  className="service-btn-secondary"
+                >
+                  Talk to Us
+                </Link>
 
               </div>
 
-            ))}
+              <div className="service-trust-strip">
+                <div className="service-trust-item">
+                  <CheckCircle size={16} />
+                  <span>AWS Cloud Support</span>
+                </div>
+                <div className="service-trust-item">
+                  <CheckCircle size={16} />
+                  <span>Linux Administration</span>
+                </div>
+                <div className="service-trust-item">
+                  <CheckCircle size={16} />
+                  <span>Secure Infrastructure</span>
+                </div>
+              </div>
+
+            </div>
+
+            {/* RIGHT COLUMN */}
+            <ServiceHeroVisual
+              svgIllustration={AWSLinuxSupportIllustration}
+              trustLabel="99.99% Uptime"
+              trustValue="MONITORED CLOUD"
+              trustIcon={Activity}
+            />
 
           </div>
 

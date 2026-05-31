@@ -10,10 +10,28 @@ import {
   Building2,
   BarChart3
 } from 'lucide-react';
+import SEO from '../../components/SEO';
+
+const accountingSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Accounting & Bookkeeping Services",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "VT Business Support",
+    "telephone": "+918925063980"
+  },
+  "description": "Expert bookkeeping, financial reporting, MIS preparation, and accounts finalization services to ensure seamless financial operations."
+};
 
 const Accounting = () => {
   return (
     <>
+      <SEO 
+        title="Accounting & Bookkeeping Services | VT Business Support"
+        description="Reliable, professional bookkeeping, financial accounting, outsourcing, and payroll management services for small businesses and startups in Tamil Nadu and Bengaluru."
+        schema={accountingSchema}
+      />
 
       {/* HERO */}
       <section    

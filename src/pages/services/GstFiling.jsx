@@ -10,10 +10,28 @@ import {
   Building2,
   BarChart3
 } from 'lucide-react';
+import SEO from '../../components/SEO';
+
+const gstFilingSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "GST Filing & Compliance Services",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "VT Business Support",
+    "telephone": "+918925063980"
+  },
+  "description": "Professional GST return filing, monthly and quarterly returns, GSTR-1, GSTR-3B reconciliation, new registration, and notice response support."
+};
 
 const GstFiling = () => {
   return (
     <>
+      <SEO 
+        title="GST Filing & Registration Services | VT Business Support"
+        description="Get professional monthly GSTR-1 & GSTR-3B return filing, new GST registration, and Input Tax Credit reconciliation support in Tamil Nadu and Bengaluru."
+        schema={gstFilingSchema}
+      />
 
       {/* HERO */}
       <section    

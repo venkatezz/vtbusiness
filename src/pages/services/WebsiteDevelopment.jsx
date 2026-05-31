@@ -1,4 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
+import ServiceHeroVisual from '../../components/ServiceHeroVisual';
 
 import {
   Globe,
@@ -12,6 +15,19 @@ import {
 } from 'lucide-react';
 
 import '../../styles/website-development.css';
+import '../../styles/serviceHero.css';
+
+const webDevSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Custom Web Development & Design Services",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "VT Business Support",
+    "telephone": "+918925063980"
+  },
+  "description": "High-performance, custom React/Vite websites, responsive frontend coding, SEO friendliness, web application design, and modern website design."
+};
 
 const websiteServices = [
   {
@@ -72,71 +88,118 @@ const techStack = [
   'Cloudflare',
 ];
 
+// Flat Professional Modern Website / Browser / Digital Experience SVG
+const WebsiteDevelopmentIllustration = () => (
+  <svg viewBox="0 0 400 300" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {/* Background Grid */}
+    <rect x="20" y="20" width="360" height="260" rx="16" fill="rgba(74, 63, 224, 0.02)" stroke="rgba(74, 63, 224, 0.05)" strokeWidth="2" />
+    
+    {/* Browser Frame */}
+    <rect x="60" y="50" width="280" height="200" rx="10" fill="#0F172A" stroke="rgba(255,255,255,0.06)" strokeWidth="2" />
+    
+    {/* Browser Header Bar */}
+    <path d="M60 70 L340 70" stroke="rgba(255,255,255,0.08)" strokeWidth="2" />
+    <circle cx="75" cy="60" r="4" fill="#EF4444" />
+    <circle cx="87" cy="60" r="4" fill="#F59E0B" />
+    <circle cx="99" cy="60" r="4" fill="#10B981" />
+    
+    {/* Browser Content - Layout columns */}
+    <rect x="80" y="90" width="110" height="80" rx="6" fill="#1E293B" stroke="rgba(255,255,255,0.04)" />
+    <circle cx="110" cy="120" r="16" fill="rgba(74, 63, 224, 0.15)" stroke="#5B4DFF" strokeWidth="2" />
+    <line x1="80" y1="184" x2="190" y2="184" stroke="#475569" strokeWidth="4" strokeLinecap="round" />
+    
+    <rect x="210" y="90" width="110" height="130" rx="6" fill="#1E293B" stroke="rgba(255,255,255,0.04)" />
+    <line x1="225" y1="110" x2="295" y2="110" stroke="#94A3B8" strokeWidth="3" strokeLinecap="round" />
+    <line x1="225" y1="125" x2="275" y2="125" stroke="#475569" strokeWidth="3" strokeLinecap="round" />
+    <line x1="225" y1="140" x2="285" y2="140" stroke="#475569" strokeWidth="3" strokeLinecap="round" />
+    
+    {/* Dynamic UI Graph representation */}
+    <path d="M225 200 L245 180 L265 190 L285 170 L305 185" stroke="#10B981" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+    
+    {/* Star Ratings on left column */}
+    <path d="M125 152 L127 156 L131 156 L128 159 L129 163 L125 160 L121 163 L122 159 L119 156 L123 156 Z" fill="#F59E0B" />
+  </svg>
+);
+
 const WebsiteDevelopment = () => {
   return (
     <main className="webdev-page">
+      <SEO 
+        title="Custom Web Development & Design Services | VT Business Support"
+        description="High-performance, custom React/Vite websites, responsive frontend coding, SEO friendliness, web application design, and modern website design."
+        schema={webDevSchema}
+      />
 
       {/* HERO */}
-      <section className="webdev-hero">
+      <section className="service-hero">
 
         <div className="container">
 
-          <div className="webdev-badge">
-            Modern Business Website Solutions
-          </div>
+          <div className="service-hero-grid">
 
-          <h1 className="webdev-title">
-            Professional Website
-            <span> Development Services</span>
-          </h1>
+            {/* LEFT COLUMN */}
+            <div className="service-hero-content">
 
-          <p className="webdev-desc">
-            Modern, responsive, and business-focused websites
-            for startups, consultants, GST firms, and growing
-            businesses across Tamil Nadu and Bengaluru.
-          </p>
+              <div className="service-badge">
+                <ShieldCheck size={14} />
+                <span>Modern Business Website Solutions</span>
+              </div>
 
-          <div className="webdev-buttons">
+              <h1 className="service-title">
+                Professional Website
+                <span> Development Services</span>
+              </h1>
 
-            <a
-              href="https://api.whatsapp.com/send?phone=918925063980"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="webdev-btn-primary"
-            >
-              Discuss Your Website
-            </a>
+              <p className="service-desc">
+                Modern, responsive, and business-focused websites
+                for startups, consultants, GST firms, and growing
+                businesses across Tamil Nadu and Bengaluru.
+              </p>
 
-            <a
-              href="/contact"
-              className="webdev-btn-secondary"
-            >
-              Talk to Us
-            </a>
+              <div className="service-buttons">
 
-          </div>
+                <a
+                  href="https://api.whatsapp.com/send?phone=918925063980"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="service-btn-primary"
+                >
+                  Discuss Your Website
+                </a>
 
-          <div className="webdev-trust-strip">
-
-            {[
-              'Responsive Design',
-              'SEO Friendly',
-              'Fast Performance',
-              'Business Focused',
-            ].map((item, index) => (
-
-              <div
-                className="webdev-trust-item"
-                key={index}
-              >
-
-                <CheckCircle size={16} />
-
-                <span>{item}</span>
+                <Link
+                  to="/contact"
+                  className="service-btn-secondary"
+                >
+                  Talk to Us
+                </Link>
 
               </div>
 
-            ))}
+              <div className="service-trust-strip">
+                <div className="service-trust-item">
+                  <CheckCircle size={16} />
+                  <span>Responsive Design</span>
+                </div>
+                <div className="service-trust-item">
+                  <CheckCircle size={16} />
+                  <span>Fast Performance</span>
+                </div>
+                <div className="service-trust-item">
+                  <CheckCircle size={16} />
+                  <span>Business Focused</span>
+                </div>
+              </div>
+
+            </div>
+
+            {/* RIGHT COLUMN */}
+            <ServiceHeroVisual
+              svgIllustration={WebsiteDevelopmentIllustration}
+              trustLabel="SEO Ready"
+              trustValue="MOBILE FRIENDLY"
+              trustIcon={Rocket}
+            />
 
           </div>
 

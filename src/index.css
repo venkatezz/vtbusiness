@@ -370,6 +370,15 @@ button {
   color: var(--primary);
 }
 
+.form-card-option:focus-visible {
+  outline: 3px solid var(--primary) !important;
+  outline-offset: 2px !important;
+  background-color: var(--primary-glow) !important;
+  color: var(--primary) !important;
+  transform: translateY(-2px) !important;
+}
+
+
 /* Custom Dual-Engine Tabs */
 .tabs-header-container {
   display: inline-flex;
@@ -2997,14 +3006,6 @@ img {
     gap: 0.7rem;
   }
 
-}
-
-html,
-body {
-  overflow-x: hidden;
-}
-* {
-  box-sizing: border-box;
 }
 
 @media (max-width: 640px) {

@@ -10,10 +10,28 @@ import {
   Building2,
   BarChart3
 } from 'lucide-react';
+import SEO from '../../components/SEO';
+
+const incomeTaxSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Income Tax Filing & Planning Services",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "VT Business Support",
+    "telephone": "+918925063980"
+  },
+  "description": "Professional ITR filing, tax auditing, TDS, and corporate tax compliance services for individuals, startups, and established enterprises."
+};
 
 const IncomeTax = () => {
   return (
     <>
+      <SEO 
+        title="Income Tax Filing & Planning Services | VT Business Support"
+        description="Professional income tax return filing, tax planning, ITR filing for individuals & businesses, and tax savings solutions in Tamil Nadu and Bengaluru."
+        schema={incomeTaxSchema}
+      />
 
       {/* HERO */}
       <section    
