@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   CheckCircle,
   FileText,
@@ -11,393 +12,153 @@ import {
   BarChart3
 } from 'lucide-react';
 import SEO from '../../components/SEO';
+import HeroVisual from '../../components/HeroVisual';
+import '../../styles/service-hero-system.css';
 
 const incomeTaxSchema = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Income Tax Filing & Planning Services",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "VT Business Support",
-    "telephone": "+918925063980"
-  },
-  "description": "Professional ITR filing, tax auditing, TDS, and corporate tax compliance services for individuals, startups, and established enterprises."
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://vtconsulting.in/services/income-tax#service",
+      "name": "Income Tax Filing & Planning Services",
+      "alternateName": ["ITR Filing", "Income Tax Return", "Tax Planning", "TDS Filing", "Tax Audit"],
+      "description": "Professional ITR filing for salaried employees, freelancers, and businesses. Capital gains reporting, deductions optimization, advance tax, and tax notice response across Tamil Nadu & Bengaluru.",
+      "url": "https://vtconsulting.in/services/income-tax",
+      "serviceType": "Income Tax Filing & Compliance",
+      "provider": {
+        "@type": "LocalBusiness",
+        "@id": "https://vtconsulting.in#business",
+        "name": "VT Business Support",
+        "telephone": "+918925063980",
+        "email": "vtconsulting.in@gmail.com",
+        "areaServed": [
+          { "@type": "AdministrativeArea", "name": "Tamil Nadu" },
+          { "@type": "AdministrativeArea", "name": "Karnataka" }
+        ]
+      },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Tamil Nadu" },
+        { "@type": "AdministrativeArea", "name": "Karnataka" },
+        { "@type": "Country", "name": "India" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Income Tax Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ITR-1 Salaried Filing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ITR-3 Business & Profession Filing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Capital Gains Tax Reporting" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tax Notice Response" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Advance Tax Calculation" } }
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vtconsulting.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://vtconsulting.in/services" },
+        { "@type": "ListItem", "position": 3, "name": "Income Tax Filing", "item": "https://vtconsulting.in/services/income-tax" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Who needs to file an ITR in India?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Anyone with income above the basic exemption limit (₹2.5 lakh for below 60 years), NRIs with Indian income, or those claiming TDS refunds must file an ITR." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the deadline for ITR filing?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The standard due date for ITR filing is July 31 of the assessment year for individuals. A belated return can be filed until December 31 of the assessment year." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can VT Business Support help file ITR for freelancers?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. We file ITR-3 and ITR-4 for freelancers, consultants, and self-employed professionals, accounting for business income, deductions, and advance tax payments." }
+        }
+      ]
+    }
+  ]
 };
 
 const IncomeTax = () => {
   return (
     <>
-      <SEO 
-        title="Income Tax Filing & Planning Services | VT Business Support"
-        description="Professional income tax return filing, tax planning, ITR filing for individuals & businesses, and tax savings solutions in Tamil Nadu and Bengaluru."
+      <SEO
+        title="Income Tax Filing Tamil Nadu & Bengaluru | ITR Filing Services | VT Business Support"
+        description="Professional ITR filing for salaried, freelancers & businesses. Capital gains, deductions optimization, and tax notice support across Tamil Nadu & Bengaluru. Fast & accurate."
+        keywords="income tax filing Tamil Nadu, ITR filing Bengaluru, income tax return filing, ITR-1 ITR-3 filing, tax planning India, capital gains tax, TDS refund, advance tax, tax notice response, freelancer ITR, income tax consultant Tamil Nadu, ITR filing Dharmapuri, income tax filing small business"
         schema={incomeTaxSchema}
+        type="website"
       />
 
       {/* HERO */}
-      <section    
-        className="gst-hero-section service-hero-section"
-        style={{
-          padding: '72px 0 64px',
-          color: '#fff',
-          position: 'relative',
-          overflow: 'hidden',
-          background: `
-            linear-gradient(
-            135deg,
-            #081028 0%,
-            #091530 45%,
-            #0A1635 100%
-            )
-            `,           
-        }}
-      >
+      <section className="shs-hero service-hero-section">
         <div className="container">
-
-          <div
-            className="gst-hero-grid"
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '1.1fr 0.92fr',
-              gap: '3rem',
-              alignItems: 'center',
-            }}
-          >
+          <div className="shs-hero-grid">
 
             {/* LEFT */}
-            <div
-                className="gst-hero-left service-hero-left"
-                style={{
-                    width: '100%',
-                    maxWidth: '680px',
-                    position: 'relative',
-                    zIndex: 2
-                    
-                }}
-            >
-              <div
-                style={{
-                    position: 'absolute',
-                    width: '280px',
-                    height: '280px',
-                    background: 'rgba(74,63,224,0.16)',
-                    filter: 'blur(120px)',
-                    top: '-80px',
-                    left: '-120px',
-                    zIndex: -1
-                }}
-              />                
+            <div className="shs-hero-left">
+              <div className="shs-blur" />
 
-                <div
-                    style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    padding: '8px 14px',
-                    borderRadius: '999px',
-                    background: 'rgba(255,255,255,0.08)',
-                    border: '1px solid rgba(255,255,255,0.08)',
-                    fontSize: '0.85rem',
-                    fontWeight: '600',
-                    marginBottom: '1.5rem'
-                    }}
-                >
-                    <CheckCircle size={15} style={{ color: '#10B981' }} />
-                Trusted Income Tax Support
-              </div>
+              <h1 className="shs-title">
+                Income Tax Filing
+                <br />
+                <span className="shs-accent--gold" style={{ color: '#F59E0B' }}>Fast &amp; Accurate</span>
+              </h1>
 
-                <h1
-                  className="gst-hero-title   service-hero-title"
-                    style={{
-                        fontSize: 'clamp(2.9rem, 5vw, 4.5rem)',
-                        lineHeight: '1.02',
-                        fontWeight: '900',
-                        marginBottom: '1.4rem',
-                        maxWidth: '760px',
-                        color: '#FFFFFF',
-                        letterSpacing: '-0.04em'
-                    }}
-                  >
-                    Income Tax Filing 
-                    <br />
-                    <span style={{ color: '#5B4DFF' }}>
-                        Services
-                    </span>
-                    <br />
-                    for Small Businesses
-                </h1>
-
-              <p
-                className="gst-hero-desc service-hero-desc"
-                style={{
-                  color: 'rgba(255,255,255,0.72)',
-                  fontSize: '1.05rem',
-                  lineHeight: '1.8',
-                  maxWidth: '620px',
-                  marginBottom: '2rem',
-                  position: 'relative',
-                 
-                }}
-              >
-                Professional ITR filing, salary tax returns,
-                capital gains reporting, and tax compliance
-                support for salaried professionals, freelancers,
-                and small businesses.
+              <p className="shs-desc">
+                ITR filing for salaried employees, freelancers, and businesses.
+                Capital gains, deductions optimization, and tax notice support
+                across Tamil Nadu &amp; Bengaluru.
               </p>
 
-              {/* CTA */}
-              <div
-                className="gst-hero-buttons service-hero-buttons"
-                style={{
-                  display: 'flex',
-                  gap: '1rem',
-                  flexWrap: 'wrap',
-                  marginBottom: '2rem'
-                }}
-              >
-
+              <div className="shs-buttons">
                 <a
-                  className="gst-hero-cta"
+                  className="shs-btn-primary"
                   href="https://wa.me/918925063980"
                   target="_blank"
                   rel="noreferrer"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    boxShadow: '0 10px 30px rgba(16,185,129,0.22)',
-                    transition: 'all 0.22s ease',
-                    gap: '8px',
-                    background: '#10B981',
-                    color: '#fff',
-                    padding: '14px 22px',
-                    borderRadius: '12px',
-                    textDecoration: 'none',
-                    fontWeight: '700'
-                  }}
                 >
-                  File Income Tax
-                  <ArrowRight size={16} />
+                  File My Income Tax <ArrowRight size={16} />
                 </a>
-
-                <a
-                  className="gst-hero-cta"
-                  href="#gst-services"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    background: 'rgba(255,255,255,0.04)',
-                    backdropFilter: 'blur(8px)',
-                    border: '1px solid rgba(255,255,255,0.12)',
-                    color: '#fff',
-                    padding: '14px 22px',
-                    borderRadius: '12px',
-                    textDecoration: 'none',
-                    fontWeight: '600'
-                  }}
-                >
-                  View Services
-                </a>
-
+                <Link className="shs-btn-secondary" to="/contact">
+                  Talk To Us
+                </Link>
               </div>
 
-              {/* TRUST ROW */}
-              <div
-                className="gst-hero-cta service-hero-trust"
-                style={{
-                  display: 'flex',
-                  gap: '1.5rem',
-                  flexWrap: 'wrap',
-                  color: 'rgba(255,255,255,0.7)',
-                  fontSize: '0.92rem'
-                }}
-              >
-                <span>✔ Salaried Employees</span>
-                <span>✔ Freelancers & Consultants</span>
-                <span>✔ Tax Notice Assistance</span>
+              <div className="shs-trust">
+                <span>✓ Salaried Employees</span>
+                <span>✓ Freelancers &amp; Consultants</span>
+                <span>✓ Tax Notice Assistance</span>
               </div>
-
             </div>
 
-            {/* RIGHT CARD */}
-            <div className="gst-hero-right">
-
-              <div
-                className="gst-hero-card service-hero-card"
-                style={{
-                  background: 'rgba(15,23,42,0.72)',
-                  boxShadow: '0 24px 60px rgba(0,0,0,0.28)',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  borderRadius: '24px',
-                  padding: '2rem',
-                  width: '100%',
-                  maxWidth: '480px',
-                  marginLeft: 'auto',
-                  backdropFilter: 'blur(18px)'
-                }}
-              >
-
-                <div
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '1.2rem'
-                  }}
-                >
-
-                  {[
-                    'ITR-1 Filing',
-                    'ITR-2 Filing',
-                    'Salary & Capital Gains',
-                    'Tax Notice Support',
-                    'Advance Tax Guidance'
-                  ].map((item) => (
-
-                    <div
-                      key={item}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '12px',
-                        paddingBottom: '0.9rem',
-                        borderBottom: '1px solid rgba(255,255,255,0.04)'
-                      }}
-                    >
-                      <div
-                        style={{
-                          width: '42px',
-                          height: '42px',
-                          borderRadius: '12px',
-                          background: `
-                            linear-gradient(
-                            135deg,
-                            rgba(16,185,129,0.18),
-                            rgba(16,185,129,0.08)
-                            )
-                            `,
-                            border: '1px solid rgba(16,185,129,0.10)',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center'
-                        }}
-                      >
-                        <FileText size={18} style={{ color: '#10B981' }} />
-                      </div>
-
-                      <div>
-                        <div
-                          style={{
-                            fontWeight: '600',
-                            marginBottom: '0.50px'
-                          }}
-                        >
-                          {item}
-                        </div>
-
-                        <div
-                          style={{
-                            color: 'rgba(255,255,255,0.6)',
-                            fontSize: '0.88rem'
-                          }}
-                        >
-                          {
-                            item === 'ITR-1 Filing'
-                              ? 'Income tax filing for salaried individuals'
-                              : item === 'ITR-2 Filing'
-                              ? 'Tax filing for capital gains and multiple income sources'
-                              : item === 'Salary & Capital Gains'
-                              ? 'Professional tax computation and filing assistance'
-                              : item === 'Tax Notice Support'
-                              ? 'Response preparation and tax compliance guidance'
-                              : 'Tax planning and advance tax payment support'
-                          }
-                        </div>
-                      </div>
-                    </div>
-
-                  ))}
-
-
-                </div>
-
-                {/* Bottom Stats */}
-                <div
-                  className="gst-hero-stats"
-                  style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(3,1fr)',
-                    gap: '1rem',
-                    marginTop: '1rem'
-                  }}
-                >
-
-                  {[
-                    {
-                      icon: <Shield size={18} />,
-                      value: '100%',
-                      label: 'Secure'
-                    },
-                    {
-                      icon: <Clock size={18} />,
-                      value: 'Fast',
-                      label: 'Response'
-                    },
-                    {
-                      icon: <CheckCircle size={18} />,
-                      value: '5+',
-                      label: 'Years'
-                    }
-                  ].map((stat) => (
-
-                    <div
-                      key={stat.label}
-                      style={{
-                        background: 'rgba(255,255,255,0.04)',
-                        border: '1px solid rgba(255,255,255,0.06)',
-                        borderRadius: '14px',
-                        padding: '1rem',
-                        textAlign: 'center'
-                      }}
-                    >
-                      <div
-                        style={{
-                          color: '#10B981',
-                          marginBottom: '0.5rem'
-                        }}
-                      >
-                        {stat.icon}
-                      </div>
-
-                      <div
-                        style={{
-                          fontWeight: '700',
-                          fontSize: '1.1rem'
-                        }}
-                      >
-                        {stat.value}
-                      </div>
-
-                      <div
-                        style={{
-                          color: 'rgba(255,255,255,0.6)',
-                          fontSize: '0.82rem'
-                        }}
-                      >
-                        {stat.label}
-                      </div>
-                    </div>
-
-                  ))}
-
-                </div>
-
+            {/* RIGHT */}
+            <div className="shs-hero-right">
+              <div className="shs-visual-badge">
+                <CheckCircle size={15} /> INCOME TAX SERVICES
               </div>
-
+              <HeroVisual
+                theme="gold"
+                lightMode={true}
+                milestones={["ITR Filed", "Refund Processed", "Tax Compliant", "Verified"]}
+                cards={[
+                  { title: "ITR Filed", subtitle: "FY 2025-26" },
+                  { title: "Refund Processed", subtitle: "Direct Deposit" },
+                  { title: "Tax Compliant", subtitle: "Verified" }
+                ]}
+              />
             </div>
 
           </div>
-
         </div>
       </section>
+
 
       <section className="gst-included-section">
         <div className="container">

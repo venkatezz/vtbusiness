@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   CheckCircle,
   FileText,
@@ -11,398 +12,157 @@ import {
   BarChart3
 } from 'lucide-react';
 import SEO from '../../components/SEO';
+import HeroVisual from '../../components/HeroVisual';
+import '../../styles/service-hero-system.css';
 
 const accountingSchema = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Accounting & Bookkeeping Services",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "VT Business Support",
-    "telephone": "+918925063980"
-  },
-  "description": "Expert bookkeeping, financial reporting, MIS preparation, and accounts finalization services to ensure seamless financial operations."
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://vtconsulting.in/services/accounting#service",
+      "name": "Accounting & Bookkeeping Services",
+      "alternateName": [
+        "Bookkeeping Services",
+        "Financial Accounting",
+        "Outsourced Bookkeeping",
+        "MIS Reporting",
+        "Payroll Management",
+        "Balance Sheet Finalization"
+      ],
+      "description": "Professional outsourced bookkeeping, monthly accounting, payroll processing, bank reconciliations, and compliance tracking for small businesses and startups across Tamil Nadu & Bengaluru.",
+      "url": "https://vtconsulting.in/services/accounting",
+      "serviceType": "Accounting & Corporate Secretarial Support",
+      "provider": {
+        "@type": "LocalBusiness",
+        "@id": "https://vtconsulting.in#business",
+        "name": "VT Business Support",
+        "telephone": "+918925063980",
+        "email": "vtconsulting.in@gmail.com",
+        "areaServed": [
+          { "@type": "AdministrativeArea", "name": "Tamil Nadu" },
+          { "@type": "AdministrativeArea", "name": "Karnataka" }
+        ]
+      },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Tamil Nadu" },
+        { "@type": "AdministrativeArea", "name": "Karnataka" },
+        { "@type": "Country", "name": "India" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Accounting Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Monthly & Weekly Bookkeeping" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "GST Sales & Purchase Reconciliation" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "MIS Performance & Profitability Reporting" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Final Accounts & Balance Sheet Prep" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Payroll Processing & Compliance" } }
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vtconsulting.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://vtconsulting.in/services" },
+        { "@type": "ListItem", "position": 3, "name": "Accounting & Bookkeeping", "item": "https://vtconsulting.in/services/accounting" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why should my company outsource bookkeeping?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Outsourcing saves cost, reduces compliance errors, and gives you access to qualified accountants and modern software without full-time headcount expenses." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you handle GST reconciliations?",
+          "acceptedAnswer": { "@type": "Answer", "text": "We match purchase registers with GSTR-2B monthly to identify missing input tax credits (ITC) and follow up with defaulting vendors." }
+        },
+        {
+          "@type": "Question",
+          "name": "What reporting packages do you provide?",
+          "acceptedAnswer": { "@type": "Answer", "text": "We deliver monthly MIS reports containing P&L, balance sheets, cashflow analysis, age-wise debtors reports, and outstanding creditors details." }
+        }
+      ]
+    }
+  ]
 };
 
 const Accounting = () => {
   return (
     <>
       <SEO 
-        title="Accounting & Bookkeeping Services | VT Business Support"
-        description="Reliable, professional bookkeeping, financial accounting, outsourcing, and payroll management services for small businesses and startups in Tamil Nadu and Bengaluru."
+        title="Accounting & Bookkeeping Services Tamil Nadu & Bengaluru | VT Business Support"
+        description="Outsource your bookkeeping and payroll. Accurate bank reconciliations, GSTR-2B ITC matching, monthly MIS reporting, and accounts finalization."
+        keywords="accounting services, bookkeeping services, outsourced accounting, balance sheet finalization, GST reconciliation, accounts outsourcing, MIS reporting, payroll processing, payroll consultant Dharmapuri, accountant Bengaluru, VT Business Support"
         schema={accountingSchema}
+        type="website"
       />
 
       {/* HERO */}
-      <section    
-        className="gst-hero-section service-hero-section"
-        
-        style={{
-          padding: '110px 0 48px',
-          color: '#fff',
-          position: 'relative',
-          overflow: 'hidden',
-          background: `
-            linear-gradient(
-            135deg,
-            #081028 0%,
-            #091530 45%,
-            #0A1635 100%
-            )
-            `,           
-        }}
-      >
+      <section className="shs-hero service-hero-section">
         <div className="container">
-
-          <div
-            className="gst-hero-grid service-hero-grid"
-            
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '1.1fr 0.92fr',
-              gap: '3rem',
-              alignItems: 'center',
-            }}
-          >
+          <div className="shs-hero-grid">
 
             {/* LEFT */}
-            <div
-                className="gst-hero-left  service-hero-left"
-                style={{
-                    width: '100%',
-                    maxWidth: '680px',
-                    position: 'relative',
-                    zIndex: 2
-                    
-                }}
-            >
-              <div
-                style={{
-                    position: 'absolute',
-                    width: '280px',
-                    height: '280px',
-                    background: 'rgba(74,63,224,0.16)',
-                    filter: 'blur(120px)',
-                    top: '-80px',
-                    left: '-120px',
-                    zIndex: -1
-                }}
-              />                
+            <div className="shs-hero-left">
+              <div className="shs-blur" />
 
-                <div
-                    style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    padding: '8px 14px',
-                    borderRadius: '999px',
-                    background: 'rgba(255,255,255,0.08)',
-                    border: '1px solid rgba(255,255,255,0.08)',
-                    fontSize: '0.85rem',
-                    fontWeight: '600',
-                    marginTop: '0.8rem',
-                    marginBottom: '1.5rem'
-                    }}
-                >
-                    <CheckCircle size={15} style={{ color: '#10B981' }} />
-                Trusted Accounting Support
-              </div>
+              <h1 className="shs-title">
+                Accounting &amp;
+                <br />
+                <span className="shs-accent--emerald" style={{ color: '#10B981' }}>Bookkeeping</span>
+              </h1>
 
-                <h1
-                  className="gst-hero-title service-hero-title"
-                    style={{
-                        fontSize: 'clamp(2rem, 3.85vw, 3.8rem)',
-                        lineHeight: '1.02',
-                        fontWeight: '900',
-                        marginBottom: '1.4rem',
-                        maxWidth: '620px',
-                        color: '#FFFFFF',
-                        letterSpacing: '-0.04em'
-                    }}
-                  >
-                    Accounting &
-                    Bookkeeping
-                    <br />
-
-                    <span style={{ color: '#5B4DFF' }}>
-                    Services
-                    </span>
-
-                    <br />
-                    
-                    for Growing Businesses
-                </h1>
-
-              <p
-                className="gst-hero-desc service-hero-desc"
-                style={{
-                  color: 'rgba(255,255,255,0.72)',
-                  fontSize: '1.05rem',
-                  lineHeight: '1.8',
-                  maxWidth: '620px',
-                  marginBottom: '1rem',
-                  position: 'relative',
-                 
-                }}
-              >
-                Monthly bookkeeping, accounting management,
-                P&L reporting, GST reconciliation,
-                and compliance support for startups,
-                agencies, and small businesses.
+              <p className="shs-desc">
+                Reliable bookkeeping, GST input tax reconciliations,
+                monthly MIS reporting, and accounts finalization services
+                tailored for startups, growing agencies, and SMBs.
               </p>
 
-              {/* CTA */}
-              <div
-                className="gst-hero-buttons service-hero-buttons"
-                style={{
-                  display: 'flex',
-                  gap: '1rem',
-                  flexWrap: 'wrap',
-                  marginBottom: '2rem'
-                }}
-              >
-
+              <div className="shs-buttons">
                 <a
-                  className="gst-hero-cta"
+                  className="shs-btn-primary"
                   href="https://wa.me/918925063980"
                   target="_blank"
                   rel="noreferrer"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    boxShadow: '0 10px 30px rgba(16,185,129,0.22)',
-                    transition: 'all 0.22s ease',
-                    gap: '8px',
-                    background: '#10B981',
-                    color: '#fff',
-                    padding: '14px 22px',
-                    borderRadius: '12px',
-                    textDecoration: 'none',
-                    fontWeight: '700'
-                  }}
                 >
-                  Get Accounting Support
-                  <ArrowRight size={16} />
+                  Manage My Accounts <ArrowRight size={16} />
                 </a>
-
-                <a
-                  className="gst-hero-cta"
-                  href="#gst-services"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    background: 'rgba(255,255,255,0.04)',
-                    backdropFilter: 'blur(8px)',
-                    border: '1px solid rgba(255,255,255,0.12)',
-                    color: '#fff',
-                    padding: '14px 22px',
-                    borderRadius: '12px',
-                    textDecoration: 'none',
-                    fontWeight: '600'
-                  }}
-                >
-                  View Services
-                </a>
-
+                <Link className="shs-btn-secondary" to="/contact">
+                  Talk To Us
+                </Link>
               </div>
 
-              {/* TRUST ROW */}
-              <div
-                className="gst-hero-trust  service-hero-trust"
-                style={{
-                  display: 'flex',
-                  gap: '1.5rem',
-                  flexWrap: 'wrap',
-                  color: 'rgba(255,255,255,0.7)',
-                  fontSize: '0.92rem',
-                  paddingBottom: '0.5rem'
-                }}
-              >
-                <span>✔ Monthly Bookkeeping</span>
-                <span>✔ GST Reconciliation</span>
-                <span>✔ Financial Reporting</span>
+              <div className="shs-trust">
+                <span>✓ Dedicated Bookkeepers</span>
+                <span>✓ GSTR-2B ITC Matching</span>
+                <span>✓ Monthly MIS Packages</span>
               </div>
-
             </div>
 
-            {/* RIGHT CARD */}
-            <div className="gst-hero-right">
-
-              <div
-                className="gst-hero-card service-hero-card"
-                style={{
-                  background: 'rgba(15,23,42,0.72)',
-                  boxShadow: '0 24px 60px rgba(0,0,0,0.28)',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  borderRadius: '24px',
-                  padding: '2rem',
-                  width: '100%',
-                  maxWidth: '480px',
-                  marginLeft: 'auto',
-                  backdropFilter: 'blur(18px)'
-                }}
-              >
-
-                <div
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '1rem'
-                  }}
-                >
-
-                  {[
-                    'Monthly Bookkeeping',
-                    'GST Reconciliation',
-                    'P&L & Balance Sheet',
-                    'Vendor & Expense Tracking',
-                    'Accounting Cleanup Support'
-                  ].map((item) => (
-
-                    <div
-                      key={item}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '12px',
-                        paddingBottom: '0.5rem',
-                        borderBottom: '1px solid rgba(255,255,255,0.04)'
-                      }}
-                    >
-                      <div
-                        style={{
-                          width: '42px',
-                          height: '42px',
-                          borderRadius: '12px',
-                          background: `
-                            linear-gradient(
-                            135deg,
-                            rgba(16,185,129,0.18),
-                            rgba(16,185,129,0.08)
-                            )
-                            `,
-                            border: '1px solid rgba(16,185,129,0.10)',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center'
-                        }}
-                      >
-                        <FileText size={18} style={{ color: '#10B981' }} />
-                      </div>
-
-                      <div>
-                        <div
-                          style={{
-                            fontWeight: '600',
-                            marginBottom: '2px'
-                          }}
-                        >
-                          {item}
-                        </div>
-
-                        <div
-                          style={{
-                            color: 'rgba(255,255,255,0.6)',
-                            fontSize: '0.88rem'
-                          }}
-                        >
-                          {
-                            item === 'Monthly Bookkeeping'
-                              ? 'Daily accounting management'
-                              : item === 'GST Reconciliation'
-                              ? 'Purchase & GST verification'
-                              : item === 'P&L & Balance Sheet'
-                              ? 'Financial reporting support'
-                              : item === 'Vendor & Expense Tracking'
-                              ? 'Expense monitoring support'
-                              : 'Accounting correction support'
-                          }
-                        </div>
-                      </div>
-                    </div>
-
-                  ))}
-
-                </div>
-
-                {/* Bottom Stats */}
-                <div
-                  className="gst-hero-stats"
-                  style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(3,1fr)',
-                    gap: '1rem',
-                    marginTop: '2rem'
-                  }}
-                >
-
-                  {[
-                    {
-                      icon: <Shield size={18} />,
-                      value: '100%',
-                      label: 'Secure'
-                    },
-                    {
-                      icon: <Clock size={18} />,
-                      value: 'Fast',
-                      label: 'Response'
-                    },
-                    {
-                      icon: <CheckCircle size={18} />,
-                      value: '5+',
-                      label: 'Years'
-                    }
-                  ].map((stat) => (
-
-                    <div
-                      key={stat.label}
-                      style={{
-                        background: 'rgba(255,255,255,0.04)',
-                        border: '1px solid rgba(255,255,255,0.06)',
-                        borderRadius: '14px',
-                        padding: '1rem',
-                        textAlign: 'center'
-                      }}
-                    >
-                      <div
-                        style={{
-                          color: '#10B981',
-                          marginBottom: '0.5rem'
-                        }}
-                      >
-                        {stat.icon}
-                      </div>
-
-                      <div
-                        style={{
-                          fontWeight: '700',
-                          fontSize: '1.1rem'
-                        }}
-                      >
-                        {stat.value}
-                      </div>
-
-                      <div
-                        style={{
-                          color: 'rgba(255,255,255,0.6)',
-                          fontSize: '0.82rem'
-                        }}
-                      >
-                        {stat.label}
-                      </div>
-                    </div>
-
-                  ))}
-
-                </div>
-
+            {/* RIGHT */}
+            <div className="shs-hero-right">
+              <div className="shs-visual-badge">
+                <CheckCircle size={15} /> ACCOUNTING &amp; BOOKKEEPING
               </div>
-
+              <HeroVisual
+                theme="emerald"
+                lightMode={true}
+                milestones={["Books Set Up", "Weekly Posting", "GST Reconciled", "MIS Delivered"]}
+                cards={[
+                  { title: "Ledger Update", subtitle: "Real-time Bookkeeping" },
+                  { title: "ITC Reconciled", subtitle: "GSTR-2B Compliant" },
+                  { title: "MIS Report", subtitle: "Monthly Profitability" }
+                ]}
+              />
             </div>
 
           </div>
-
         </div>
       </section>
 

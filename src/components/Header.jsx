@@ -1,16 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import {
   Menu, X, ChevronDown,
   FileText, Calculator, BookOpen, ClipboardList, Receipt,
   Monitor, Globe, Cloud, Mail, Server,
   ArrowRight, LayoutGrid,
-  Briefcase,
+  Briefcase, Building2
 } from 'lucide-react';
 import VTLogo from '../assets/VTlogo.svg';
 
 /* ─── Nav data ─────────────────────────────────────────────────── */
 const gstTaxItems = [
+  { icon: <Building2 size={15} />,    title: 'Company Registration',     sub: 'Start your business with the right structure', to: '/services/company-registration' },
   { icon: <FileText size={15} />,     title: 'GST Filing',              sub: 'GSTR-1 · GSTR-3B · ITC Matching',          to: '/services/gst-filing' },
   { icon: <Calculator size={15} />,   title: 'Income Tax Filing',       sub: 'ITR-1 to ITR-7 · Tax Audits · Deductions', to: '/services/income-tax' },
   { icon: <BookOpen size={15} />,     title: 'Accounting & Bookkeeping',sub: 'P&L · Balance Sheets · Audits',             to: '/services/accounting-bookkeeping' },
@@ -148,6 +149,10 @@ const MobileAccordion = ({ label, accent, items, onClose }) => {
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+
+  // The Home page '/' and service sub-pages (e.g. '/services/company-registration') are light pages.
+  const isLightPage = location.pathname === '/' || (location.pathname.startsWith('/services/') && location.pathname !== '/services');
 
   const { open: gstOpen, setOpen: setGstOpen, ref: gstRef } = useDropdown();
   const { open: itOpen, setOpen: setItOpen, ref: itRef } = useDropdown();
@@ -202,10 +207,10 @@ const Header = () => {
 
   return (
     <>
-      <header className={`nh-header ${scrolled ? 'nh-scrolled' : ''}`}>
+      <header className={`nh-header ${scrolled ? 'nh-scrolled' : ''} ${isLightPage ? 'nh-header-light' : ''}`}>
         <div className="nh-inner container">
           {/* Logo */}
-          <Link to="/" className="nh-logo-link" onClick={() => window.scrollTo(0, 0)}>
+          <Link to="/" className="nh-logo-link" onClick={() => { window.scrollTo(0, 0); closeAll(); }}>
             <img src={VTLogo} alt="VT Business Support" className="nh-logo-img" />
           </Link>
 
@@ -214,22 +219,23 @@ const Header = () => {
            
 
             {/* GST & Tax Dropdown */}
-            <div className="nh-drop-root" ref={gstRef}>
+            <div 
+              className="nh-drop-root" 
+              ref={gstRef}
+              onMouseEnter={openGst}
+              onMouseLeave={() => setGstOpen(false)}
+            >
               <button
                 className={`nh-link nh-link--btn ${gstOpen ? 'nh-link--active' : ''}`}
                 aria-haspopup="true"
                 aria-expanded={gstOpen}
                 onClick={() => setGstOpen((v) => !v)}
-                onMouseEnter={openGst}
               >
                 GST &amp; Tax
                 <ChevronDown size={13} className={`nh-chevron ${gstOpen ? 'nh-chevron--open' : ''}`} />
               </button>
 
-              <div
-                className={`nh-dropdown ${gstOpen ? 'nh-dropdown--open' : ''}`}
-                onMouseLeave={() => setGstOpen(false)}
-              >
+              <div className={`nh-dropdown ${gstOpen ? 'nh-dropdown--open' : ''}`}>
                 <div className="nh-drop-header">
                   <span className="nh-drop-header-icon" style={{ '--icon-bg': `${GST_ACCENT}18`, '--icon-color': GST_ACCENT }}>
                     <LayoutGrid size={13} />
@@ -248,22 +254,23 @@ const Header = () => {
             </div>
 
             {/* IT Services Dropdown */}
-            <div className="nh-drop-root" ref={itRef}>
+            <div 
+              className="nh-drop-root" 
+              ref={itRef}
+              onMouseEnter={openIt}
+              onMouseLeave={() => setItOpen(false)}
+            >
               <button
                 className={`nh-link nh-link--btn ${itOpen ? 'nh-link--active' : ''}`}
                 aria-haspopup="true"
                 aria-expanded={itOpen}
                 onClick={() => setItOpen((v) => !v)}
-                onMouseEnter={openIt}
               >
                 IT Services
                 <ChevronDown size={13} className={`nh-chevron ${itOpen ? 'nh-chevron--open' : ''}`} />
               </button>
 
-              <div
-                className={`nh-dropdown ${itOpen ? 'nh-dropdown--open' : ''}`}
-                onMouseLeave={() => setItOpen(false)}
-              >
+              <div className={`nh-dropdown ${itOpen ? 'nh-dropdown--open' : ''}`}>
                 <div className="nh-drop-header">
                   <span className="nh-drop-header-icon" style={{ '--icon-bg': `${IT_ACCENT}18`, '--icon-color': IT_ACCENT }}>
                     <LayoutGrid size={13} />
@@ -284,7 +291,8 @@ const Header = () => {
             <NavLink
               to="/resources"
               className={({ isActive }) => `nh-link ${isActive ? 'nh-link--active' : ''}`}
-              onClick={() => window.scrollTo(0, 0)}
+              onClick={() => { window.scrollTo(0, 0); closeAll(); }}
+              onMouseEnter={closeAll}
             >
               Resources
             </NavLink>
@@ -292,7 +300,8 @@ const Header = () => {
             <NavLink
               to="/about"
               className={({ isActive }) => `nh-link ${isActive ? 'nh-link--active' : ''}`}
-              onClick={() => window.scrollTo(0, 0)}
+              onClick={() => { window.scrollTo(0, 0); closeAll(); }}
+              onMouseEnter={closeAll}
             >
               About
             </NavLink>
@@ -300,12 +309,13 @@ const Header = () => {
             <NavLink
               to="/contact"
               className={({ isActive }) => `nh-link ${isActive ? 'nh-link--active' : ''}`}
-              onClick={() => window.scrollTo(0, 0)}
+              onClick={() => { window.scrollTo(0, 0); closeAll(); }}
+              onMouseEnter={closeAll}
             >
               Talk to Us
             </NavLink>
 
-            <Link to="/contact" className="nh-cta" onClick={() => window.scrollTo(0, 0)}>
+            <Link to="/contact" className="nh-cta" onClick={() => { window.scrollTo(0, 0); closeAll(); }}>
               Free Consultation
             </Link>
           </nav>

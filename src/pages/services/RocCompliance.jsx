@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   CheckCircle,
   FileText,
@@ -11,393 +12,157 @@ import {
   BarChart3
 } from 'lucide-react';
 import SEO from '../../components/SEO';
+import HeroVisual from '../../components/HeroVisual';
+import '../../styles/service-hero-system.css';
 
 const rocComplianceSchema = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "ROC Compliance & MCA Services",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "VT Business Support",
-    "telephone": "+918925063980"
-  },
-  "description": "Company annual returns filing, director KYC, MCA compliance support, and company maintenance services for private limited companies and LLPs."
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://vtconsulting.in/services/roc-compliance#service",
+      "name": "ROC Compliance & MCA Filing Services",
+      "alternateName": [
+        "Company Annual Filing",
+        "MCA Compliance Services",
+        "Director KYC Filing",
+        "Form AOC-4 Filing",
+        "Form MGT-7 Filing",
+        "LLP Annual Returns"
+      ],
+      "description": "Expert assistance for Private Limited Company and LLP annual filings. We manage MCA filing, Director KYC, annual returns, form filings, and compliance tracking across Tamil Nadu and Bengaluru.",
+      "url": "https://vtconsulting.in/services/roc-compliance",
+      "serviceType": "ROC Compliance & Corporate Secretariat",
+      "provider": {
+        "@type": "LocalBusiness",
+        "@id": "https://vtconsulting.in#business",
+        "name": "VT Business Support",
+        "telephone": "+918925063980",
+        "email": "vtconsulting.in@gmail.com",
+        "areaServed": [
+          { "@type": "AdministrativeArea", "name": "Tamil Nadu" },
+          { "@type": "AdministrativeArea", "name": "Karnataka" }
+        ]
+      },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Tamil Nadu" },
+        { "@type": "AdministrativeArea", "name": "Karnataka" },
+        { "@type": "Country", "name": "India" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "ROC Compliance Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Form AOC-4 Financials Filing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Form MGT-7 Annual Return" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "DIR-3 KYC Director Verification" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "LLP Form 11 & Form 8 Filing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Company Status Updates & Maintenance" } }
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vtconsulting.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://vtconsulting.in/services" },
+        { "@type": "ListItem", "position": 3, "name": "ROC Compliance", "item": "https://vtconsulting.in/services/roc-compliance" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is ROC compliance for a Private Limited Company?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Annual compliance includes filing the company's financial statements in Form AOC-4, the annual return in Form MGT-7, and director KYC verification in Form DIR-3 KYC." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the deadline for filing AOC-4 and MGT-7?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Typically, Form AOC-4 must be filed within 30 days of the Annual General Meeting (AGM), and Form MGT-7 within 60 days of the AGM." }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the penalties for late MCA/ROC filings?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Late filings incur a penalty of ₹100 per day per form, and continuous non-compliance can lead to disqualification of directors and company strike-off." }
+        }
+      ]
+    }
+  ]
 };
 
 const RocCompliance = () => {
   return (
     <>
       <SEO 
-        title="ROC Compliance & MCA Filing Services | VT Business Support"
-        description="Company annual returns filing, director KYC, MCA compliance support, and company maintenance services for private limited companies and LLPs."
+        title="ROC Compliance & MCA Filing Tamil Nadu & Bengaluru | VT Business Support"
+        description="Professional ROC annual return filing, Form AOC-4, Form MGT-7, Director KYC filing, and MCA compliance support for Pvt Ltd companies and LLPs."
+        keywords="ROC compliance, MCA filing, annual returns filing, AOC-4 filing, MGT-7 filing, director KYC, company compliance, LLP annual return, Form 11 LLP, MCA registrar, company maintenance, company secretary Dharmapuri, ROC filing Bengaluru, private limited compliance, VT Business Support"
         schema={rocComplianceSchema}
+        type="website"
       />
 
       {/* HERO */}
-      <section    
-        className="gst-hero-section service-hero-section"
-        style={{
-          padding: '72px 0 64px',
-          color: '#fff',
-          position: 'relative',
-          overflow: 'hidden',
-          background: `
-            linear-gradient(
-            135deg,
-            #081028 0%,
-            #091530 45%,
-            #0A1635 100%
-            )
-            `,           
-        }}
-      >
+      <section className="shs-hero service-hero-section">
         <div className="container">
-
-          <div
-            className="gst-hero-grid  service-hero-grid"
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '1.1fr 0.92fr',
-              gap: '3rem',
-              alignItems: 'center',
-            }}
-          >
+          <div className="shs-hero-grid">
 
             {/* LEFT */}
-            <div
-                className="gst-hero-left  service-hero-left"
-                style={{
-                    width: '100%',
-                    maxWidth: '620px',
-                    position: 'relative',
-                    zIndex: 2
-                    
-                }}
-            >
-              <div
-                style={{
-                    position: 'absolute',
-                    width: '280px',
-                    height: '280px',
-                    background: 'rgba(74,63,224,0.16)',
-                    filter: 'blur(120px)',
-                    top: '-80px',
-                    left: '-120px',
-                    zIndex: -1
-                }}
-              />                
+            <div className="shs-hero-left">
+              <div className="shs-blur" />
 
-                <div
-                    style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    padding: '8px 14px',
-                    borderRadius: '999px',
-                    background: 'rgba(255,255,255,0.08)',
-                    border: '1px solid rgba(255,255,255,0.08)',
-                    fontSize: '0.85rem',
-                    fontWeight: '600',
-                    marginBottom: '1.5rem'
-                    }}
-                >
-                    <CheckCircle size={15} style={{ color: '#10B981' }} />
-                Trusted ROC Compliance Support
-              </div>
+              <h1 className="shs-title">
+                ROC Compliance
+                <br />
+                <span className="shs-accent" style={{ color: '#4A3FE0' }}>&amp; MCA Filings</span>
+              </h1>
 
-                <h1
-                  className="gst-hero-title service-hero-title"
-                  style={{
-                    fontSize: 'clamp(2.9rem, 5vw, 4.5rem)',
-                    lineHeight: '1.02',
-                    fontWeight: '900',
-                    marginBottom: '1.4rem',
-                    maxWidth: '620px',
-                    color: '#FFFFFF',
-                    letterSpacing: '-0.04em'
-                  }}
-                >
-                  ROC Compliance
-                  <br />
-
-                  <span style={{ color: '#5B4DFF' }}>
-                    Services
-                  </span>
-
-                  <br />
-
-                  for Growing Companies
-                </h1>
-
-              <p
-                className="gst-hero-desc service-hero-desc"
-                style={{
-                  color: 'rgba(255,255,255,0.72)',
-                  fontSize: '1.05rem',
-                  lineHeight: '1.8',
-                  maxWidth: '620px',
-                  marginBottom: '2rem',
-                  position: 'relative',
-                 
-                }}
-              >
-                ROC filing, MCA compliance,
-                director KYC, annual returns,
-                and company compliance support
-                for startups and private limited companies.
+              <p className="shs-desc">
+                Company annual returns, financials filing, director KYC,
+                and corporate maintenance for Private Limited Companies and LLPs
+                in Tamil Nadu &amp; Bengaluru.
               </p>
 
-              {/* CTA */}
-              <div
-                className="gst-hero-buttons service-hero-buttons"
-                style={{
-                  display: 'flex',
-                  gap: '1rem',
-                  flexWrap: 'wrap',
-                  marginBottom: '2rem'
-                }}
-              >
-
+              <div className="shs-buttons">
                 <a
-                  className="gst-hero-cta"
+                  className="shs-btn-primary"
                   href="https://wa.me/918925063980"
                   target="_blank"
                   rel="noreferrer"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    boxShadow: '0 10px 30px rgba(16,185,129,0.22)',
-                    transition: 'all 0.22s ease',
-                    gap: '8px',
-                    background: '#10B981',
-                    color: '#fff',
-                    padding: '14px 22px',
-                    borderRadius: '12px',
-                    textDecoration: 'none',
-                    fontWeight: '700'
-                  }}
                 >
-                  Get ROC Support
-                  <ArrowRight size={16} />
+                  Get ROC Support <ArrowRight size={16} />
                 </a>
-
-                <a
-                  className="gst-hero-cta"
-                  href="#gst-services"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    background: 'rgba(255,255,255,0.04)',
-                    backdropFilter: 'blur(8px)',
-                    border: '1px solid rgba(255,255,255,0.12)',
-                    color: '#fff',
-                    padding: '14px 22px',
-                    borderRadius: '12px',
-                    textDecoration: 'none',
-                    fontWeight: '600'
-                  }}
-                >
-                  View Services
-                </a>
-
+                <Link className="shs-btn-secondary" to="/contact">
+                  Talk To Us
+                </Link>
               </div>
 
-              {/* TRUST ROW */}
-              <div
-                className="gst-hero-cta service-hero-trust"
-                style={{
-                  display: 'flex',
-                  gap: '1.5rem',
-                  flexWrap: 'wrap',
-                  color: 'rgba(255,255,255,0.7)',
-                  fontSize: '0.92rem'
-                }}
-              >
-                <span>✔ ROC Filing</span>
-                <span>✔ Director KYC</span>
-                <span>✔ MCA Compliance</span>
+              <div className="shs-trust">
+                <span>✓ Annual Returns</span>
+                <span>✓ Director KYC Verification</span>
+                <span>✓ Zero Penalty Tracking</span>
               </div>
-
             </div>
 
-            {/* RIGHT CARD */}
-            <div className="gst-hero-right">
-
-              <div
-                className="gst-hero-card service-hero-card"
-                style={{
-                  background: 'rgba(15,23,42,0.72)',
-                  boxShadow: '0 24px 60px rgba(0,0,0,0.28)',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  borderRadius: '24px',
-                  padding: '2rem',
-                  width: '100%',
-                  maxWidth: '480px',
-                  marginLeft: 'auto',
-                  backdropFilter: 'blur(18px)'
-                }}
-              >
-
-                <div
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '1.2rem'
-                  }}
-                >
-
-                  {[
-                    'Annual ROC Filing',
-                    'Director KYC Filing',
-                    'MCA Compliance Support',
-                    'Private Limited Compliance',
-                    'Company Annual Returns'
-                  ].map((item) => (
-
-                    <div
-                      key={item}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '12px',
-                        paddingBottom: '0.9rem',
-                        borderBottom: '1px solid rgba(255,255,255,0.04)'
-                      }}
-                    >
-                      <div
-                        style={{
-                          width: '42px',
-                          height: '42px',
-                          borderRadius: '12px',
-                          background: `
-                            linear-gradient(
-                            135deg,
-                            rgba(16,185,129,0.18),
-                            rgba(16,185,129,0.08)
-                            )
-                            `,
-                            border: '1px solid rgba(16,185,129,0.10)',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center'
-                        }}
-                      >
-                        <FileText size={18} style={{ color: '#10B981' }} />
-                      </div>
-
-                      <div>
-                        <div
-                          style={{
-                            fontWeight: '600',
-                            marginBottom: '2px'
-                          }}
-                        >
-                          {item}
-                        </div>
-
-                        <div
-                          style={{
-                            color: 'rgba(255,255,255,0.6)',
-                            fontSize: '0.88rem'
-                          }}
-                        >
-                          {
-                            item === 'Annual ROC Filing'
-                              ? 'Yearly ROC compliance support'
-                              : item === 'Director KYC Filing'
-                              ? 'DIN & KYC filing assistance'
-                              : item === 'MCA Compliance Support'
-                              ? 'Registrar compliance guidance'
-                              : item === 'Private Limited Compliance'
-                              ? 'Company compliance management'
-                              : 'Annual company return support'
-                          }
-                        </div>
-                      </div>
-                    </div>
-
-                  ))}
-
-                </div>
-
-                {/* Bottom Stats */}
-                <div
-                  className="gst-hero-stats"
-                  style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(3,1fr)',
-                    gap: '1rem',
-                    marginTop: '2rem'
-                  }}
-                >
-
-                  {[
-                    {
-                      icon: <Shield size={18} />,
-                      value: '100%',
-                      label: 'Secure'
-                    },
-                    {
-                      icon: <Clock size={18} />,
-                      value: 'Fast',
-                      label: 'Response'
-                    },
-                    {
-                      icon: <CheckCircle size={18} />,
-                      value: '5+',
-                      label: 'Years'
-                    }
-                  ].map((stat) => (
-
-                    <div
-                      key={stat.label}
-                      style={{
-                        background: 'rgba(255,255,255,0.04)',
-                        border: '1px solid rgba(255,255,255,0.06)',
-                        borderRadius: '14px',
-                        padding: '1rem',
-                        textAlign: 'center'
-                      }}
-                    >
-                      <div
-                        style={{
-                          color: '#10B981',
-                          marginBottom: '0.5rem'
-                        }}
-                      >
-                        {stat.icon}
-                      </div>
-
-                      <div
-                        style={{
-                          fontWeight: '700',
-                          fontSize: '1.1rem'
-                        }}
-                      >
-                        {stat.value}
-                      </div>
-
-                      <div
-                        style={{
-                          color: 'rgba(255,255,255,0.6)',
-                          fontSize: '0.82rem'
-                        }}
-                      >
-                        {stat.label}
-                      </div>
-                    </div>
-
-                  ))}
-
-                </div>
-
+            {/* RIGHT */}
+            <div className="shs-hero-right">
+              <div className="shs-visual-badge">
+                <CheckCircle size={15} /> ROC &amp; MCA COMPLIANCE
               </div>
-
+              <HeroVisual
+                theme="purple"
+                lightMode={true}
+                milestones={["KYC Filed", "Annual Returns", "MCA Compliant", "Active Status"]}
+                cards={[
+                  { title: "Director KYC", subtitle: "Active & Approved" },
+                  { title: "AOC-4 & MGT-7", subtitle: "Filed Successfully" },
+                  { title: "Active Status", subtitle: "Company Compliant" }
+                ]}
+              />
             </div>
 
           </div>
-
         </div>
       </section>
 

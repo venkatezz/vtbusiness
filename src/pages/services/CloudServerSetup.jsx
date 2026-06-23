@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
-import ServiceHeroVisual from '../../components/ServiceHeroVisual';
-
+import HeroVisual from '../../components/HeroVisual';
 import {
   Cloud,
   Server,
@@ -15,20 +14,84 @@ import {
   ShieldCheck,
   Lock
 } from 'lucide-react';
-
+import '../../styles/service-hero-system.css';
 import '../../styles/cloud-server-setup.css';
-import '../../styles/serviceHero.css';
 
 const cloudSetupSchema = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Cloud Server Setup & Hosting Configuration",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "VT Business Support",
-    "telephone": "+918925063980"
-  },
-  "description": "VPS hosting configuration, digital ocean, Linode, AWS cloud servers, SSL installation, domain mapping, backup schedules, and cloud migration support."
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://vtconsulting.in/services/cloud-server-setup#service",
+      "name": "Cloud Server Setup & Hosting Configuration Services",
+      "alternateName": [
+        "Cloud Server Setup",
+        "VPS Setup & Configuration",
+        "Cloud Web Hosting Setup",
+        "VPS Server Hardening",
+        "Website Migration Services",
+        "SSL & Domain Mapping"
+      ],
+      "description": "Expert Cloud and VPS server setup services. We configure DigitalOcean, Linode, Contabo, cPanel, CyberPanel, SSL, DNS mapping, and automated back up structures across Tamil Nadu and Bengaluru.",
+      "url": "https://vtconsulting.in/services/cloud-server-setup",
+      "serviceType": "Cloud Hosting & Systems Administration",
+      "provider": {
+        "@type": "LocalBusiness",
+        "@id": "https://vtconsulting.in#business",
+        "name": "VT Business Support",
+        "telephone": "+918925063980",
+        "email": "vtconsulting.in@gmail.com",
+        "areaServed": [
+          { "@type": "AdministrativeArea", "name": "Tamil Nadu" },
+          { "@type": "AdministrativeArea", "name": "Karnataka" }
+        ]
+      },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Tamil Nadu" },
+        { "@type": "AdministrativeArea", "name": "Karnataka" },
+        { "@type": "Country", "name": "India" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Cloud Setup Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "DigitalOcean & Linode Droplet Deployment" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "cPanel, CyberPanel & Webmin Setup" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Let's Encrypt SSL & Domain DNS Mapping" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Incremental Cloud Server Backups" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "WordPress VPS Migration & Server Hardening" } }
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vtconsulting.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://vtconsulting.in/services" },
+        { "@type": "ListItem", "position": 3, "name": "Cloud Server Setup", "item": "https://vtconsulting.in/services/cloud-server-setup" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which VPS providers do you support?",
+          "acceptedAnswer": { "@type": "Answer", "text": "We configure and manage servers on DigitalOcean, Linode/Akamai, Vultr, Contabo, Hetzner, AWS Lightsail, and Google Cloud." }
+        },
+        {
+          "@type": "Question",
+          "name": "What control panels do you install?",
+          "acceptedAnswer": { "@type": "Answer", "text": "We deploy and support web control panels like CyberPanel (with OpenLiteSpeed), cPanel/WHM, HestiaCP, aaPanel, and CloudPanel for optimized resource usage." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you handle domain configuration?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, we handle complete DNS setups, including custom nameservers, Cloudflare integration, SPF/DKIM/DMARC email records, and SSL mappings." }
+        }
+      ]
+    }
+  ]
 };
 
 const cloudServices = [
@@ -81,120 +144,80 @@ const processSteps = [
   'Monitor & Maintain Operations',
 ];
 
-// Flat Professional Cloud Hosting / Secure Server SVG
-const CloudServerSetupIllustration = () => (
-  <svg viewBox="0 0 400 300" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Enclosing visual framework */}
-    <rect x="30" y="30" width="340" height="240" rx="14" fill="rgba(74, 63, 224, 0.02)" stroke="rgba(74, 63, 224, 0.04)" strokeWidth="1.5" />
-    
-    {/* Physical Server Rack array */}
-    <rect x="90" y="60" width="220" height="170" rx="12" fill="#0F172A" stroke="rgba(255,255,255,0.06)" strokeWidth="2.5" />
-    
-    {/* Hard drive Bay 1 */}
-    <rect x="110" y="80" width="180" height="34" rx="6" fill="#1E293B" stroke="rgba(255,255,255,0.04)" />
-    <circle cx="130" cy="97" r="4" fill="#10B981" />
-    <line x1="150" y1="97" x2="250" y2="97" stroke="#475569" strokeWidth="4" strokeLinecap="round" />
-    <circle cx="270" cy="97" r="3" fill="#4A3FE0" />
-    
-    {/* Hard drive Bay 2 */}
-    <rect x="110" y="128" width="180" height="34" rx="6" fill="#1E293B" stroke="rgba(255,255,255,0.04)" />
-    <circle cx="130" cy="145" r="4" fill="#10B981" />
-    <line x1="150" y1="145" x2="230" y2="145" stroke="#475569" strokeWidth="4" strokeLinecap="round" />
-    <circle cx="270" cy="145" r="3" fill="#10B981" />
-    
-    {/* Hard drive Bay 3 */}
-    <rect x="110" y="176" width="180" height="34" rx="6" fill="#1E293B" stroke="rgba(255,255,255,0.04)" />
-    <circle cx="130" cy="193" r="4" fill="#10B981" />
-    <line x1="150" y1="193" x2="260" y2="193" stroke="#475569" strokeWidth="4" strokeLinecap="round" />
-    <circle cx="270" cy="193" r="3" fill="#EF4444" />
-  </svg>
-);
-
 const CloudServerSetup = () => {
   return (
     <main className="cloud-page">
       <SEO 
-        title="Cloud Server Setup & Hosting Configuration | VT Business Support"
-        description="VPS hosting configuration, digital ocean, Linode, AWS cloud servers, SSL installation, domain mapping, backup schedules, and cloud migration support."
+        title="Cloud Server Setup & Hosting Tamil Nadu & Bengaluru | VT Business Support"
+        description="Professional Cloud VPS setups, control panel installs (CyberPanel, cPanel), SSL certificates, custom DNS configs, and offsite backups."
+        keywords="cloud server setup, VPS hosting configuration, DigitalOcean droplet setup, CyberPanel installation, free SSL install, domain mapping, server backup, Cloudflare setup Dharmapuri, VPS consultant Bengaluru, VT Business Support"
         schema={cloudSetupSchema}
+        type="website"
       />
 
       {/* HERO */}
-      <section className="service-hero">
-
+      <section className="shs-hero service-hero-section">
         <div className="container">
+          <div className="shs-hero-grid">
 
-          <div className="service-hero-grid">
+            {/* LEFT */}
+            <div className="shs-hero-left">
+              <div className="shs-blur" />
 
-            {/* LEFT COLUMN */}
-            <div className="service-hero-content">
-
-              <div className="service-badge">
-                <ShieldCheck size={14} />
-                <span>Business Cloud Infrastructure Support</span>
-              </div>
-
-              <h1 className="service-title">
-                Cloud & Server
-                <span> Infrastructure Setup</span>
+              <h1 className="shs-title">
+                Cloud Server Setup
+                <br />
+                <span className="shs-accent" style={{ color: '#4A3FE0' }}>&amp; Hosting Config</span>
               </h1>
 
-              <p className="service-desc">
-                Professional cloud infrastructure setup for
-                AWS, Linux VPS, website hosting, server security,
-                backup systems, and reliable business operations.
+              <p className="shs-desc">
+                Reliable cloud infrastructure setups, Linux VPS deployments,
+                control panel configurations, SSL certificates, domain mappings,
+                and scheduled backups for your business applications.
               </p>
 
-              <div className="service-buttons">
-
+              <div className="shs-buttons">
                 <a
-                  href="https://api.whatsapp.com/send?phone=918925063980"
+                  className="shs-btn-primary"
+                  href="https://wa.me/918925063980"
                   target="_blank"
-                  rel="noopener noreferrer"
-                  className="service-btn-primary"
+                  rel="noreferrer"
                 >
-                  Discuss Infrastructure Setup
+                  Setup My Server <ArrowRight size={16} />
                 </a>
-
-                <Link
-                  to="/contact"
-                  className="service-btn-secondary"
-                >
-                  Talk to Us
+                <Link className="shs-btn-secondary" to="/contact">
+                  Talk To Us
                 </Link>
-
               </div>
 
-              <div className="service-trust-strip">
-                <div className="service-trust-item">
-                  <CheckCircle size={16} />
-                  <span>AWS Infrastructure</span>
-                </div>
-                <div className="service-trust-item">
-                  <CheckCircle size={16} />
-                  <span>Linux VPS Support</span>
-                </div>
-                <div className="service-trust-item">
-                  <CheckCircle size={16} />
-                  <span>Secure Hosting</span>
-                </div>
+              <div className="shs-trust">
+                <span>✓ VPS &amp; Dedicated Hosting</span>
+                <span>✓ SSL &amp; Domain Configurations</span>
+                <span>✓ Automated Storage Backups</span>
               </div>
-
             </div>
 
-            {/* RIGHT COLUMN */}
-            <ServiceHeroVisual
-              svgIllustration={CloudServerSetupIllustration}
-              trustLabel="SSL Active"
-              trustValue="BACKUP ENABLED"
-              trustIcon={Lock}
-            />
+            {/* RIGHT */}
+            <div className="shs-hero-right">
+              <div className="shs-visual-badge">
+                <CheckCircle size={15} /> VPS &amp; CLOUD CONFIGURATION
+              </div>
+              <HeroVisual
+                theme="purple"
+                lightMode={true}
+                milestones={["VPS Deployed", "CyberPanel Configured", "Domain Mapped", "SSL Installed"]}
+                cards={[
+                  { title: "VPS Setup", subtitle: "OS Installed & Hardened" },
+                  { title: "Control Panel", subtitle: "Active & Secure" },
+                  { title: "SSL / DNS", subtitle: "Verified & Protected" }
+                ]}
+              />
+            </div>
 
           </div>
-
         </div>
-
       </section>
+
 
       {/* SERVICES */}
       <section className="cloud-section">

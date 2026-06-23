@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
-import ServiceHeroVisual from '../../components/ServiceHeroVisual';
-
+import HeroVisual from '../../components/HeroVisual';
 import {
   Globe,
   LayoutDashboard,
@@ -13,20 +12,84 @@ import {
   ArrowRight,
   CheckCircle
 } from 'lucide-react';
-
+import '../../styles/service-hero-system.css';
 import '../../styles/website-development.css';
-import '../../styles/serviceHero.css';
 
 const webDevSchema = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Custom Web Development & Design Services",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "VT Business Support",
-    "telephone": "+918925063980"
-  },
-  "description": "High-performance, custom React/Vite websites, responsive frontend coding, SEO friendliness, web application design, and modern website design."
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://vtconsulting.in/services/website-development#service",
+      "name": "Custom Web Development & Design Services",
+      "alternateName": [
+        "Web Design Services",
+        "Custom Web Development",
+        "React Website Development",
+        "Landing Page Design",
+        "Business Website Design",
+        "Responsive Web Coding"
+      ],
+      "description": "Professional web design and development. We build high-performance React/Vite websites, responsive frontend interfaces, lead generation landing pages, and optimized local SEO sites across Tamil Nadu and Bengaluru.",
+      "url": "https://vtconsulting.in/services/website-development",
+      "serviceType": "Web Development & Digital Consultation",
+      "provider": {
+        "@type": "LocalBusiness",
+        "@id": "https://vtconsulting.in#business",
+        "name": "VT Business Support",
+        "telephone": "+918925063980",
+        "email": "vtconsulting.in@gmail.com",
+        "areaServed": [
+          { "@type": "AdministrativeArea", "name": "Tamil Nadu" },
+          { "@type": "AdministrativeArea", "name": "Karnataka" }
+        ]
+      },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Tamil Nadu" },
+        { "@type": "AdministrativeArea", "name": "Karnataka" },
+        { "@type": "Country", "name": "India" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Web Development Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Startup & Corporate Portfolio Websites" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "High-Conversion Lead Generation Landing Pages" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom React / Vite Single Page Applications" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile-Responsive Frontend Coding" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Technical SEO Optimization & Audits" } }
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vtconsulting.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://vtconsulting.in/services" },
+        { "@type": "ListItem", "position": 3, "name": "Website Development", "item": "https://vtconsulting.in/services/website-development" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do you use React for web development?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, we build modern websites using React and Vite, securing extremely fast page loads and smooth client-side routing." }
+        },
+        {
+          "@type": "Question",
+          "name": "Are your web layouts optimized for mobile devices?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, all our websites are fully responsive and adapt perfectly to all screen sizes including smartphones, tablets, laptops, and wide screens." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you handle website deployment and hosting?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, we handle complete domain setup, custom DNS records, Cloudflare caching configurations, and deploy websites to reliable hosting spaces." }
+        }
+      ]
+    }
+  ]
 };
 
 const websiteServices = [
@@ -88,124 +151,80 @@ const techStack = [
   'Cloudflare',
 ];
 
-// Flat Professional Modern Website / Browser / Digital Experience SVG
-const WebsiteDevelopmentIllustration = () => (
-  <svg viewBox="0 0 400 300" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Background Grid */}
-    <rect x="20" y="20" width="360" height="260" rx="16" fill="rgba(74, 63, 224, 0.02)" stroke="rgba(74, 63, 224, 0.05)" strokeWidth="2" />
-    
-    {/* Browser Frame */}
-    <rect x="60" y="50" width="280" height="200" rx="10" fill="#0F172A" stroke="rgba(255,255,255,0.06)" strokeWidth="2" />
-    
-    {/* Browser Header Bar */}
-    <path d="M60 70 L340 70" stroke="rgba(255,255,255,0.08)" strokeWidth="2" />
-    <circle cx="75" cy="60" r="4" fill="#EF4444" />
-    <circle cx="87" cy="60" r="4" fill="#F59E0B" />
-    <circle cx="99" cy="60" r="4" fill="#10B981" />
-    
-    {/* Browser Content - Layout columns */}
-    <rect x="80" y="90" width="110" height="80" rx="6" fill="#1E293B" stroke="rgba(255,255,255,0.04)" />
-    <circle cx="110" cy="120" r="16" fill="rgba(74, 63, 224, 0.15)" stroke="#5B4DFF" strokeWidth="2" />
-    <line x1="80" y1="184" x2="190" y2="184" stroke="#475569" strokeWidth="4" strokeLinecap="round" />
-    
-    <rect x="210" y="90" width="110" height="130" rx="6" fill="#1E293B" stroke="rgba(255,255,255,0.04)" />
-    <line x1="225" y1="110" x2="295" y2="110" stroke="#94A3B8" strokeWidth="3" strokeLinecap="round" />
-    <line x1="225" y1="125" x2="275" y2="125" stroke="#475569" strokeWidth="3" strokeLinecap="round" />
-    <line x1="225" y1="140" x2="285" y2="140" stroke="#475569" strokeWidth="3" strokeLinecap="round" />
-    
-    {/* Dynamic UI Graph representation */}
-    <path d="M225 200 L245 180 L265 190 L285 170 L305 185" stroke="#10B981" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-    
-    {/* Star Ratings on left column */}
-    <path d="M125 152 L127 156 L131 156 L128 159 L129 163 L125 160 L121 163 L122 159 L119 156 L123 156 Z" fill="#F59E0B" />
-  </svg>
-);
-
 const WebsiteDevelopment = () => {
   return (
     <main className="webdev-page">
       <SEO 
-        title="Custom Web Development & Design Services | VT Business Support"
-        description="High-performance, custom React/Vite websites, responsive frontend coding, SEO friendliness, web application design, and modern website design."
+        title="Custom Website Development Tamil Nadu & Bengaluru | VT Business Support"
+        description="High-performance custom React websites, mobile responsive interfaces, optimized landing pages, business landing pages, and technical SEO configurations."
+        keywords="website development, web design company, React development, custom website, responsive layout, SEO optimized web, business portfolio website, web designer Dharmapuri, web developer Bengaluru, VT Business Support"
         schema={webDevSchema}
+        type="website"
       />
 
       {/* HERO */}
-      <section className="service-hero">
-
+      <section className="shs-hero service-hero-section">
         <div className="container">
+          <div className="shs-hero-grid">
 
-          <div className="service-hero-grid">
+            {/* LEFT */}
+            <div className="shs-hero-left">
+              <div className="shs-blur" />
 
-            {/* LEFT COLUMN */}
-            <div className="service-hero-content">
-
-              <div className="service-badge">
-                <ShieldCheck size={14} />
-                <span>Modern Business Website Solutions</span>
-              </div>
-
-              <h1 className="service-title">
-                Professional Website
-                <span> Development Services</span>
+              <h1 className="shs-title">
+                Website Development
+                <br />
+                <span className="shs-accent" style={{ color: '#4A3FE0' }}>&amp; Modern Design</span>
               </h1>
 
-              <p className="service-desc">
-                Modern, responsive, and business-focused websites
-                for startups, consultants, GST firms, and growing
-                businesses across Tamil Nadu and Bengaluru.
+              <p className="shs-desc">
+                High-performance, mobile-responsive React websites, landing pages,
+                and business portals designed to convert visitors and rank well on Google.
+                Serving startups and professionals across Tamil Nadu &amp; Bengaluru.
               </p>
 
-              <div className="service-buttons">
-
+              <div className="shs-buttons">
                 <a
-                  href="https://api.whatsapp.com/send?phone=918925063980"
+                  className="shs-btn-primary"
+                  href="https://wa.me/918925063980"
                   target="_blank"
-                  rel="noopener noreferrer"
-                  className="service-btn-primary"
+                  rel="noreferrer"
                 >
-                  Discuss Your Website
+                  Start Your Website Project <ArrowRight size={16} />
                 </a>
-
-                <Link
-                  to="/contact"
-                  className="service-btn-secondary"
-                >
-                  Talk to Us
+                <Link className="shs-btn-secondary" to="/contact">
+                  Talk To Us
                 </Link>
-
               </div>
 
-              <div className="service-trust-strip">
-                <div className="service-trust-item">
-                  <CheckCircle size={16} />
-                  <span>Responsive Design</span>
-                </div>
-                <div className="service-trust-item">
-                  <CheckCircle size={16} />
-                  <span>Fast Performance</span>
-                </div>
-                <div className="service-trust-item">
-                  <CheckCircle size={16} />
-                  <span>Business Focused</span>
-                </div>
+              <div className="shs-trust">
+                <span>✓ High-speed React &amp; Vite</span>
+                <span>✓ Mobile Responsive Design</span>
+                <span>✓ Built-in Technical SEO</span>
               </div>
-
             </div>
 
-            {/* RIGHT COLUMN */}
-            <ServiceHeroVisual
-              svgIllustration={WebsiteDevelopmentIllustration}
-              trustLabel="SEO Ready"
-              trustValue="MOBILE FRIENDLY"
-              trustIcon={Rocket}
-            />
+            {/* RIGHT */}
+            <div className="shs-hero-right">
+              <div className="shs-visual-badge">
+                <CheckCircle size={15} /> CUSTOM WEB DEVELOPMENT
+              </div>
+              <HeroVisual
+                theme="purple"
+                lightMode={true}
+                milestones={["Figma Design", "React Coding", "SEO Configured", "Live Launch"]}
+                cards={[
+                  { title: "React Site", subtitle: "Core Web Vitals Checked" },
+                  { title: "UX Layout", subtitle: "100% Mobile Responsive" },
+                  { title: "SEO Tagging", subtitle: "Google Index Ready" }
+                ]}
+              />
+            </div>
 
           </div>
-
         </div>
-
       </section>
+
 
       {/* SERVICES */}
       <section className="webdev-section">

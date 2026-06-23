@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
-import ServiceHeroVisual from '../../components/ServiceHeroVisual';
-
+import HeroVisual from '../../components/HeroVisual';
 import {
   Server,
   Cloud,
@@ -15,20 +14,84 @@ import {
   ShieldCheck,
   Clock
 } from 'lucide-react';
-
+import '../../styles/service-hero-system.css';
 import '../../styles/it-support.css';
-import '../../styles/serviceHero.css';
 
 const itSupportSchema = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "IT Support & Office Infrastructure Services",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "VT Business Support",
-    "telephone": "+918925063980"
-  },
-  "description": "Managed IT support, office network setup, computer hardware maintenance, antivirus, firewall configuration, and IT outsourcing solutions for businesses."
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://vtconsulting.in/services/it-support#service",
+      "name": "IT Support & Office Infrastructure Services",
+      "alternateName": [
+        "Technical Support Services",
+        "Office IT Support",
+        "Managed IT Services",
+        "Network Setup & Maintenance",
+        "Linux Server Support",
+        "AWS Cloud Management"
+      ],
+      "description": "Expert technical support and IT infrastructure services. We offer managed Linux support, AWS cloud administration, business email setup, networking, and security backups across Tamil Nadu and Bengaluru.",
+      "url": "https://vtconsulting.in/services/it-support",
+      "serviceType": "Managed IT & Infrastructure Support",
+      "provider": {
+        "@type": "LocalBusiness",
+        "@id": "https://vtconsulting.in#business",
+        "name": "VT Business Support",
+        "telephone": "+918925063980",
+        "email": "vtconsulting.in@gmail.com",
+        "areaServed": [
+          { "@type": "AdministrativeArea", "name": "Tamil Nadu" },
+          { "@type": "AdministrativeArea", "name": "Karnataka" }
+        ]
+      },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Tamil Nadu" },
+        { "@type": "AdministrativeArea", "name": "Karnataka" },
+        { "@type": "Country", "name": "India" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "IT Support Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Linux Server Administration & Troubleshooting" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AWS EC2, RDS, VPC Cloud Management" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business Email Setup (Google Workspace / M365)" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Router, Firewall & Office IT Networking" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Automated Backups & Data Protection Plans" } }
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vtconsulting.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://vtconsulting.in/services" },
+        { "@type": "ListItem", "position": 3, "name": "IT Infrastructure & Technical Support", "item": "https://vtconsulting.in/services/it-support" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What technical systems do you support?",
+          "acceptedAnswer": { "@type": "Answer", "text": "We support Linux servers (Ubuntu, CentOS, Rocky Linux), AWS cloud setups, GSuite/Office365 corporate emails, routers, firewalls, and local office networks." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you provide on-site or remote support?",
+          "acceptedAnswer": { "@type": "Answer", "text": "We offer remote support for cloud servers and email setups nationwide. For office networking and hardware infrastructure, we provide on-site support in Tamil Nadu (Dharmapuri & nearby districts) and Electronic City (Bengaluru)." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you migrate our email to Google Workspace?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, we handle complete email migrations from legacy cPanel or GoDaddy mail servers to Google Workspace or Microsoft 365, preserving all historical emails and contacts." }
+        }
+      ]
+    }
+  ]
 };
 
 const supportAreas = [
@@ -81,120 +144,82 @@ const processSteps = [
   'Provide Ongoing Technical Support',
 ];
 
-// Premium Custom Flat SVG illustration for business non-technical audience
-const ITSupportIllustration = () => (
-  <svg viewBox="0 0 400 300" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Base Laptop */}
-    <rect x="70" y="80" width="260" height="150" rx="12" fill="#0F172A" />
-    <rect x="80" y="90" width="240" height="130" rx="6" fill="#1E293B" />
-    <rect x="40" y="230" width="320" height="14" rx="7" fill="#64748B" />
-    
-    {/* Laptop Keyboard Groove */}
-    <rect x="180" y="232" width="40" height="4" rx="2" fill="#475569" />
-    
-    {/* Clean Business Dashboard Mockup inside Screen */}
-    <rect x="96" y="106" width="90" height="42" rx="4" fill="#334155" />
-    <line x1="106" y1="118" x2="156" y2="118" stroke="#94A3B8" strokeWidth="3" strokeLinecap="round" />
-    <line x1="106" y1="128" x2="176" y2="128" stroke="#94A3B8" strokeWidth="3" strokeLinecap="round" />
-    <circle cx="216" cy="127" r="16" fill="rgba(74, 63, 224, 0.15)" stroke="#5B4DFF" strokeWidth="2" />
-    
-    {/* Active Live Uptime Status Path */}
-    <rect x="96" y="160" width="208" height="46" rx="6" fill="#0F172A" stroke="rgba(255,255,255,0.06)" />
-    <circle cx="116" cy="183" r="6" fill="#10B981" />
-    <line x1="132" y1="183" x2="280" y2="183" stroke="#475569" strokeWidth="4" strokeLinecap="round" />
-    
-    {/* Customer Support Floating Shield */}
-    <circle cx="300" cy="100" r="32" fill="#ffffff" filter="drop-shadow(0 10px 20px rgba(8,16,40,0.12))" />
-    <path d="M300 86 C296 88 290 88 288 88 L288 100 C288 108 296 114 300 116 C304 114 312 108 312 100 L312 88 C310 88 304 88 300 86 Z" fill="#4A3FE0" />
-    <path d="M295 101 L298 104 L305 97" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
+
 
 const ITSupport = () => {
   return (
     <main className="it-support-page">
       <SEO 
-        title="IT Support & Office Infrastructure Services | VT Business Support"
-        description="Managed IT support, office network setup, computer hardware maintenance, antivirus, firewall configuration, and IT outsourcing solutions for businesses."
+        title="IT Support & Office Infrastructure Tamil Nadu & Bengaluru | VT Business Support"
+        description="Managed IT services, Linux server admin, AWS cloud setup, Google Workspace emails, router/networking setups, and automated backup strategies."
+        keywords="IT support, technical support, Linux server administration, AWS setup, GSuite setup, office network installation, data backup, tech support Bengaluru, IT outsourcing Dharmapuri, VT Business Support"
         schema={itSupportSchema}
+        type="website"
       />
 
       {/* HERO */}
-      <section className="service-hero">
-
+      <section className="shs-hero service-hero-section">
         <div className="container">
+          <div className="shs-hero-grid">
 
-          <div className="service-hero-grid">
+            {/* LEFT */}
+            <div className="shs-hero-left">
+              <div className="shs-blur" />
 
-            {/* LEFT COLUMN */}
-            <div className="service-hero-content">
-
-              <div className="service-badge">
-                <ShieldCheck size={14} />
-                <span>Business IT Operations Support</span>
-              </div>
-
-              <h1 className="service-title">
-                IT Infrastructure &
-                <span> Technical Support</span>
+              <h1 className="shs-title">
+                IT Support &amp;
+                <br />
+                <span className="shs-accent--cyan" style={{ color: '#06B6D4' }}>Tech Infrastructure</span>
               </h1>
 
-              <p className="service-desc">
-                Reliable business IT support for Linux systems,
-                cloud infrastructure, networking, website hosting,
-                and office operations across Tamil Nadu and Bengaluru.
+              <p className="shs-desc">
+                Reliable business IT support for Linux servers, AWS environments,
+                corporate emails, networking, and office infrastructure support
+                across Tamil Nadu &amp; Bengaluru.
               </p>
 
-              <div className="service-buttons">
-
+              <div className="shs-buttons">
                 <a
-                  href="https://api.whatsapp.com/send?phone=918925063980"
+                  className="shs-btn-primary"
+                  href="https://wa.me/918925063980"
                   target="_blank"
-                  rel="noopener noreferrer"
-                  className="service-btn-primary"
+                  rel="noreferrer"
                 >
-                  Chat on WhatsApp
+                  Get Technical Support <ArrowRight size={16} />
                 </a>
-
-                <Link
-                  to="/contact"
-                  className="service-btn-secondary"
-                >
-                  Talk to Us
+                <Link className="shs-btn-secondary" to="/contact">
+                  Talk To Us
                 </Link>
-
               </div>
 
-              <div className="service-trust-strip">
-                <div className="service-trust-item">
-                  <CheckCircle size={16} />
-                  <span>Linux Systems</span>
-                </div>
-                <div className="service-trust-item">
-                  <CheckCircle size={16} />
-                  <span>Office IT</span>
-                </div>
-                <div className="service-trust-item">
-                  <CheckCircle size={16} />
-                  <span>24/7 Monitoring</span>
-                </div>
+              <div className="shs-trust">
+                <span>✓ Linux &amp; Cloud Support</span>
+                <span>✓ Office Network Setup</span>
+                <span>✓ 24/7 Server Monitoring</span>
               </div>
-
             </div>
 
-            {/* RIGHT COLUMN */}
-            <ServiceHeroVisual
-              svgIllustration={ITSupportIllustration}
-              trustLabel="Fast Response"
-              trustValue="ACTIVE SUPPORT"
-              trustIcon={Clock}
-            />
+            {/* RIGHT */}
+            <div className="shs-hero-right">
+              <div className="shs-visual-badge">
+                <CheckCircle size={15} /> IT SUPPORT &amp; INFRASTRUCTURE
+              </div>
+              <HeroVisual
+                theme="cyan"
+                lightMode={true}
+                milestones={["Audit Completed", "Setup Hardened", "Active Backups", "24/7 Monitoring"]}
+                cards={[
+                  { title: "Linux Servers", subtitle: "99.9% Uptime Active" },
+                  { title: "AWS Infrastructure", subtitle: "Cost Optimized" },
+                  { title: "Office Support", subtitle: "Zero Network Failures" }
+                ]}
+              />
+            </div>
 
           </div>
-
         </div>
-
       </section>
+
 
       {/* SUPPORT AREAS */}
       <section className="it-section">

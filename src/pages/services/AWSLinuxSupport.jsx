@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
-import ServiceHeroVisual from '../../components/ServiceHeroVisual';
-
+import HeroVisual from '../../components/HeroVisual';
 import {
   Server,
   Cloud,
@@ -14,20 +13,84 @@ import {
   CheckCircle,
   ShieldCheck
 } from 'lucide-react';
-
+import '../../styles/service-hero-system.css';
 import '../../styles/aws-linux-support.css';
-import '../../styles/serviceHero.css';
 
 const awsSupportSchema = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "AWS & Linux Server Administration Support",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "VT Business Support",
-    "telephone": "+918925063980"
-  },
-  "description": "Professional AWS cloud support, EC2 instance setup, Linux server administration, database backups, shell scripting, and server migration services."
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://vtconsulting.in/services/aws-linux-support#service",
+      "name": "AWS & Linux Server Administration Support",
+      "alternateName": [
+        "AWS Server Support",
+        "Linux Server Administration",
+        "AWS Cloud Management",
+        "VPS Setup & Hosting",
+        "AWS EC2 Deployment",
+        "Linux Server Hardening"
+      ],
+      "description": "Enterprise-grade AWS cloud management and Linux server administration services. We handle EC2 setup, VPS deployment, OS hardening, security compliance, backups, and active server monitoring.",
+      "url": "https://vtconsulting.in/services/aws-linux-support",
+      "serviceType": "Cloud Infrastructure & Linux DevOps",
+      "provider": {
+        "@type": "LocalBusiness",
+        "@id": "https://vtconsulting.in#business",
+        "name": "VT Business Support",
+        "telephone": "+918925063980",
+        "email": "vtconsulting.in@gmail.com",
+        "areaServed": [
+          { "@type": "AdministrativeArea", "name": "Tamil Nadu" },
+          { "@type": "AdministrativeArea", "name": "Karnataka" }
+        ]
+      },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Tamil Nadu" },
+        { "@type": "AdministrativeArea", "name": "Karnataka" },
+        { "@type": "Country", "name": "India" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "AWS & Linux Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AWS EC2 Infrastructure Planning & Deployment" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Linux OS Hardening, Patching & Security" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "cPanel / CyberPanel / VPS Deployment & Migration" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "RDS Database Clustering & Performance Optimization" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Automated S3 Backups & Disaster Recovery Setup" } }
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vtconsulting.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://vtconsulting.in/services" },
+        { "@type": "ListItem", "position": 3, "name": "AWS & Linux Support", "item": "https://vtconsulting.in/services/aws-linux-support" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What cloud platforms do you specialize in?",
+          "acceptedAnswer": { "@type": "Answer", "text": "We primarily specialize in Amazon Web Services (AWS) but also manage DigitalOcean, Linode, Hetzner, Contabo, and OVH cloud servers." }
+        },
+        {
+          "@type": "Question",
+          "name": "Which Linux server operating systems do you support?",
+          "acceptedAnswer": { "@type": "Answer", "text": "We support all major enterprise Linux distributions including Ubuntu Server, Rocky Linux, AlmaLinux, CentOS Stream, Debian, and RedHat Enterprise Linux (RHEL)." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you provide automated backups?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, we set up daily and weekly automated cron backups of application files and databases to secure offsite storage like AWS S3 or Backblaze with retention policies." }
+        }
+      ]
+    }
+  ]
 };
 
 const supportServices = [
@@ -80,119 +143,80 @@ const processSteps = [
   'Monitor & Maintain Operations',
 ];
 
-// Flat Professional Cloud Infrastructure / Server Management SVG
-const AWSLinuxSupportIllustration = () => (
-  <svg viewBox="0 0 400 300" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Cloud Background Rings */}
-    <circle cx="200" cy="150" r="110" stroke="rgba(74, 63, 224, 0.05)" strokeWidth="4" strokeDasharray="10 10" />
-    <circle cx="200" cy="150" r="80" stroke="rgba(74, 63, 224, 0.08)" strokeWidth="2" />
-    
-    {/* Main Central Cloud Icon representation */}
-    <path d="M245 130 C245 105 225 85 200 85 C180 85 163 98 157 117 C153 115 149 114 145 114 C128 114 115 127 115 144 C115 160 128 173 145 173 L245 173 C261 173 275 160 275 144 C275 128 261 130 245 130 Z" fill="#1E293B" stroke="#4A3FE0" strokeWidth="2" />
-    
-    {/* Physical Server Rack inside Cloud */}
-    <rect x="150" y="125" width="100" height="36" rx="4" fill="#0F172A" stroke="rgba(255,255,255,0.08)" strokeWidth="1.5" />
-    <circle cx="165" cy="143" r="4" fill="#10B981" />
-    <circle cx="180" cy="143" r="4" fill="#10B981" />
-    <line x1="198" y1="143" x2="236" y2="143" stroke="#475569" strokeWidth="3" strokeLinecap="round" />
-    
-    {/* Action connection lines */}
-    <path d="M145 144 L80 144" stroke="#5B4DFF" strokeWidth="2" strokeDasharray="4 4" />
-    <path d="M245 144 L320 144" stroke="#5B4DFF" strokeWidth="2" strokeDasharray="4 4" />
-    
-    <circle cx="80" cy="144" r="12" fill="#ffffff" filter="drop-shadow(0 4px 10px rgba(8,16,40,0.08))" />
-    <circle cx="80" cy="144" r="6" fill="#10B981" />
-    
-    <circle cx="320" cy="144" r="12" fill="#ffffff" filter="drop-shadow(0 4px 10px rgba(8,16,40,0.08))" />
-    <circle cx="320" cy="144" r="6" fill="#4A3FE0" />
-  </svg>
-);
-
 const AWSLinuxSupport = () => {
   return (
     <main className="aws-page">
       <SEO 
-        title="AWS & Linux Server Administration Support | VT Business Support"
-        description="Professional AWS cloud support, EC2 instance setup, Linux server administration, database backups, shell scripting, and server migration services."
+        title="AWS & Linux Server Administration Tamil Nadu & Bengaluru | VT Business Support"
+        description="Professional AWS cloud support, EC2 VPS setups, Linux server admin, secure database backups, server hardening, and fast website migration services."
+        keywords="AWS support, Linux server administration, EC2 setup, cloud backup, server migration, server hardening, VPS hosting, sysadmin Dharmapuri, AWS consultant Bengaluru, VT Business Support"
         schema={awsSupportSchema}
+        type="website"
       />
 
       {/* HERO */}
-      <section className="service-hero">
-
+      <section className="shs-hero service-hero-section">
         <div className="container">
+          <div className="shs-hero-grid">
 
-          <div className="service-hero-grid">
+            {/* LEFT */}
+            <div className="shs-hero-left">
+              <div className="shs-blur" />
 
-            {/* LEFT COLUMN */}
-            <div className="service-hero-content">
-
-              <div className="service-badge">
-                <ShieldCheck size={14} />
-                <span>Business Infrastructure Support</span>
-              </div>
-
-              <h1 className="service-title">
-                AWS & Linux
-                <span> Infrastructure Support</span>
+              <h1 className="shs-title">
+                AWS &amp; Linux
+                <br />
+                <span className="shs-accent--cyan" style={{ color: '#06B6D4' }}>Server Support</span>
               </h1>
 
-              <p className="service-desc">
-                Reliable AWS cloud setup, Linux server administration,
-                VPS deployment, security hardening, and infrastructure
-                support for startups and growing businesses.
+              <p className="shs-desc">
+                Enterprise-grade AWS cloud management, Linux server administration,
+                automated backups, firewall hardening, and 24/7 technical operations
+                across Tamil Nadu &amp; Bengaluru.
               </p>
 
-              <div className="service-buttons">
-
+              <div className="shs-buttons">
                 <a
-                  href="https://api.whatsapp.com/send?phone=918925063980"
+                  className="shs-btn-primary"
+                  href="https://wa.me/918925063980"
                   target="_blank"
-                  rel="noopener noreferrer"
-                  className="service-btn-primary"
+                  rel="noreferrer"
                 >
-                  Discuss Infrastructure Support
+                  Configure Cloud Server <ArrowRight size={16} />
                 </a>
-
-                <Link
-                  to="/contact"
-                  className="service-btn-secondary"
-                >
-                  Talk to Us
+                <Link className="shs-btn-secondary" to="/contact">
+                  Talk To Us
                 </Link>
-
               </div>
 
-              <div className="service-trust-strip">
-                <div className="service-trust-item">
-                  <CheckCircle size={16} />
-                  <span>AWS Cloud Support</span>
-                </div>
-                <div className="service-trust-item">
-                  <CheckCircle size={16} />
-                  <span>Linux Administration</span>
-                </div>
-                <div className="service-trust-item">
-                  <CheckCircle size={16} />
-                  <span>Secure Infrastructure</span>
-                </div>
+              <div className="shs-trust">
+                <span>✓ AWS certified support</span>
+                <span>✓ Linux sysadmin expertise</span>
+                <span>✓ 99.9% Uptime guarantee</span>
               </div>
-
             </div>
 
-            {/* RIGHT COLUMN */}
-            <ServiceHeroVisual
-              svgIllustration={AWSLinuxSupportIllustration}
-              trustLabel="99.99% Uptime"
-              trustValue="MONITORED CLOUD"
-              trustIcon={Activity}
-            />
+            {/* RIGHT */}
+            <div className="shs-hero-right">
+              <div className="shs-visual-badge">
+                <CheckCircle size={15} /> AWS &amp; LINUX DEVOPS
+              </div>
+              <HeroVisual
+                theme="cyan"
+                lightMode={true}
+                milestones={["VPC Configured", "EC2 Scaled", "Firewall Hardened", "Active Backup"]}
+                cards={[
+                  { title: "Cloud Setup", subtitle: "AWS Well-Architected" },
+                  { title: "Linux Admin", subtitle: "Secured & Patched" },
+                  { title: "Uptime Monitor", subtitle: "Active Alerting" }
+                ]}
+              />
+            </div>
 
           </div>
-
         </div>
-
       </section>
+
 
       {/* SERVICES */}
       <section className="aws-section">

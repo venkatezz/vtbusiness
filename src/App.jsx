@@ -20,6 +20,11 @@ import Services from './pages/Services';
 import Resources from './pages/Resources';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import GstFilingPoster from './pages/GstFilingPoster';
+import IncomeTaxPoster from './pages/IncomeTaxPoster';
+import CombinedTaxPoster from './pages/CombinedTaxPoster';
+import MSMEPoster from './pages/MSMEPoster';
+import CompanyRegistration from './pages/services/CompanyRegistration';
 
 function App() {
   return (
@@ -30,11 +35,16 @@ function App() {
         <main style={{ flex: '1' }}>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/poster" element={<GstFilingPoster />} />
+            <Route path="/tax-poster" element={<IncomeTaxPoster />} />
+            <Route path="/combined-poster" element={<CombinedTaxPoster />} />
+            <Route path="/msme-poster" element={<MSMEPoster />} />
             <Route path="/services/gst-filing" element={<GstFiling />} />
             <Route path="/services/income-tax" element={<IncomeTax />} />
             <Route path="/services/roc-compliance" element={<RocCompliance />} />
             <Route path="/services/tds-filing" element={<TdsFiling />} />
             <Route path="/services/accounting-bookkeeping" element={<Accounting />} />
+            <Route path="/services/company-registration" element={<CompanyRegistration />} />
             <Route path="/services/it-support" element={<ITSupport />} />
             <Route path="/services/website-development" element={<WebsiteDevelopment />} />
             <Route path="/services/business-email-setup" element={<BusinessEmailSetup />} />
