@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   CheckCircle,
   FileText,
@@ -11,390 +12,157 @@ import {
   BarChart3
 } from 'lucide-react';
 import SEO from '../../components/SEO';
+import HeroVisual from '../../components/HeroVisual';
+import '../../styles/service-hero-system.css';
 
 const tdsFilingSchema = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "TDS Filing & Compliance Services",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "VT Business Support",
-    "telephone": "+918925063980"
-  },
-  "description": "Accurate quarterly TDS return filing, Form 16/16A generation, TCS compliance, and TDS reconciliation support for businesses and employers."
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://vtconsulting.in/services/tds-filing#service",
+      "name": "TDS Filing & Compliance Services",
+      "alternateName": [
+        "TDS Return Filing",
+        "Form 24Q Filing",
+        "Form 26Q Filing",
+        "Form 16 Generation",
+        "Form 16A",
+        "TCS return"
+      ],
+      "description": "Expert assistance for monthly TDS deduction compliance and quarterly return filings. We manage Form 24Q, 26Q, 27Q, Form 16/16A generation, and notice responses across Tamil Nadu and Bengaluru.",
+      "url": "https://vtconsulting.in/services/tds-filing",
+      "serviceType": "TDS Return Filing & Compliance",
+      "provider": {
+        "@type": "LocalBusiness",
+        "@id": "https://vtconsulting.in#business",
+        "name": "VT Business Support",
+        "telephone": "+918925063980",
+        "email": "vtconsulting.in@gmail.com",
+        "areaServed": [
+          { "@type": "AdministrativeArea", "name": "Tamil Nadu" },
+          { "@type": "AdministrativeArea", "name": "Karnataka" }
+        ]
+      },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Tamil Nadu" },
+        { "@type": "AdministrativeArea", "name": "Karnataka" },
+        { "@type": "Country", "name": "India" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "TDS Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Form 24Q Salary TDS Return Filing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Form 26Q Non-Salary TDS Return Filing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Form 16 / 16A PDF Generation" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "TDS Correction & Revision Returns" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "TRACES Outstanding Notice Resolution" } }
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vtconsulting.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://vtconsulting.in/services" },
+        { "@type": "ListItem", "position": 3, "name": "TDS Filing", "item": "https://vtconsulting.in/services/tds-filing" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is TDS return filing?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It is a quarterly return submitted to the Income Tax Department containing details of tax deducted at source from salaries, vendor payments, rent, commission, etc." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the deadline for quarterly TDS returns?",
+          "acceptedAnswer": { "@type": "Answer", "text": "TDS returns must be filed within 31 days from the end of each quarter (i.e., July 31, October 31, January 31, and May 31 for the respective quarters)." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can VT Business Support help generate Form 16 and Form 16A?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. We download the official text files from the TRACES portal, generate the signed Form 16/16A PDFs, and provide them to your business for distribution to employees and vendors." }
+        }
+      ]
+    }
+  ]
 };
 
 const TdsFiling = () => {
   return (
     <>
       <SEO 
-        title="TDS Filing & Compliance Services | VT Business Support"
-        description="Accurate quarterly TDS return filing, Form 16/16A generation, TCS compliance, and TDS reconciliation support for businesses and employers."
+        title="TDS Filing & Form 16/16A Support Tamil Nadu & Bengaluru | VT Business Support"
+        description="Quarterly TDS filing (Form 24Q, 26Q, 27Q), Form 16 / 16A generation, correction returns, and TRACES notice resolution across Tamil Nadu and Bengaluru."
+        keywords="TDS filing, Form 24Q, Form 26Q, TDS return online, Form 16 generation, Form 16A pdf, TRACES tds, TDS correction return, TCS return filing, tds consultant Dharmapuri, tds return Bengaluru, VT Business Support"
         schema={tdsFilingSchema}
+        type="website"
       />
 
       {/* HERO */}
-      <section    
-        className="gst-hero-section service-hero-section"
-        style={{
-          padding: '72px 0 64px',
-          color: '#fff',
-          position: 'relative',
-          overflow: 'hidden',
-          background: `
-            linear-gradient(
-            135deg,
-            #081028 0%,
-            #091530 45%,
-            #0A1635 100%
-            )
-            `,           
-        }}
-      >
+      <section className="shs-hero service-hero-section">
         <div className="container">
-
-          <div
-            className="gst-hero-grid  service-hero-grid"
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '1.1fr 0.92fr',
-              gap: '3rem',
-              alignItems: 'center',
-            }}
-          >
+          <div className="shs-hero-grid">
 
             {/* LEFT */}
-            <div
-                className="gst-hero-left service-hero-left"
-                style={{
-                    width: '100%',
-                    maxWidth: '680px',
-                    position: 'relative',
-                    zIndex: 2
-                    
-                }}
-            >
-              <div
-                style={{
-                    position: 'absolute',
-                    width: '280px',
-                    height: '280px',
-                    background: 'rgba(74,63,224,0.16)',
-                    filter: 'blur(120px)',
-                    top: '-80px',
-                    left: '-120px',
-                    zIndex: -1
-                }}
-              />                
+            <div className="shs-hero-left">
+              <div className="shs-blur" />
 
-                <div
-                    style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    padding: '8px 14px',
-                    borderRadius: '999px',
-                    background: 'rgba(255,255,255,0.08)',
-                    border: '1px solid rgba(255,255,255,0.08)',
-                    fontSize: '0.85rem',
-                    fontWeight: '600',
-                    marginBottom: '1.5rem'
-                    }}
-                >
-                    <CheckCircle size={15} style={{ color: '#10B981' }} />
-                Trusted TDS Filing Support
-              </div>
+              <h1 className="shs-title">
+                TDS Return Filing
+                <br />
+                <span className="shs-accent--gold" style={{ color: '#F59E0B' }}>Quarterly &amp; Monthly</span>
+              </h1>
 
-                <h1
-                  className="gst-hero-title service-hero-title"
-                    style={{
-                        fontSize: 'clamp(2.9rem, 5vw, 4.5rem)',
-                        lineHeight: '1.02',
-                        fontWeight: '900',
-                        marginBottom: '1.4rem',
-                        maxWidth: '760px',
-                        color: '#FFFFFF',
-                        letterSpacing: '-0.04em'
-                    }}
-                  >
-                    TDS Filing
-                    <br />
-                    <span style={{ color: '#5B4DFF' }}>
-                        Services
-                    </span>
-                    <br />
-                    for Businesses
-                </h1>
-
-              <p
-                className="gst-hero-desc service-hero-desc"
-                style={{
-                  color: 'rgba(255,255,255,0.72)',
-                  fontSize: '1.05rem',
-                  lineHeight: '1.8',
-                  maxWidth: '620px',
-                  marginBottom: '2rem',
-                  position: 'relative',
-                 
-                }}
-              >
-                Monthly and quarterly TDS return filing, deduction compliance,
-                Form 16 support, and notice handling for businesses and professionals.
+              <p className="shs-desc">
+                Accurate TDS return filing, Form 16/16A generation,
+                TCS compliance, and default notice reconciliation support
+                for employers and businesses.
               </p>
 
-              {/* CTA */}
-              <div
-                className="gst-hero-buttons service-hero-buttons"
-                style={{
-                  display: 'flex',
-                  gap: '1rem',
-                  flexWrap: 'wrap',
-                  marginBottom: '2rem'
-                }}
-              >
-
+              <div className="shs-buttons">
                 <a
-                  className="gst-hero-cta"
+                  className="shs-btn-primary"
                   href="https://wa.me/918925063980"
                   target="_blank"
                   rel="noreferrer"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    boxShadow: '0 10px 30px rgba(16,185,129,0.22)',
-                    transition: 'all 0.22s ease',
-                    gap: '8px',
-                    background: '#10B981',
-                    color: '#fff',
-                    padding: '14px 22px',
-                    borderRadius: '12px',
-                    textDecoration: 'none',
-                    fontWeight: '700'
-                  }}
                 >
-                  Get TDS Support
-                  <ArrowRight size={16} />
+                  File TDS Return <ArrowRight size={16} />
                 </a>
-
-                <a
-                  className="gst-hero-cta"
-                  href="#gst-services"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    background: 'rgba(255,255,255,0.04)',
-                    backdropFilter: 'blur(8px)',
-                    border: '1px solid rgba(255,255,255,0.12)',
-                    color: '#fff',
-                    padding: '14px 22px',
-                    borderRadius: '12px',
-                    textDecoration: 'none',
-                    fontWeight: '600'
-                  }}
-                >
-                  View Services
-                </a>
-
+                <Link className="shs-btn-secondary" to="/contact">
+                  Talk To Us
+                </Link>
               </div>
 
-              {/* TRUST ROW */}
-              <div
-                className="gst-hero-cta service-hero-trust"
-                style={{
-                  display: 'flex',
-                  gap: '1.5rem',
-                  flexWrap: 'wrap',
-                  color: 'rgba(255,255,255,0.7)',
-                  fontSize: '0.92rem'
-                }}
-              >
-                <span>✔ Quarterly TDS Filing</span>
-                <span>✔ Form 16 Support</span>
-                <span>✔ Fast WhatsApp Support</span>
+              <div className="shs-trust">
+                <span>✓ Salaried (24Q) &amp; Vendor (26Q)</span>
+                <span>✓ Form 16 PDF Generation</span>
+                <span>✓ TRACES Default Cleanup</span>
               </div>
-
             </div>
 
-            {/* RIGHT CARD */}
-            <div className="gst-hero-right">
-
-              <div
-                className="gst-hero-card service-hero-card"
-                style={{
-                  background: 'rgba(15,23,42,0.72)',
-                  boxShadow: '0 24px 60px rgba(0,0,0,0.28)',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  borderRadius: '24px',
-                  padding: '2rem',
-                  width: '100%',
-                  maxWidth: '480px',
-                  marginLeft: 'auto',
-                  backdropFilter: 'blur(18px)'
-                }}
-              >
-
-                <div
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '1.2rem'
-                  }}
-                >
-
-                  {[
-                    'TDS Return Filing',
-                    'Form 16 & Form 16A',
-                    'TDS Payment Support',
-                    'Late Filing Corrections',
-                    'TDS Notice Assistance'
-                  ].map((item) => (
-
-                    <div
-                      key={item}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '12px',
-                        paddingBottom: '0.9rem',
-                        borderBottom: '1px solid rgba(255,255,255,0.04)'
-                      }}
-                    >
-                      <div
-                        style={{
-                          width: '42px',
-                          height: '42px',
-                          borderRadius: '12px',
-                          background: `
-                            linear-gradient(
-                            135deg,
-                            rgba(16,185,129,0.18),
-                            rgba(16,185,129,0.08)
-                            )
-                            `,
-                            border: '1px solid rgba(16,185,129,0.10)',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center'
-                        }}
-                      >
-                        <FileText size={18} style={{ color: '#10B981' }} />
-                      </div>
-
-                      <div>
-                        <div
-                          style={{
-                            fontWeight: '600',
-                            marginBottom: '2px'
-                          }}
-                        >
-                          {item}
-                        </div>
-
-                        <div
-                          style={{
-                            color: 'rgba(255,255,255,0.6)',
-                            fontSize: '0.88rem'
-                          }}
-                        >
-                          {
-                            item === 'TDS Return Filing'
-                              ? 'Monthly and quarterly TDS return filing'
-                              : item === 'Form 16 & Form 16A'
-                              ? 'Employee tax certificate support'
-                              : item === 'TDS Payment Support'
-                              ? 'Challan & payment guidance'
-                              : item === 'Late Filing Corrections'
-                              ? 'Correction filing support'
-                              : item === 'TDS Notice Assistance'
-                              ? 'Compliance clarification support'
-                              : 'Accounting correction support'
-                          }
-                        </div>
-                      </div>
-                    </div>
-
-                  ))}
-
-                </div>
-
-                {/* Bottom Stats */}
-                <div
-                  className="gst-hero-stats"
-                  style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(3,1fr)',
-                    gap: '1rem',
-                    marginTop: '2rem'
-                  }}
-                >
-
-                  {[
-                    {
-                      icon: <Shield size={18} />,
-                      value: '100%',
-                      label: 'Secure'
-                    },
-                    {
-                      icon: <Clock size={18} />,
-                      value: 'Fast',
-                      label: 'Response'
-                    },
-                    {
-                      icon: <CheckCircle size={18} />,
-                      value: '5+',
-                      label: 'Years'
-                    }
-                  ].map((stat) => (
-
-                    <div
-                      key={stat.label}
-                      style={{
-                        background: 'rgba(255,255,255,0.04)',
-                        border: '1px solid rgba(255,255,255,0.06)',
-                        borderRadius: '14px',
-                        padding: '1rem',
-                        textAlign: 'center'
-                      }}
-                    >
-                      <div
-                        style={{
-                          color: '#10B981',
-                          marginBottom: '0.5rem'
-                        }}
-                      >
-                        {stat.icon}
-                      </div>
-
-                      <div
-                        style={{
-                          fontWeight: '700',
-                          fontSize: '1.1rem'
-                        }}
-                      >
-                        {stat.value}
-                      </div>
-
-                      <div
-                        style={{
-                          color: 'rgba(255,255,255,0.6)',
-                          fontSize: '0.82rem'
-                        }}
-                      >
-                        {stat.label}
-                      </div>
-                    </div>
-
-                  ))}
-
-                </div>
-
+            {/* RIGHT */}
+            <div className="shs-hero-right">
+              <div className="shs-visual-badge">
+                <CheckCircle size={15} /> TDS FILING &amp; COMPLIANCE
               </div>
-
+              <HeroVisual
+                theme="gold"
+                lightMode={true}
+                milestones={["Deduction Check", "24Q/26Q Prepared", "Filing Receipt", "Form 16 Ready"]}
+                cards={[
+                  { title: "Quarterly Returns", subtitle: "24Q & 26Q Filed" },
+                  { title: "Form 16/16A", subtitle: "Downloaded & Signed" },
+                  { title: "TRACES Portal", subtitle: "Zero Outstanding Defaults" }
+                ]}
+              />
             </div>
 
           </div>
-
         </div>
       </section>
 

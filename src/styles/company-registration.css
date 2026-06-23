@@ -1,0 +1,374 @@
+/* ==========================================================================
+   COMPANY REGISTRATION SERVICE PAGE STYLES
+   ========================================================================== */
+
+.company-reg-hero {
+  padding: 110px 0 60px;
+  color: #0F172A;
+  position: relative;
+  overflow: hidden;
+  background: 
+    radial-gradient(circle at top left, rgba(74, 63, 224, 0.05), transparent 45%),
+    linear-gradient(135deg, #ffffff 0%, #f8fafc 55%, #eef2ff 100%);
+}
+
+.company-reg-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(rgba(74, 63, 224, 0.03) 1.5px, transparent 1.5px),
+    radial-gradient(rgba(74, 63, 224, 0.015) 1px, transparent 1px);
+  background-size: 40px 40px, 20px 20px;
+  background-position: 0 0, 10px 10px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.company-reg-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.company-reg-hero-grid {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.company-reg-hero-left {
+  width: 100%;
+  max-width: 680px;
+  position: relative;
+  z-index: 2;
+}
+
+.company-reg-hero-blur {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  background: rgba(74, 63, 224, 0.04);
+  filter: blur(120px);
+  top: -80px;
+  left: -120px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.company-reg-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(74, 63, 224, 0.08);
+  border: 1px solid rgba(74, 63, 224, 0.15);
+  color: #4A3FE0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 1.6rem;
+}
+
+.company-reg-hero-badge svg {
+  color: #10B981;
+}
+
+.company-reg-hero-title {
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  line-height: 1.05;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  max-width: 760px;
+  color: #0F172A;
+  letter-spacing: -0.04em;
+  font-family: 'Outfit', sans-serif;
+}
+
+.company-reg-hero-title .accent-highlight {
+  color: #4A3FE0;
+}
+
+.company-reg-hero-desc {
+  color: #475569;
+  font-size: 1.05rem;
+  line-height: 1.85;
+  max-width: 620px;
+  margin-bottom: 2.2rem;
+}
+
+.company-reg-hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.2rem;
+}
+
+.company-reg-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #10B981;
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.18);
+  transition: all 0.22s ease;
+}
+
+.company-reg-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(16, 185, 129, 0.24);
+  background: #0f9f6e;
+}
+
+.company-reg-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(15, 23, 42, 0.04);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  color: #0F172A;
+  padding: 14px 24px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.22s ease;
+}
+
+.company-reg-btn-secondary:hover {
+  background: rgba(15, 23, 42, 0.08);
+  transform: translateY(-2px);
+}
+
+.company-reg-hero-trust {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  color: #64748B;
+  font-size: 0.94rem;
+  font-weight: 600;
+}
+
+.company-reg-hero-trust span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.company-reg-hero-right {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Sizing of dynamic visual canvas */
+.company-reg-hero-right .hero-visual-container {
+  max-width: 640px;
+  width: 100%;
+  height: auto;
+}
+
+.company-reg-included {
+  padding: 60px 0;
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+.company-reg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.company-reg-card {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 25px rgba(8, 16, 40, 0.03);
+}
+
+.company-reg-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(74, 63, 224, 0.25);
+  box-shadow: 0 15px 35px rgba(74, 63, 224, 0.08);
+  background: #ffffff;
+}
+
+.company-reg-card h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #0F172A;
+}
+
+.company-reg-card p {
+  color: #475569;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Why VT grid */
+.why-vt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+/* Process / workflow grid */
+.gst-process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+/* ─── RESPONSIVE ADJUSTMENTS ──────────────────────────────────────────────── */
+
+/* Tablet landscape (≤960px) — stack hero columns */
+@media (max-width: 960px) {
+  .company-reg-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  /* Visual fills container width, height scales naturally */
+  .company-reg-hero-right .hero-visual-container {
+    max-width: 560px;
+    height: auto;
+    margin: 0 auto;
+  }
+}
+
+/* Tablet portrait (≤768px) */
+@media (max-width: 768px) {
+  .company-reg-hero {
+    padding: 90px 0 48px;
+  }
+
+  .company-reg-hero-badge {
+    margin-bottom: 1rem;
+  }
+
+  .company-reg-hero-left {
+    max-width: 100%;
+  }
+
+  .company-reg-hero-title {
+    font-size: clamp(1.9rem, 7vw, 2.8rem);
+    margin-bottom: 1rem;
+  }
+
+  .company-reg-hero-desc {
+    font-size: 0.97rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .company-reg-hero-right .hero-visual-container {
+    max-width: 480px;
+  }
+
+  /* Services grid — single column */
+  .company-reg-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  /* Why-choose & Process grids — single column */
+  .why-vt-grid,
+  .gst-process-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  /* Tighten section padding */
+  .company-reg-included {
+    padding: 48px 0;
+  }
+
+  /* Section headings */
+  .company-reg-included h2,
+  .why-vt-section h2,
+  .gst-process-section h2,
+  .gst-final-cta h2 {
+    font-size: clamp(1.7rem, 6vw, 2.2rem) !important;
+  }
+
+  /* CTA card inner padding */
+  .gst-final-cta-card {
+    padding: 2.5rem 1.25rem !important;
+  }
+
+  /* CTA buttons stacked */
+  .gst-final-cta-buttons {
+    flex-direction: column;
+    align-items: stretch !important;
+    gap: 0.85rem !important;
+  }
+
+  .gst-whatsapp-btn,
+  .gst-call-btn {
+    text-align: center;
+    width: 100%;
+  }
+
+  /* Trust strip wraps */
+  .gst-final-trust {
+    flex-wrap: wrap;
+    gap: 0.75rem !important;
+    justify-content: center !important;
+  }
+}
+
+/* Mobile (≤480px) */
+@media (max-width: 480px) {
+  .company-reg-hero {
+    padding: 82px 0 40px;
+  }
+
+  .company-reg-hero-title {
+    font-size: clamp(1.75rem, 8.5vw, 2.2rem);
+  }
+
+  /* Visual shrinks to full width on small phone */
+  .company-reg-hero-right .hero-visual-container {
+    max-width: 100%;
+  }
+
+  /* Primary / secondary CTA buttons */
+  .company-reg-hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .company-reg-btn-primary,
+  .company-reg-btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Trust strip — vertical list */
+  .company-reg-hero-trust {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  /* Service cards — tighter padding */
+  .company-reg-card {
+    padding: 1.75rem 1.25rem;
+  }
+
+  /* Process / Why-choose cards — tighter padding */
+  .gst-process-card,
+  .why-vt-card {
+    padding: 1.5rem 1.25rem !important;
+  }
+}

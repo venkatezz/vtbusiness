@@ -1,0 +1,271 @@
+/* ==========================================================================
+   SERVICE HERO SYSTEM (SHS)
+   Shared light-mode hero for all VT Business Support service pages.
+   All 11 service pages import and use these shs-* classes.
+   ========================================================================== */
+
+/* ─── Hero Section ──────────────────────────────────────────────────────── */
+.shs-hero {
+  padding: 110px 0 60px;
+  color: #0F172A;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(74, 63, 224, 0.05), transparent 45%),
+    linear-gradient(135deg, #ffffff 0%, #f8fafc 55%, #eef2ff 100%);
+}
+
+.shs-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(rgba(74, 63, 224, 0.03) 1.5px, transparent 1.5px),
+    radial-gradient(rgba(74, 63, 224, 0.015) 1px, transparent 1px);
+  background-size: 40px 40px, 20px 20px;
+  background-position: 0 0, 10px 10px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.shs-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* ─── Grid Layout ───────────────────────────────────────────────────────── */
+.shs-hero-grid {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+/* ─── Left Column ───────────────────────────────────────────────────────── */
+.shs-hero-left {
+  width: 100%;
+  max-width: 680px;
+  position: relative;
+  z-index: 2;
+}
+
+.shs-blur {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  background: rgba(74, 63, 224, 0.04);
+  filter: blur(120px);
+  top: -80px;
+  left: -120px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ─── Title & Text ──────────────────────────────────────────────────────── */
+.shs-title {
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  line-height: 1.05;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  max-width: 760px;
+  color: #0F172A;
+  letter-spacing: -0.04em;
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Default accent — purple */
+.shs-accent           { color: #4A3FE0; }
+.shs-accent--emerald  { color: #10B981; }
+.shs-accent--gold     { color: #F59E0B; }
+.shs-accent--cyan     { color: #06B6D4; }
+
+.shs-desc {
+  color: #475569;
+  font-size: 1.05rem;
+  line-height: 1.85;
+  max-width: 620px;
+  margin-bottom: 2.2rem;
+}
+
+/* ─── CTA Buttons ───────────────────────────────────────────────────────── */
+.shs-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.2rem;
+}
+
+.shs-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #10B981;
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.18);
+  transition: all 0.22s ease;
+}
+
+.shs-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(16, 185, 129, 0.24);
+  background: #0f9f6e;
+}
+
+.shs-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(15, 23, 42, 0.04);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  color: #0F172A;
+  padding: 14px 24px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.22s ease;
+}
+
+.shs-btn-secondary:hover {
+  background: rgba(15, 23, 42, 0.08);
+  transform: translateY(-2px);
+}
+
+/* ─── Trust Strip ───────────────────────────────────────────────────────── */
+.shs-trust {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  color: #64748B;
+  font-size: 0.94rem;
+  font-weight: 600;
+}
+
+.shs-trust span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ─── Right Column ──────────────────────────────────────────────────────── */
+.shs-hero-right {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+/* Badge above HeroVisual in right column */
+.shs-visual-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(74, 63, 224, 0.08);
+  border: 1px solid rgba(74, 63, 224, 0.15);
+  color: #4A3FE0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.shs-visual-badge svg {
+  color: #10B981;
+}
+
+/* HeroVisual container — allow natural aspect-ratio sizing */
+.shs-hero-right .hero-visual-container {
+  max-width: 640px;
+  width: 100%;
+  height: auto;
+}
+
+/* ─── RESPONSIVE BREAKPOINTS ────────────────────────────────────────────── */
+
+/* Tablet landscape: stack hero columns */
+@media (max-width: 960px) {
+  .shs-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .shs-hero-right .hero-visual-container {
+    max-width: 560px;
+    height: auto;
+    margin: 0 auto;
+  }
+}
+
+/* Tablet portrait */
+@media (max-width: 768px) {
+  .shs-hero {
+    padding: 90px 0 48px;
+  }
+
+  .shs-hero-left {
+    max-width: 100%;
+  }
+
+  .shs-title {
+    font-size: clamp(1.9rem, 7vw, 2.8rem);
+    margin-bottom: 1rem;
+  }
+
+  .shs-desc {
+    font-size: 0.97rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .shs-hero-right .hero-visual-container {
+    max-width: 480px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .shs-hero {
+    padding: 82px 0 40px;
+  }
+
+  .shs-title {
+    font-size: clamp(1.75rem, 8.5vw, 2.2rem);
+  }
+
+  .shs-hero-right .hero-visual-container {
+    max-width: 100%;
+  }
+
+  .shs-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .shs-btn-primary,
+  .shs-btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .shs-trust {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 375px) {
+  .shs-hero {
+    padding: 76px 0 36px;
+  }
+
+  .shs-title {
+    font-size: 1.65rem;
+  }
+}

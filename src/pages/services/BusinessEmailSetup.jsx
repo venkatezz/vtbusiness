@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
-import ServiceHeroVisual from '../../components/ServiceHeroVisual';
-
+import HeroVisual from '../../components/HeroVisual';
 import {
   Mail,
   Shield,
@@ -14,20 +13,83 @@ import {
   CheckCircle,
   ShieldCheck
 } from 'lucide-react';
-
+import '../../styles/service-hero-system.css';
 import '../../styles/business-email-setup.css';
-import '../../styles/serviceHero.css';
 
 const emailSetupSchema = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Business Email Setup & Google Workspace",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "VT Business Support",
-    "telephone": "+918925063980"
-  },
-  "description": "Professional custom business email setup, Google Workspace, Microsoft 365, DNS configuration, MX records, and domain email configuration."
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://vtconsulting.in/services/business-email-setup#service",
+      "name": "Business Email Setup & Google Workspace Services",
+      "alternateName": [
+        "Google Workspace Setup",
+        "Microsoft 365 Business Email",
+        "Professional Email Domain Setup",
+        "DKIM/SPF DNS Configuration",
+        "Corporate Mailbox Migration"
+      ],
+      "description": "Expert custom business email setup and migrations. We configure Google Workspace, Microsoft 365, SPF, DKIM, DMARC DNS records, and email clients across Tamil Nadu and Bengaluru.",
+      "url": "https://vtconsulting.in/services/business-email-setup",
+      "serviceType": "Business Mail & Collaboration Suite Setup",
+      "provider": {
+        "@type": "LocalBusiness",
+        "@id": "https://vtconsulting.in#business",
+        "name": "VT Business Support",
+        "telephone": "+918925063980",
+        "email": "vtconsulting.in@gmail.com",
+        "areaServed": [
+          { "@type": "AdministrativeArea", "name": "Tamil Nadu" },
+          { "@type": "AdministrativeArea", "name": "Karnataka" }
+        ]
+      },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Tamil Nadu" },
+        { "@type": "AdministrativeArea", "name": "Karnataka" },
+        { "@type": "Country", "name": "India" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Business Email Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google Workspace Custom Domain Setup" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Microsoft 365 Exchange Configuration" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SPF, DKIM, DMARC Spam Prevention Setup" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Legacy IMAP / POP3 Email Data Migrations" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Outlook, iPhone, Android Client Sync Support" } }
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vtconsulting.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://vtconsulting.in/services" },
+        { "@type": "ListItem", "position": 3, "name": "Business Email Setup", "item": "https://vtconsulting.in/services/business-email-setup" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can you configure professional email on our existing domain?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, we connect Google Workspace, Microsoft 365, or specialized hosts (Zoho Mail, PrivateEmail) directly to your existing domain." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you protect emails from spam and spoofing?",
+          "acceptedAnswer": { "@type": "Answer", "text": "We configure SPF records, DKIM public keys, and DMARC policy tags on your domain's DNS panel, ensuring high inbox delivery rates." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you migrate email history to Google Workspace?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, we migrate emails from legacy servers (cPanel, GoDaddy Workspace Email) directly to Google Workspace or M365 without missing old data." }
+        }
+      ]
+    }
+  ]
 };
 
 const emailServices = [
@@ -80,116 +142,79 @@ const processSteps = [
   'Setup Devices & Security',
 ];
 
-// Flat Professional Corporate Email Communication SVG
-const BusinessEmailSetupIllustration = () => (
-  <svg viewBox="0 0 400 300" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Background Grid & Envelope paths */}
-    <rect x="30" y="30" width="340" height="240" rx="14" fill="rgba(74, 63, 224, 0.02)" stroke="rgba(74, 63, 224, 0.04)" strokeWidth="1.5" />
-    
-    {/* Floating Secure Envelope */}
-    <rect x="80" y="70" width="240" height="150" rx="12" fill="#0F172A" stroke="rgba(255,255,255,0.06)" strokeWidth="2" />
-    
-    {/* Envelope fold paths */}
-    <path d="M80 72 L200 160 L320 72" stroke="#5B4DFF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M82 218 L170 140" stroke="rgba(255,255,255,0.08)" strokeWidth="2" strokeLinecap="round" />
-    <path d="M318 218 L230 140" stroke="rgba(255,255,255,0.08)" strokeWidth="2" strokeLinecap="round" />
-    
-    {/* Floating Security Checkmarks */}
-    <circle cx="200" cy="180" r="28" fill="#ffffff" filter="drop-shadow(0 8px 16px rgba(8,16,40,0.1))" />
-    <circle cx="200" cy="180" r="20" fill="rgba(16, 185, 129, 0.1)" stroke="#10B981" strokeWidth="2" />
-    <path d="M193 180 L198 185 L208 175" stroke="#10B981" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-    
-    {/* Miniature status signals */}
-    <circle cx="270" cy="110" r="14" fill="#1E293B" stroke="rgba(255,255,255,0.1)" />
-    <circle cx="270" cy="110" r="4" fill="#10B981" />
-  </svg>
-);
-
 const BusinessEmailSetup = () => {
   return (
     <main className="email-page">
       <SEO 
-        title="Business Email Setup & Google Workspace | VT Business Support"
-        description="Professional custom business email setup, Google Workspace, Microsoft 365, DNS configuration, MX records, and domain email configuration."
+        title="Business Email Setup & Google Workspace Tamil Nadu & Bengaluru | VT Business Support"
+        description="Professional custom domain email setup, Google Workspace, Microsoft 365, DNS records configuration (SPF, DKIM, DMARC), and secure mailbox migrations."
+        keywords="business email setup, Google Workspace email, Microsoft 365 Business, professional email address, custom domain email, SPF DKIM DMARC configuration, MX records, corporate email setup Dharmapuri, business email Bengaluru, VT Business Support"
         schema={emailSetupSchema}
+        type="website"
       />
 
       {/* HERO */}
-      <section className="service-hero">
-
+      <section className="shs-hero service-hero-section">
         <div className="container">
+          <div className="shs-hero-grid">
 
-          <div className="service-hero-grid">
+            {/* LEFT */}
+            <div className="shs-hero-left">
+              <div className="shs-blur" />
 
-            {/* LEFT COLUMN */}
-            <div className="service-hero-content">
-
-              <div className="service-badge">
-                <ShieldCheck size={14} />
-                <span>Professional Business Communication</span>
-              </div>
-
-              <h1 className="service-title">
-                Business Email
-                <span> Setup Services</span>
+              <h1 className="shs-title">
+                Business Email Setup
+                <br />
+                <span className="shs-accent--emerald" style={{ color: '#10B981' }}>Workspace &amp; M365</span>
               </h1>
 
-              <p className="service-desc">
-                Professional email setup using Google Workspace,
-                Microsoft 365, and domain-based business communication
-                solutions for startups and growing companies.
+              <p className="shs-desc">
+                Configure professional custom domain email accounts using Google Workspace,
+                Microsoft 365, or Zoho Mail. Secure your communications with SPF, DKIM, and DMARC setups.
               </p>
 
-              <div className="service-buttons">
-
+              <div className="shs-buttons">
                 <a
-                  href="https://api.whatsapp.com/send?phone=918925063980"
+                  className="shs-btn-primary"
+                  href="https://wa.me/918925063980"
                   target="_blank"
-                  rel="noopener noreferrer"
-                  className="service-btn-primary"
+                  rel="noreferrer"
                 >
-                  Setup Business Email
+                  Setup Business Email <ArrowRight size={16} />
                 </a>
-
-                <Link
-                  to="/contact"
-                  className="service-btn-secondary"
-                >
-                  Talk to Us
+                <Link className="shs-btn-secondary" to="/contact">
+                  Talk To Us
                 </Link>
-
               </div>
 
-              <div className="service-trust-strip">
-                <div className="service-trust-item">
-                  <CheckCircle size={16} />
-                  <span>Google Workspace</span>
-                </div>
-                <div className="service-trust-item">
-                  <CheckCircle size={16} />
-                  <span>Microsoft 365</span>
-                </div>
-                <div className="service-trust-item">
-                  <CheckCircle size={16} />
-                  <span>Secure Setup</span>
-                </div>
+              <div className="shs-trust">
+                <span>✓ Custom Domain Emails</span>
+                <span>✓ SPF / DKIM / DMARC Ready</span>
+                <span>✓ Inbox Delivery Optimized</span>
               </div>
-
             </div>
 
-            {/* RIGHT COLUMN */}
-            <ServiceHeroVisual
-              svgIllustration={BusinessEmailSetupIllustration}
-              trustLabel="SPF Verified"
-              trustValue="DKIM ENABLED"
-              trustIcon={ShieldCheck}
-            />
+            {/* RIGHT */}
+            <div className="shs-hero-right">
+              <div className="shs-visual-badge">
+                <CheckCircle size={15} /> CUSTOM EMAIL SUITE
+              </div>
+              <HeroVisual
+                theme="emerald"
+                lightMode={true}
+                milestones={["Domain Linked", "MX Configured", "SPF / DKIM Authenticated", "Mailbox Sync"]}
+                cards={[
+                  { title: "GWorkspace / M365", subtitle: "Custom Domain Email" },
+                  { title: "Spam Protection", subtitle: "SPF / DKIM / DMARC Active" },
+                  { title: "Client Sync", subtitle: "Outlook & Mobile Configured" }
+                ]}
+              />
+            </div>
 
           </div>
-
         </div>
-
       </section>
+
 
       {/* SERVICES */}
       <section className="email-section">

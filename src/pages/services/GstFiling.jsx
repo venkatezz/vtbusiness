@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   CheckCircle,
   FileText,
@@ -11,395 +12,159 @@ import {
   BarChart3
 } from 'lucide-react';
 import SEO from '../../components/SEO';
+import HeroVisual from '../../components/HeroVisual';
+import '../../styles/service-hero-system.css';
 
 const gstFilingSchema = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "GST Filing & Compliance Services",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "VT Business Support",
-    "telephone": "+918925063980"
-  },
-  "description": "Professional GST return filing, monthly and quarterly returns, GSTR-1, GSTR-3B reconciliation, new registration, and notice response support."
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://vtconsulting.in/services/gst-filing#service",
+      "name": "GST Filing & Compliance Services",
+      "alternateName": ["GST Return Filing", "GSTR-1 Filing", "GSTR-3B Filing", "GST Registration", "ITC Reconciliation"],
+      "description": "Professional monthly GSTR-1 & GSTR-3B return filing, new GST registration, Input Tax Credit reconciliation, GST notice support, and annual return filing for businesses across Tamil Nadu & Bengaluru.",
+      "url": "https://vtconsulting.in/services/gst-filing",
+      "serviceType": "GST Compliance & Tax Filing",
+      "provider": {
+        "@type": "LocalBusiness",
+        "@id": "https://vtconsulting.in#business",
+        "name": "VT Business Support",
+        "telephone": "+918925063980",
+        "email": "vtconsulting.in@gmail.com",
+        "areaServed": [
+          { "@type": "AdministrativeArea", "name": "Tamil Nadu" },
+          { "@type": "AdministrativeArea", "name": "Karnataka" }
+        ]
+      },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Tamil Nadu" },
+        { "@type": "AdministrativeArea", "name": "Karnataka" },
+        { "@type": "Country", "name": "India" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "GST Filing Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "GSTR-1 Monthly Filing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "GSTR-3B Monthly Filing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "GST Registration" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ITC Reconciliation" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "GST Annual Return (GSTR-9)" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "GST Notice Response" } }
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vtconsulting.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://vtconsulting.in/services" },
+        { "@type": "ListItem", "position": 3, "name": "GST Filing", "item": "https://vtconsulting.in/services/gst-filing" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is GSTR-1 and GSTR-3B?",
+          "acceptedAnswer": { "@type": "Answer", "text": "GSTR-1 is a monthly/quarterly return listing all outward supplies (sales). GSTR-3B is a summary return showing total GST liability and ITC claimed, filed monthly or quarterly." }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does GST return filing cost?",
+          "acceptedAnswer": { "@type": "Answer", "text": "VT Business Support offers affordable GST return filing packages. Contact us on WhatsApp for the latest pricing based on your transaction volume." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you help with GST registration in Tamil Nadu?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. We handle end-to-end GST registration for businesses in Tamil Nadu and Bengaluru, including document preparation, application filing, and GSTIN receipt." }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens if GST returns are filed late?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Late GST filing attracts a late fee of ₹20–₹200 per day (depending on the return type) plus interest at 18% p.a. on outstanding tax. Timely filing avoids these penalties." }
+        }
+      ]
+    }
+  ]
 };
 
 const GstFiling = () => {
   return (
     <>
-      <SEO 
-        title="GST Filing & Registration Services | VT Business Support"
-        description="Get professional monthly GSTR-1 & GSTR-3B return filing, new GST registration, and Input Tax Credit reconciliation support in Tamil Nadu and Bengaluru."
+      <SEO
+        title="GST Filing & Registration Services Tamil Nadu | GSTR-1 GSTR-3B | VT Business Support"
+        description="Monthly GSTR-1 & GSTR-3B filing, new GST registration, ITC reconciliation, and GST notice support for businesses across Tamil Nadu & Bengaluru. Fast, accurate, affordable."
+        keywords="GST filing Tamil Nadu, GSTR-1 filing, GSTR-3B filing, GST registration Bengaluru, GST return filing, ITC reconciliation, GST notice response, GST annual return, GSTR-9, GST compliance, monthly GST filing, GST registration online, GST filing Dharmapuri, GST consultant Tamil Nadu, GST support small business"
         schema={gstFilingSchema}
+        type="website"
       />
 
       {/* HERO */}
-      <section    
-        className="gst-hero-section service-hero-section"
-          style={{
-          padding: '72px 0 64px',
-          color: '#fff',
-          position: 'relative',
-          overflow: 'hidden',
-          background: `
-            linear-gradient(
-            135deg,
-            #081028 0%,
-            #091530 45%,
-            #0A1635 100%
-            )
-            `,           
-        }}
-      >
+      <section className="shs-hero service-hero-section">
         <div className="container">
-
-          <div
-            className="gst-hero-grid service-hero-grid"
-            
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '1.1fr 0.92fr',
-              gap: '3rem',
-              alignItems: 'center',
-            }}
-          >
+          <div className="shs-hero-grid">
 
             {/* LEFT */}
-            <div
-                className="gst-hero-left service-hero-left"
-                style={{
-                    width: '100%',
-                    maxWidth: '680px',
-                    position: 'relative',
-                    zIndex: 2
-                    
-                }}
-            >
-              <div
-                style={{
-                    position: 'absolute',
-                    width: '280px',
-                    height: '280px',
-                    background: 'rgba(74,63,224,0.16)',
-                    filter: 'blur(120px)',
-                    top: '-80px',
-                    left: '-120px',
-                    zIndex: -1
-                }}
-              />                
+            <div className="shs-hero-left">
+              <div className="shs-blur" />
 
-                <div
-                    style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    padding: '8px 14px',
-                    borderRadius: '999px',
-                    background: 'rgba(255,255,255,0.08)',
-                    border: '1px solid rgba(255,255,255,0.08)',
-                    fontSize: '0.85rem',
-                    fontWeight: '600',
-                    marginBottom: '1.5rem'
-                    }}
-                >
-                    <CheckCircle size={15} style={{ color: '#10B981' }} />
-                Trusted GST Filing Support
-              </div>
+              <h1 className="shs-title">
+                GST Filing Services
+                <br />
+                <span className="shs-accent">Made Simple</span>
+              </h1>
 
-                <h1
-                  className="gst-hero-title service-hero-title"
-                    style={{
-                        fontSize: 'clamp(2.9rem, 5vw, 4.5rem)',
-                        lineHeight: '1.02',
-                        fontWeight: '900',
-                        marginBottom: '1.4rem',
-                        maxWidth: '760px',
-                        color: '#FFFFFF',
-                        letterSpacing: '-0.04em'
-                    }}
-                  >
-                    GST Filing
-                    <br />
-                    <span style={{ color: '#5B4DFF' }}>
-                        Services
-                    </span>
-                    <br />
-                    for Small Businesses
-                </h1>
-
-              <p
-                className="gst-hero-desc service-hero-desc"
-                style={{
-                  color: 'rgba(255,255,255,0.72)',
-                  fontSize: '1.05rem',
-                  lineHeight: '1.8',
-                  maxWidth: '620px',
-                  marginBottom: '2rem',
-                  position: 'relative',
-                 
-                }}
-              >
-                Monthly GST return filing, GST registration,
-                reconciliation, and compliance support for
-                businesses across Tamil Nadu & Bengaluru.
+              <p className="shs-desc">
+                Monthly GSTR-1 &amp; GSTR-3B return filing, GST registration,
+                ITC reconciliation, and compliance support for businesses
+                across Tamil Nadu &amp; Bengaluru.
               </p>
 
-              {/* CTA */}
-              <div
-                className="gst-hero-buttons service-hero-buttons"
-                style={{
-                  display: 'flex',
-                  gap: '1rem',
-                  flexWrap: 'wrap',
-                  marginBottom: '2rem'
-                }}
-              >
-
+              <div className="shs-buttons">
                 <a
-                  className="gst-hero-cta"
+                  className="shs-btn-primary"
                   href="https://wa.me/918925063980"
                   target="_blank"
                   rel="noreferrer"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    boxShadow: '0 10px 30px rgba(16,185,129,0.22)',
-                    transition: 'all 0.22s ease',
-                    gap: '8px',
-                    background: '#10B981',
-                    color: '#fff',
-                    padding: '14px 22px',
-                    borderRadius: '12px',
-                    textDecoration: 'none',
-                    fontWeight: '700'
-                  }}
                 >
-                  Get GST Support
-                  <ArrowRight size={16} />
+                  Get GST Support <ArrowRight size={16} />
                 </a>
-
-                <a
-                  className="gst-hero-cta"
-                  href="#gst-services"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    background: 'rgba(255,255,255,0.04)',
-                    backdropFilter: 'blur(8px)',
-                    border: '1px solid rgba(255,255,255,0.12)',
-                    color: '#fff',
-                    padding: '14px 22px',
-                    borderRadius: '12px',
-                    textDecoration: 'none',
-                    fontWeight: '600'
-                  }}
-                >
-                  View Services
-                </a>
-
+                <Link className="shs-btn-secondary" to="/contact">
+                  Talk To Us
+                </Link>
               </div>
 
-              {/* TRUST ROW */}
-              <div
-                className="gst-hero-cta service-hero-trust"
-                style={{
-                  display: 'flex',
-                  gap: '1.5rem',
-                  flexWrap: 'wrap',
-                  color: 'rgba(255,255,255,0.7)',
-                  fontSize: '0.92rem'
-                }}
-              >
-                <span>✔ GST Registration</span>
-                <span>✔ Monthly Filing</span>
-                <span>✔ Fast WhatsApp Support</span>
+              <div className="shs-trust">
+                <span>✓ GSTR-1 &amp; GSTR-3B Filing</span>
+                <span>✓ ITC Reconciliation</span>
+                <span>✓ Notice Support</span>
               </div>
-
             </div>
 
-            {/* RIGHT CARD */}
-            <div className="gst-hero-right">
-
-              <div
-                className="gst-hero-card service-hero-card"
-                style={{
-                  background: 'rgba(15,23,42,0.72)',
-                  boxShadow: '0 24px 60px rgba(0,0,0,0.28)',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  borderRadius: '24px',
-                  padding: '2rem',
-                  width: '100%',
-                  maxWidth: '480px',
-                  marginLeft: 'auto',
-                  backdropFilter: 'blur(18px)'
-                }}
-              >
-
-                <div
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '1.2rem'
-                  }}
-                >
-
-                  {[
-                    'GSTR-1 Filing',
-                    'GSTR-3B Filing',
-                    'GST Registration',
-                    'GST Notice Support',
-                    'Input Tax Credit Reconciliation'
-                  ].map((item) => (
-
-                    <div
-                      key={item}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '12px',
-                        paddingBottom: '0.9rem',
-                        borderBottom: '1px solid rgba(255,255,255,0.04)'
-                      }}
-                    >
-                      <div
-                        style={{
-                          width: '42px',
-                          height: '42px',
-                          borderRadius: '12px',
-                          background: `
-                            linear-gradient(
-                            135deg,
-                            rgba(16,185,129,0.18),
-                            rgba(16,185,129,0.08)
-                            )
-                            `,
-                            border: '1px solid rgba(16,185,129,0.10)',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center'
-                        }}
-                      >
-                        <FileText size={18} style={{ color: '#10B981' }} />
-                      </div>
-
-                      <div>
-                        <div
-                          style={{
-                            fontWeight: '600',
-                            marginBottom: '2px'
-                          }}
-                        >
-                          {item}
-                        </div>
-
-                        <div
-                          style={{
-                            color: 'rgba(255,255,255,0.6)',
-                            fontSize: '0.88rem'
-                          }}
-                        >
-                          {
-                            item === 'GSTR-1 Filing'
-                              ? 'Monthly and quarterly outward supply return filing'
-                              : item === 'GSTR-3B Filing'
-                              ? 'GST summary return filing and tax payment support'
-                              : item === 'GST Registration'
-                              ? 'New business GST registration and compliance setup'
-                              : item === 'GST Notice Support'
-                              ? 'Professional assistance for GST notices and replies'
-                              : item === 'Input Tax Credit Reconciliation'
-                              ? 'Accurate ITC verification and reconciliation support'
-                              : 'Accounting correction support'
-                          }
-                        </div>
-                      </div>
-                    </div>
-
-                  ))}
-                       
-  
-                </div>
-
-                {/* Bottom Stats */}
-                <div
-                  className="gst-hero-stats"
-                  style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(3,1fr)',
-                    gap: '1rem',
-                    marginTop: '2rem'
-                  }}
-                >
-
-                  {[
-                    {
-                      icon: <Shield size={18} />,
-                      value: '100%',
-                      label: 'Secure'
-                    },
-                    {
-                      icon: <Clock size={18} />,
-                      value: 'Fast',
-                      label: 'Response'
-                    },
-                    {
-                      icon: <CheckCircle size={18} />,
-                      value: '5+',
-                      label: 'Years'
-                    }
-                  ].map((stat) => (
-
-                    <div
-                      key={stat.label}
-                      style={{
-                        background: 'rgba(255,255,255,0.04)',
-                        border: '1px solid rgba(255,255,255,0.06)',
-                        borderRadius: '14px',
-                        padding: '1rem',
-                        textAlign: 'center'
-                      }}
-                    >
-                      <div
-                        style={{
-                          color: '#10B981',
-                          marginBottom: '0.5rem'
-                        }}
-                      >
-                        {stat.icon}
-                      </div>
-
-                      <div
-                        style={{
-                          fontWeight: '700',
-                          fontSize: '1.1rem'
-                        }}
-                      >
-                        {stat.value}
-                      </div>
-
-                      <div
-                        style={{
-                          color: 'rgba(255,255,255,0.6)',
-                          fontSize: '0.82rem'
-                        }}
-                      >
-                        {stat.label}
-                      </div>
-                    </div>
-
-                  ))}
-
-                </div>
-
+            {/* RIGHT */}
+            <div className="shs-hero-right">
+              <div className="shs-visual-badge">
+                <CheckCircle size={15} /> GST FILING SERVICES
               </div>
-
+              <HeroVisual
+                theme="purple"
+                lightMode={true}
+                milestones={["GST Registration", "GSTR-1", "GSTR-3B", "ITC Match"]}
+                cards={[
+                  { title: "GSTR-1 Filed", subtitle: "On Time" },
+                  { title: "ITC Matched", subtitle: "100% Reconciled" },
+                  { title: "GST Compliant", subtitle: "Active" }
+                ]}
+              />
             </div>
 
           </div>
-
         </div>
       </section>
+
 
       <section className="gst-included-section">
         <div className="container">

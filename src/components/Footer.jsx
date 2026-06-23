@@ -7,11 +7,11 @@ import VTLogo from '../assets/VTlogo.svg';
 const Footer = () => {
   return (
     <footer style={{
-      background: 'radial-gradient(circle at 10% 20%, rgba(74, 63, 224, 0.06), transparent 45%), linear-gradient(180deg, hsl(224, 71%, 7%) 0%, hsl(224, 71%, 4%) 100%)',
-      color: 'white',
+      background: 'linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%)',
+      color: '#0f172a',
       padding: '52px 0 28px',
       marginTop: 'auto',
-      borderTop: '1px solid rgba(255, 255, 255, 0.05)',
+      borderTop: '1px solid rgba(74, 63, 224, 0.08)',
       position: 'relative',
       overflow: 'hidden'
     }}>
@@ -41,10 +41,10 @@ const Footer = () => {
                 src={VTLogo}
                 alt="VT Business Support Logo"
                 className="logo-footer"
-                style={{ filter: 'brightness(0) invert(1)', maxHeight: '48px', width: 'auto' }}
+                style={{ maxHeight: '48px', width: 'auto' }}
               />
             </Link>
-            <p style={{ color: 'rgba(255, 255, 255, 0.65)', fontSize: '0.9rem', lineHeight: 1.6, maxWidth: '320px' }}>
+            <p style={{ color: '#475569', fontSize: '0.9rem', lineHeight: 1.6, maxWidth: '320px' }}>
               Reliable GST filing, income tax, ROC compliance,
               bookkeeping, and IT support services for startups,
               small businesses, freelancers, and growing companies
@@ -106,6 +106,17 @@ const Footer = () => {
               >
                 <CheckCircle size={12} style={{ color: 'var(--primary-hover)' }} />
                 <span>GST Filing</span>
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                to="/services/company-registration"
+                className="footer-link"
+                style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
+              >
+                <CheckCircle size={12} style={{ color: 'var(--primary-hover)' }} />
+                <span>Company Registration</span>
               </Link>
             </li>
 
@@ -254,21 +265,21 @@ const Footer = () => {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '0.5rem' }}>
               <div className="footer-address-block">
-                <h5 style={{ color: 'white', fontSize: '0.88rem', fontWeight: 700, marginBottom: '0.25rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <MapPin size={14} style={{ color: 'var(--primary-hover)' }} />
+                <h5 style={{ color: '#0f172a', fontSize: '0.88rem', fontWeight: 700, marginBottom: '0.25rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <MapPin size={14} style={{ color: 'var(--primary)' }} />
                   <span>Tamil Nadu Office</span>
                 </h5>
-                <p style={{ color: 'rgba(255, 255, 255, 0.55)', fontSize: '0.8rem', lineHeight: 1.4 }}>
+                <p style={{ color: '#475569', fontSize: '0.8rem', lineHeight: 1.4 }}>
                   Administrative Office, 5/1B16, Harur Town, Dharmapuri, TN - 636903
                 </p>
               </div>
 
               <div className="footer-address-block">
-                <h5 style={{ color: 'white', fontSize: '0.88rem', fontWeight: 700, marginBottom: '0.25rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <h5 style={{ color: '#0f172a', fontSize: '0.88rem', fontWeight: 700, marginBottom: '0.25rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
                   <MapPin size={14} style={{ color: 'var(--secondary)' }} />
                   <span>Bengaluru Office</span>
                 </h5>
-                <p style={{ color: 'rgba(255, 255, 255, 0.55)', fontSize: '0.8rem', lineHeight: 1.4 }}>
+                <p style={{ color: '#475569', fontSize: '0.8rem', lineHeight: 1.4 }}>
                   #79, 3rd Floor, Phase 1, Electronic City, Bengaluru, KA - 560100
                 </p>
               </div>
@@ -278,10 +289,10 @@ const Footer = () => {
 
         {/* Bottom copyright & details */}
         <div style={{
-          borderTop: '1px solid rgba(255,255,255,0.06)',
+          borderTop: '1px solid rgba(15, 23, 42, 0.08)',
           paddingTop: '30px',
           fontSize: '0.85rem',
-          color: 'rgba(255,255,255,0.45)',
+          color: '#64748B',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',

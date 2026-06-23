@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const SEO = ({ title, description, schema, image, type = 'website' }) => {
+const SEO = ({ title, description, keywords, schema, image, type = 'website' }) => {
   const location = useLocation();
   const baseUrl = 'https://vtconsulting.in';
   const currentUrl = `${baseUrl}${location.pathname.replace(/\/$/, '') || '/'}`;
@@ -27,7 +27,12 @@ const SEO = ({ title, description, schema, image, type = 'website' }) => {
       updateMetaTag('name', 'twitter:description', description);
     }
 
-    // 3. URL & Canonical
+    // 3. Keywords
+    if (keywords) {
+      updateMetaTag('name', 'keywords', keywords);
+    }
+
+    // 4. URL & Canonical
     updateMetaTag('property', 'og:url', currentUrl);
     updateMetaTag('name', 'twitter:url', currentUrl);
     
@@ -41,18 +46,18 @@ const SEO = ({ title, description, schema, image, type = 'website' }) => {
       document.head.appendChild(canonical);
     }
 
-    // 4. Image
+    // 5. Image
     updateMetaTag('property', 'og:image', seoImage);
     updateMetaTag('name', 'twitter:image', seoImage);
     
-    // 5. Image Dimensions (Specifically for WhatsApp/Facebook)
+    // 6. Image Dimensions (Specifically for WhatsApp/Facebook)
     updateMetaTag('property', 'og:image:width', '1200');
     updateMetaTag('property', 'og:image:height', '630');
 
-    // 6. Type
+    // 7. Type
     updateMetaTag('property', 'og:type', type);
 
-    // 7. Structured Data
+    // 8. Structured Data
     if (schema) {
       const scriptId = 'structured-data-page';
       let script = document.getElementById(scriptId);
@@ -68,7 +73,7 @@ const SEO = ({ title, description, schema, image, type = 'website' }) => {
         document.head.appendChild(script);
       }
     }
-  }, [title, description, schema, seoImage, currentUrl, type]);
+  }, [title, description, keywords, schema, seoImage, currentUrl, type]);
 
   return null;
 };

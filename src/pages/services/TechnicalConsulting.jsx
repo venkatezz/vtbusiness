@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
-import ServiceHeroVisual from '../../components/ServiceHeroVisual';
-
+import HeroVisual from '../../components/HeroVisual';
 import {
   MonitorCog,
   Cloud,
@@ -15,20 +14,83 @@ import {
   ShieldCheck,
   UserCheck
 } from 'lucide-react';
-
+import '../../styles/service-hero-system.css';
 import '../../styles/technical-consulting.css';
-import '../../styles/serviceHero.css';
 
 const techConsultingSchema = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Technical Consulting & IT Strategy Services",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "VT Business Support",
-    "telephone": "+918925063980"
-  },
-  "description": "Expert technical consulting, system architecture design, IT infrastructure strategy, and cloud cost optimization for startups and businesses."
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://vtconsulting.in/services/technical-consulting#service",
+      "name": "Technical Consulting & IT Strategy Services",
+      "alternateName": [
+        "IT Infrastructure Strategy",
+        "Technology Strategy Consulting",
+        "Cloud Architecture Planning",
+        "Digital Modernization Advisor",
+        "Technical Architecture Advisory"
+      ],
+      "description": "Enterprise-grade technical consulting and IT strategy advisory. We specialize in system audit reporting, cloud cost optimization, server architecture design, and workflow automation strategies across Tamil Nadu and Bengaluru.",
+      "url": "https://vtconsulting.in/services/technical-consulting",
+      "serviceType": "Technical Architecture & Systems Advisory",
+      "provider": {
+        "@type": "LocalBusiness",
+        "@id": "https://vtconsulting.in#business",
+        "name": "VT Business Support",
+        "telephone": "+918925063980",
+        "email": "vtconsulting.in@gmail.com",
+        "areaServed": [
+          { "@type": "AdministrativeArea", "name": "Tamil Nadu" },
+          { "@type": "AdministrativeArea", "name": "Karnataka" }
+        ]
+      },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Tamil Nadu" },
+        { "@type": "AdministrativeArea", "name": "Karnataka" },
+        { "@type": "Country", "name": "India" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Technical Consulting Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "IT System Audits & Security Compliance Advice" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AWS Cloud Migration & Cost Optimization Plans" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Modern Business Technology Stack Selection" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Disaster Recovery & Backup Policy Formulation" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business Process Automation & CRM Consulting" } }
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vtconsulting.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://vtconsulting.in/services" },
+        { "@type": "ListItem", "position": 3, "name": "Technical Consulting", "item": "https://vtconsulting.in/services/technical-consulting" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does technical consulting help our business?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It helps select modern technologies, optimize monthly server budgets, set up robust security policies, and build automated business workflows." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you review and reduce our monthly AWS bills?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, we analyze resource utilization, suggest right-sizing for idle EC2 instances, recommend savings plans, and implement caching setups to save up to 40% on cloud billing." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you design custom business network layouts?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, we plan local office networks, firewall configurations, security backup nodes, and multi-location WAN connection models." }
+        }
+      ]
+    }
+  ]
 };
 
 const consultingServices = [
@@ -81,144 +143,79 @@ const processSteps = [
   'Implement & Support Operations',
 ];
 
-// Flat Professional Technology & Strategy SVG
-const TechnicalConsultingIllustration = () => (
-  <svg viewBox="0 0 400 300" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Background Tech Circle Grid */}
-    <circle cx="200" cy="150" r="110" stroke="rgba(74, 63, 224, 0.04)" strokeWidth="6" />
-    <circle cx="200" cy="150" r="85" stroke="rgba(74, 63, 224, 0.08)" strokeWidth="2" strokeDasharray="6 6" />
-    
-    {/* Tech Gear Backdrop */}
-    <g stroke="rgba(74, 63, 224, 0.15)" strokeWidth="2" strokeLinecap="round">
-      <circle cx="200" cy="150" r="45" fill="#1E293B" stroke="#4A3FE0" strokeWidth="2" />
-      <line x1="200" y1="95" x2="200" y2="105" strokeWidth="4" />
-      <line x1="200" y1="195" x2="200" y2="205" strokeWidth="4" />
-      <line x1="145" y1="150" x2="155" y2="150" strokeWidth="4" />
-      <line x1="245" y1="150" x2="255" y2="150" strokeWidth="4" />
-      <line x1="161" y1="111" x2="168" y2="118" strokeWidth="4" />
-      <line x1="239" y1="189" x2="232" y2="182" strokeWidth="4" />
-      <line x1="239" y1="111" x2="232" y2="118" strokeWidth="4" />
-      <line x1="161" y1="189" x2="168" y2="182" strokeWidth="4" />
-    </g>
-
-    {/* Central Strategy Lightbulb representing Guidance */}
-    <g filter="drop-shadow(0 8px 16px rgba(74, 63, 224, 0.15))">
-      {/* Bulb Glass */}
-      <path d="M200 115 C182 115 170 127 170 145 C170 157 177 167 183 173 L183 185 C183 187 185 189 187 189 L213 189 C215 189 217 187 217 185 L217 173 C223 167 230 157 230 145 C230 127 218 115 200 115 Z" fill="#0F172A" stroke="#5B4DFF" strokeWidth="3" />
-      
-      {/* Bulb Metal Base */}
-      <rect x="188" y="189" width="24" height="6" rx="2" fill="#475569" />
-      <rect x="191" y="195" width="18" height="4" rx="2" fill="#334155" />
-      <path d="M194 199 L206 199 C204 202 196 202 194 199 Z" fill="#64748B" />
-      
-      {/* Glowing Filament */}
-      <path d="M192 150 L197 135 L203 135 L208 150" stroke="#10B981" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-      <circle cx="200" cy="132" r="2" fill="#10B981" />
-    </g>
-
-    {/* Growth Trend Line graph overlaid */}
-    <path d="M90 220 L150 170 L210 190 L270 120 L310 140 L350 90" stroke="url(#gradient-growth)" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" filter="drop-shadow(0 6px 12px rgba(16, 185, 129, 0.2))" />
-    
-    {/* Dynamic Dots on the Growth Line */}
-    <circle cx="270" cy="120" r="6" fill="#10B981" />
-    <circle cx="350" cy="90" r="8" fill="#10B981" stroke="#ffffff" strokeWidth="2" />
-
-    {/* SVG Gradient Definition */}
-    <defs>
-      <linearGradient id="gradient-growth" x1="90" y1="220" x2="350" y2="90" gradientUnits="userSpaceOnUse">
-        <stop offset="0%" stopColor="#4A3FE0" />
-        <stop offset="60%" stopColor="#5B4DFF" />
-        <stop offset="100%" stopColor="#10B981" />
-      </linearGradient>
-    </defs>
-  </svg>
-);
-
 const TechnicalConsulting = () => {
   return (
     <main className="tech-page">
       <SEO 
-        title="Technical Consulting & IT Strategy Services | VT Business Support"
-        description="Expert technical consulting, system architecture design, IT infrastructure strategy, and cloud cost optimization for startups and businesses."
+        title="Technical Consulting & IT Strategy Tamil Nadu & Bengaluru | VT Business Support"
+        description="Expert advice on IT infrastructure layout, AWS cloud migration strategy, tech stack planning, system security audits, and cloud cost control audits."
+        keywords="technical consulting, IT strategy, cloud advisor, system auditor, digital modernization, AWS strategy, network architect, tech support Dharmapuri, IT consultant Bengaluru, VT Business Support"
         schema={techConsultingSchema}
+        type="website"
       />
 
       {/* HERO */}
-      <section className="service-hero">
-
+      <section className="shs-hero service-hero-section">
         <div className="container">
+          <div className="shs-hero-grid">
 
-          <div className="service-hero-grid">
+            {/* LEFT */}
+            <div className="shs-hero-left">
+              <div className="shs-blur" />
 
-            {/* LEFT COLUMN */}
-            <div className="service-hero-content">
-
-              <div className="service-badge">
-                <ShieldCheck size={14} />
-                <span>Business Technology Consulting</span>
-              </div>
-
-              <h1 className="service-title">
+              <h1 className="shs-title">
                 Technical Consulting
-                <span> For Modern Businesses</span>
+                <br />
+                <span className="shs-accent--gold" style={{ color: '#F59E0B' }}>&amp; IT Strategy</span>
               </h1>
 
-              <p className="service-desc">
-                Practical technical consulting for IT infrastructure,
-                websites, cloud systems, communication setup,
-                and business technology operations.
+              <p className="shs-desc">
+                Make smart technology decisions. We provide expert advice on cloud architecture design,
+                infrastructure audits, cost optimization strategy, and process automations.
               </p>
 
-              <div className="service-buttons">
-
+              <div className="shs-buttons">
                 <a
-                  href="https://api.whatsapp.com/send?phone=918925063980"
+                  className="shs-btn-primary"
+                  href="https://wa.me/918925063980"
                   target="_blank"
-                  rel="noopener noreferrer"
-                  className="service-btn-primary"
+                  rel="noreferrer"
                 >
-                  Discuss Technical Requirements
+                  Consult an Advisor <ArrowRight size={16} />
                 </a>
-
-                <Link
-                  to="/contact"
-                  className="service-btn-secondary"
-                >
-                  Talk to Us
+                <Link className="shs-btn-secondary" to="/contact">
+                  Talk To Us
                 </Link>
-
               </div>
 
-              <div className="service-trust-strip">
-                <div className="service-trust-item">
-                  <CheckCircle size={16} />
-                  <span>Business Focused</span>
-                </div>
-                <div className="service-trust-item">
-                  <CheckCircle size={16} />
-                  <span>Cloud & Infrastructure</span>
-                </div>
-                <div className="service-trust-item">
-                  <CheckCircle size={16} />
-                  <span>Technical Guidance</span>
-                </div>
+              <div className="shs-trust">
+                <span>✓ Technology Strategy Plans</span>
+                <span>✓ AWS Cloud Audits</span>
+                <span>✓ Data Backup &amp; DR Designs</span>
               </div>
-
             </div>
 
-            {/* RIGHT COLUMN */}
-            <ServiceHeroVisual
-              svgIllustration={TechnicalConsultingIllustration}
-              trustLabel="Dedicated Advisor"
-              trustValue="COST OPTIMIZED"
-              trustIcon={UserCheck}
-            />
+            {/* RIGHT */}
+            <div className="shs-hero-right">
+              <div className="shs-visual-badge">
+                <CheckCircle size={15} /> TECH STRATEGY &amp; ADVISORY
+              </div>
+              <HeroVisual
+                theme="gold"
+                lightMode={true}
+                milestones={["Business Assessment", "Architecture Design", "Cost Optimized", "Secured Roadmap"]}
+                cards={[
+                  { title: "IT Infrastructure", subtitle: "Audited & Verified" },
+                  { title: "Cloud Strategy", subtitle: "Scale-ready Architecture" },
+                  { title: "Operations Roadmap", subtitle: "Efficiency Enabled" }
+                ]}
+              />
+            </div>
 
           </div>
-
         </div>
-
       </section>
+
 
       {/* SERVICES */}
       <section className="tech-section">
