@@ -156,16 +156,57 @@ const Header = () => {
 
   const { open: gstOpen, setOpen: setGstOpen, ref: gstRef } = useDropdown();
   const { open: itOpen, setOpen: setItOpen, ref: itRef } = useDropdown();
+  const timeoutRef = useRef(null);
 
-  const openGst = () => { setGstOpen(true); setItOpen(false); };
-  const openIt = () => { setItOpen(true); setGstOpen(false); };
+  const clearPendingClose = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+  };
+
+  const openGst = () => {
+    clearPendingClose();
+    setGstOpen(true);
+    setItOpen(false);
+  };
+
+  const openIt = () => {
+    clearPendingClose();
+    setItOpen(true);
+    setGstOpen(false);
+  };
 
   const closeAll = () => {
+    clearPendingClose();
     setGstOpen(false);
     setItOpen(false);
   };
 
+  const handleMouseLeaveGst = () => {
+    clearPendingClose();
+    timeoutRef.current = setTimeout(() => {
+      setGstOpen(false);
+    }, 150); // 150ms buffer to cross the 8px gap
+  };
+
+  const handleMouseLeaveIt = () => {
+    clearPendingClose();
+    timeoutRef.current = setTimeout(() => {
+      setItOpen(false);
+    }, 150); // 150ms buffer to cross the 8px gap
+  };
+
   const closeDrawer = () => setIsOpen(false);
+
+  // Clean up timeouts on unmount
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
 
   /* Scroll listener */
   useEffect(() => {
@@ -223,7 +264,7 @@ const Header = () => {
               className="nh-drop-root" 
               ref={gstRef}
               onMouseEnter={openGst}
-              onMouseLeave={() => setGstOpen(false)}
+              onMouseLeave={handleMouseLeaveGst}
             >
               <button
                 className={`nh-link nh-link--btn ${gstOpen ? 'nh-link--active' : ''}`}
@@ -258,7 +299,7 @@ const Header = () => {
               className="nh-drop-root" 
               ref={itRef}
               onMouseEnter={openIt}
-              onMouseLeave={() => setItOpen(false)}
+              onMouseLeave={handleMouseLeaveIt}
             >
               <button
                 className={`nh-link nh-link--btn ${itOpen ? 'nh-link--active' : ''}`}

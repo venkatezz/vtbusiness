@@ -3563,6 +3563,25 @@ img {
 /* Ensure dropdown doesn't cause horizontal scroll */
 .nh-drop-root {
   overflow: visible;
+  position: relative;
+}
+
+/* Invisible hover bridge to cover the 8px gap between button and dropdown */
+.nh-drop-root::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: -20px;
+  right: -20px;
+  height: 12px;
+  background: transparent;
+  z-index: 150;
+  display: none;
+}
+
+.nh-drop-root:hover::after,
+.nh-drop-root:focus-within::after {
+  display: block;
 }
 
 /* Smooth but stable hover delay to prevent accidental closing */
