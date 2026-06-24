@@ -14,6 +14,7 @@ import {
   ShieldCheck,
   Clock
 } from 'lucide-react';
+import { WindowsLogo, LinuxLogo, Microsoft365Logo, ServerManagementLogo } from '../../components/SvgLogos';
 import '../../styles/service-hero-system.css';
 import '../../styles/it-support.css';
 
@@ -169,7 +170,7 @@ const ITSupport = () => {
               <h1 className="shs-title">
                 IT Support &amp;
                 <br />
-                <span className="shs-accent--cyan" style={{ color: '#06B6D4' }}>Tech Infrastructure</span>
+                <span className="shs-accent--emerald">Tech Infrastructure</span>
               </h1>
 
               <p className="shs-desc">
@@ -205,9 +206,9 @@ const ITSupport = () => {
                 <CheckCircle size={15} /> IT SUPPORT &amp; INFRASTRUCTURE
               </div>
               <HeroVisual
-                theme="cyan"
+                theme="emerald"
                 lightMode={true}
-                milestones={["Audit Completed", "Setup Hardened", "Active Backups", "24/7 Monitoring"]}
+                milestones={["Systems Active", "Monitoring Online", "Backups Verified", "Protected"]}
                 cards={[
                   { title: "Linux Servers", subtitle: "99.9% Uptime Active" },
                   { title: "AWS Infrastructure", subtitle: "Cost Optimized" },
@@ -261,7 +262,52 @@ const ITSupport = () => {
           </div>
 
         </div>
+      </section>
 
+      {/* PLATFORM INFRASTRUCTURE SUPPORT */}
+      <section className="it-section" style={{ backgroundColor: '#ffffff', padding: '80px 0' }}>
+        <div className="container">
+          <div className="it-section-head" style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+            <span style={{ fontSize: '0.8rem', background: 'rgba(16, 185, 129, 0.08)', color: '#10B981', padding: '6px 14px', borderRadius: '20px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.04em' }}>IT PLATFORMS</span>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: '800', color: '#0f172a', marginTop: '8px' }}>Supported Operating Systems & Platforms</h2>
+            <p style={{ color: '#475569', maxWidth: '650px', margin: '12px auto 0' }}>
+              We provide comprehensive administrative support, client sync configuration, and troubleshooting across key business platforms.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '2rem' }}>
+            {[
+              {
+                logo: <WindowsLogo size={40} />,
+                title: "Windows OS",
+                desc: "Workstation maintenance, Active Directory configuration, security patching, and remote desktop troubleshooting."
+              },
+              {
+                logo: <LinuxLogo size={40} />,
+                title: "Linux Systems",
+                desc: "Server administration (Ubuntu, Debian, CentOS), terminal configurations, custom shell scripts, and web server deployments."
+              },
+              {
+                logo: <Microsoft365Logo size={40} />,
+                title: "Microsoft 365",
+                desc: "Enterprise Outlook sync, Teams configuration, OneDrive permissions, and corporate user administration."
+              },
+              {
+                logo: <ServerManagementLogo size={40} />,
+                title: "Server Management",
+                desc: "Active system audits, rack configurations, local router firewalls, and network print server setups."
+              }
+            ].map((platform, idx) => (
+              <div key={idx} style={{ padding: '2rem', borderRadius: '20px', background: '#f8fafc', border: '1px solid rgba(15,23,42,0.04)', display: 'flex', flexDirection: 'column', gap: '1.2rem', alignItems: 'flex-start' }}>
+                <div style={{ padding: '10px', borderRadius: '12px', background: '#ffffff', border: '1px solid rgba(15,23,42,0.04)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  {platform.logo}
+                </div>
+                <h3 style={{ fontSize: '1.2rem', fontWeight: '800', color: '#0f172a', margin: 0 }}>{platform.title}</h3>
+                <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: '1.6', margin: 0 }}>{platform.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* WHY CHOOSE */}
