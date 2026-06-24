@@ -12,6 +12,8 @@ import {
   ArrowRight,
   CheckCircle
 } from 'lucide-react';
+import { ReactLogo, ViteLogo, FirebaseLogo, CloudflareLogo } from '../../components/SvgLogos';
+import LighthouseScore from '../../components/LighthouseScore';
 import '../../styles/service-hero-system.css';
 import '../../styles/website-development.css';
 
@@ -174,7 +176,7 @@ const WebsiteDevelopment = () => {
               <h1 className="shs-title">
                 Website Development
                 <br />
-                <span className="shs-accent" style={{ color: '#4A3FE0' }}>&amp; Modern Design</span>
+                <span className="shs-accent--cyan">&amp; Modern Design</span>
               </h1>
 
               <p className="shs-desc">
@@ -210,9 +212,9 @@ const WebsiteDevelopment = () => {
                 <CheckCircle size={15} /> CUSTOM WEB DEVELOPMENT
               </div>
               <HeroVisual
-                theme="purple"
+                theme="cyan"
                 lightMode={true}
-                milestones={["Figma Design", "React Coding", "SEO Configured", "Live Launch"]}
+                milestones={["UI Complete", "SEO Ready", "Mobile Optimized", "Live"]}
                 cards={[
                   { title: "React Site", subtitle: "Core Web Vitals Checked" },
                   { title: "UX Layout", subtitle: "100% Mobile Responsive" },
@@ -315,36 +317,35 @@ const WebsiteDevelopment = () => {
 
       </section>
 
-      {/* TECHNOLOGIES */}
-      <section className="webdev-section">
+      {/* DEVELOPMENT STACK */}
+      <section className="webdev-section" style={{ backgroundColor: '#ffffff', padding: '80px 0' }}>
 
         <div className="container">
 
-          <div className="webdev-section-head">
-
-            <h2>Technology & Tools</h2>
-
-            <p>
-              Modern frontend technologies and deployment tools
-              for reliable business websites.
+          <div className="webdev-section-head" style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+            <span style={{ fontSize: '0.8rem', background: 'rgba(6, 182, 212, 0.08)', color: '#06B6D4', padding: '6px 14px', borderRadius: '20px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.04em' }}>TECH STACK</span>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: '800', color: '#0f172a', marginTop: '8px' }}>Development Stack & Core Web Vitals</h2>
+            <p style={{ color: '#475569', maxWidth: '650px', margin: '12px auto 0' }}>
+              We build using modern frontend technologies designed for maximum speed, security, and top-tier Google Lighthouse performance.
             </p>
-
           </div>
 
-          <div className="webdev-tech-grid">
-
-            {techStack.map((tech, index) => (
-
-              <div
-                className="webdev-tech-item"
-                key={index}
-              >
-                {tech}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '2rem', justifyContent: 'center', alignItems: 'center', marginBottom: '4rem', maxWidth: '800px', margin: '0 auto 4rem' }}>
+            {[
+              { logo: <ReactLogo size={42} />, name: "React" },
+              { logo: <ViteLogo size={42} />, name: "Vite" },
+              { logo: <FirebaseLogo size={42} />, name: "Firebase" },
+              { logo: <CloudflareLogo size={42} />, name: "Cloudflare" }
+            ].map((tech, idx) => (
+              <div key={idx} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', padding: '1.5rem', borderRadius: '16px', background: '#f8fafc', border: '1px solid rgba(15,23,42,0.04)', boxShadow: '0 4px 12px rgba(8,16,40,0.015)' }}>
+                {tech.logo}
+                <span style={{ fontSize: '0.95rem', fontWeight: '700', color: '#334155' }}>{tech.name}</span>
               </div>
-
             ))}
-
           </div>
+
+          {/* LIGHTHOUSE CARD */}
+          <LighthouseScore />
 
         </div>
 

@@ -13,6 +13,7 @@ import {
   CheckCircle,
   ShieldCheck
 } from 'lucide-react';
+import { AwsLogo, Ec2Logo, S3Logo, CloudWatchLogo, UbuntuLogo } from '../../components/SvgLogos';
 import '../../styles/service-hero-system.css';
 import '../../styles/aws-linux-support.css';
 
@@ -166,7 +167,7 @@ const AWSLinuxSupport = () => {
               <h1 className="shs-title">
                 AWS &amp; Linux
                 <br />
-                <span className="shs-accent--cyan" style={{ color: '#06B6D4' }}>Server Support</span>
+                <span className="shs-accent--emerald">Server Support</span>
               </h1>
 
               <p className="shs-desc">
@@ -202,9 +203,9 @@ const AWSLinuxSupport = () => {
                 <CheckCircle size={15} /> AWS &amp; LINUX DEVOPS
               </div>
               <HeroVisual
-                theme="cyan"
+                theme="emerald"
                 lightMode={true}
-                milestones={["VPC Configured", "EC2 Scaled", "Firewall Hardened", "Active Backup"]}
+                milestones={["EC2 Active", "Backup Ready", "Server Secure", "Optimized"]}
                 cards={[
                   { title: "Cloud Setup", subtitle: "AWS Well-Architected" },
                   { title: "Linux Admin", subtitle: "Secured & Patched" },
@@ -259,6 +260,69 @@ const AWSLinuxSupport = () => {
 
         </div>
 
+      </section>
+
+      {/* TECH PARTNERS & INFRASTRUCTURE TRUST */}
+      <section className="aws-section" style={{ backgroundColor: '#ffffff', padding: '80px 0' }}>
+        <div className="container">
+          <div className="aws-section-head" style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+            <span style={{ fontSize: '0.8rem', background: 'rgba(16, 185, 129, 0.08)', color: '#10B981', padding: '6px 14px', borderRadius: '20px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.04em' }}>CLOUD DEVOPS</span>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: '800', color: '#0f172a', marginTop: '8px' }}>Supported Technology Ecosystem</h2>
+            <p style={{ color: '#475569', maxWidth: '650px', margin: '12px auto 0' }}>
+              We administer servers and build robust cloud pipelines using the industry's leading Linux and AWS platform toolsets.
+            </p>
+          </div>
+
+          {/* SVG Tech Logos Grid */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '2rem', justifyContent: 'center', alignItems: 'center', marginBottom: '5rem', maxWidth: '900px', margin: '0 auto 5rem' }}>
+            {[
+              { logo: <AwsLogo size={42} />, name: "Amazon Web Services" },
+              { logo: <Ec2Logo size={42} />, name: "AWS EC2" },
+              { logo: <S3Logo size={42} />, name: "AWS S3 Storage" },
+              { logo: <CloudWatchLogo size={42} />, name: "AWS CloudWatch" },
+              { logo: <UbuntuLogo size={42} />, name: "Ubuntu Linux" }
+            ].map((tech, idx) => (
+              <div key={idx} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', padding: '1.5rem', borderRadius: '16px', background: '#f8fafc', border: '1px solid rgba(15,23,42,0.04)', textAlign: 'center' }}>
+                {tech.logo}
+                <span style={{ fontSize: '0.9rem', fontWeight: '700', color: '#334155' }}>{tech.name}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Trust Pillars */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '2rem' }}>
+            {[
+              {
+                icon: <Shield size={24} style={{ color: '#10B981' }} />,
+                title: "Server Security",
+                desc: "Firewall rule tightening, SSH key-only access, patch upgrades, and OS level security audits."
+              },
+              {
+                icon: <Database size={24} style={{ color: '#10B981' }} />,
+                title: "Backup Protection",
+                desc: "Automated incremental backup scripts uploading directly to secure AWS S3 buckets."
+              },
+              {
+                icon: <Activity size={24} style={{ color: '#10B981' }} />,
+                title: "Active Monitoring",
+                desc: "Uptime alerts, resource usage graphs, RAM/CPU thresholds, and Slack/email notifications."
+              },
+              {
+                icon: <Server size={24} style={{ color: '#10B981' }} />,
+                title: "Performance Optimization",
+                desc: "Nginx tuning, Apache memory config, DB caching setups, and Cloudflare CDN mappings."
+              }
+            ].map((pillar, idx) => (
+              <div key={idx} style={{ padding: '2rem', borderRadius: '20px', background: '#f8fafc', border: '1px solid rgba(15,23,42,0.04)', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                <div style={{ width: '46px', height: '46px', borderRadius: '12px', background: 'rgba(16, 185, 129, 0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  {pillar.icon}
+                </div>
+                <h3 style={{ fontSize: '1.2rem', fontWeight: '800', color: '#0f172a', margin: 0 }}>{pillar.title}</h3>
+                <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: '1.6', margin: 0 }}>{pillar.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* WHY */}

@@ -14,6 +14,7 @@ import {
   ShieldCheck,
   Lock
 } from 'lucide-react';
+import { CloudflareLogo, AwsLogo, DigitalOceanLogo, AzureLogo } from '../../components/SvgLogos';
 import '../../styles/service-hero-system.css';
 import '../../styles/cloud-server-setup.css';
 
@@ -167,7 +168,7 @@ const CloudServerSetup = () => {
               <h1 className="shs-title">
                 Cloud Server Setup
                 <br />
-                <span className="shs-accent" style={{ color: '#4A3FE0' }}>&amp; Hosting Config</span>
+                <span className="shs-accent--emerald">&amp; Hosting Config</span>
               </h1>
 
               <p className="shs-desc">
@@ -203,9 +204,9 @@ const CloudServerSetup = () => {
                 <CheckCircle size={15} /> VPS &amp; CLOUD CONFIGURATION
               </div>
               <HeroVisual
-                theme="purple"
+                theme="emerald"
                 lightMode={true}
-                milestones={["VPS Deployed", "CyberPanel Configured", "Domain Mapped", "SSL Installed"]}
+                milestones={["Server Deployed", "SSL Active", "Backup Running", "Cloud Ready"]}
                 cards={[
                   { title: "VPS Setup", subtitle: "OS Installed & Hardened" },
                   { title: "Control Panel", subtitle: "Active & Secure" },
@@ -260,6 +261,73 @@ const CloudServerSetup = () => {
 
         </div>
 
+      </section>
+
+      {/* SUPPORTED PLATFORMS */}
+      <section className="cloud-section" style={{ backgroundColor: '#ffffff', padding: '80px 0' }}>
+        <div className="container">
+          <div className="cloud-section-head" style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+            <span style={{ fontSize: '0.8rem', background: 'rgba(16, 185, 129, 0.08)', color: '#10B981', padding: '6px 14px', borderRadius: '20px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.04em' }}>CLOUD PLATFORMS</span>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: '800', color: '#0f172a', marginTop: '8px' }}>Supported Server Environments</h2>
+            <p style={{ color: '#475569', maxWidth: '650px', margin: '12px auto 0' }}>
+              We deploy, migrate, and optimize hosting infrastructure across major global cloud providers and CDNs.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '2rem', justifyContent: 'center', alignItems: 'center', maxWidth: '800px', margin: '0 auto' }}>
+            {[
+              { logo: <CloudflareLogo size={42} />, name: "Cloudflare" },
+              { logo: <AwsLogo size={42} />, name: "AWS Cloud" },
+              { logo: <DigitalOceanLogo size={42} />, name: "DigitalOcean" },
+              { logo: <AzureLogo size={42} />, name: "Microsoft Azure" }
+            ].map((tech, idx) => (
+              <div key={idx} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', padding: '1.5rem', borderRadius: '16px', background: '#f8fafc', border: '1px solid rgba(15,23,42,0.04)', textAlign: 'center' }}>
+                {tech.logo}
+                <span style={{ fontSize: '0.9rem', fontWeight: '700', color: '#334155' }}>{tech.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CLOUD ARCHITECTURE BLUEPRINT */}
+      <section className="cloud-section" style={{ backgroundColor: '#f8fafc', padding: '80px 0' }}>
+        <div className="container">
+          <div className="cloud-section-head" style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+            <span style={{ fontSize: '0.8rem', background: 'rgba(74, 63, 224, 0.08)', color: '#4A3FE0', padding: '6px 14px', borderRadius: '20px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.04em' }}>ARCHITECTURE</span>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: '800', color: '#0f172a', marginTop: '8px' }}>Cloud Infrastructure Blueprint</h2>
+            <p style={{ color: '#475569', maxWidth: '650px', margin: '12px auto 0' }}>
+              A standard, robust, secure system layout we implement to protect your operations and scale traffic seamlessly.
+            </p>
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '1.2rem', justifyContent: 'center', alignItems: 'stretch' }}>
+            <style>{`
+              @media (max-width: 960px) {
+                .blueprint-arrow {
+                  display: none !important;
+                }
+              }
+            `}</style>
+            {[
+              { node: "User Request", detail: "Clients request your web services via browser or API." },
+              { node: "Cloudflare CDN", detail: "Global proxy cache, free SSL, DDoS firewall protection, and DNS speed." },
+              { node: "VPS Instance", detail: "High-performance app server container (Ubuntu/Rocky Linux)." },
+              { node: "Database Node", detail: "Optimized relational storage with security access locks." },
+              { node: "Secure S3 Backup", detail: "Offsite scheduled database/files incremental backups." }
+            ].map((step, idx, arr) => (
+              <React.Fragment key={idx}>
+                <div style={{ flex: '1', minWidth: '220px', padding: '1.8rem', borderRadius: '16px', background: '#ffffff', border: '1px solid rgba(15,23,42,0.05)', display: 'flex', flexDirection: 'column', gap: '8px', boxShadow: '0 4px 12px rgba(8,16,40,0.01)' }}>
+                  <h4 style={{ fontSize: '1rem', fontWeight: '800', color: '#10B981', margin: 0 }}>{step.node}</h4>
+                  <p style={{ fontSize: '0.85rem', color: '#64748B', lineHeight: '1.5', margin: 0 }}>{step.detail}</p>
+                </div>
+                {idx < arr.length - 1 && (
+                  <div className="blueprint-arrow" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', color: '#cbd5e1', fontWeight: '700' }}>→</div>
+                )}
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* WHY CLOUD */}

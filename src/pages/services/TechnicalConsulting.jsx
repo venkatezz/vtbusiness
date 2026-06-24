@@ -166,7 +166,7 @@ const TechnicalConsulting = () => {
               <h1 className="shs-title">
                 Technical Consulting
                 <br />
-                <span className="shs-accent--gold" style={{ color: '#F59E0B' }}>&amp; IT Strategy</span>
+                <span className="shs-accent--emerald">&amp; IT Strategy</span>
               </h1>
 
               <p className="shs-desc">
@@ -201,9 +201,9 @@ const TechnicalConsulting = () => {
                 <CheckCircle size={15} /> TECH STRATEGY &amp; ADVISORY
               </div>
               <HeroVisual
-                theme="gold"
+                theme="emerald"
                 lightMode={true}
-                milestones={["Business Assessment", "Architecture Design", "Cost Optimized", "Secured Roadmap"]}
+                milestones={["Assessment Complete", "Planning Ready", "Implementation Active", "Business Ready"]}
                 cards={[
                   { title: "IT Infrastructure", subtitle: "Audited & Verified" },
                   { title: "Cloud Strategy", subtitle: "Scale-ready Architecture" },
@@ -258,7 +258,46 @@ const TechnicalConsulting = () => {
           </div>
 
         </div>
+      </section>
 
+      {/* CONSULTING ROADMAP GRAPHIC */}
+      <section className="tech-section" style={{ backgroundColor: '#ffffff', padding: '80px 0' }}>
+        <div className="container">
+          <div className="tech-section-head" style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+            <span style={{ fontSize: '0.8rem', background: 'rgba(16, 185, 129, 0.08)', color: '#10B981', padding: '6px 14px', borderRadius: '20px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.04em' }}>IT STRATEGY</span>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: '800', color: '#0f172a', marginTop: '8px' }}>Strategy & Governance Roadmap</h2>
+            <p style={{ color: '#475569', maxWidth: '650px', margin: '12px auto 0' }}>
+              We follow a structured consulting process to systematically design, implement, and govern your business infrastructure.
+            </p>
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '1.2rem', justifyContent: 'center', alignItems: 'stretch' }}>
+            <style>{`
+              @media (max-width: 960px) {
+                .roadmap-arrow {
+                  display: none !important;
+                }
+              }
+            `}</style>
+            {[
+              { phase: "1. Discovery", detail: "Audit current infrastructure, configurations, and technology expenses to identify performance bottlenecks and resource wastes." },
+              { phase: "2. Planning", detail: "Formulate a technology selection matrix, budget targets, backup guidelines, and redundancy design maps." },
+              { phase: "3. Architecture", detail: "Create structured system topology maps, database schemas, firewall blueprints, and failover designs." },
+              { phase: "4. Implementation", detail: "Deploy verified cloud setups, execute migrations, configure monitoring alerts, and run secure backup scripts." },
+              { phase: "5. Governance", detail: "Ongoing compliance tracking, monthly cost optimizations, uptime reviews, and operational backup validation audits." }
+            ].map((step, idx, arr) => (
+              <React.Fragment key={idx}>
+                <div style={{ flex: '1', minWidth: '220px', padding: '1.8rem', borderRadius: '16px', background: '#f8fafc', border: '1px solid rgba(15,23,42,0.04)', display: 'flex', flexDirection: 'column', gap: '8px', boxShadow: '0 4px 12px rgba(8,16,40,0.01)' }}>
+                  <h4 style={{ fontSize: '1rem', fontWeight: '800', color: '#10B981', margin: 0 }}>{step.phase}</h4>
+                  <p style={{ fontSize: '0.85rem', color: '#64748B', lineHeight: '1.5', margin: 0 }}>{step.detail}</p>
+                </div>
+                {idx < arr.length - 1 && (
+                  <div className="roadmap-arrow" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', color: '#cbd5e1', fontWeight: '700' }}>→</div>
+                )}
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* WHY */}

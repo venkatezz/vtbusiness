@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import SEO from '../../components/SEO';
 import HeroVisual from '../../components/HeroVisual';
+import { ComplianceShield, ComplianceTimeline } from '../../components/TaxVisuals';
 import '../../styles/service-hero-system.css';
 
 const accountingSchema = {
@@ -115,7 +116,7 @@ const Accounting = () => {
               <h1 className="shs-title">
                 Accounting &amp;
                 <br />
-                <span className="shs-accent--emerald" style={{ color: '#10B981' }}>Bookkeeping</span>
+                <span className="shs-accent">Bookkeeping</span>
               </h1>
 
               <p className="shs-desc">
@@ -151,9 +152,9 @@ const Accounting = () => {
                 <CheckCircle size={15} /> ACCOUNTING &amp; BOOKKEEPING
               </div>
               <HeroVisual
-                theme="emerald"
+                theme="purple"
                 lightMode={true}
-                milestones={["Books Set Up", "Weekly Posting", "GST Reconciled", "MIS Delivered"]}
+                milestones={["Bookkeeping Updated", "Bank Reconciled", "Reports Ready", "Audit Ready"]}
                 cards={[
                   { title: "Ledger Update", subtitle: "Real-time Bookkeeping" },
                   { title: "ITC Reconciled", subtitle: "GSTR-2B Compliant" },
@@ -242,6 +243,26 @@ const Accounting = () => {
             </div>
         </div>
         </section>
+
+      {/* COMPLIANCE & FILING SECURITY */}
+      <section style={{ padding: '80px 0', backgroundColor: '#f8fafc' }}>
+        <div className="container">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '3rem', alignItems: 'center', marginBottom: '4rem' }}>
+            <div style={{ textAlign: 'left' }}>
+              <span style={{ fontSize: '0.8rem', background: 'rgba(74, 63, 224, 0.08)', color: '#4A3FE0', padding: '6px 14px', borderRadius: '20px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.04em' }}>COMPLIANCE PROTECTION</span>
+              <h2 style={{ fontSize: '2.5rem', fontWeight: '800', color: '#0f172a', marginTop: '8px', lineHeight: '1.2' }}>Secure and Penalty-Free Filing Guarantee</h2>
+              <p style={{ color: '#475569', marginTop: '1.2rem', lineHeight: '1.75' }}>
+                We double-validate every transaction ledger and invoice input against live GSTR-2B datasets. This mitigates notice triggers, matches input tax credits 100%, and ensures absolute filing security.
+              </p>
+            </div>
+            <div>
+              <ComplianceShield />
+            </div>
+          </div>
+          
+          <ComplianceTimeline />
+        </div>
+      </section>
 
         <section className="why-vt-section">
             <div className="container">
